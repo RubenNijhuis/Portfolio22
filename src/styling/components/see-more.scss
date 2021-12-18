@@ -1,0 +1,19 @@
+.see-more {
+    display: block;
+    position: relative;
+
+    margin: auto;
+    padding: ($magic-number / 2.5) ($magic-number / 8);
+    max-width: ($magic-number * 10);
+
+    @include for-tablet-and-up {
+        padding: ($magic-number / 2) ($magic-number / 4);
+    }
+
+    border-radius: $border-radius;
+    background: $text-color;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.75);
+    }
+}

@@ -1,0 +1,91 @@
+.footer {
+    position: relative;
+    z-index: 11;
+
+    max-width: calc($magic-number * 22);
+    margin: auto;
+    padding: $magic-number calc($magic-number / 8);
+    padding-bottom: 0 !important;
+
+    @include for-tablet-and-up {
+        padding: $magic-number calc($magic-number / 2);
+    }
+    @include for-laptop-sm-and-up {
+        padding: $magic-number;
+    }
+
+    &__email {
+        display: block;
+        position: relative;
+
+        text-decoration: none;
+        border-bottom: solid $text-color 3px;
+        @include for-tablet-and-up {
+            padding-bottom: calc($magic-number / 8);
+            border-bottom-width: calc($magic-number / 8);
+        }
+    }
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        padding: calc($magic-number / 4);
+        padding-top: calc($magic-number / 2);
+
+        @include for-tablet-and-up {
+            padding: $magic-number;
+        }
+        @include for-laptop-sm-and-up {
+            padding: $magic-number calc($magic-number * 2);
+        }
+    }
+
+    &__links {
+        display: flex;
+        flex-direction: column;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &--external {
+            @include for-tablet-and-up {
+                align-items: flex-end;
+            }
+        }
+
+        a {
+            padding: $magic-number / 8;
+            margin-bottom: 0;
+            width: fit-content;
+
+            @include for-laptop-sm-and-up {
+                position: relative;
+
+                &:before {
+                    content: "";
+                    position: absolute;
+
+                    right: -24px;
+                    bottom: 0px + 12px;
+
+                    width: 26px;
+                    height: 18px;
+
+                    // background-image: url("../../assets/arrow-icon-white.svg");
+                    background-repeat: no-repeat;
+                    background-size: contain;
+
+                    opacity: 0;
+                }
+
+                &:hover {
+                    cursor: pointer;
+                    &:before {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}

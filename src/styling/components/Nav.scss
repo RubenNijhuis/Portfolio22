@@ -1,0 +1,36 @@
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0 calc($magic-number / 8);
+    @include size(100%, auto);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 11;
+    background-color: $background-color;
+    border-bottom: solid 2px $text-color;
+
+    @include for-tablet-and-up {
+        padding: calc($magic-number / 4);
+    }
+
+    &__links {
+        display: flex;
+        align-content: center;
+
+        &__link {
+            display: inline-block;
+            padding: 0 calc($magic-number / 4);
+
+            @include for-tablet-and-up {
+                margin-right: calc($magic-number / 2);
+            }
+            &:last-of-type {
+                margin-right: calc($magic-number / -8);
+            }
+        }
+    }
+}

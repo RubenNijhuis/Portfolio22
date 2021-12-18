@@ -1,0 +1,106 @@
+.introduction {
+    height: calc(var(--vh) * 100);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0 calc($magic-number / 8);
+
+    @include for-tablet-and-up {
+        padding: $magic-number / 2;
+    }
+    @include for-laptop-sm-and-up {
+        height: calc(var(--vh) * 125);
+        padding: calc($magic-number * 2) calc($magic-number);
+    }
+
+    &__content {
+        height: fit-content;
+        position: relative;
+        z-index: 11;
+
+        p {
+            max-width: 29ch;
+            margin: 0;
+            margin-bottom: calc($magic-number / 4);
+
+            @include for-laptop-l-and-up {
+                margin-bottom: calc($magic-number);
+            }
+        }
+
+        span {
+            position: relative;
+            display: inline-block;
+            transition: 0.3s ease-in-out opacity;
+
+            &:hover {
+                opacity: 0.2;
+            }
+        }
+
+        a {
+            position: relative;
+            text-decoration: none;
+            display: inline-block;
+
+            @include for-laptop-sm-and-up {
+                &:before,
+                &:after {
+                    position: absolute;
+                    content: "";
+                    left: 0;
+                    bottom: 0;
+
+                    @include size(100%, 2px);
+                    background: rgba(255, 255, 255, 0.1);
+                }
+
+                &:after {
+                    width: 0%;
+                    background: rgba(255, 255, 255, 1);
+                    transition: 0.5s cubic-bezier(0.75, 0.01, 0.66, 1.01) width;
+                }
+                &:hover {
+                    &:after {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    &__images {
+        position: var(--zInfographic);
+        top: 0;
+        left: 0;
+
+        @include size(100%);
+
+        z-index: 9;
+        user-select: none;
+
+        div {
+            position: absolute;
+            @include size(calc($magic-number * 3.5), calc($magic-number * 5));
+
+            overflow: hidden;
+            transition: box-shadow 0.45s $ease-in-out;
+            border-radius: $border-radius;
+
+            &.is-active img {
+                opacity: 1;
+            }
+
+            img {
+                @include size(100%);
+                opacity: 0;
+                object-fit: cover;
+                pointer-events: none;
+                transition: opacity 0.35s $ease-in-out,
+                    transform 0.5s $ease-in-out;
+            }
+        }
+    }
+}

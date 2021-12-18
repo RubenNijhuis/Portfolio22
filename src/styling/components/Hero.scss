@@ -1,0 +1,34 @@
+.hero {
+    position: relative;
+    height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+    height: calc(var(--vh, 1vh) * 100 - 29px);
+
+    @include for-tablet-and-up {
+        height: calc(var(--vh, 1vh) * 100 - 65px);
+    }
+
+    &__banner {
+        background: rgb(30, 30, 30);
+        min-height: 100%;
+        position: relative;
+        @include size(100%);
+
+        span {
+            position: absolute;
+            bottom: calc($magic-number / 4);
+            left: calc($magic-number / 4);
+            color: $text-color;
+            font-size: 2.2rem;
+
+            @include for-tablet-and-up {
+                bottom: calc($magic-number / 4);
+                left: calc($magic-number / 4);
+            }
+        }
+
+        img {
+            object-fit: cover;
+            @include size(100%);
+        }
+    }
+}

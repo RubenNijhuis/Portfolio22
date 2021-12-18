@@ -1,0 +1,157 @@
+.about {
+    display: grid;
+    position: relative;
+    padding: calc($magic-number) calc($magic-number / 4);
+
+    grid-template-columns: calc($magic-number * 2) 1fr;
+    grid-template-rows: repeat(4, max-content);
+    grid-column-gap: calc($magic-number / 4);
+    grid-row-gap: calc($magic-number / 2);
+    grid-template-areas:
+        "profile personalia"
+        "story story"
+        "interests interests"
+        "contact contact";
+
+    background-color: $text-color;
+    overflow: hidden;
+
+    @include for-tablet-and-up {
+        padding: calc($magic-number) calc($magic-number / 2);
+        grid-template-columns: 2fr 3fr;
+        grid-row-gap: calc($magic-number);
+        grid-column-gap: calc($magic-number / 2);
+        grid-template-areas:
+            "profile story"
+            "profile personalia"
+            "profile interests"
+            "profile contact";
+    }
+
+    @include for-laptop-sm-and-up {
+        padding: calc($magic-number) calc($magic-number / 2);
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: calc($magic-number / 2);
+    }
+
+    @include for-laptop-l-and-up {
+        padding: calc($magic-number * 2) calc($magic-number * 1);
+        grid-column-gap: calc($magic-number);
+    }
+
+    &__profile,
+    &__story,
+    &__personalia,
+    &__interests,
+    &__contact {
+        max-width: calc(12 * $magic-number);
+    }
+
+    &__profile {
+        position: relative;
+        padding-top: 132.5%;
+
+        @include size(100%, 0);
+
+        overflow: hidden;
+        border-radius: $border-radius;
+
+        @include for-tablet-and-up {
+            grid-row: 1 / 5;
+        }
+
+        @include for-laptop-xl-and-up {
+            padding-top: 0;
+            justify-self: end;
+            height: calc($magic-number * 16);
+            max-height: unset;
+        }
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+            @include size(100%);
+
+            @include for-laptop-xl-and-up {
+                height: calc($magic-number * 16);
+            }
+        }
+    }
+
+    &__personalia {
+        grid-area: personalia;
+        line-height: 1.4;
+
+        p:nth-of-type(2) {
+            margin-bottom: calc($magic-number / 4);
+        }
+    }
+
+    &__story {
+        grid-area: story;
+        line-height: 1.4;
+        max-width: 40ch;
+
+        @include for-laptop-xl-and-up {
+            max-width: calc(12 * $magic-number);
+        }
+
+        p {
+            font-weight: 400;
+            margin-bottom: calc($magic-number / 4);
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &__interests {
+        grid-area: interests;
+
+        span {
+            display: inline-block;
+            padding: 6px 12px;
+            margin: 4.5px;
+
+            background: $background-color;
+            border-radius: $border-radius-tag;
+        }
+    }
+
+    &__contact {
+        grid-area: contact;
+        cursor: pointer;
+
+        a {
+            text-decoration: none;
+            color: $background-color;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        p {
+            margin: 0;
+            display: inline-block;
+        }
+
+        img {
+            width: 26px;
+            display: inline-block;
+        }
+
+        &__line {
+            display: block;
+            margin: calc($magic-number / 8) 0;
+            height: 2px;
+
+            background: $background-color;
+
+            @include for-laptop-xl-and-up {
+                margin: calc($magic-number / 4) 0;
+            }
+        }
+    }
+}
