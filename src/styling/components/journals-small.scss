@@ -1,12 +1,12 @@
 .journals-small {
-    padding: ($magic-number) ($magic-number / 4);
+    padding: calc($magic-number) calc($magic-number / 4);
 
     .headline {
-        margin-bottom: ($magic-number / 2);
+        margin-bottom: calc($magic-number / 2);
     }
 
     @include for-tablet-and-up {
-        padding: $magic-number ($magic-number / 2);
+        padding: $magic-number calc($magic-number / 2);
     }
 
     &__year {
@@ -21,7 +21,7 @@
     &__grid {
         display: grid;
         grid-template-columns: 1fr;
-        grid-gap: $magic-number / 2;
+        grid-gap: calc($magic-number / 2);
 
         @include for-tablet-and-up {
             grid-template-columns: 1fr 1fr;
@@ -32,9 +32,9 @@
 .journal-small {
     position: relative;
     display: block;
-    min-height: $magic-number * 2;
-    height: $magic-number * 2;
-    max-height: $magic-number * 2;
+    min-height: calc($magic-number * 2);
+    height: calc($magic-number * 2);
+    max-height: calc($magic-number * 2);
 
     &:last-of-type {
         margin-bottom: 0;
@@ -45,7 +45,7 @@
     }
 
     &__name {
-        margin-bottom: $magic-number / 4;
+        margin-bottom: calc($magic-number / 4);
     }
 
     &__tags {
@@ -53,7 +53,7 @@
             padding: 4px 10px;
             background-color: $text-color;
             border-radius: 100px;
-            margin-right: $magic-number / 8;
+            margin-right: calc($magic-number / 8);
 
             &:last-of-type {
                 margin-right: 0;
@@ -63,7 +63,7 @@
 
     &__image-wrapper {
         position: absolute;
-        height: $magic-number * 2;
+        height: calc($magic-number * 2);
         width: 80%;
         top: 50%;
         right: 0;

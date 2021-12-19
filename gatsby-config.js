@@ -1,7 +1,18 @@
 module.exports = {
     siteMetadata: {
         siteUrl: "https://www.yourdomain.tld",
-        title: "Portfolio22",
+        siteTitle: "RUben Nijhuis | Design && Development",
+        siteTitleShort: 'Ruben Nijhuis',
+        siteDescription: "Ruben Nijhuis is a Designer and Developer who creates Unique Digital Experiences using Creative Coding and Interactive Design",
+        themeColor: '#e1e1e1',
+        social: {
+            twitter: 'nijhuis_ruben',
+            instagram: 'ruben__nijhuis',
+            fbAppId: 'aa',
+            dribble: 'SoWhatsUp',
+            github: 'rubennijhuis',
+            codepen: 'rubennijhuis'
+        }
     },
     plugins: [
         {

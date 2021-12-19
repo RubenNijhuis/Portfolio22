@@ -72,7 +72,7 @@
                 display: inline-block;
 
                 padding: calc($magic-number / 12) calc($magic-number / 5);
-                margin-right: $magic-number / 8;
+                margin-right: calc($magic-number / 8);
 
                 border-radius: $border-radius-tag;
                 background-color: $background-color;

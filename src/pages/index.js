@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../styling/main.scss";
 
-import Nav from "../components/Nav";
 import Hero from "../containers/Hero";
 import Infographic from "../containers/Infographic";
 import Projects from "../components/ProjectsGrid";
@@ -10,8 +9,7 @@ import JournalsSmall from "../components/Journals/JournalsSmall";
 import data from "../testing_data/journals.json";
 import Title from "../components/Journals/Title";
 import Media from "../components/Journals/Media";
-import Footer from "../components/Footer";
-
+import Layout from '../components/Layout';
 import { useCurrentWidth } from "../utils/helper-functions";
 
 const message = `Hey, you! Curious about the tools used? This portfolio was made using GatsbyJS, SCSS, ThreejS, Framer Motion and Contentful.
@@ -96,30 +94,18 @@ const IndexPage = () => {
 
     useEffect(() => {
         const handleScroll = () => {
+            const setCSSVar = (name, val) =>
+                document.documentElement.style.setProperty(name, val);
             window.scrollY > document.body.clientHeight / 2
-                ? document.documentElement.style.setProperty(
-                      "--zInfographic",
-                      "none"
-                  )
-                : document.documentElement.style.setProperty(
-                      "--zInfographic",
-                      "fixed"
-                  );
+                ? setCSSVar("--zInfographic", "none")
+                : setCSSVar("--zInfographic", "fixed");
 
             window.scrollY > document.body.clientHeight / 2
-                ? document.documentElement.style.setProperty(
-                      "--zJournals",
-                      "fixed"
-                  )
-                : document.documentElement.style.setProperty(
-                      "--zJournals",
-                      "none"
-                  );
+                ? setCSSVar("--zJournals", "fixed")
+                : setCSSVar("--zJournals", "none");
         };
 
-        // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
         let vh = window.innerHeight * 0.01;
-        // Then we set the value in the --vh custom property to the root of the document
         document.documentElement.style.setProperty("--vh", `${vh}px`);
 
         window.addEventListener("scroll", handleScroll, { passive: true });
@@ -127,14 +113,10 @@ const IndexPage = () => {
     }, []);
 
     return (
-        <>
-            <header>
-                <Nav />
+        <Layout>
                 <Hero />
-            </header>
-            <main>
                 <Infographic />
-                <Projects animate={true} see_more={true}/>
+                <Projects animate={true} see_more={true} />
                 <About />
                 {width > 1024 ? (
                     <section className="journal">
@@ -159,9 +141,7 @@ const IndexPage = () => {
                 ) : (
                     <JournalsSmall />
                 )}
-            </main>
-            <Footer />
-        </>
+        </Layout>
     );
 };
 

@@ -55,7 +55,7 @@
         }
 
         a {
-            padding: $magic-number / 8;
+            padding: calc($magic-number / 8);
             margin-bottom: 0;
             width: fit-content;
 

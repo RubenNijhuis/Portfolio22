@@ -3,11 +3,11 @@
     position: relative;
 
     margin: auto;
-    padding: ($magic-number / 2.5) ($magic-number / 8);
-    max-width: ($magic-number * 10);
+    padding: calc($magic-number / 2.5) calc($magic-number / 8);
+    max-width: calc($magic-number * 10);
 
     @include for-tablet-and-up {
-        padding: ($magic-number / 2) ($magic-number / 4);
+        padding: calc($magic-number / 2) calc($magic-number / 4);
     }
 
     border-radius: $border-radius;

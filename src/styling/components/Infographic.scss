@@ -8,7 +8,7 @@
     padding: 0 calc($magic-number / 8);
 
     @include for-tablet-and-up {
-        padding: $magic-number / 2;
+        padding: calc($magic-number / 2);
     }
     @include for-laptop-sm-and-up {
         height: calc(var(--vh) * 125);
