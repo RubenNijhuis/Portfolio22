@@ -1,22 +1,38 @@
 import React from "react";
-import "../styling/main.scss";
 
-import Nav from "../components/Nav";
-import Projects from "../components/ProjectsGrid";
-import Footer from "../components/Footer";
+import Projects from "../components/Projects/ProjectsGrid";
+import Layout from "../components/Layout";
 
-const ProjectsPage = () => {
-    return (
-        <>
-            <header>
-                <Nav />
-            </header>
-            <main>
-                <Projects animation={false} see_more={false}/>
-            </main>
-            <Footer />
-        </>
-    );
+import { graphql } from "gatsby";
+
+const ProjectsPage = ({ data }) => {
+  const projects_data = data.allContentfulProject.edges;
+  return (
+    <Layout>
+      <Projects projects={projects_data} animate={false} see_more={false} />
+    </Layout>
+  );
 };
 
 export default ProjectsPage;
+
+export const query = graphql`
+  query ProjectsPageQuery {
+    allContentfulProject(sort: { order: DESC, fields: year }) {
+      edges {
+        node {
+          name
+          description
+          tags
+          year
+          backgroundImg {
+            title
+            file {
+              url
+            }
+          }
+        }
+      }
+    }
+  }
+`;

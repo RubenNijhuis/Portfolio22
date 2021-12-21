@@ -9,10 +9,10 @@
     align-items: center;
     justify-content: space-between;
 
-    z-index: 11;
+    z-index: 12;
     background-color: $background-color;
     border-bottom: solid 2px $text-color;
-
+    
     @include for-tablet-and-up {
         padding: calc($magic-number / 4);
     }

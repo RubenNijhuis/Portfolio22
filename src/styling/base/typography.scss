@@ -85,10 +85,11 @@
 }
 
 .nav {
-    span {
+    &__home {
         font-size: 2.2rem;
         font-weight: 900;
         color: $text-color;
+        text-decoration: none;
     }
 
     &__links {

@@ -1,6 +1,5 @@
 .projects {
-    padding: calc($magic-number / 4);
-    padding-bottom: calc($magic-number * 1);
+    padding: $magic-number calc($magic-number / 4);
 
     @include for-tablet-and-up {
         padding: calc($magic-number) calc($magic-number / 2);
@@ -30,7 +29,7 @@
     &__grid {
         display: flex;
         flex-direction: column;
-        margin-bottom: calc($magic-number);
+        margin-bottom: 0;
 
         @include for-phablet-and-up {
             display: flex;

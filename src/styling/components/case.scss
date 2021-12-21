@@ -5,6 +5,8 @@
     }
 }
 
+
+
 .case {
     display: block;
     margin-bottom: calc($magic-number * 1);
@@ -13,19 +15,9 @@
 
     cursor: pointer;
 
-    &:last-of-type {
-        margin-bottom: 0;
-    }
-
     @include for-laptop-sm-and-up {
         margin-bottom: 0;
 
-        &:nth-child(1n) {
-            justify-self: end;
-        }
-        &:nth-child(2n) {
-            justify-self: start;
-        }
 
         &:hover & {
             &__img-wrapper {

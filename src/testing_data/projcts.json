@@ -1,9 +1,23 @@
 [
     {
         "name": "Kids Academy",
-        "title": "Mauris ut ornare metus. Cras at justo eget turpis cursus consequat quis id.",
-        "img": "https://media4.giphy.com/media/xTiTnumdcQABBLgM92/giphy.gif?cid=ecf05e47yanzm5lpp7wxyvrpjfpkmv0cg6rtvifdt4fxbimw&rid=giphy.gif&ct=g",
+        "title": "Revamping the digital identity of an after-school studying startup",
+        "img": "../assets/images/kidsacademy.png",
         "tags": ["Education", "Start-up", "Design"],
+        "background": "#fff"
+    },
+    {
+        "name": "Zuidas Therapeutics",
+        "title": "Creating the digital platform for a clinic",
+        "img": "https://media4.giphy.com/media/TyQY0zTXX4x0c/giphy.gif?cid=ecf05e47aoxvogtar109msorzf5t8mmupgk8xs8m5cfyld41&rid=giphy.gif&ct=g",
+        "tags": ["Start-up", "Development", "Design"],
+        "background": "#fff"
+    },
+    {
+        "name": "Netwhat",
+        "title": "Developing the MVP for a networth-index startup",
+        "img": "https://media3.giphy.com/media/2mBk7XbITXRII/200w.webp?cid=ecf05e47elh2v5o9584f7pcl7173slhksy5etlawlju6vvpa&rid=200w.webp&ct=g",
+        "tags": ["Strategy", "Start-up", "Capitol"],
         "background": "#fff"
     },
     {
@@ -14,24 +28,10 @@
         "background": "#25196d"
     },
     {
-        "name": "Netwhat",
-        "title": "Developing the MVP for a networth-index startup",
-        "img": "https://media3.giphy.com/media/2mBk7XbITXRII/200w.webp?cid=ecf05e47elh2v5o9584f7pcl7173slhksy5etlawlju6vvpa&rid=200w.webp&ct=g",
-        "tags": ["Strategy", "Start-up", "Capitol"],
-        "background": "#fff"
-    },
-    {
         "name": "MiniRT",
         "title": "Discovering graphics programming by making photorealistic imagery",
         "img": "https://media1.giphy.com/media/povenlBAIz14s/giphy.gif?cid=ecf05e47aoxvogtar109msorzf5t8mmupgk8xs8m5cfyld41&rid=giphy.gif&ct=g",
         "tags": ["Graphics", "C", "Photorealism"],
-        "background": "#fff"
-    },
-    {
-        "name": "GameBoks",
-        "title": "Creating a webshop for the gameboks startup",
-        "img": "https://media4.giphy.com/media/TyQY0zTXX4x0c/giphy.gif?cid=ecf05e47aoxvogtar109msorzf5t8mmupgk8xs8m5cfyld41&rid=giphy.gif&ct=g",
-        "tags": ["Start-up", "Gaming", "Webshop"],
         "background": "#fff"
     },
     {

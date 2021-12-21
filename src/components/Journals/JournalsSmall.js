@@ -1,109 +1,116 @@
 import React, { useEffect } from "react";
 import { useAnimation, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-
-import data from "../../testing_data/journals.json";
+import {
+  sanitize_entry,
+  sanitize_journal_entries,
+} from "../../utils/datatype-transformers";
 import { flattenNameToURL } from "../../utils/helper-functions";
+
 import SeeMore from "../SeeMore";
+import { journal_small_fade_in } from "../../utils/animation-variants";
 
-const JournalSmall = ({ name, tags, url, alt, bgColor }) => {
-    const controls = useAnimation();
-    const [ref, inView] = useInView({
-        threshold: 0.1,
-        triggerOnce: true,
-    });
+/**
+ * Small entry container
+ */
+const JournalSmall = ({ name, tags, url, alt }) => {
+  const controls = useAnimation();
+  const [ref, inView] = useInView({
+    threshold: 0.1,
+    triggerOnce: true,
+  });
 
-    const variants = {
-        visible: {
-            opacity: 1,
-            scale: 1,
-            y: 0,
-            transition: {
-                duration: 0.85,
-                ease: "easeOut",
-            },
-        },
-        hidden: {
-            opacity: 0,
-            scale: 0.95,
-            y: "10%",
-            transition: { duration: 0 },
-        },
-    };
+  useEffect(() => {
+    inView ? controls.start("visible") : controls.start("hidden");
+  }, [controls, inView]);
 
-    useEffect(() => {
-        inView ? controls.start("visible") : controls.start("hidden");
-    }, [controls, inView]);
-
-    return (
-        <motion.a
-            animate={controls}
-            ref={ref}
-            variants={variants}
-            className="journal-small"
-            href={`/journals/${flattenNameToURL(name)}`}
-        >
-            <article>
-                <div className="journal__text">
-                    <h2 className="journal-small__name">{name}</h2>
-                    <div className="journal-small__tags">
-                        {tags.map((tag, index) => (
-                            <span count={index}>{tag}</span>
-                        ))}
-                    </div>
-                </div>
-                <div className="journal-small__image-wrapper">
-                    <img src={url} alt={alt} />
-                </div>
-            </article>
-        </motion.a>
-    );
+  return (
+    <motion.a
+      animate={controls}
+      ref={ref}
+      variants={journal_small_fade_in}
+      className="journal-small"
+      href={`/journals/${flattenNameToURL(name)}`}
+    >
+      <article>
+        <div className="journal__text">
+          <h2 className="journal-small__name">{name}</h2>
+          <div className="journal-small__tags">
+            {tags.map((tag, index) => (
+              <span key={index} count={index}>
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+        <div className="journal-small__image-wrapper">
+          <img src={url} alt={alt} />
+        </div>
+      </article>
+    </motion.a>
+  );
 };
 
+/**
+ * Format all entries per year
+ */
 const JournalYearContainer = ({ limit, year, entries }) => {
-    const limit_length = limit ? 3 : entries.length;
-    return (
-        <div className="journals-small__container">
-            <h2 className="journals-small__year">'{year}</h2>
-            <div className="journals-small__grid">
-                {entries
-                    .slice(0, limit_length)
-                    .map(({ name, url, alt, tags, bgColor }, index) => (
-                        <JournalSmall
-                            name={name}
-                            url={url}
-                            alt={alt}
-                            tags={tags}
-                            bgColor={bgColor}
-                            count={index}
-                        />
-                    ))}
-            </div>
-        </div>
-    )
-}
-
-const JournalsSmall = ({limit}) => {
-    let year = 22;
-    const amount_entries = data.flat().length;
-
-    return (
-        <section className="journals-small">
-            <header className="headline">Journals</header>
-            {data.map((journalEntries, index) => (
-                <JournalYearContainer
-                    limit={limit}
-                    count={index}
-                    year={year--}
-                    entries={journalEntries}
-                />
-            ))}
-            <SeeMore
-                url={`/journals`}
-                text={`See all ${amount_entries} journal entries`}
+  const limit_length = limit ? 4 : entries.length;
+  return (
+    <div className="journals-small__container">
+      <h2 className="journals-small__year">'{year}</h2>
+      <div className="journals-small__grid">
+        {entries.slice(0, limit_length).map((entry, index) => {
+          const [name, tags, img_url, img_alt] = sanitize_entry(entry);
+          return (
+            <JournalSmall
+              name={name}
+              tags={tags}
+              url={img_url}
+              alt={img_alt}
+              key={index}
+              count={index}
             />
-        </section>
-    );
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+/**
+ * Display all journals per year in small form
+ */
+const JournalsSmall = ({ entries, limit = false, animate }) => {
+  let [entries_formatted, amount_entries] = sanitize_journal_entries(entries);
+
+  return (
+    <section className="journals-small">
+      <header className="headline">Journals</header>
+      {entries_formatted.map((year_entries, index) => {
+        let year = new Date().getFullYear();
+        // Grab the last two digits
+        let year_formatted = (year - index).toString().slice(2, 4);
+
+        return (
+          <JournalYearContainer
+            animate={animate}
+            limit={limit}
+            count={index}
+            year={year_formatted}
+            key={index}
+            entries={year_entries}
+          />
+        );
+      })}
+      {limit ? (
+        <SeeMore
+          url={`/journals`}
+          text={`See all ${amount_entries} journal entries`}
+        />
+      ) : null}
+    </section>
+  );
 };
 
 export default JournalsSmall;
