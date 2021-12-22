@@ -1,5 +1,6 @@
 import React, { useCallback, useLayoutEffect, useState } from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { isBrowser } from "../../utils/helper-functions";
 
 const getDimensionObject = (node) => {
     const rect = node.getBoundingClientRect();
@@ -11,7 +12,11 @@ const getDimensionObject = (node) => {
 };
 
 const getAngle = (x) => {
-    const viewport_width = window.innerWidth;
+    const viewport_width = () => {
+        if (isBrowser) {
+            return (window.innerWidth)
+        };
+    }
     const scale = (n, iMin, iMax, oMin, oMax) =>
         ((n - iMin) * (oMax - oMin)) / (iMax - iMin) + oMin;
     const deg = scale(x, 0, viewport_width, -15, 20);

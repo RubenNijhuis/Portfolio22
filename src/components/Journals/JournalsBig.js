@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import { isBrowser } from "../../utils/helper-functions";
 import Title from "./Title";
 import Media from "./Media";
 import {
@@ -14,62 +14,66 @@ const useMousePosition = () => {
     const updateMousePosition = (event) => {
       setMousePosition({ x: event.clientX, y: event.clientY });
     };
-    window.addEventListener("mousemove", updateMousePosition);
+    if (isBrowser) {
+      window.addEventListener("mousemove", updateMousePosition);
+    }
     return () => {
-      window.removeEventListener("mousemove", updateMousePosition);
+      if (isBrowser) {
+        window.removeEventListener("mousemove", updateMousePosition);
+      }
     };
   }, []);
   return mousePosition;
 };
 
 const JournalsContainer = ({
-    iindex,
-    year,
-    year_entries,
-    setActiveIndex,
-    activeIndex,
-    x,
-    y,
+  iindex,
+  year,
+  year_entries,
+  setActiveIndex,
+  activeIndex,
+  x,
+  y,
 }) => {
-    return (
-        <div className="year-journals">
-            <h2 className="year">'{year}</h2>
-            <div className="project-list">
-                {year_entries.map((entry, index) => {
-                    const [name, tags] = sanitize_entry(entry);
-                    return (
-                        <Title
-                            title={name}
-                            tags={tags}
-                            setActiveIndex={setActiveIndex}
-                            index={index + iindex}
-                            key={index}
-                        />
-                    );
-                })}
-            </div>
-            <div className="project-media">
-                {year_entries.map((entry, index) => {
-                    const [name, tags, img, img_alt] = sanitize_entry(entry);
+  return (
+    <div className="year-journals">
+      <h2 className="year">'{year}</h2>
+      <div className="project-list">
+        {year_entries.map((entry, index) => {
+          const [name, tags] = sanitize_entry(entry);
+          return (
+            <Title
+              title={name}
+              tags={tags}
+              setActiveIndex={setActiveIndex}
+              index={index + iindex}
+              key={index}
+            />
+          );
+        })}
+      </div>
+      <div className="project-media">
+        {year_entries.map((entry, index) => {
+          const [name, tags, img, img_alt] = sanitize_entry(entry);
 
-                    let isActive = index + iindex === activeIndex;
-                    let xPos = x;
-                    let yPos = y;
-                    return (
-                        <Media
-                            img={img}
-                            active={isActive}
-                            x={xPos}
-                            y={yPos}
-                            key={index}
-                            alt={img_alt}
-                        />
-                    );
-                })}
-            </div>
-        </div>
-    )
-}
+          let isActive = index + iindex === activeIndex;
+          let xPos = x;
+          let yPos = y;
+          return (
+            <Media
+              img={img}
+              active={isActive}
+              x={xPos}
+              y={yPos}
+              key={index}
+              alt={img_alt}
+            />
+          );
+        })}
+      </div>
+    </div>
+  );
+};
 
 const JournalsPage = ({ entries }) => {
   const [entries_formatted, amount_entries] = sanitize_journal_entries(entries);
@@ -83,8 +87,8 @@ const JournalsPage = ({ entries }) => {
       <header className="headline">Journal</header>
       {entries_formatted.map((year_entries, indexMain) => {
         let iindex = indexMain * 10 + 1;
-          if (indexMain !== 0) iindex++;
-          return (
+        if (indexMain !== 0) iindex++;
+        return (
           <JournalsContainer
             iindex={iindex}
             year={year--}

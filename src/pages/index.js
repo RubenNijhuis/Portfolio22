@@ -8,6 +8,7 @@ import About from "../containers/About";
 import Journals from "../components/Journals/Journal";
 
 import { graphql } from "gatsby";
+import { isBrowser } from "../utils/helper-functions";
 
 const IndexPage = ({ data }) => {
   const projects_data = data.allContentfulProject.edges;
@@ -21,13 +22,15 @@ const IndexPage = ({ data }) => {
     const handleScroll = () => {
       const setCSSVar = (name, val) =>
         document.documentElement.style.setProperty(name, val);
-      window.scrollY > document.body.clientHeight / 2
-        ? setCSSVar("--zInfographic", "none")
-        : setCSSVar("--zInfographic", "fixed");
+      if (isBrowser) {
+        window.scrollY > document.body.clientHeight / 2
+          ? setCSSVar("--zInfographic", "none")
+          : setCSSVar("--zInfographic", "fixed");
 
-      window.scrollY > document.body.clientHeight / 2
-        ? setCSSVar("--zJournals", "fixed")
-        : setCSSVar("--zJournals", "none");
+        window.scrollY > document.body.clientHeight / 2
+          ? setCSSVar("--zJournals", "fixed")
+          : setCSSVar("--zJournals", "none");
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
