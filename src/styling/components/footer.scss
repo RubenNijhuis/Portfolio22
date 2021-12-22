@@ -11,7 +11,7 @@
         padding: $magic-number calc($magic-number / 2);
     }
     @include for-laptop-sm-and-up {
-        padding: $magic-number;
+        padding: 0 $magic-number;
     }
 
     &__email {
