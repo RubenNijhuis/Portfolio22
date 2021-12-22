@@ -19,10 +19,6 @@
       padding: calc($magic-number / 2);
     }
 
-    @include for-laptop-sm-and-up {
-        padding: calc($magic-number / 2) 0;
-      }
-
     h1 {
         font-size: 2.6rem;
         margin: calc($magic-number / 8) 0
