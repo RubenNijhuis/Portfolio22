@@ -19,20 +19,23 @@ export default ProjectsPage;
 export const query = graphql`
   query ProjectsPageQuery {
     allContentfulProject(sort: { order: DESC, fields: year }) {
-      edges {
-        node {
-          name
-          description
-          tags
-          year
-          backgroundImg {
-            title
-            file {
-              url
+        edges {
+          node {
+            name
+            description
+            tags
+            year
+            backgroundImg {
+              title
+              gatsbyImageData(
+                layout: FULL_WIDTH
+                width: 1000
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
             }
           }
         }
       }
-    }
   }
 `;

@@ -58,9 +58,12 @@ export const query = graphql`
           year
           backgroundImg {
             title
-            file {
-              url
-            }
+            gatsbyImageData(
+              layout: FULL_WIDTH
+              width: 1000
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
           }
         }
       }
@@ -73,9 +76,11 @@ export const query = graphql`
           year
           img {
             title
-            file {
-              url
-            }
+            gatsbyImageData(
+              width: 500
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
           }
         }
       }

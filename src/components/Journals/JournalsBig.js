@@ -50,14 +50,14 @@ const JournalsContainer = ({
             </div>
             <div className="project-media">
                 {year_entries.map((entry, index) => {
-                    const [name, tags, img_url, img_alt] = sanitize_entry(entry);
+                    const [name, tags, img, img_alt] = sanitize_entry(entry);
 
                     let isActive = index + iindex === activeIndex;
                     let xPos = x;
                     let yPos = y;
                     return (
                         <Media
-                            url={img_url}
+                            img={img}
                             active={isActive}
                             x={xPos}
                             y={yPos}

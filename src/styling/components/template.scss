@@ -1,0 +1,114 @@
+.template {
+  color: $text-color;
+
+  &__hero-img {
+    height: calc(var(--vh) * 100 - 63px);
+    overflow: hidden;
+
+    div {
+      height: 100%;
+    }
+  }
+
+  &__details {
+    max-width: calc($magic-number * 20);
+    margin: auto;
+    padding: calc($magic-number / 4);
+
+    @include for-tablet-and-up {
+      padding: calc($magic-number / 2);
+    }
+
+    @include for-laptop-sm-and-up {
+        padding: calc($magic-number / 2) 0;
+      }
+
+    h1 {
+        font-size: 2.6rem;
+        margin: calc($magic-number / 8) 0
+    }
+
+    p {
+      max-width: 60ch;
+      font-size: 1.6rem;
+      line-height: 1.4;
+    }
+  }
+
+  &__project-deets {
+    margin: calc($magic-number / 2) 0;
+    margin-bottom: 0;
+
+    div {
+      display: inline-block;
+      margin-right: calc($magic-number / 4);
+
+      h2:nth-of-type(1) {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: calc($magic-number / 8);
+      }
+
+      h2:nth-of-type(2) {
+        font-size: 1.8rem;
+        font-weight: 400;
+        margin-bottom: calc($magic-number / 4);
+      }
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+
+    &__tags {
+      &__tag {
+        display: inline-block;
+        margin-right: calc($magic-number / 8);
+        font-size: 1.2rem;
+        font-weight: 500;
+        padding: 5px 10px;
+        border-radius: $border-radius-tag;
+        background-color: $text-color;
+        color: $background-color;
+
+        &:last-of-type {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  &__content {
+    font-size: 2.2rem;
+    padding: calc($magic-number / 4);
+
+    @include for-tablet-and-up {
+      padding: calc($magic-number / 2);
+    }
+
+    &__paragraph {
+      display: block;
+      margin: calc($magic-number / 2) auto;
+      max-width: 60ch;
+      line-height: 1.6;
+      font-size: 1.6rem;
+    }
+  }
+
+  &__img-wrapper {
+    margin: calc($magic-number / 2) auto;
+    aspect-ratio: 16/9;
+    max-width: calc($magic-number * 20);
+
+    overflow: hidden;
+    border-radius: $border-radius;
+
+    div {
+        height: 100%;
+    }
+
+    @include for-laptop-sm-and-up {
+        margin: calc($magic-number) auto;
+      }
+  }
+}

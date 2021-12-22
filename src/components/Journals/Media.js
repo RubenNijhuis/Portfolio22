@@ -1,4 +1,5 @@
 import React, { useCallback, useLayoutEffect, useState } from "react";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const getDimensionObject = (node) => {
     const rect = node.getBoundingClientRect();
@@ -29,19 +30,19 @@ const useSize = () => {
     return [ref, dimension];
 };
 
-const Media = ({ url, alt, active, x, y }) => {
+const Media = ({ img, alt, active, x, y }) => {
     const [ref, { width, height }] = useSize();
+    const image = getImage(img);
     return (
         <div
             ref={ref}
             style={{
-                transform: `translate(${x - width / 2}px, ${
-                    y - height / 2
-                }px) rotate(${getAngle(x)}deg)`,
+                transform: `translate(${x - width / 2}px, ${y - height / 2
+                    }px) rotate(${getAngle(x)}deg)`,
             }}
-            className={active ? "is-active" : undefined}
+            className={`media-img-container ${active ? "is-active" : undefined}`}
         >
-            <img src={url} alt={alt} />
+            <GatsbyImage image={image} alt={alt} />
         </div>
     );
 };

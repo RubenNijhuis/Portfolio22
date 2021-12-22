@@ -27,7 +27,6 @@ const Projects = ({ projects, animate, limit = false }) => {
           copy_projects_swap.map(({ node }, index) => {
             const { name, description, backgroundImg } = node;
             const img_alt = node.backgroundImg.title;
-            const img_url = node.backgroundImg.file.url;
               const tags = node.tags.split(" ");
             return (
               <Project
@@ -35,7 +34,7 @@ const Projects = ({ projects, animate, limit = false }) => {
                 key={index}
                 name={name}
                 description={description}
-                img={img_url}
+                img={backgroundImg}
                 img_alt={img_alt}
                 tags={tags}
                 count={index}

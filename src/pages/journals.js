@@ -21,20 +21,22 @@ const JournalsPage = ({ data }) => {
 export const query = graphql`
   query JournalPageQuery {
     allContentfulJournal(sort: { fields: year, order: DESC }) {
-      edges {
-        node {
-          name
-          tags
-          year
-          img {
-            title
-            file {
-              url
+        edges {
+          node {
+            name
+            tags
+            year
+            img {
+              title
+              gatsbyImageData(
+                width: 500
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
             }
           }
         }
       }
-    }
   }
 `;
 

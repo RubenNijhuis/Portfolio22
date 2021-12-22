@@ -23,7 +23,7 @@
             &__img-wrapper {
                 transform: scale(0.975);
 
-                img {
+                div {
                     transform: scale(1.025);
                 }
             }
@@ -42,11 +42,10 @@
         border-radius: $border-radius;
         background-color: $background-color;
         
-        @include for-laptop-sm-and-up {
+        transition: 0.25s ease-out transform;
+        
+        .gatsby-image-wrapper {
             transition: 0.25s ease-out transform;
-        }
-
-        img {
             @include size(100%);
             object-fit: cover;
 
