@@ -17,10 +17,10 @@ export const sanitize_journal_entries = (entries) => {
 export const sanitize_entry = (entry) => {
     const { name } = entry.node;
     const tags = entry.node.tags.split(' ');
-    const img_url = entry.node.img.file.url
+    const img = entry.node.img;
     const img_alt = entry.node.img.title;
 
-    return [name, tags, img_url, img_alt];
+    return [name, tags, img, img_alt];
 }
 
 const sanitize_project = (project) => {
