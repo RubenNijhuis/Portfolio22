@@ -13,6 +13,8 @@ import { isBrowser } from "../utils/helper-functions";
 const IndexPage = ({ data }) => {
   const projects_data = data.allContentfulProject.edges;
   const entries_data = data.allContentfulJournal.edges;
+  const assets_data = data.allContentfulAsset.edges[0].node.file.url;
+  const about_data = data.contentfulAbout;
 
   useEffect(() => {
     /*
@@ -42,7 +44,12 @@ const IndexPage = ({ data }) => {
       <Hero />
       <Infographic />
       <Projects projects={projects_data} animate={true} limit={true} />
-      <About />
+      <About
+        about={about_data.compact_about}
+        photo={about_data.photo}
+        interests={about_data.interests}
+        cv={assets_data}
+      />
       <Journals entries={entries_data} animate={true} limit={true} />
     </Layout>
   );
@@ -86,6 +93,31 @@ export const query = graphql`
             )
           }
         }
+      }
+    }
+    allContentfulAsset(filter: { title: { eq: "cv" } }) {
+      edges {
+        node {
+          title
+          file {
+            url
+          }
+        }
+      }
+    }
+    contentfulAbout {
+      interests
+      compact_about {
+        raw
+      }
+      photo {
+        title
+        gatsbyImageData(
+          layout: FULL_WIDTH
+          width: 1000
+          placeholder: BLURRED
+          formats: [AUTO, WEBP, AVIF]
+        )
       }
     }
   }

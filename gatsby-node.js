@@ -36,18 +36,18 @@ exports.createPages = ({ graphql, actions }) => {
                         },
                     });
                 });
-                // result.data.allContentfulJournal.edges.forEach(({ node }) => {
-                //     const name = node.name.toLowerCase().replace(/\s/g, '-');
-                //     createPage({
-                //         path: `/journal/${name}`,
-                //         component: path.resolve(
-                //             'src/templates/journal.js'
-                //         ),
-                //         context: {
-                //             slug: node.name,
-                //         },
-                //     });
-                // });
+                result.data.allContentfulJournal.edges.forEach(({ node }) => {
+                    const name = node.name.toLowerCase().replace(/\s/g, '-');
+                    createPage({
+                        path: `/journals/${name}`,
+                        component: path.resolve(
+                            'src/templates/journal.js'
+                        ),
+                        context: {
+                            slug: node.name,
+                        },
+                    });
+                });
                 return;
             })
         );
