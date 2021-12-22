@@ -16,12 +16,10 @@ const useMousePosition = () => {
     };
     if (isBrowser) {
       window.addEventListener("mousemove", updateMousePosition);
-    }
-    return () => {
-      if (isBrowser) {
+      return () => {
         window.removeEventListener("mousemove", updateMousePosition);
-      }
-    };
+      };
+    }
   }, []);
   return mousePosition;
 };

@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 
 import HeadWithQuery from "./Head";
-import Nav from '../components/Nav';
-import Footer from '../components/Footer';
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 import "../styling/main.scss";
 import { setViewheightProperty } from "../utils/helper-functions";
 
@@ -22,22 +22,20 @@ import { setViewheightProperty } from "../utils/helper-functions";
 //   );
 // }
 
-const Layout = ({ children }) => {
-    useEffect(() => {
-        setViewheightProperty();
-    })
-    return (
-        <>
-            <HeadWithQuery />
-            <header>
-                <Nav />
-            </header>
-            <main>
-                {children}
-            </main>
-            <Footer />
-        </>
-    );
+const Layout = ({ children, footer = true }) => {
+  useEffect(() => {
+    setViewheightProperty();
+  });
+  return (
+    <>
+      <HeadWithQuery />
+      <header>
+        <Nav />
+      </header>
+      <main>{children}</main>
+      {footer ? <Footer /> : null}
+    </>
+  );
 };
 
 export default Layout;

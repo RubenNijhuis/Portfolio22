@@ -15,17 +15,14 @@ const Footer = () => (
                 <Link to="/journals">Journal</Link>
                 <Link to="/contact">Contact</Link>
                 <Link to="/scan-me">Scan me</Link>
-                <a href="https://daanvanderzwaag.com" target="_">
-                    Daan van der Zwaag
-                </a>
             </div>
             <div className="footer__links footer__links--external">
                 <a target="_" href="https://github.com/rubennijhuis">
                     Github
                 </a>
-                <a target="_" href="https://www.linkedin.com/in/ruben-nijhuis/">
+                {/* <a target="_" href="https://www.linkedin.com/in/ruben-nijhuis/">
                     LinkedIn
-                </a>
+                </a> */}
                 <a target="_" href="https://dribbble.com/SoWhatsUp">
                     Dribbble
                 </a>

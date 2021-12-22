@@ -26,12 +26,10 @@ const useMousePosition = (lastMouseX, lastMouseY) => {
     };
     if (isBrowser) {
       window.addEventListener("mousemove", updateMousePosition);
-    }
-    return () => {
-      if (isBrowser) {
+      return () => {
         window.removeEventListener("mousemove", updateMousePosition);
-      }
-    };
+      };
+    }
   }, []);
   return mousePosition;
 };
@@ -53,7 +51,7 @@ const getAngle = (x) => {
   };
   const scale = (n, iMin, iMax, oMin, oMax) =>
     ((n - iMin) * (oMax - oMin)) / (iMax - iMin) + oMin;
-  const deg = scale(x, 0, viewport_width, -15, 15);
+  const deg = scale(x, 0, viewport_width(), -15, 15);
   return Math.floor(deg * 1000) / 1000;
 };
 

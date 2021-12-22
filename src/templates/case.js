@@ -29,8 +29,9 @@ const ProjectTemplate = ({ data }) => {
     data.contentfulProject;
 
   const year_parsed = year.slice(2, 4);
-    const bg_image_parsed = getImage(backgroundImg);
-    const tags_formatted = tags.split(' ');
+  const bg_image_parsed = getImage(backgroundImg);
+  const tags_formatted = tags.split(" ");
+
   return (
     <Layout>
       <div className="template template--project">

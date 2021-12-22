@@ -51,7 +51,7 @@ export const swap_array_elements = (arr) => {
     // Swap items if its in a grid shape
     // [1, 2, 3, 4, 5] -> [2, 1, 3, 4, 5]
     for (let i = 0; i < arr.length; i++) {
-      if (i % 2 == 0 && arr[i + 1] != undefined) {
+      if (i % 2 === 0 && arr[i + 1] !== undefined) {
         let val1 = arr[i];
         let val2 = arr[i + 1];
         formatted_array[i] = val2;

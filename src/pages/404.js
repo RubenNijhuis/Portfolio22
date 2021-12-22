@@ -1,54 +1,26 @@
-import * as React from "react"
-import { Link } from "gatsby"
+import React from "react";
+import { Link } from "gatsby";
+import Layout from "../components/Layout";
 
-// styles
-const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-
-// markup
 const NotFoundPage = () => {
   return (
-    <main style={pageStyles}>
-      <title>Not found</title>
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry{" "}
-        <span role="img" aria-label="Pensive emoji">
-          😔
-        </span>{" "}
-        we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
-            <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Go home</Link>.
-      </p>
-    </main>
-  )
-}
+    <Layout footer={false}>
+      <section className="not-found">
+        <div className="not-found__img-wrapper">
+          <img
+            src="https://media1.giphy.com/media/YyKPbc5OOTSQE/giphy.gif?cid=ecf05e47mw4z8dh1m2szzvjblnrxs8g9vsnjgfgg1jm74m3x&rid=giphy.gif&ct=g"
+            alt={"video of the number 404 glitching"}
+          />
+        </div>
+        <p>It seems the page you were looking for can't be found</p>
+        <p>This could because it has been moved or been deleted all together</p>
+        <p>
+          If you have questions you can get in contact{" "}
+          <Link to={"/contact"}>here</Link>
+        </p>
+      </section>
+    </Layout>
+  );
+};
 
-export default NotFoundPage
+export default NotFoundPage;

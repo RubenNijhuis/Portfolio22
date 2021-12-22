@@ -19,7 +19,7 @@ const getAngle = (x) => {
     }
     const scale = (n, iMin, iMax, oMin, oMax) =>
         ((n - iMin) * (oMax - oMin)) / (iMax - iMin) + oMin;
-    const deg = scale(x, 0, viewport_width, -15, 20);
+    const deg = scale(x, 0, viewport_width(), -15, 20);
     return Math.floor(deg * 1000) / 1000;
 };
 
@@ -45,7 +45,7 @@ const Media = ({ img, alt, active, x, y }) => {
                 transform: `translate(${x - width / 2}px, ${y - height / 2
                     }px) rotate(${getAngle(x)}deg)`,
             }}
-            className={`media-img-container ${active ? "is-active" : undefined}`}
+            className={`media-img-container${active ? " is-active" : ''}`}
         >
             <GatsbyImage image={image} alt={alt} />
         </div>
