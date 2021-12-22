@@ -1,0 +1,35 @@
+.tags {
+    &__tag {
+      display: inline-block;
+      margin-right: calc($magic-number / 8);
+      
+      padding: 4px 11px;
+
+      &--light {
+        color: $background-color;
+        background-color: $text-color;
+      }
+
+      &--dark {
+        color: $text-color;
+        background-color: $background-color;
+      }
+
+      color: $text-color;
+      font-size: 1.2rem;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+
+      border-radius: $border-radius-tag;
+      background-color: $background-color;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+
+      p {
+          margin-bottom: 0 !important;
+          font-size: 1.2rem !important;
+      }
+    }
+  }

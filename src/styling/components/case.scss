@@ -67,7 +67,7 @@
 
                 border-radius: $border-radius-tag;
                 background-color: $background-color;
-                transition: transform 0.35s ease-out;
+                transition: transform $duration-inter ease-out;
 
                 &:last-of-type {
                     margin-right: 0;

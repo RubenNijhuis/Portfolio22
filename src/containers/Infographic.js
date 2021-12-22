@@ -4,7 +4,6 @@ import React, {
   useState,
   useEffect,
 } from "react";
-import { Link } from "gatsby";
 import { isBrowser } from "../utils/helper-functions";
 const images = [
   {
@@ -69,7 +68,7 @@ const useSize = () => {
 
 const Media = ({ url, alt, index, active, x, y }) => {
   const [ref, { width, height }] = useSize();
-  let isActive = index === active;
+  const isActive = index === active;
 
   return (
     <div
@@ -132,7 +131,6 @@ const Infographic = () => {
           />{" "}
           to realize ideas
         </p>
-        <Link to={"/about"}>Learn more</Link>
       </div>
 
       <div className="introduction__images">

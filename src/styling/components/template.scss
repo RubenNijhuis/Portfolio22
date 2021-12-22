@@ -1,75 +1,101 @@
 .template {
   color: $text-color;
 
-  &__hero-img {
-    height: calc(var(--vh) * 100 - 63px);
-    overflow: hidden;
-
-    div {
-      height: 100%;
-    }
-  }
-
-  &__details {
-    max-width: calc($magic-number * 20);
-    margin: auto;
-    padding: calc($magic-number / 4);
-
-    @include for-tablet-and-up {
-      padding: calc($magic-number / 2);
-    }
-
-    h1 {
-        font-size: 2.6rem;
-        margin: calc($magic-number / 8) 0
-    }
-
-    p {
-      max-width: 60ch;
-      font-size: 1.6rem;
-      line-height: 1.4;
-    }
-  }
-
-  &__project-deets {
-    margin: calc($magic-number / 2) 0;
+  .intro {
+    margin: $magic-number auto;
     margin-bottom: 0;
+    max-width: calc($magic-number * 20);
 
-    div {
-      display: inline-block;
-      margin-right: calc($magic-number / 4);
+    &__details {
+      max-width: calc($magic-number * 20);
+      margin: 0 auto;
+      margin-bottom: calc($magic-number);
 
-      h2:nth-of-type(1) {
-        font-size: 1.4rem;
-        font-weight: 600;
-        margin-bottom: calc($magic-number / 8);
-      }
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
 
-      h2:nth-of-type(2) {
-        font-size: 1.8rem;
-        font-weight: 400;
-        margin-bottom: calc($magic-number / 4);
-      }
+      &__header {
+        h1 {
+          font-size: 5.6rem;
+          margin: calc($magic-number / 4) 0;
+          margin-top: 0;
+        }
 
-      &:last-of-type {
-        margin-right: 0;
+        p {
+          max-width: 60ch;
+          font-size: 1.6rem;
+          line-height: 1.4;
+        }
       }
     }
 
-    &__tags {
-      &__tag {
-        display: inline-block;
-        margin-right: calc($magic-number / 8);
-        font-size: 1.2rem;
-        font-weight: 500;
-        padding: 5px 10px;
-        border-radius: $border-radius-tag;
-        background-color: $text-color;
-        color: $background-color;
+    &__hero-img {
+      height: calc(var(--vh) * 70);
+      max-width: calc($magic-number * 20);
+      margin: auto;
+      overflow: hidden;
+      border-radius: $border-radius $border-radius 0 0;
 
-        &:last-of-type {
-          margin-right: 0;
+      div {
+        height: 100%;
+      }
+    }
+
+    &__personalia {
+      &__details {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: calc($magic-number / 4);
+
+        div {
+          &:last-of-type {
+            margin-right: 0;
+          }
+
+          h2:nth-of-type(1) {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: calc($magic-number / 8);
+          }
+
+          h2:nth-of-type(2) {
+            font-size: 1.8rem;
+            font-weight: 400;
+          }
+
+          &:last-of-type {
+            margin-right: 0;
+          }
         }
+      }
+    }
+
+    &__content {
+      padding: $magic-number;
+      color: $background-color;
+      background-color: $text-color;
+      border-radius: 0 0 $border-radius $border-radius;
+
+      h2 {
+        font-size: 3rem;
+        margin: calc($magic-number / 2) 0;
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+
+      p {
+        font-size: 2rem;
+        line-height: 1.4;
+        padding: 0;
+        max-width: 60ch;
+        margin: calc($magic-number / 2) 0;
+        margin-bottom: $magic-number;
+      }
+      &:last-child {
+        margin-bottom: 0;
       }
     }
   }
@@ -77,10 +103,6 @@
   &__content {
     font-size: 2.2rem;
     padding: calc($magic-number / 4);
-
-    @include for-tablet-and-up {
-      padding: calc($magic-number / 2);
-    }
 
     &__paragraph {
       display: block;
@@ -92,19 +114,15 @@
   }
 
   &__img-wrapper {
-    margin: calc($magic-number / 2) auto;
-    aspect-ratio: 16/9;
     max-width: calc($magic-number * 20);
+    margin: $magic-number auto;
+    aspect-ratio: 16/9;
 
     overflow: hidden;
     border-radius: $border-radius;
 
     div {
-        height: 100%;
+      height: 100%;
     }
-
-    @include for-laptop-sm-and-up {
-        margin: calc($magic-number) auto;
-      }
   }
 }

@@ -32,7 +32,7 @@
         span {
             position: relative;
             display: inline-block;
-            transition: 0.3s ease-in-out opacity;
+            transition: $duration-inter ease-in-out opacity;
 
             &:hover {
                 opacity: 0.2;
@@ -59,7 +59,7 @@
                 &:after {
                     width: 0%;
                     background: rgba(255, 255, 255, 1);
-                    transition: 0.5s cubic-bezier(0.75, 0.01, 0.66, 1.01) width;
+                    transition: $duration-slow cubic-bezier(0.75, 0.01, 0.66, 1.01) width;
                 }
                 &:hover {
                     &:after {
@@ -97,8 +97,8 @@
                 opacity: 0;
                 object-fit: cover;
                 pointer-events: none;
-                transition: opacity 0.35s $ease-in-out,
-                    transform 0.5s $ease-in-out;
+                transition: opacity $duration-inter $ease-in-out,
+                    transform $duration-slow $ease-in-out;
             }
         }
     }

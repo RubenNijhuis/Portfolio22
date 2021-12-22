@@ -147,7 +147,7 @@
     img {
       width: 26px;
       display: inline-block;
-      transition: 0.35s ease-out transform;
+      transition: $duration-inter ease-out transform;
     }
 
     &__line {

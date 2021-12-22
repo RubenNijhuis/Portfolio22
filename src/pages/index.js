@@ -11,6 +11,9 @@ import { graphql } from "gatsby";
 import { isBrowser } from "../utils/helper-functions";
 
 const IndexPage = ({ data }) => {
+  /**
+   * Split the data into variables for readability
+   */
   const projects_data = data.allContentfulProject.edges;
   const entries_data = data.allContentfulJournal.edges;
   const assets_data = data.allContentfulAsset.edges[0].node.file.url;
@@ -122,9 +125,3 @@ export const query = graphql`
     }
   }
 `;
-
-// contentfulAbout {
-//   aboutMeSmall {
-//     raw
-//   }
-// }

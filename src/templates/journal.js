@@ -1,9 +1,8 @@
 import React from "react";
 import Layout from "../components/Layout";
 
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
-
 import { graphql } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { BLOCKS } from "@contentful/rich-text-types";
 
@@ -27,7 +26,6 @@ const formatting = {
 const JournalTemplate = ({ data }) => {
   const { name, img, year, content, tags } =
     data.contentfulJournal;
-
 
 //   const year_parsed = year.slice(2, 4);
   const bg_image_parsed = getImage(img);
@@ -95,7 +93,6 @@ export const query = graphql`
             __typename
             gatsbyImageData(
               layout: FULL_WIDTH
-              width: 1000
               placeholder: BLURRED
               formats: [AUTO, WEBP, AVIF]
             )

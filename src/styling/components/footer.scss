@@ -70,7 +70,7 @@
                     bottom: 0px + 12px;
 
                     width: 26px;
-                    height: 18px;
+                    height: calc($magic-number / 4);
 
                     // background-image: url("../../assets/arrow-icon-white.svg");
                     background-repeat: no-repeat;
