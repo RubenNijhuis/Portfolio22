@@ -1,8 +1,9 @@
 import React from "react";
+
 import Layout from "../components/Layout";
-
+import TemplateImage from "../components/Template/Template_Image";
 import Tags from "../components/Tags";
-
+import { motion } from "framer-motion";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { graphql } from "gatsby";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
@@ -10,15 +11,7 @@ import { BLOCKS } from "@contentful/rich-text-types";
 
 const formatting_main = {
   renderNode: {
-    [BLOCKS.EMBEDDED_ASSET]: (node, children) => {
-      console.log(node);
-      const image = getImage(node.data.target);
-      return (
-        <div className="template__img-wrapper">
-          <GatsbyImage image={image} alt={"A"} />
-        </div>
-      );
-    },
+    [BLOCKS.EMBEDDED_ASSET]: (node, children) => <TemplateImage img={node} />,
     [BLOCKS.PARAGRAPH]: (node, children) => (
       <p className="template__content__paragraph">{children}</p>
     ),
@@ -26,12 +19,12 @@ const formatting_main = {
 };
 
 const formatting_intro = {
-    renderNode: {
-      [BLOCKS.PARAGRAPH]: (node, children) => (
-        <p className="intro__content">{children}</p>
-      ),
-    },
-  };
+  renderNode: {
+    [BLOCKS.PARAGRAPH]: (node, children) => (
+      <p className="intro__content">{children}</p>
+    ),
+  },
+};
 
 const ProjectTemplate = ({ data }) => {
   const {
@@ -45,11 +38,38 @@ const ProjectTemplate = ({ data }) => {
     tags,
   } = data.contentfulProject;
 
+  const variants = {
+    show: {
+      height: "0%",
+      transition: {
+        delay: 0.25,
+        duration: 0.75,
+        ease: [0.66, 0.25, 0.48, 1],
+      },
+    },
+    hidden: {
+      height: "100%",
+    },
+    still: {
+      y: "10%",
+      scale: 0.975,
+    },
+    move_up: {
+      opacity: 1,
+      y: "0%",
+      scale: 1.025,
+      transition: {
+        duration: 1,
+        ease: "easeOut",
+      },
+    },
+  };
+
   const year_parsed = year.slice(2, 4);
   const bg_image_parsed = getImage(backgroundImg);
   const tags_formatted = tags.split(" ");
   return (
-    <Layout>
+    <Layout title={`Ruben Nijhuis | ${name}`}>
       <div className="template template--project">
         <section className="intro">
           <div className="intro__details">
@@ -72,12 +92,25 @@ const ProjectTemplate = ({ data }) => {
             </div>
           </div>
           <div className="intro__hero-img">
-            <GatsbyImage image={bg_image_parsed} alt={"A"} />
-          </div>
-          <div className="intro__content">
-            {renderRichText(introduction, formatting_intro)}
+            <motion.div
+              className="intro__hero-img--wrapper"
+              initial="still"
+              animate="move_up"
+              variants={variants}
+            >
+              <GatsbyImage image={bg_image_parsed} alt={"A"} />
+            </motion.div>
+            <motion.div
+              className="intro__hero-img__reveal"
+              initial="hidden"
+              animate="show"
+              variants={variants}
+            />
           </div>
         </section>
+        <div className="intro__content">
+          {renderRichText(introduction, formatting_intro)}
+        </div>
         <section>
           <div className="template__content" style={{ color: "white" }}>
             {renderRichText(content, formatting_main)}

@@ -87,14 +87,23 @@ html {
     overflow-x: hidden;
 }
 
+main {
+    // min-height: calc(var(--vh, 1vh) * 100);
+}
+
 body {
     padding-top: $nav-height;
     overflow-x: hidden;
     
     font-family: "Montserrat";
     font-weight: 400;
+
+    padding-top: 27.3px;
     @include for-tablet-and-up {
-        padding-top: 65px;
+        padding-top: 63.3px;
+    }
+    @include for-laptop-l-and-up {
+        padding-top: 45.3px;
     }
 }
 

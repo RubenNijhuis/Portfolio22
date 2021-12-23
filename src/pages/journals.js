@@ -13,7 +13,7 @@ const JournalsPage = ({ data }) => {
 
   return (
     <Layout>
-      <Journals entries={entries_data} animate={false} limit={true} />
+      <Journals entries={entries_data} animate={false} limit={false} />
     </Layout>
   );
 };
@@ -29,7 +29,7 @@ export const query = graphql`
           img {
             title
             gatsbyImageData(
-              width: 500
+              width: 1000
               placeholder: BLURRED
               formats: [AUTO, WEBP, AVIF]
             )

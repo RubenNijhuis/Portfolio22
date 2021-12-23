@@ -1,10 +1,13 @@
 .hero {
     position: relative;
     height: 100vh; /* Fallback for browsers that do not support Custom Properties */
-    height: calc(var(--vh, 1vh) * 100 - 29px);
+    height: calc(var(--vh, 1vh) * 100 - 27.2px);
 
     @include for-tablet-and-up {
-        height: calc(var(--vh, 1vh) * 100 - 65px);
+        height: calc(var(--vh, 1vh) * 100 - 63.3px);
+    }
+    @include for-laptop-sm-and-up {
+        height: calc(var(--vh, 1vh) * 100 - 45.3px);
     }
 
     &__banner {
@@ -14,6 +17,7 @@
         @include size(100%);
 
         span {
+            display: none;
             position: absolute;
             bottom: calc($magic-number / 4);
             left: calc($magic-number / 4);

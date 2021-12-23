@@ -1,15 +1,39 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const Hero = () => {
-    return (
-        <section className="hero">
-            <div className="hero__banner">
-                <img src="https://media3.giphy.com/media/l41YgOPSjVe47TTRm/giphy.gif?cid=790b76116c9b7bce44b2bd93d94367732d1dde5337bb1ba7&rid=giphy.gif&ct=g" alt="showreel"/>
-                <span>• scroll</span>
-            </div>
-        </section>
-    )
+  let variants = {
+    show: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 1,
+        delay: 0.5,
+        ease: "easeOut",
+      },
+    },
+    hidden: {
+      opacity: 0,
+      scale: 1.1,
+    },
+  };
+
+  return (
+    <section className="hero">
+      <motion.div
+        initial="hidden"
+        animate="show"
+        variants={variants}
+        className="hero__banner"
+      >
+        <img
+          src="https://hunterae.com/wp-content/uploads/images/digital-agency-web-showreel-videohive-29506116-download-free-hunterae-com-9.jpg"
+          alt="showreel"
+        />
+        <span>• scroll</span>
+      </motion.div>
+    </section>
+  );
 };
 
 export default Hero;
-

@@ -96,21 +96,6 @@
 
         transition: opacity $duration-medium $ease-out,
             transform $duration-medium $ease-out;
-
-        .project-tag {
-            display: inline-block;
-            padding: calc($magic-number / 12) calc($magic-number / 6);
-            margin-right: calc($magic-number / 4);
-
-            font-size: 1.1rem;
-            font-weight: 500;
-            letter-spacing: 0.25px;
-            color: $background-color;
-            background-color: $text-color;
-
-            border-radius: $border-radius-tag;
-            transition: transform $duration-slow $ease-in-out;
-        }
     }
 }
 

@@ -9,7 +9,6 @@ import { BLOCKS } from "@contentful/rich-text-types";
 const formatting = {
   renderNode: {
     [BLOCKS.EMBEDDED_ASSET]: (node, children) => {
-      console.log(node);
       const image = getImage(node.data.target);
       return (
         <div className="template__img-wrapper">

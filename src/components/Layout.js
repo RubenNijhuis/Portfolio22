@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 
-import HeadWithQuery from "./Head";
+import { motion } from "framer-motion";
+import Head from "./Head/Head";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import "../styling/main.scss";
@@ -22,18 +23,46 @@ import { setViewheightProperty } from "../utils/helper-functions";
 //   );
 // }
 
-const Layout = ({ children, footer = true }) => {
+const Layout = ({ children, title, description, footer = true }) => {
   useEffect(() => {
     setViewheightProperty();
   });
   return (
     <>
-      <HeadWithQuery />
+      <Head title={title} description={description} />
       <header>
         <Nav />
       </header>
-      <main>{children}</main>
-      {footer ? <Footer /> : null}
+      <motion.main
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0 }}
+        transition={{
+          type: "spring",
+          mass: 0.35,
+          stiffness: 75,
+          duration: 0.15
+          //   delay: 0.1,
+        }}
+      >
+        {children}
+      </motion.main>
+      {footer ? (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{
+            type: "spring",
+            mass: 0.35,
+            stiffness: 75,
+            duration: 0.15,
+              delay: 0.15,
+          }}
+        >
+          <Footer />
+        </motion.div>
+      ) : null}
     </>
   );
 };

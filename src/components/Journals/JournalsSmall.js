@@ -9,13 +9,13 @@ import { flattenNameToURL } from "../../utils/helper-functions";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import SeeMore from "../SeeMore";
 import { journal_small_fade_in } from "../../utils/animation-variants";
+import Tags from "../Tags";
 
 /**
  * Small entry container
  */
 const JournalSmall = ({ name, tags, img, alt }) => {
-    const image = getImage(img);
-    console.log(img);
+  const image = getImage(img);
   const controls = useAnimation();
   const [ref, inView] = useInView({
     threshold: 0.1,
@@ -37,13 +37,7 @@ const JournalSmall = ({ name, tags, img, alt }) => {
       <article>
         <div className="journal__text">
           <h2 className="journal-small__name">{name}</h2>
-          <div className="journal-small__tags">
-            {tags.map((tag, index) => (
-              <span key={index} count={index}>
-                {tag}
-              </span>
-            ))}
-          </div>
+          <Tags tags={tags} theme={"light"} />
         </div>
         <div className="journal-small__image-wrapper">
           <GatsbyImage image={image} alt={alt} />

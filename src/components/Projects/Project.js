@@ -8,6 +8,7 @@ import {
 import arrow from "../../assets/icons/arrow-icon-white.svg";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
+import Tags from "../Tags";
 
 const Project = ({ animate, count, name, description, img, img_alt, tags }) => {
   const image = getImage(img);
@@ -83,13 +84,9 @@ const Project = ({ animate, count, name, description, img, img_alt, tags }) => {
       <Link className="case" to={`/projects/${flattenNameToURL(name)}`}>
         <article className="case__preview">
           <div className="case__img-wrapper">
-          <GatsbyImage image={image} alt={img_alt} />
-            <div className="case__img-wrapper__tags">
-              {tags.map((tag, index) => (
-                <span key={index}>{tag}</span>
-              ))}
-            </div>
-        </div>
+            <GatsbyImage image={image} alt={img_alt} />
+            <Tags className="case__img-wrapper__tags" tags={tags} theme="dark"/>
+          </div>
           <div className="case__content">
             <h2>{name}</h2>
             <p>{description}</p>

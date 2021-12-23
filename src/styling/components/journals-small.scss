@@ -48,19 +48,6 @@
         margin-bottom: calc($magic-number / 4);
     }
 
-    &__tags {
-        span {
-            padding: 4px 10px;
-            background-color: $text-color;
-            border-radius: 100px;
-            margin-right: calc($magic-number / 8);
-
-            &:last-of-type {
-                margin-right: 0;
-            }
-        }
-    }
-
     &__image-wrapper {
         position: absolute;
         height: calc($magic-number * 2);
@@ -86,8 +73,8 @@
             overflow: hidden;
             background: linear-gradient(
                 90deg,
-                rgba(10, 10, 10, 1) 7.5%,
-                rgba(10, 10, 10, 0) 100%
+                rgba(10, 10, 10, 1) 2.5%,
+                rgba(10, 10, 10, 0) 90%
             );
         }
 

@@ -1,35 +1,40 @@
 .tags {
-    &__tag {
-      display: inline-block;
-      margin-right: calc($magic-number / 8);
-      
-      padding: 4px 11px;
+  &__tag {
+    display: inline-block;
+    margin-right: calc($magic-number / 8);
 
-      &--light {
-        color: $background-color;
-        background-color: $text-color;
+    padding: 5px 11px;
+
+    @include for-laptop-l-and-up {
+        padding: 6px 12px;
       }
 
-      &--dark {
-        color: $text-color;
-        background-color: $background-color;
-      }
+    &--light {
+      color: $background-color;
+      background-color: $text-color;
+    }
 
+    &--dark {
       color: $text-color;
-      font-size: 1.2rem;
+      background-color: $background-color;
+    }
+
+    border-radius: $border-radius-tag;
+    background-color: $background-color;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+
+    p {
       font-weight: 500;
       letter-spacing: 0.2px;
+      margin-bottom: 0 !important;
+      font-size: 1rem !important;
 
-      border-radius: $border-radius-tag;
-      background-color: $background-color;
-
-      &:last-of-type {
-        margin-right: 0;
-      }
-
-      p {
-          margin-bottom: 0 !important;
-          font-size: 1.2rem !important;
+      @include for-laptop-l-and-up {
+        font-size: 1.2rem !important;
       }
     }
   }
+}

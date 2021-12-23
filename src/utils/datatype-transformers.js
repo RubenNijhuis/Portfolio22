@@ -23,6 +23,6 @@ export const sanitize_entry = (entry) => {
     return [name, tags, img, img_alt];
 }
 
-const sanitize_project = (project) => {
+// const sanitize_project = (project) => {
     
-}
+// }
