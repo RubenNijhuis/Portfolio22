@@ -24,20 +24,22 @@ const IndexPage = ({ data }) => {
      * Scroll based checker - renders the journals or the infographic
      * on top as they both occupy the same z-height in the stack
      */
+
+    // Initialize sometimes doens't set it I think - so thats why I added thiss
+    const amount_scrolled = window.srcollY || 0;
     const handleScroll = () => {
       if (isBrowser) {
         const setCSSVar = (name, val) =>
           document.documentElement.style.setProperty(name, val);
         const breakpoint = document.body.clientHeight / 2;
-        window.scrollY > breakpoint
+        amount_scrolled > breakpoint
           ? setCSSVar("--zInfographic", "none")
           : setCSSVar("--zInfographic", "fixed");
-        window.scrollY > breakpoint
+        amount_scrolled > breakpoint
           ? setCSSVar("--zJournals", "fixed")
           : setCSSVar("--zJournals", "none");
       }
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);

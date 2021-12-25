@@ -2,12 +2,12 @@
 
 // Add extra delay for each tag in tag-list
 @for $i from 1 through 3 {
-  .case__img-wrapper__tags span:nth-child(#{$i}n) {
+  .project__img-wrapper__tags span:nth-child(#{$i}n) {
     transition-delay: #{$i * 0.1}s !important;
   }
 }
 
-.case {
+.project {
   display: block;
   margin-bottom: calc($magic-number * 1);
 
@@ -100,7 +100,7 @@
 
     img {
       position: absolute;
-      width: 28px;
+      width: calc($magic-number / 6);
       right: calc($magic-number / 8);
       bottom: 0;
 
@@ -111,7 +111,7 @@
 
       @include for-laptop-sm-and-up {
         right: calc($magic-number / 4);
-        bottom: calc($magic-number / 16);
+        bottom: calc($magic-number / 20);
       }
 
       @include for-laptop-l-and-up {

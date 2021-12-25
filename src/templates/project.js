@@ -8,9 +8,13 @@ import { project_content_formatter } from "utils/content-formatters";
 
 // Animation
 import { motion } from "framer-motion";
-import { project_hero_transition } from "utils/animation-variants";
+import {
+  project_hero_transition,
+  project_details_transition,
+} from "utils/animation-variants";
 
 // Components
+import AnimatedLetters from "components/Template/AnimatedLetters";
 import Layout from "components/Layout";
 import Tags from "components/Tags";
 
@@ -26,22 +30,34 @@ const ProjectTemplate = ({ data }) => {
     content,
     tags,
   } = data.contentfulProject;
-
+    
+  
   // Format data
   const year_formatted = year.slice(2, 4);
   const bg_image_parsed = getImage(backgroundImg);
   const tags_formatted = tags.split(" ");
-
+  
   return (
     <Layout title={`${name} | Ruben Nijhuis | Designer && Developer`}>
       <div className="template template--project">
         <section className="intro">
           <div className="intro__details">
             <div className="intro__details__header">
-              <h1>{name}</h1>
-              <p>{description}</p>
+              <AnimatedLetters title={name} />
+              <motion.p
+                initial="hidden"
+                animate="show"
+                variants={project_details_transition}
+              >
+                {description}
+              </motion.p>
             </div>
-            <div className="intro__personalia">
+            <motion.div
+              className="intro__personalia"
+              initial="hidden"
+              animate="show"
+              variants={project_details_transition}
+            >
               <div className="intro__personalia__details">
                 <div>
                   <h2 className="bold">Year</h2>
@@ -52,8 +68,8 @@ const ProjectTemplate = ({ data }) => {
                   <h2>{role}</h2>
                 </div>
               </div>
-            <Tags tags={tags_formatted} theme={"light"} />
-            </div>
+              <Tags tags={tags_formatted} theme={"light"} />
+            </motion.div>
           </div>
           <div className="intro__hero-img">
             <motion.div
@@ -61,8 +77,11 @@ const ProjectTemplate = ({ data }) => {
               initial="initial_img"
               animate="animate_img"
               variants={project_hero_transition}
-            >
-              <GatsbyImage image={bg_image_parsed} alt={bg_image_parsed.title} />
+        >
+              <GatsbyImage
+                image={bg_image_parsed}
+                alt={backgroundImg.title}
+              />
             </motion.div>
             <motion.div
               initial="reveal_initial"
@@ -102,7 +121,6 @@ export const query = graphql`
         title
         gatsbyImageData(
           layout: FULL_WIDTH
-          width: 1000
           placeholder: BLURRED
           formats: [AUTO, WEBP, AVIF]
         )
@@ -111,11 +129,11 @@ export const query = graphql`
         raw
         references {
           ... on ContentfulAsset {
+              title
             contentful_id
             __typename
             gatsbyImageData(
               layout: FULL_WIDTH
-              width: 1000
               placeholder: BLURRED
               formats: [AUTO, WEBP, AVIF]
             )

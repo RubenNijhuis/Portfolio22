@@ -7,6 +7,7 @@ import { useInView } from "react-intersection-observer";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const Image = ({ img }) => {
+  const title = img.data.target.title;
   const image = getImage(img.data.target);
   const controls = useAnimation();
   const [ref, inView] = useInView({ triggerOnce: true });
@@ -22,7 +23,7 @@ const Image = ({ img }) => {
       variants={template_image_transition}
       className="template__img-wrapper"
     >
-      <GatsbyImage image={image} alt={img.title} />
+      <GatsbyImage image={image} alt={title} />
     </motion.div>
   );
 };

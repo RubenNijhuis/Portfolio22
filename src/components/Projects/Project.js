@@ -79,15 +79,15 @@ const Project = ({ animate, count, name, description, img, img_alt, tags }) => {
       animate={controls}
       ref={ref}
       variants={variants}
-      className="case--wrapper"
+      className="project--wrapper"
     >
-      <Link className="case" to={`/projects/${flattenNameToURL(name)}`}>
-        <article className="case__preview">
-          <div className="case__img-wrapper">
+      <Link className="project" to={`/projects/${flattenNameToURL(name)}`}>
+        <article className="project__preview">
+          <div className="project__img-wrapper">
             <GatsbyImage image={image} alt={img_alt} />
-            <Tags className="case__img-wrapper__tags" tags={tags} theme="dark"/>
+            <Tags className="project__img-wrapper__tags" tags={tags} theme="dark"/>
           </div>
-          <div className="case__content">
+          <div className="project__content">
             <h2>{name}</h2>
             <p>{description}</p>
             <img alt="arrow" src={arrow} />

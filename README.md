@@ -31,6 +31,7 @@ src/
     |- images/     # General images that don't come from the CMS
 
   components/      # Components that are resuable
+    |- 
 
   containers/      # Components that are used once
   
@@ -94,7 +95,7 @@ Gallery Page
 
 CMS Aggregation
 - [ ] Add descriptions and proper alts to images
-- [ ] Design system to make data transformers and keep data types centralizes
+- [ ] Design system to make data transformers and keep data types centralized
 - [ ] Create components for outputting datatypes
 - [ ] Write proper content and create nice case images
 

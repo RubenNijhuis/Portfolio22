@@ -59,6 +59,20 @@ export const footer_transition = {
   },
 };
 
+export const project_details_transition = {
+  hidden: {
+        opacity: 0,
+  },
+  show: {
+      opacity: 1,
+    transition: {
+      delay: 1.25,
+      duration: 0.5,
+      ease: [0.66, 0.25, 0.48, 1],
+    },
+  },
+};
+
 // Project page
 export const project_hero_transition = {
   reveal_initial: {
@@ -67,21 +81,22 @@ export const project_hero_transition = {
   reveal_animate: {
     height: "0%",
     transition: {
-      delay: 0.25,
+      delay: 0.5,
       duration: 0.75,
       ease: [0.66, 0.25, 0.48, 1],
     },
   },
   initial_img: {
     y: "15%",
-    scale: 0.95,
+    scale: 1.1,
   },
   animate_img: {
     opacity: 1,
-    y: "0%",
     scale: 1,
+    y: "0%",
     transition: {
-      duration: 1,
+      delay: 0.5,
+      duration: 0.825,
       ease: "easeOut",
     },
   },

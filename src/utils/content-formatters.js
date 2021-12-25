@@ -10,7 +10,7 @@ export const project_content_formatter = {
   },
   content: {
     renderNode: {
-      [BLOCKS.EMBEDDED_ASSET]: (node, children) => <Image img={node} />,
+      [BLOCKS.EMBEDDED_ASSET]: (node, children) => <Image img={node}/>,
       [BLOCKS.PARAGRAPH]: (node, children) => (
         <p className="template__content__paragraph">{children}</p>
       ),

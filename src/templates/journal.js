@@ -1,65 +1,72 @@
 import React from "react";
-import Layout from "components/Layout";
 
-import { graphql } from "gatsby";
+// Data aggregation && formattings
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { graphql } from "gatsby";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
-import { BLOCKS } from "@contentful/rich-text-types";
+import { project_content_formatter } from "utils/content-formatters";
 
-const formatting = {
-  renderNode: {
-    [BLOCKS.EMBEDDED_ASSET]: (node, children) => {
-      const image = getImage(node.data.target);
-      return (
-        <div className="template__img-wrapper">
-          <GatsbyImage image={image} alt={"A"} />
-        </div>
-      );
-    },
-    [BLOCKS.PARAGRAPH]: (node, children) => (
-      <p className="template__content__paragraph">{children}</p>
-    ),
-},
-};
+// Animation
+import { motion } from "framer-motion";
+import { project_hero_transition } from "utils/animation-variants";
+
+// Components
+import AnimatedLetters from "components/Template/AnimatedLetters";
+import Layout from "components/Layout";
+import Tags from "components/Tags";
 
 const JournalTemplate = ({ data }) => {
-  const { name, img, year, content, tags } =
+  const { name, img, introduction, year, content, tags } =
     data.contentfulJournal;
 
-//   const year_parsed = year.slice(2, 4);
+  const year_formatted = "2021";
   const bg_image_parsed = getImage(img);
   const tags_formatted = tags.split(" ");
 
   return (
-    <Layout>
+    <Layout title={`${name} | Ruben Nijhuis | Designer && Developer`}>
       <div className="template template--journal">
-        <section className="template__introduction">
-          <div className="template__hero-img">
-            <GatsbyImage image={bg_image_parsed} alt={"A"} />
-          </div>
-          <div className="template__details">
-            <h1>{name}</h1>
-            <div className="template__project-deets">
-              <div>
-                <h2 className="bold">Year</h2>
-                <h2>'{year}</h2>
+        <section className="intro">
+          <div className="intro__details">
+            <div className="intro__details__header">
+              <AnimatedLetters title={name} />
+            </div>
+            <div className="intro__personalia">
+              <div className="intro__personalia__details">
+                <div>
+                  <h2 className="bold">Year</h2>
+                  <h2>'{year_formatted}</h2>
+                </div>
               </div>
+              <Tags tags={tags_formatted} theme={"light"} />
             </div>
-            <div className="template__project-deets__tags">
-              {tags_formatted.map((tag, index) => (
-                <span
-                  className="template__project-deets__tags__tag"
-                  key={index}
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
+          </div>
+          <div className="intro__hero-img">
+            <motion.div
+              className="intro__hero-img--wrapper"
+              initial="initial_img"
+              animate="animate_img"
+              variants={project_hero_transition}
+            >
+              <GatsbyImage
+                image={bg_image_parsed}
+                alt={bg_image_parsed.title}
+              />
+            </motion.div>
+            <motion.div
+              initial="reveal_initial"
+              animate="reveal_animate"
+              className="intro__hero-img__reveal"
+              variants={project_hero_transition}
+            />
           </div>
         </section>
+        <div className="intro__content">
+          {renderRichText(introduction, project_content_formatter.intro)}
+        </div>
         <section>
           <div className="template__content" style={{ color: "white" }}>
-            {renderRichText(content, formatting)}
+            {renderRichText(content, project_content_formatter.content)}
           </div>
         </section>
       </div>
@@ -79,10 +86,12 @@ export const query = graphql`
         title
         gatsbyImageData(
           layout: FULL_WIDTH
-          width: 1000
           placeholder: BLURRED
           formats: [AUTO, WEBP, AVIF]
         )
+      }
+      introduction {
+        raw
       }
       content {
         raw

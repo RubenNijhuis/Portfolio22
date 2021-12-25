@@ -1,232 +1,257 @@
-@use '../abstracts' as *;
+@use "../abstracts" as *;
+
+
+.row-title {
+    display: block;
+    margin-bottom: 9px;
+}
+
+.row-title, .row-word {
+    overflow: hidden;
+}
+
+.row-word {
+    margin-right: 18px;
+}
+
+.row-word,
+.row-letter {
+  font-size: 3.6rem;
+  font-weight: 700;
+  position: relative;
+  letter-spacing: 0rem;
+  font-family: "Syne";
+  display: inline-block;
+  white-space: nowrap;
+}
 
 .footer {
-    &__email {
-        color: $text-color;
+  &__email {
+    color: $text-color;
 
-        font-size: clamp(21px, 6.79vw, 60px);
-        font-weight: 600;
+    font-size: clamp(21px, 6.79vw, 60px);
+    font-weight: 600;
 
-        @include for-tablet-and-up {
-            font-size: clamp(34px, 6.44vw, 103px);
-        }
+    @include for-tablet-and-up {
+      font-size: clamp(34px, 6.44vw, 103px);
+    }
+  }
+
+  &__links a {
+    color: $text-color;
+
+    font-size: 2rem;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    @include for-laptop-sm-and-up {
+      font-weight: 600;
     }
 
-    &__links a {
-        color: $text-color;
-
-        font-size: 2rem;
-        font-weight: 500;
-
-        text-decoration: none;
-
-        @include for-laptop-sm-and-up {
-            font-weight: 600;
-        }
-
-        @include for-laptop-l-and-up {
-            font-size: 2.4rem;
-        }
+    @include for-laptop-l-and-up {
+      font-size: 2.4rem;
     }
+  }
 }
 
 .journals-small {
-    .headline {
-        color: $text-color;
-        font-family: "Syne";
-        font-weight: 700;
-        font-size: 5.6rem;
-    }
+  .headline {
+    color: $text-color;
+    font-family: "Syne";
+    font-weight: 700;
+    font-size: 5.6rem;
+  }
 
-    &__year {
-        color: $text-color;
-        font-size: 2.2rem;
-        font-weight: 200;
-    }
+  &__year {
+    color: $text-color;
+    font-size: 2.2rem;
+    font-weight: 200;
+  }
 }
 
 .journal-small {
-    text-decoration: none;
+  text-decoration: none;
 
-    &__name {
-        color: $text-color;
-        font-size: 2.4rem;
-    }
+  &__name {
+    color: $text-color;
+    font-size: 2.4rem;
+  }
 
-    &__tags span {
-        color: $background-color;
-        font-size: 1rem;
-        font-weight: 500;
-    }
+  &__tags span {
+    color: $background-color;
+    font-size: 1rem;
+    font-weight: 500;
+  }
 }
 
 .introduction {
-    &__content {
-        p,
-        a {
-            color: $text-color;
-            line-height: 1.4;
-            font-weight: 400;
+  &__content {
+    p,
+    a {
+      color: $text-color;
+      line-height: 1.4;
+      font-weight: 400;
 
-            font-size: clamp(18px, 4.44vw, 96px);
-        }
-
-        span {
-            font-weight: 700;
-        }
-
-        a {
-            color: $text-color;
-            text-decoration: none;
-
-            &:visited {
-                color: $text-color;
-            }
-        }
+      font-size: clamp(18px, 4.44vw, 96px);
     }
+
+    span {
+      font-weight: 700;
+    }
+
+    a {
+      color: $text-color;
+      text-decoration: none;
+
+      &:visited {
+        color: $text-color;
+      }
+    }
+  }
 }
 
 .nav {
-    &__home {
-        font-size: 2.2rem;
-        font-weight: 900;
+  &__home {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: $text-color;
+    text-decoration: none;
+  }
+
+  &__links {
+    &__link {
+      text-decoration: none;
+      font-size: 1.6rem;
+
+      @include for-tablet-and-up {
+        font-size: 2rem;
+      }
+
+      color: $text-color;
+      &:visited {
         color: $text-color;
-        text-decoration: none;
+      }
     }
-
-    &__links {
-        &__link {
-            text-decoration: none;
-            font-size: 1.6rem;
-
-            @include for-tablet-and-up {
-                font-size: 2rem;
-            }
-
-            color: $text-color;
-            &:visited {
-                color: $text-color;
-            }
-        }
-    }
+  }
 }
 
-.case {
-    text-decoration: none;
+.project {
+  text-decoration: none;
 
-    &__img-wrapper {
-        &__tags span {
-            color: $text-color;
-            font-size: 11px;
-        }
+  &__img-wrapper {
+    &__tags span {
+      color: $text-color;
+      font-size: 11px;
+    }
+  }
+
+  &__content {
+    h2,
+    p {
+      font-weight: 400;
+      font-size: 1.6rem;
+
+      @include for-laptop-sm-and-up {
+        font-size: 2rem;
+      }
     }
 
-    &__content {
-        h2,
-        p {
-            font-weight: 400;
-            font-size: 1.6rem;
-
-            @include for-laptop-sm-and-up {
-                font-size: 2rem;
-            }
-        }
-
-        h2 {
-            color: #787878;
-        }
-
-        p {
-            color: $text-color;
-            line-height: 1.4;
-        }
+    h2 {
+      color: #7d7d7d;
     }
+
+    p {
+      color: $text-color;
+      line-height: 1.4;
+    }
+  }
 }
 
 .projects {
-    .heading {
-        font-family: "Syne";
-        font-weight: 700;
-        font-size: 5.6rem;
-        color: $text-color;
+  .heading {
+    font-family: "Syne";
+    font-weight: 700;
+    font-size: 5.6rem;
+    color: $text-color;
 
-        @include for-tablet-landscape-and-up {
-            font-size: 5.6rem;
-        }
-        @include for-tablet-and-up {
-            font-size: 7.2rem;
-        }
-        @include for-laptop-sm-and-up {
-            font-size: 9.6rem;
-        }
-        @include for-laptop-xl-and-up {
-            font-size: 12rem;
-        }
+    @include for-tablet-landscape-and-up {
+      font-size: 5.6rem;
     }
+    @include for-tablet-and-up {
+      font-size: 7.2rem;
+    }
+    @include for-laptop-sm-and-up {
+      font-size: 9.6rem;
+    }
+    @include for-laptop-xl-and-up {
+      font-size: 12rem;
+    }
+  }
 }
 
 .see-more {
-    color: $background-color;
-    font-size: 1.6rem;
-    text-align: center;
-    @include for-laptop-sm-and-up {
-        font-size: 2.2rem;
-    }
+  color: $background-color;
+  font-size: 1.6rem;
+  text-align: center;
+  @include for-laptop-sm-and-up {
+    font-size: 2.2rem;
+  }
 }
 
 .about {
-    font-size: 1.6rem;
-    color: $background-color;
+  font-size: 1.6rem;
+  color: $background-color;
 
-    &__personalia {
-        p:nth-of-type(1) {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: #000;
-            @include for-tablet-and-up {
-                font-size: 1.8rem;
-            }
-            @include for-laptop-sm-and-up {
-                font-size: 2.2rem;
-            }
-        }
-
-        p:nth-of-type(2) {
-            font-size: 1.6rem;
-            font-weight: 400;
-            @include for-tablet-and-up {
-                font-size: 2.2rem;
-            }
-            @include for-laptop-sm-and-up {
-                font-size: 2.6rem;
-            }
-        }
-    }
-
-    &__story {
-        line-height: 1.6;
-
-        @include for-tablet-and-up {
-            font-size: 2.2rem;
-        }
-        @include for-laptop-sm-and-up {
-            font-size: 2.6rem;
-        }
-        a {
-            color: $background-color;
-        }
-    }
-
-    &__interests span {
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: $text-color;
-    }
-
-    &__contact {
+  &__personalia {
+    p:nth-of-type(1) {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #000;
+      @include for-tablet-and-up {
+        font-size: 1.8rem;
+      }
+      @include for-laptop-sm-and-up {
         font-size: 2.2rem;
-        @include for-laptop-sm-and-up {
-            font-size: 2.6rem;
-        }
+      }
     }
+
+    p:nth-of-type(2) {
+      font-size: 1.6rem;
+      font-weight: 400;
+      @include for-tablet-and-up {
+        font-size: 2.2rem;
+      }
+      @include for-laptop-sm-and-up {
+        font-size: 2.6rem;
+      }
+    }
+  }
+
+  &__story {
+    line-height: 1.6;
+
+    @include for-tablet-and-up {
+      font-size: 2.2rem;
+    }
+    @include for-laptop-sm-and-up {
+      font-size: 2.6rem;
+    }
+    a {
+      color: $background-color;
+    }
+  }
+
+  &__interests span {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: $text-color;
+  }
+
+  &__contact {
+    font-size: 2.2rem;
+    @include for-laptop-sm-and-up {
+      font-size: 2.6rem;
+    }
+  }
 }

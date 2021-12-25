@@ -55,7 +55,7 @@
 
       &__header {
         margin-bottom: calc($magic-number / 2);
-
+        overflow: hidden;
         @include for-tablet-and-up {
           margin-bottom: 0;
           max-width: 65%;
