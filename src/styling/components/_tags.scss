@@ -1,3 +1,5 @@
+@use '../abstracts' as *;
+
 .tags {
   &__tag {
     display: inline-block;

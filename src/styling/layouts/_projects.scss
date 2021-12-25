@@ -1,3 +1,5 @@
+@use '../abstracts' as *;
+
 .projects {
     padding: $magic-number calc($magic-number / 4);
 

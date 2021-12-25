@@ -8,8 +8,8 @@ import { Helmet } from "react-helmet";
 // import favicon from "../assets/icons/favicon.png";
 
 const Head = ({
-  title = "Ruben Nijhuis — Designer & Developer",
-  description,
+  title = "Ruben Nijhuis — Designer && Developer",
+  description = "Ruben Nijhuis is a Designer and Developer who focuses on creating unique digital experiences using creative coding and interactive design to realize ideas",
 }) => (
   <Helmet>
     <html lang="en" />

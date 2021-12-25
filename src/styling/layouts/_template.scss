@@ -1,7 +1,11 @@
+@use '../abstracts' as *;
+
 .template {
   color: $text-color;
+  
   @include for-laptop-sm-and-up {
     margin: 0 auto;
+    margin-bottom: calc($magic-number * 2);
   }
 
   .intro {
@@ -10,35 +14,43 @@
     flex-direction: column;
     justify-content: end;
     margin: 0 auto;
-    margin-top: calc($magic-number / 2);
-    margin-bottom: 0;
-    max-width: calc($magic-number * 20);
-    height: calc(var(--vh, 1vh) * 100 - 45.3px - 36px);
+    max-width: calc($magic-number * 22);
+    height: calc(var(--vh, 1vh) * 100 - 27.3px);
 
     @include for-tablet-and-up {
-      padding: calc($magic-number / 4);
+      justify-content: end;
+      height: calc(var(--vh, 1vh) * 100 - 63.3px);
     }
 
     @include for-laptop-sm-and-up {
       padding: 0;
     }
 
+    @include for-laptop-l-and-up {
+      padding: calc($magic-number / 2);
+      padding-bottom: 0;
+      height: calc(var(--vh, 1vh) * 100 - 45.3px);
+    }
+
     &__details {
       width: 100%;
       margin: 0 auto;
-      margin-bottom: $magic-number;
-      max-width: calc($magic-number * 20);
+      max-width: calc($magic-number * 22);
+      flex-grow: 2;
 
-      padding: calc($magic-number / 4);
+      padding: calc($magic-number / 2) calc($magic-number / 4);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
 
       @include for-tablet-and-up {
-        padding: 0;
-        padding-right: calc($magic-number / 8);
+        padding: calc($magic-number / 2);
         flex-direction: row;
-        align-items: end;
+        align-items: center;
+      }
+
+      @include for-laptop-l-and-up {
+        padding: calc($magic-number / 2) 0;
       }
 
       &__header {
@@ -46,11 +58,15 @@
 
         @include for-tablet-and-up {
           margin-bottom: 0;
+          max-width: 65%;
         }
 
         h1 {
-          font-size: 3.2rem;
-          margin: calc($magic-number / 8) 0;
+          font-size: 2.6rem;
+          @include for-tablet-and-up {
+            font-size: 5.6rem;
+          }
+          margin: calc($magic-number / 6) 0;
           margin-top: 0;
         }
 
@@ -64,21 +80,28 @@
 
     &__hero-img {
       width: 100%;
-      max-width: calc($magic-number * 20);
+      max-width: calc($magic-number * 22);
       overflow: hidden;
-      aspect-ratio: 16/9;
       position: relative;
+      aspect-ratio: 9/16;
+
+      @include for-laptop-sm-and-up {
+        aspect-ratio: 16/9;
+      }
+      @include for-phablet-and-up {
+        aspect-ratio: 1/1;
+      }
+
+      @include for-laptop-l-and-up {
+        border-radius: $border-radius $border-radius 0 0;
+      }
 
       &__reveal {
         top: 0;
         left: 0;
         position: absolute;
         @include size(100%);
-        background-color: rgb(10, 10, 10);
-      }
-
-      @include for-tablet-and-up {
-        border-radius: $border-radius $border-radius 0 0;
+        background-color: $dark-main;
       }
 
       &--wrapper {
@@ -91,12 +114,14 @@
     }
 
     &__personalia {
+      min-width: fit-content;
       width: fit-content;
+
       &__details {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        margin-bottom: calc($magic-number / 4);
+        margin-bottom: calc($magic-number / 3);
 
         div {
           &:last-of-type {
@@ -122,20 +147,22 @@
     }
 
     &__content {
-      padding: calc($magic-number / 2) calc($magic-number / 8);
-      color: $background-color;
-      background-color: $text-color;
-      border-radius: 0 0 $border-radius $border-radius;
+      padding: calc($magic-number / 2) calc($magic-number / 4);
+      color: $text-color;
       margin: auto;
-      margin-bottom: $magic-number;
-      max-width: calc($magic-number * 20);
+      max-width: calc($magic-number * 22 - 72px);
+      background-color: hsl(0, 0%, 10%);
+      border-radius: 0 0 $border-radius $border-radius;
 
       a {
-        color: rgba(0, 0, 0, 0.5);
+        color: hsl(0, 0%, 72%);
       }
 
       @include for-tablet-and-up {
-        padding: calc($magic-number / 2);
+        padding: calc($magic-number);
+      }
+
+      @include for-laptop-l-and-up {
       }
 
       h2 {
@@ -153,6 +180,10 @@
         max-width: 60ch;
         margin: calc($magic-number / 4) 0;
         margin-bottom: calc($magic-number / 2);
+
+        &:last-child {
+          margin-bottom: 0;
+        }
       }
       &:last-child {
         margin-bottom: 0;
@@ -163,6 +194,16 @@
   &__content {
     font-size: 2.2rem;
     padding: calc($magic-number / 2) calc($magic-number / 4);
+    max-width: calc($magic-number * 22);
+
+    @include for-tablet-and-up {
+      padding: calc($magic-number / 2);
+    }
+
+    @include for-laptop-l-and-up {
+      padding-top: calc($magic-number);
+      margin: auto;
+    }
 
     &:first-child {
       margin-top: 0 !important;
@@ -172,18 +213,42 @@
       color: rgba(255, 255, 255, 0.5);
     }
 
-    &__paragraph {
+    p,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       display: block;
       margin: calc($magic-number / 2) auto;
-      max-width: 60ch;
-      line-height: 1.6;
+      line-height: 1.4;
+      font-size: 1.6rem;
+
+      @include for-tablet-and-up {
+        max-width: calc($magic-number * 10);
+      }
+    }
+
+    p {
+      color: hsl(0, 0%, 75%);
+    }
+
+    &__paragraph {
+      @include for-laptop-sm-and-up {
+        max-width: 60ch;
+      }
       font-size: 1.6rem;
     }
   }
 
   &__img-wrapper {
-    max-width: calc($magic-number * 20);
+    max-width: calc($magic-number * 22);
     margin: calc($magic-number / 2) auto;
+
+    @include for-tablet-and-up {
+      margin: calc($magic-number) auto;
+    }
+
     aspect-ratio: 16/9;
 
     position: relative;

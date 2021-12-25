@@ -1,3 +1,5 @@
+@use '../abstracts' as *;
+
 .not-found {
     color: $text-color;
     padding: $magic-number;

@@ -1,3 +1,5 @@
+@use '../abstracts' as *;
+
 // Add extra delay for each tag in tag-list
 @for $i from 1 through 3 {
   .case__img-wrapper__tags span:nth-child(#{$i}n) {

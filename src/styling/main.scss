@@ -1,21 +1,4 @@
-@charset 'utf-8';
-
-@use "variables/mixins.scss" as *;
-@use "variables/var.scss" as *;
-@import "reset.scss";
-
-@import "base/typography.scss";
-@import "components/nav.scss";
-@import "components/hero.scss";
-@import "components/infographic.scss";
-@import "components/projects.scss";
-@import "components/case.scss";
-@import "components/about.scss";
-@import "components/journals-small.scss";
-@import "components/journals-large.scss";
-@import "components/footer.scss";
-@import "components/Tags.scss";
-@import "components/template.scss";
-@import "components/not-found";
-@import "components/see-more.scss";
-
+@use "base";
+@use "utils";
+@use "components";
+@use "layouts"

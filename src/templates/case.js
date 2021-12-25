@@ -21,7 +21,7 @@ const formatting_main = {
 const formatting_intro = {
   renderNode: {
     [BLOCKS.PARAGRAPH]: (node, children) => (
-      <p className="intro__content">{children}</p>
+      <p>{children}</p>
     ),
   },
 };
@@ -51,13 +51,13 @@ const ProjectTemplate = ({ data }) => {
       height: "100%",
     },
     still: {
-      y: "10%",
-      scale: 0.975,
+      y: "15%",
+      scale: 0.95,
     },
     move_up: {
       opacity: 1,
       y: "0%",
-      scale: 1.025,
+      scale: 1,
       transition: {
         duration: 1,
         ease: "easeOut",

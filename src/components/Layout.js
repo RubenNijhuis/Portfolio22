@@ -34,15 +34,15 @@ const Layout = ({ children, title, description, footer = true }) => {
         <Nav />
       </header>
       <motion.main
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0 }}
         transition={{
           type: "spring",
           mass: 0.35,
           stiffness: 75,
-          duration: 0.15
-          //   delay: 0.1,
+          duration: 0.15,
+            delay: 0.1,
         }}
       >
         {children}
@@ -57,7 +57,7 @@ const Layout = ({ children, title, description, footer = true }) => {
             mass: 0.35,
             stiffness: 75,
             duration: 0.15,
-              delay: 0.15,
+              delay: 0.1,
           }}
         >
           <Footer />

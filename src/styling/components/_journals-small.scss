@@ -1,3 +1,5 @@
+@use '../abstracts' as *;
+
 .journals-small {
     padding: calc($magic-number) calc($magic-number / 4);
 

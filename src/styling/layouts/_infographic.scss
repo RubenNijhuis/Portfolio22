@@ -1,3 +1,5 @@
+@use '../abstracts' as *;
+
 .introduction {
     height: calc(var(--vh) * 100);
     display: flex;

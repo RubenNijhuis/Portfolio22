@@ -1,0 +1,46 @@
+// credits -> Kitty Giraudel
+@mixin size($width, $height: $width) {
+    width: $width;
+    height: $height;
+}
+
+$tablet: 768px;
+$laptop-sm: 1024px;
+$laptop-l: 1440px;
+$laptop_xl: 1920px;
+
+@mixin for-tablet-and-up {
+    @media screen and (min-width: $tablet) {
+        @content;
+    }
+}
+
+@mixin for-phablet-and-up {
+    @media screen and (min-width: $tablet) and (orientation: portrait) {
+        @content;
+    }
+}
+
+@mixin for-tablet-landscape-and-up {
+    @media screen and (min-width: $tablet) and (orientation: landscape) {
+        @content;
+    }
+}
+
+@mixin for-laptop-sm-and-up {
+    @media screen and (min-width: $laptop-sm) {
+        @content;
+    }
+}
+
+@mixin for-laptop-l-and-up {
+    @media screen and (min-width: $laptop-l) {
+        @content;
+    }
+}
+
+@mixin for-laptop-xl-and-up {
+    @media screen and (min-width: $laptop_xl) {
+        @content;
+    }
+}

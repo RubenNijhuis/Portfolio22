@@ -1,0 +1,35 @@
+@use '../abstracts' as *;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: $root-font-size;
+    background-color: $background-color;
+    overflow-x: hidden;
+}
+
+body {
+    padding-top: $nav-height;
+    overflow-x: hidden;
+    
+    font-family: "Montserrat";
+    font-weight: 400;
+
+    padding-top: 27.3px;
+    @include for-tablet-and-up {
+        padding-top: 63.3px;
+    }
+    @include for-laptop-l-and-up {
+        padding-top: 45.3px;
+    }
+}
+
+section {
+    overflow-x: hidden;
+    position: relative;
+    z-index: 10;
+}
