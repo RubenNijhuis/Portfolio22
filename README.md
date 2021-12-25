@@ -1,6 +1,10 @@
 ## Portfolio '22
 🧑🏽‍🎨 Personal portfolio for '22 and onwards
 
+## Features
+Contentful CMS Integration
+Code splitting to the max - Order through src structure
+
 ## 🚀 Quick start
 Install the website and add your contentful api keys in the `gastby-config.js`
 
@@ -32,11 +36,10 @@ src/
   
   |- styling/      # SCSS Styling
     |- main.scss   # all imports happen here
-    |- abstracts/  # Things like mixins and variables
-    |- base/       # Typography and font sizing
-    |- components/ # Single components i.e. case / journal
-    |- layouts/    # Pages margins paddings widths and heights
-    |- utils/      # This should really explain itself
+    |- abstracts/  # Variables, mixins, and any utility classes.
+    |- base/       # Typography and resets
+    |- components/ # Reusable such as buttons, navbars, cards etc.
+    |- layouts/    # Handles the layout, such as the container and any grid systems.
 
   pages/           # All pages
 
@@ -63,9 +66,10 @@ Styling
 - [x] Interesting animation
 - [ ] advanced mixins (research)
 
-Template
+Template Project
 - [x] Make responsive
 - [ ] Add "go-to-other-content" blocks
+- [ ] Fix alt titles images
 
 Template Image Component
 - [ ] Check if aggregation settings are optimal (succes = no low res images but fast loading pages)
@@ -98,7 +102,7 @@ Code Architecture
 - [ ] Make components and containers not handle data and only display
 
 Animation
-- [ ] Create global variants to standardize animations
+- [x] Create global variants to standardize animations
 
 Accesibility
 - [ ] Fix Head component to support as many types as possible (create seperate components for type

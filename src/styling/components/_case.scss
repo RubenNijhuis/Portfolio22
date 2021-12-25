@@ -39,10 +39,11 @@
     position: relative;
     aspect-ratio: 1/1;
 
-    overflow: hidden;
     border-radius: $border-radius;
+    overflow: hidden;
     background-color: $background-color;
 
+    z-index: 1;
     transition: 0.35s ease-out transform;
 
     .gatsby-image-wrapper {

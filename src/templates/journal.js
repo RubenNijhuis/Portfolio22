@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "../components/Layout";
+import Layout from "components/Layout";
 
 import { graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
@@ -19,7 +19,7 @@ const formatting = {
     [BLOCKS.PARAGRAPH]: (node, children) => (
       <p className="template__content__paragraph">{children}</p>
     ),
-  },
+},
 };
 
 const JournalTemplate = ({ data }) => {

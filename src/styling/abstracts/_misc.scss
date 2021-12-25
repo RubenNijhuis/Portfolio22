@@ -1,4 +1,6 @@
-@use '../abstracts' as *;
+@use '_sizes.scss' as *;
+@use '_colors.scss' as *;
+@use '_mixins.scss' as *;
 
 * {
     margin: 0;

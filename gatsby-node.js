@@ -1,5 +1,5 @@
 const path = require('path');
-// const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
+const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
 
 exports.createPages = ({ graphql, actions }) => {
     const { createPage } = actions;
@@ -30,7 +30,7 @@ exports.createPages = ({ graphql, actions }) => {
                     const name = node.name.toLowerCase().replace(/\s/g, '-');
                     createPage({
                         path: `/projects/${name}`,
-                        component: path.resolve('src/templates/case.js'),
+                        component: path.resolve('src/templates/project.js'),
                         context: {
                             slug: node.name,
                         },
@@ -54,21 +54,21 @@ exports.createPages = ({ graphql, actions }) => {
     });
 };
 
-// exports.onCreateWebpackConfig = ({
-//     stage,
-//     getConfig,
-//     rules,
-//     loaders,
-//     actions,
-// }) => {
-//     actions.setWebpackConfig({
-//         resolve: {
-//             modules: [path.resolve(__dirname, 'src'), 'node_modules'],
-//             plugins: [
-//                 new DirectoryNamedWebpackPlugin({
-//                     exclude: /node_modules/,
-//                 }),
-//             ],
-//         },
-//     });
-// };
+exports.onCreateWebpackConfig = ({
+    stage,
+    getConfig,
+    rules,
+    loaders,
+    actions,
+}) => {
+    actions.setWebpackConfig({
+        resolve: {
+            modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+            plugins: [
+                new DirectoryNamedWebpackPlugin({
+                    exclude: /node_modules/,
+                }),
+            ],
+        },
+    });
+};

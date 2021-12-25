@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import Journals from "../components/Journals/Journal";
-import Layout from "../components/Layout";
+import Journals from "components/Journals";
+import Layout from "components/Layout";
 
 import { graphql } from "gatsby";
 

@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 
-import Layout from "../components/Layout";
-import Hero from "../containers/Hero";
-import Infographic from "../containers/Infographic";
-import Projects from "../components/Projects/ProjectsGrid";
-import About from "../containers/About";
-import Journals from "../components/Journals/Journal";
+import Layout from "components/Layout";
+import Hero from "containers/Hero";
+import Infographic from "containers/Infographic";
+import Projects from "components/Projects/ProjectsGrid";
+import About from "containers/About";
+import Journals from "components/Journals";
 
 import { graphql } from "gatsby";
-import { isBrowser } from "../utils/helper-functions";
+import { isBrowser } from "utils/helper-functions";
 
 const IndexPage = ({ data }) => {
   /**
@@ -25,20 +25,20 @@ const IndexPage = ({ data }) => {
      * on top as they both occupy the same z-height in the stack
      */
     const handleScroll = () => {
-      const setCSSVar = (name, val) =>
-        document.documentElement.style.setProperty(name, val);
       if (isBrowser) {
-        window.scrollY > document.body.clientHeight / 2
+        const setCSSVar = (name, val) =>
+          document.documentElement.style.setProperty(name, val);
+        const breakpoint = document.body.clientHeight / 2;
+        window.scrollY > breakpoint
           ? setCSSVar("--zInfographic", "none")
           : setCSSVar("--zInfographic", "fixed");
-
-        window.scrollY > document.body.clientHeight / 2
+        window.scrollY > breakpoint
           ? setCSSVar("--zJournals", "fixed")
           : setCSSVar("--zJournals", "none");
       }
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 

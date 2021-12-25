@@ -1,7 +1,7 @@
 import React from "react";
 
-import Projects from "../components/Projects/ProjectsGrid";
-import Layout from "../components/Layout";
+import Projects from "components/Projects/ProjectsGrid";
+import Layout from "components/Layout";
 
 import { graphql } from "gatsby";
 

@@ -1,32 +1,21 @@
 import React from "react";
 
-import Layout from "../components/Layout";
-import TemplateImage from "../components/Template/Template_Image";
-import Tags from "../components/Tags";
-import { motion } from "framer-motion";
+// Data aggregation && formattings
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { graphql } from "gatsby";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
-import { BLOCKS } from "@contentful/rich-text-types";
+import { project_content_formatter } from "utils/content-formatters";
 
-const formatting_main = {
-  renderNode: {
-    [BLOCKS.EMBEDDED_ASSET]: (node, children) => <TemplateImage img={node} />,
-    [BLOCKS.PARAGRAPH]: (node, children) => (
-      <p className="template__content__paragraph">{children}</p>
-    ),
-  },
-};
+// Animation
+import { motion } from "framer-motion";
+import { project_hero_transition } from "utils/animation-variants";
 
-const formatting_intro = {
-  renderNode: {
-    [BLOCKS.PARAGRAPH]: (node, children) => (
-      <p>{children}</p>
-    ),
-  },
-};
+// Components
+import Layout from "components/Layout";
+import Tags from "components/Tags";
 
 const ProjectTemplate = ({ data }) => {
+  // Splitting data for readability
   const {
     name,
     description,
@@ -38,38 +27,13 @@ const ProjectTemplate = ({ data }) => {
     tags,
   } = data.contentfulProject;
 
-  const variants = {
-    show: {
-      height: "0%",
-      transition: {
-        delay: 0.25,
-        duration: 0.75,
-        ease: [0.66, 0.25, 0.48, 1],
-      },
-    },
-    hidden: {
-      height: "100%",
-    },
-    still: {
-      y: "15%",
-      scale: 0.95,
-    },
-    move_up: {
-      opacity: 1,
-      y: "0%",
-      scale: 1,
-      transition: {
-        duration: 1,
-        ease: "easeOut",
-      },
-    },
-  };
-
-  const year_parsed = year.slice(2, 4);
+  // Format data
+  const year_formatted = year.slice(2, 4);
   const bg_image_parsed = getImage(backgroundImg);
   const tags_formatted = tags.split(" ");
+
   return (
-    <Layout title={`Ruben Nijhuis | ${name}`}>
+    <Layout title={`${name} | Ruben Nijhuis | Designer && Developer`}>
       <div className="template template--project">
         <section className="intro">
           <div className="intro__details">
@@ -81,39 +45,39 @@ const ProjectTemplate = ({ data }) => {
               <div className="intro__personalia__details">
                 <div>
                   <h2 className="bold">Year</h2>
-                  <h2>'{year_parsed}</h2>
+                  <h2>'{year_formatted}</h2>
                 </div>
                 <div>
                   <h2 className="bold">Role</h2>
                   <h2>{role}</h2>
                 </div>
               </div>
-              <Tags tags={tags_formatted} theme={"light"} />
+            <Tags tags={tags_formatted} theme={"light"} />
             </div>
           </div>
           <div className="intro__hero-img">
             <motion.div
               className="intro__hero-img--wrapper"
-              initial="still"
-              animate="move_up"
-              variants={variants}
+              initial="initial_img"
+              animate="animate_img"
+              variants={project_hero_transition}
             >
-              <GatsbyImage image={bg_image_parsed} alt={"A"} />
+              <GatsbyImage image={bg_image_parsed} alt={bg_image_parsed.title} />
             </motion.div>
             <motion.div
+              initial="reveal_initial"
+              animate="reveal_animate"
               className="intro__hero-img__reveal"
-              initial="hidden"
-              animate="show"
-              variants={variants}
+              variants={project_hero_transition}
             />
           </div>
         </section>
         <div className="intro__content">
-          {renderRichText(introduction, formatting_intro)}
+          {renderRichText(introduction, project_content_formatter.intro)}
         </div>
         <section>
           <div className="template__content" style={{ color: "white" }}>
-            {renderRichText(content, formatting_main)}
+            {renderRichText(content, project_content_formatter.content)}
           </div>
         </section>
       </div>
