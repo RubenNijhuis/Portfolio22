@@ -5,6 +5,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { graphql } from "gatsby";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { project_content_formatter } from "utils/content-formatters";
+import { flattenNameToURL } from "utils/helper-functions";
 
 // Animation
 import { motion } from "framer-motion";
@@ -17,9 +18,11 @@ import {
 import AnimatedLetters from "components/Template/AnimatedLetters";
 import Layout from "components/Layout";
 import Tags from "components/Tags";
+import NextContent from "components/NextContent";
 
 const ProjectTemplate = ({ data }) => {
   // Splitting data for readability
+  const { previous, project, next } = data;
   const {
     name,
     description,
@@ -29,14 +32,13 @@ const ProjectTemplate = ({ data }) => {
     role,
     content,
     tags,
-  } = data.contentfulProject;
-    
-  
+  } = project;
+
   // Format data
   const year_formatted = year.slice(2, 4);
   const bg_image_parsed = getImage(backgroundImg);
   const tags_formatted = tags.split(" ");
-  
+
   return (
     <Layout title={`${name} | Ruben Nijhuis | Designer && Developer`}>
       <div className="template template--project">
@@ -77,11 +79,8 @@ const ProjectTemplate = ({ data }) => {
               initial="initial_img"
               animate="animate_img"
               variants={project_hero_transition}
-        >
-              <GatsbyImage
-                image={bg_image_parsed}
-                alt={backgroundImg.title}
-              />
+            >
+              <GatsbyImage image={bg_image_parsed} alt={backgroundImg.title} />
             </motion.div>
             <motion.div
               initial="reveal_initial"
@@ -95,10 +94,22 @@ const ProjectTemplate = ({ data }) => {
           {renderRichText(introduction, project_content_formatter.intro)}
         </div>
         <section>
-          <div className="template__content" style={{ color: "white" }}>
+          <div className="template__content">
             {renderRichText(content, project_content_formatter.content)}
           </div>
         </section>
+        <NextContent
+          previous={
+            previous === null
+              ? undefined
+              : `/projects/${flattenNameToURL(previous.name)}`
+          }
+          next={
+            next === null
+              ? undefined
+              : `/projects/${flattenNameToURL(next.name)}`
+          }
+        />
       </div>
     </Layout>
   );
@@ -107,8 +118,14 @@ const ProjectTemplate = ({ data }) => {
 export default ProjectTemplate;
 
 export const query = graphql`
-  query ($slug: String!) {
-    contentfulProject(name: { eq: $slug }) {
+  query ($slug: String!, $previous: String, $next: String) {
+    previous: contentfulProject(name: { eq: $next }) {
+      name
+    }
+    next: contentfulProject(name: { eq: $previous }) {
+      name
+    }
+    project: contentfulProject(name: { eq: $slug }) {
       name
       description
       introduction {
@@ -129,7 +146,7 @@ export const query = graphql`
         raw
         references {
           ... on ContentfulAsset {
-              title
+            title
             contentful_id
             __typename
             gatsbyImageData(

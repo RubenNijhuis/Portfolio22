@@ -1,6 +1,6 @@
 import React, { useCallback, useLayoutEffect, useState } from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { isBrowser } from "../../utils/helper-functions";
+import { isBrowser } from "utils/helper-functions";
 
 const getDimensionObject = (node) => {
     const rect = node.getBoundingClientRect();

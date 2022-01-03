@@ -1,5 +1,5 @@
 import React from "react";
-import { useCurrentWidth } from "../../utils/helper-functions";
+import { useCurrentWidth } from "utils/helper-functions";
 
 import JournalsBig from "./JournalsBig";
 import JournalsSmall from "./JournalsSmall";

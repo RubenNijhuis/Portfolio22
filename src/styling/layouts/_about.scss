@@ -1,6 +1,6 @@
 @use '../abstracts' as *;
 
-.about {
+.about-small {
   display: grid;
   position: relative;
   padding: calc($magic-number) calc($magic-number / 4);

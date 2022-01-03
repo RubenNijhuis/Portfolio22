@@ -3,9 +3,9 @@ import React from "react";
 import { Helmet } from "react-helmet";
 // import { StaticQuery, graphql } from "gatsby";
 // import { Location } from "@reach/router";
-// import schemaGenerator from "../../utils/schemaGenerator";
+// import schemaGenerator from "utils/schemaGenerator";
 
-// import favicon from "../assets/icons/favicon.png";
+// import favicon from "assets/icons/favicon.png";
 
 const Head = ({
   title = "Ruben Nijhuis — Designer && Developer",

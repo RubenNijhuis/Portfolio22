@@ -75,8 +75,8 @@
             overflow: hidden;
             background: linear-gradient(
                 90deg,
-                rgba(10, 10, 10, 1) 2.5%,
-                rgba(10, 10, 10, 0) 90%
+                $background-color 2.5%,
+                rgba(0, 0, 0, 0) 90%
             );
         }
 

@@ -31,8 +31,7 @@
     &__content {
         display: flex;
         justify-content: space-between;
-        padding: calc($magic-number / 4);
-        padding-top: calc($magic-number / 2);
+        padding: calc($magic-number / 2) calc($magic-number / 4);
 
         @include for-tablet-and-up {
             padding: $magic-number;
@@ -74,7 +73,7 @@
                     width: 26px;
                     height: calc($magic-number / 4);
 
-                    // background-image: url("../../assets/arrow-icon-white.svg");
+                    // background-image: url("assets/arrow-icon-white.svg");
                     background-repeat: no-repeat;
                     background-size: contain;
 

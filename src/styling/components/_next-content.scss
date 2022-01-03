@@ -1,0 +1,38 @@
+@use '../abstracts' as *;
+
+.next-content {
+  display: flex;
+  margin: $magic-number auto;
+  max-width: calc($magic-number * 21);
+  align-items: center;
+  height: $magic-number;
+  justify-content: center;
+  padding: 0 calc($magic-number / 8);
+
+  a {
+      box-sizing: content-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    height: 100%;
+    border-radius: $border-radius;
+    background-color: rgb(30, 30, 30);
+    width: clamp(calc($magic-number * 2), 50%, calc($magic-number * 10));
+    text-decoration: none;
+
+    &:last-child {
+        margin-left: 9px;
+    }
+
+    &:hover {
+      background-color: rgb(50, 50, 50);
+    }
+
+    span {
+      font-size: 2rem;
+      color: $text-color;
+    }
+  }
+}

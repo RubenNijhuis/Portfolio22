@@ -1,37 +1,39 @@
-@use '_sizes.scss' as *;
-@use '_colors.scss' as *;
-@use '_mixins.scss' as *;
+@use "_sizes.scss" as *;
+@use "_colors.scss" as *;
+@use "_mixins.scss" as *;
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    font-size: $root-font-size;
-    background-color: $background-color;
-    overflow-x: hidden;
+  font-size: $root-font-size;
+  background-color: $background-color;
+//   overflow-x: hidden;
 }
 
 body {
-    padding-top: $nav-height;
-    overflow-x: hidden;
-    
-    font-family: "Montserrat";
-    font-weight: 400;
+  padding-top: $nav-height;
 
-    padding-top: 27.3px;
-    @include for-tablet-and-up {
-        padding-top: 63.3px;
-    }
-    @include for-laptop-l-and-up {
-        padding-top: 45.3px;
-    }
+  font-family: "Montserrat", Helvetica Neue, Helvetica, sans-serif;
+  font-weight: 400;
+  text-rendering: geometricPrecision;
+  word-wrap: break-word;
+  font-feature-settings: "kern", "liga", "clig", "calt";
+  font-kerning: normal;
+
+  padding-top: 27.3px;
+  @include for-tablet-and-up {
+    padding-top: 63.3px;
+  }
+  @include for-laptop-l-and-up {
+    padding-top: 45.3px;
+  }
 }
 
 section {
-    overflow-x: hidden;
-    position: relative;
-    z-index: 10;
+  position: relative;
+  z-index: 10;
 }

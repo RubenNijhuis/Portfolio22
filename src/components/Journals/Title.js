@@ -1,7 +1,7 @@
 import { Link } from "gatsby";
 import React, { useState } from "react";
-import { flattenNameToURL } from "../../utils/helper-functions";
-import Tags from "../Tags";
+import { flattenNameToURL } from "utils/helper-functions";
+import Tags from "components/Tags";
 
 const Title = ({ title, tags, setActiveIndex, index }) => {
   const [mouseHover, setMouseHover] = useState(false);

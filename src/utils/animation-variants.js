@@ -61,10 +61,10 @@ export const footer_transition = {
 
 export const project_details_transition = {
   hidden: {
-        opacity: 0,
+    opacity: 0,
   },
   show: {
-      opacity: 1,
+    opacity: 1,
     transition: {
       delay: 1.25,
       duration: 0.5,
@@ -81,9 +81,9 @@ export const project_hero_transition = {
   reveal_animate: {
     height: "0%",
     transition: {
-      delay: 0.5,
-      duration: 0.75,
-      ease: [0.66, 0.25, 0.48, 1],
+      delay: 0.25,
+        duration: 1,
+      ease: [1, 0, 0.6, 1],
     },
   },
   initial_img: {
@@ -96,7 +96,7 @@ export const project_hero_transition = {
     y: "0%",
     transition: {
       delay: 0.5,
-      duration: 0.825,
+      duration: 0.75,
       ease: "easeOut",
     },
   },

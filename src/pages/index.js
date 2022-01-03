@@ -14,33 +14,36 @@ const IndexPage = ({ data }) => {
   /**
    * Split the data into variables for readability
    */
-  const projects_data = data.allContentfulProject.edges;
-  const entries_data = data.allContentfulJournal.edges;
-  const assets_data = data.allContentfulAsset.edges[0].node.file.url;
-  const about_data = data.contentfulAbout;
+  const projects_data = data.projects.edges;
+  const entries_data = data.journals.edges;
+  const assets_data = data.cv.file.url;
+  const about_data = data.about;
+
+  /*
+   * Scroll based checker - renders the journals or the infographic
+   * on top as they both occupy the same z-height in the stack
+   */
+
+  const handleScroll = () => {
+    if (isBrowser) {
+      const amount_scrolled = window.scrollY;
+      const setCSSVar = (name, val) =>
+        document.documentElement.style.setProperty(name, val);
+      const breakpoint = document.body.clientHeight / 2;
+      amount_scrolled > breakpoint
+        ? setCSSVar("--zInfographic", "none")
+        : setCSSVar("--zInfographic", "fixed");
+      amount_scrolled > breakpoint
+        ? setCSSVar("--zJournals", "fixed")
+        : setCSSVar("--zJournals", "none");
+    }
+  };
+  // Run function because initial render doesn't (causing a scroll freeze)
+  handleScroll();
 
   useEffect(() => {
-    /*
-     * Scroll based checker - renders the journals or the infographic
-     * on top as they both occupy the same z-height in the stack
-     */
-
-    // Initialize sometimes doens't set it I think - so thats why I added thiss
-    const amount_scrolled = window.srcollY || 0;
-    const handleScroll = () => {
-      if (isBrowser) {
-        const setCSSVar = (name, val) =>
-          document.documentElement.style.setProperty(name, val);
-        const breakpoint = document.body.clientHeight / 2;
-        amount_scrolled > breakpoint
-          ? setCSSVar("--zInfographic", "none")
-          : setCSSVar("--zInfographic", "fixed");
-        amount_scrolled > breakpoint
-          ? setCSSVar("--zJournals", "fixed")
-          : setCSSVar("--zJournals", "none");
-      }
-    };
     window.addEventListener("scroll", handleScroll);
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -64,7 +67,7 @@ export default IndexPage;
 
 export const query = graphql`
   query HomepageQuery {
-    allContentfulProject(sort: { order: DESC, fields: year }) {
+    projects: allContentfulProject(sort: { order: DESC, fields: year }) {
       edges {
         node {
           name
@@ -74,16 +77,33 @@ export const query = graphql`
           backgroundImg {
             title
             gatsbyImageData(
-              layout: FULL_WIDTH
-              width: 1000
-              placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
+              placeholder: DOMINANT_COLOR
             )
           }
         }
       }
     }
-    allContentfulJournal(sort: { fields: year, order: DESC }) {
+
+    about: contentfulAbout {
+      interests
+      compact_about {
+        raw
+      }
+      photo {
+        title
+        gatsbyImageData(
+          placeholder: DOMINANT_COLOR
+        )
+      }
+    }
+
+    cv: contentfulAsset(title: { eq: "cv" }) {
+      file {
+        url
+      }
+    }
+
+    journals: allContentfulJournal(sort: { fields: year, order: DESC }) {
       edges {
         node {
           name
@@ -93,36 +113,10 @@ export const query = graphql`
             title
             gatsbyImageData(
               width: 500
-              placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
+              placeholder: DOMINANT_COLOR
             )
           }
         }
-      }
-    }
-    allContentfulAsset(filter: { title: { eq: "cv" } }) {
-      edges {
-        node {
-          title
-          file {
-            url
-          }
-        }
-      }
-    }
-    contentfulAbout {
-      interests
-      compact_about {
-        raw
-      }
-      photo {
-        title
-        gatsbyImageData(
-          layout: FULL_WIDTH
-          width: 1000
-          placeholder: BLURRED
-          formats: [AUTO, WEBP, AVIF]
-        )
       }
     }
   }

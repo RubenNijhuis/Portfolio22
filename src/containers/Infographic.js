@@ -4,7 +4,7 @@ import React, {
   useState,
   useEffect,
 } from "react";
-import { isBrowser } from "../utils/helper-functions";
+import { isBrowser } from "utils/helper-functions";
 const images = [
   {
     url: "https://media0.giphy.com/media/3ohzdZO0nAL1H2LdMA/200w.webp?cid=ecf05e47vb961tncrfe72mkvag0vjwhgr18dce69hk16y3no&rid=200w.webp&ct=g",
@@ -114,8 +114,8 @@ const Infographic = () => {
   const { x, y } = useMousePosition(0, 0);
 
   return (
-    <section className="introduction">
-      <div className="introduction__content">
+    <section className="infographic">
+      <div className="infographic__content">
         <p>
           My name is Ruben and I create Digital Products using{" "}
           <Title
@@ -133,7 +133,7 @@ const Infographic = () => {
         </p>
       </div>
 
-      <div className="introduction__images">
+      <div className="infographic__images">
         <Media
           url={images[0].url}
           active={activeIndex}

@@ -19,15 +19,15 @@ const letterAni = (index, length_of_array) => {
   // Length of animation is the number every delay is a bit of the total time
   const animation_length = difference * (0.8 / length_of_array);
   // Rotation is from 0 till max based on index of letter
-  const rotation = (half_array - index) * -1 * 12.5;
+  //   const rotation = (half_array - index) * -1 * 10;
 
   return {
     initial: {
       y: 200,
-      rotate: rotation,
+      //   rotate: rotation,
     },
     animate: {
-      rotate: 0,
+      //   rotate: 0,
       y: 0,
       transition: {
         delay: animation_length,

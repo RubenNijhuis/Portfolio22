@@ -5,21 +5,28 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { graphql } from "gatsby";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { project_content_formatter } from "utils/content-formatters";
+import { flattenNameToURL } from "utils/helper-functions";
 
 // Animation
 import { motion } from "framer-motion";
-import { project_hero_transition } from "utils/animation-variants";
+import {
+    project_hero_transition,
+    project_details_transition,
+  } from "utils/animation-variants";
 
 // Components
 import AnimatedLetters from "components/Template/AnimatedLetters";
 import Layout from "components/Layout";
 import Tags from "components/Tags";
+import NextContent from "components/NextContent";
 
 const JournalTemplate = ({ data }) => {
   const { name, img, introduction, year, content, tags } =
     data.contentfulJournal;
 
-  const year_formatted = "2021";
+  const { previous, next } = data;
+
+  const year_formatted = `'${year.toString().slice(2, 4)}`;
   const bg_image_parsed = getImage(img);
   const tags_formatted = tags.split(" ");
 
@@ -31,7 +38,12 @@ const JournalTemplate = ({ data }) => {
             <div className="intro__details__header">
               <AnimatedLetters title={name} />
             </div>
-            <div className="intro__personalia">
+            <motion.div
+              className="intro__personalia"
+              initial="hidden"
+              animate="show"
+              variants={project_details_transition}
+            >
               <div className="intro__personalia__details">
                 <div>
                   <h2 className="bold">Year</h2>
@@ -39,7 +51,7 @@ const JournalTemplate = ({ data }) => {
                 </div>
               </div>
               <Tags tags={tags_formatted} theme={"light"} />
-            </div>
+            </motion.div>
           </div>
           <div className="intro__hero-img">
             <motion.div
@@ -48,10 +60,7 @@ const JournalTemplate = ({ data }) => {
               animate="animate_img"
               variants={project_hero_transition}
             >
-              <GatsbyImage
-                image={bg_image_parsed}
-                alt={bg_image_parsed.title}
-              />
+              <GatsbyImage image={bg_image_parsed} alt={img.title} />
             </motion.div>
             <motion.div
               initial="reveal_initial"
@@ -65,10 +74,22 @@ const JournalTemplate = ({ data }) => {
           {renderRichText(introduction, project_content_formatter.intro)}
         </div>
         <section>
-          <div className="template__content" style={{ color: "white" }}>
+          <div className="template__content">
             {renderRichText(content, project_content_formatter.content)}
           </div>
         </section>
+        <NextContent
+          previous={
+            previous === null
+              ? undefined
+              : `/journals/${flattenNameToURL(previous.name)}`
+          }
+          next={
+            next === null
+              ? undefined
+              : `/journals/${flattenNameToURL(next.name)}`
+          }
+        />
       </div>
     </Layout>
   );
@@ -77,7 +98,13 @@ const JournalTemplate = ({ data }) => {
 export default JournalTemplate;
 
 export const query = graphql`
-  query ($slug: String!) {
+  query ($slug: String!, $previous: String, $next: String) {
+    previous: contentfulJournal(name: { eq: $next }) {
+      name
+    }
+    next: contentfulJournal(name: { eq: $previous }) {
+      name
+    }
     contentfulJournal(name: { eq: $slug }) {
       name
       tags
@@ -97,6 +124,7 @@ export const query = graphql`
         raw
         references {
           ... on ContentfulAsset {
+            title
             contentful_id
             __typename
             gatsbyImageData(
