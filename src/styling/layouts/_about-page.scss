@@ -114,7 +114,7 @@
 
 .timeline_block {
   color: $text-color;
-  padding: calc($magic-number / 8);
+  padding: calc($magic-number / 4);
   margin-bottom: $magic-number;
 
   @include for-tablet-and-up {
@@ -132,31 +132,90 @@
 
   h2 {
     padding: 24px 0;
-    border-top: 1px solid $text-color;
-    border-bottom: 1px solid $text-color;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     font-size: 2.6rem;
+    color: $text-color;
 
     @include for-laptop-sm-and-up {
       font-size: 7.2rem;
     }
   }
 
-  &__moments {
-    .active {
-      span {
-        border-color: rgb(0, 255, 180);
-        background-color: rgb(0, 255, 180);
+  &__item {
+    padding: calc($magic-number / 4) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-content: start;
+
+    .job,
+    .company,
+    .location {
+      color: $text-color;
+      font-size: 1.8rem;
+      margin-bottom: calc($magic-number / 24);
+      font-weight: 400;
+    }
+
+    .location {
+      margin-bottom: calc($magic-number * -0.125);
+    }
+
+    .company {
+      margin-bottom: calc($magic-number / 8);
+    }
+
+    .job,
+    .location {
+      color: rgba(255, 255, 255, 0.35);
+      font-size: 1.4rem;
+    }
+
+    .year {
+      padding: 5px 14px;
+      border-radius: 100px;
+      border: solid 1px rgba(255, 255, 255, 0.1);
+      font-size: 1.2rem;
+      letter-spacing: 0.1px;
+      // background-color: rgba(255,255,255,0.1);
+      align-self: end;
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .bubble {
+      display: none;
+    }
+
+    &.active {
+      .bubble {
+        background-color: rgb(50, 255, 80);
+        border: none;
       }
     }
 
-    div {
-      padding: 24px 0;
-      display: flex;
+    @include for-laptop-sm-and-up {
+      flex-direction: row;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid $text-color;
+    }
 
-      span {
+    @include for-laptop-sm-and-up {
+      .job,
+      .company,
+      .location {
+        display: inline-block;
+        color: $text-color;
+        font-size: 1.8rem;
+        margin: 0;
+      }
+
+      .year {
+          border: none;
+          font-size: 1.8rem;
+      }
+
+      .bubble {
         display: inline-block;
         margin: 0 12px;
         width: 9px;
@@ -166,33 +225,10 @@
         border: solid 1px $text-color;
         border-radius: $magic-number;
 
-        @include for-laptop-sm-and-up {
-          width: 12px;
-          height: 12px;
-          min-width: 12px;
-          min-height: 12px;
-        }
-      }
-
-      p {
-        display: flex;
-        align-items: center;
-        font-size: 1.4rem;
-        line-height: 1.4;
-
-        @include for-laptop-sm-and-up {
-          font-size: 2rem;
-        }
-
-        &:first-child {
-          max-width: 72.5%;
-        }
-
-        &:last-child {
-          max-width: 22.5%;
-          align-items: end;
-          text-align: right;
-        }
+        width: 12px;
+        height: 12px;
+        min-width: 12px;
+        min-height: 12px;
       }
     }
   }
@@ -242,6 +278,7 @@
 
     @include for-laptop-sm-and-up {
       font-size: 2.2rem;
+      font-weight: 400;
     }
 
     @include for-laptop-l-and-up {
@@ -289,7 +326,7 @@
 
     .links {
       position: sticky;
-      top: 36px + 63.3px;
+      top: 18px + 63.3px;
 
       a {
         text-decoration: none;

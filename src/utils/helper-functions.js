@@ -44,8 +44,10 @@ export const useCurrentWidth = () => {
 
 export const setViewheightProperty = () => {
   let vh = window.innerHeight * 0.01;
+  if (isBrowser) {
     document.documentElement.style.setProperty("--vh", `${vh}px`);
-    return (Math.round(vh * 100) / 100);
+  }
+  return Math.round(vh * 100) / 100;
 };
 
 export const swap_array_elements = (arr) => {

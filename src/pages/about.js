@@ -10,16 +10,18 @@ import Layout from "components/Layout";
 import Tags from "components/Tags";
 
 const AboutPage = ({ data }) => {
-  const {
-    photo,
-    expanded_about,
-    interests,
-    education,
-    work_experience,
-    credits,
-  } = data.about;
+  const { photo, expanded_about, interests, education, work, credits } =
+    data.about;
 
   const cv = data.cv.file.url;
+
+  const work_split = work.work.split("\n");
+  const work_split_items = work_split.map((item, index) => item.split(" | "));
+
+  const education_split = education.education.split("\n");
+  const education_split_items = education_split.map((item, index) =>
+    item.split(" | ")
+  );
 
   const photo_parsed = getImage(photo);
 
@@ -82,86 +84,57 @@ const AboutPage = ({ data }) => {
       <div className="interests">
         <div className="interests__tags" />
       </div>
-      <div className="timeline_block">
-        <h2>Work</h2>
-        <div className="timeline_block__moments">
-          <div className="active">
-            <p>
-              Louder Minds - Founder <span className="circle"/> Amsterdam, NL
-            </p>
-            <p>20 - Present</p>
-          </div>
-          <div>
-            <p>
-              Dept Digital Agency - Freelance <span className="circle"/> Amsterdam, NL
-            </p>
-            <p>21</p>
-          </div>
-          <div>
-            <p>
-              ROC Amstelland - Web Design Teacher <span className="circle"/> Amstelveen, NL
-            </p>
-            <p>20</p>
-          </div>
-          <div>
-            <p>
-              Devign.it - Internship <span className="circle"/> Amsterdam, NL
-            </p>
-            <p>20</p>
-          </div>
-          <div>
-            <p>
-              SuperHero CheeseCake - Internship <span className="circle"/> Amsterdam, NL
-            </p>
-            <p>19</p>
-          </div>
-          <div>
-            <p>
-              Dept Digital Agency - Internship <span className="circle"/> Amsterdam. NL
-            </p>
-            <p>18</p>
+      <section>
+        <div className="timeline_block">
+          <h2>Work</h2>
+          <div className="timeline_block__moments">
+            {work_split_items.map(
+              ([job, company, location, year, active], index) => {
+                const active_class = active === "active" ? "active" : "";
+                return (
+                    <div className={`timeline_block__item ${active_class}`}>
+                    <div className="title">
+                      <h4 className="company">{company}</h4>
+                      <span className="bubble" />
+                      <h4 className="job">{job}</h4>
+                      <span className="bubble" />
+                      <h4 className="location">{location}</h4>
+                    </div>
+                    <p className={`year`}>{year}</p>
+                  </div>
+                );
+              }
+            )}
           </div>
         </div>
-      </div>
-      <div className="timeline_block">
-        <h2>Education</h2>
-        <div className="timeline_block__moments">
-          <div>
-            <p>
-              M.Sc in Graphics Programming at 42 New York <span className="circle"/> New
-              York, USA
-            </p>
-            <p>'24</p>
-          </div>
-          <div className="active">
-            <p>
-              B.Sc in Software Development at Codam Coding College{" "}
-              <span className="circle"/> Amsterdam, NL
-            </p>
-            <p>21 - Present</p>
-          </div>
-          <div>
-            <p>
-              Software Development at ROC Amstelland (MBO) <span className="circle"/>{" "}
-              Amstelveen, NL
-            </p>
-            <p>21</p>
-          </div>
-          <div>
-            <p>
-              Vocational Secondary at Media College (VMBO) <span className="circle"/>{" "}
-              Amsterdam, NL{" "}
-            </p>
-            <p>'24</p>
-          </div>
-          <div>
-            <p>
-              Pre University Secondary (VWO) <span className="circle"/> Amsterdam, NL
-            </p>
-            <p>20</p>
+
+        <div className="timeline_block">
+          <h2>Education</h2>
+          <div className="timeline_block__moments">
+            {education_split_items.map(
+              ([course, school, location, year, active], index) => {
+                    const active_class = active === "active" ? "active" : "";
+                    console.log(active);
+                return (
+                  <div
+                    className={`timeline_block__item ${active_class}`}
+                    key={index}
+                  >
+                    <div className="title">
+                      <h4 className="company">{course}</h4>
+                      <span className="bubble" />
+                      <h4 className="job">{school}</h4>
+                      <span className="bubble" />
+                      <h4 className="location">{location}</h4>
+                    </div>
+                    <p className="year">{year}</p>
+                  </div>
+                );
+              }
+            )}
           </div>
         </div>
-      </div>
+      </section>
     </Layout>
   );
 };
@@ -173,8 +146,12 @@ export const query = graphql`
     about: contentfulAbout {
       interests
       credits
-      education
-      work_experience
+      education {
+        education
+      }
+      work {
+        work
+      }
       expanded_about {
         raw
       }
