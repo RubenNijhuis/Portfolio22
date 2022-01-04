@@ -102,7 +102,7 @@ export const flattenNameToURL = (title) =>
  * Function that returns a styled console message based on the bwoser
  */
 export const console_message = () => {
-  if (typeof window !== "undefined") {
+  if (isBrowser) {
     const message = `👋 Hey, you! Curious about the tools that I used? This portfolio was made using GatsbyJS, SCSS, ThreeJS, React Fiber, Framer Motion and Contentful.
 Found a bug or noticed something that you think you can improve? 🔎 Thankfully this site is open-source, you can find it on my Github — https://github.com/rubennijhuis/portfolio22
 Happy coding! 👻`;
