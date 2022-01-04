@@ -10,8 +10,7 @@ import Layout from "components/Layout";
 import Tags from "components/Tags";
 
 const AboutPage = ({ data }) => {
-  const { photo, expanded_about, interests, education, work, credits } =
-    data.about;
+  const { photo, expanded_about, education, work } = data.about;
 
   const cv = data.cv.file.url;
 
@@ -92,7 +91,7 @@ const AboutPage = ({ data }) => {
               ([job, company, location, year, active], index) => {
                 const active_class = active === "active" ? "active" : "";
                 return (
-                    <div className={`timeline_block__item ${active_class}`}>
+                  <div className={`timeline_block__item ${active_class}`}>
                     <div className="title">
                       <h4 className="company">{company}</h4>
                       <span className="bubble" />
@@ -107,14 +106,13 @@ const AboutPage = ({ data }) => {
             )}
           </div>
         </div>
-
         <div className="timeline_block">
           <h2>Education</h2>
           <div className="timeline_block__moments">
             {education_split_items.map(
               ([course, school, location, year, active], index) => {
-                    const active_class = active === "active" ? "active" : "";
-                    console.log(active);
+                const active_class = active === "active" ? "active" : "";
+                console.log(active);
                 return (
                   <div
                     className={`timeline_block__item ${active_class}`}
@@ -134,6 +132,41 @@ const AboutPage = ({ data }) => {
             )}
           </div>
         </div>
+        <div className="contact">
+          <h2>Contact</h2>
+          <div className="contact__content">
+            <div className="greeting">
+              <p>
+                Let's get a ☕️ / 🍺 and discuss your idea. Let's make someting
+                great
+              </p>
+              <p>
+                My knowledge is best used with products regarding websites, apps
+                and digital design. But being an entrepeneur and unique idea
+                loving person, I would always like to discuss your next project
+                in whatever shape it may be
+              </p>
+              <p>
+                Hope to hear something from you,
+                <br />
+                Cheers from Ruben
+              </p>
+            </div>
+            <div className="items">
+              <div>
+                <h4>E-mail</h4>
+                <p>contact@rubennijhuis.com</p>
+              </div>
+              <div>
+                <h4>Louder Minds</h4>
+                <p>contact@louderminds.studio</p>
+              </div>
+              <div>
+                <a href="#">Curriculum Vitae</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     </Layout>
   );
@@ -144,8 +177,6 @@ export default AboutPage;
 export const query = graphql`
   query AboutQuery {
     about: contentfulAbout {
-      interests
-      credits
       education {
         education
       }

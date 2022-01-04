@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 
+// GatsbyJS specific function -> returns a bool defining the place where the website is run/compiled
 export const isBrowser = typeof window !== "undefined";
 
+// Returns the width of the browser
 const getWidth = () => {
   if (isBrowser) {
     return (
@@ -14,6 +16,10 @@ const getWidth = () => {
   }
 };
 
+/**
+ * React hook that returns the window width and an update function
+ * @returns [width, setWidth]
+ */
 export const useCurrentWidth = () => {
   // save current window width in the state object
   let [width, setWidth] = useState(getWidth());
@@ -42,19 +48,34 @@ export const useCurrentWidth = () => {
   return width;
 };
 
+/**
+ * function that returns the view height in pixels. Handy for view
+ * height vars that you don't want to update constantly.
+ *
+ * Mainly used for mobile and tablet where the view height changes
+ * @returns view height in pixels
+ */
 export const setViewheightProperty = () => {
-  let vh = window.innerHeight * 0.01;
+  let vh;
   if (isBrowser) {
+    vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
   }
   return Math.round(vh * 100) / 100;
 };
 
+/**
+ * Function that swap the elements in an array per two
+ * [1, 2, 3, 4, 5] -> [2, 1, 3, 4, 5]
+ *
+ * Doesn't swap the last element as it doesn't have a neighbour
+ *
+ * @param {array} arr
+ * @returns
+ */
 export const swap_array_elements = (arr) => {
   let formatted_array = [];
 
-  // Swap items if its in a grid shape
-  // [1, 2, 3, 4, 5] -> [2, 1, 3, 4, 5]
   for (let i = 0; i < arr.length; i++) {
     if (i % 2 === 0 && arr[i + 1] !== undefined) {
       let val1 = arr[i];
@@ -66,9 +87,20 @@ export const swap_array_elements = (arr) => {
   return formatted_array;
 };
 
+/**
+ * Parses the given title to a url friendly standard
+ *
+ * regular design systems -> regular-design-systems
+ *
+ * @param {string} title
+ * @returns
+ */
 export const flattenNameToURL = (title) =>
   title.toLowerCase().replace(/\s/g, "-");
 
+/**
+ * Function that returns a styled console message based on the bwoser
+ */
 export const console_message = () => {
   if (typeof window !== "undefined") {
     const message = `👋 Hey, you! Curious about the tools that I used? This portfolio was made using GatsbyJS, SCSS, ThreeJS, React Fiber, Framer Motion and Contentful.

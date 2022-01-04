@@ -132,8 +132,8 @@
             opacity: 0;
             object-fit: cover;
             pointer-events: none;
-            transition: opacity $duration-slow $ease-in-out,
-                transform $duration-slow $ease-in-out;
+            transition: opacity $duration-medium $ease-out,
+                transform $duration-medium $ease-out;
         }
     }
 }

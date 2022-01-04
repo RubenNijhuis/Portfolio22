@@ -142,7 +142,7 @@ Currently the file structure is partly based off of the [Sass 7-1 pattern](https
 
 # ☑️ Todo's
 
-Created 23dec - Last updated 26dec
+Created 23x12x21 - Last updated 04x01x22
 
 Styling
 
@@ -160,7 +160,7 @@ Template Project
 - [x] Make responsive
 - [x] Add "go-to-other-content" blocks
       NOTE: Use the same system as in default blog, they probably didnt get the full component during compile time in gatsby node because sending the ID and then pulling that in the template component works better data aggregation wise + data pulling is more centralized as new data would otherwise have to be updated in 2 places. With this way only in the template file
-- [ ] Fix alt titles images
+- [x] Fix alt titles images
 
 Template Image Component
 
@@ -170,13 +170,18 @@ Template Image Component
 Home Page
 
 - [ ] Add hero img or 3d img thingy, just make something interactive to place
-- [ ] Horizontal text for introduction (just an idea)
 
 About Page
 
 - [ ] Make the goddamn thing
+    - [x] Create intro
+    - [x] create education and work section
+    - [ ] create credits and tools section
+    - [ ] create horizontal text
+    - [ ] create interactive piece
+    - [ ] Create contact section
 
-Contact Page
+Contact Page - (FEATURE CANCELLED)
 
 - [ ] Design (must include)
   - [ ] Contact form (as short as possible)
@@ -190,14 +195,13 @@ Gallery Page
 
 CMS Aggregation
 
-- [ ] Add descriptions and proper alts to images
+- [x] Add descriptions and proper alts to images
 - [ ] Design system to make data transformers and keep data types centralized
-- [ ] Create components for outputting datatypes
 - [ ] Write proper content and create nice case images
 
 Code Architecture
 
-- [ ] Make components and containers not handle data and only display
+- [ ] Make components not handle data and only display
 
 Animation
 
