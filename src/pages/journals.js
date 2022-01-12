@@ -5,7 +5,7 @@ import Layout from "components/Layout";
 import { graphql } from "gatsby";
 
 const JournalsPage = ({ data }) => {
-  const entries_data = data.allContentfulJournal.edges;
+  const entries_data = data.journals.nodes;
 
   useEffect(() => {
     document.documentElement.style.setProperty("--zJournals", "fixed");
@@ -20,20 +20,14 @@ const JournalsPage = ({ data }) => {
 
 export const query = graphql`
   query JournalPageQuery {
-    allContentfulJournal(sort: { fields: year, order: DESC }) {
-      edges {
-        node {
-          name
-          tags
-          year
-          img {
-            title
-            gatsbyImageData(
-              width: 1000
-              placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
-            )
-          }
+    journals: allContentfulJournal(sort: { fields: year, order: DESC }) {
+      nodes {
+        name
+        tags
+        year
+        img {
+          title
+          gatsbyImageData(width: 500, placeholder: DOMINANT_COLOR)
         }
       }
     }

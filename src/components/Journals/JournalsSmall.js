@@ -63,7 +63,7 @@ const JournalYearContainer = ({ limit, year, entries }) => {
       <h2 className="journals-small__year">'{year}</h2>
       <div className="journals-small__grid">
         {entries.slice(0, limit_length).map((entry, index) => {
-          const [name, tags, img, img_alt] = sanitize_entry(entry);
+          const { name, tags, img, img_alt } = sanitize_entry(entry);
           return (
             <JournalSmall
               name={name}
@@ -89,7 +89,7 @@ const JournalsSmall = ({ entries, limit = false, animate }) => {
   return (
     <section className="journals-small">
       <header className="headline">Journals</header>
-          {entries_formatted.map((year_entries, index) => {
+      {entries_formatted.map((year_entries, index) => {
         let year = new Date().getFullYear();
         // Grab the last two digits
         let year_formatted = (year - index).toString().slice(2, 4);

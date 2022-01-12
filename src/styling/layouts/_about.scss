@@ -1,162 +1,96 @@
-@use '../abstracts' as *;
+@use "../abstracts" as *;
 
 .about-small {
-  display: grid;
-  position: relative;
+  display: flex;
+  flex-direction: column;
   padding: calc($magic-number) calc($magic-number / 4);
 
-  grid-template-columns: calc($magic-number * 2) 1fr;
-  grid-template-rows: repeat(4, max-content);
-  grid-column-gap: calc($magic-number / 4);
-  grid-row-gap: calc($magic-number / 2);
-  grid-template-areas:
-    "profile personalia"
-    "story story"
-    "interests interests"
-    "contact contact";
-
   background-color: $text-color;
-  overflow: hidden;
 
-  @include for-tablet-and-up {
-    padding: calc($magic-number) calc($magic-number / 2);
-    grid-template-columns: 2fr 3fr;
-    grid-row-gap: calc($magic-number);
-    grid-column-gap: calc($magic-number / 2);
-    grid-template-areas:
-      "profile story"
-      "profile personalia"
-      "profile interests"
-      "profile contact";
-  }
-
-  @include for-laptop-sm-and-up {
-    padding: calc($magic-number) calc($magic-number / 2);
+  .interests {
+    padding: calc($magic-number / 4) 0;
+    font-size: 1.6rem;
+    border-bottom: 1px solid $background-color;
+    display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-column-gap: calc($magic-number / 2);
+    grid-column-gap: 18px;
+    height: fit-content;
   }
 
-  @include for-laptop-l-and-up {
-    padding: calc($magic-number * 2) calc($magic-number * 1);
-    grid-column-gap: calc($magic-number);
+  p:last-of-type,
+  span:last-of-type {
+    margin-bottom: 0;
   }
 
-  &__profile,
-  &__story,
-  &__personalia,
-  &__interests,
-  &__contact {
-    max-width: calc(12 * $magic-number);
+  .img-wrapper {
+    margin-bottom: calc($magic-number / 4);
   }
 
-  &__profile {
-    position: relative;
-    padding-top: 132.5%;
-
-    @include size(100%, 0);
-
+  .img {
+    width: 100%;
     overflow: hidden;
     border-radius: $border-radius;
-
-    @include for-tablet-and-up {
-      grid-row: 1 / 5;
-    }
-
-    @include for-laptop-xl-and-up {
-      padding-top: 0;
-      justify-self: end;
-      height: calc($magic-number * 16);
-      max-height: unset;
-    }
-
-    .gatsby-image-wrapper {
-      position: absolute;
-      top: 0;
-      left: 0;
-      object-fit: cover;
-      @include size(100%);
-
-      @include for-laptop-xl-and-up {
-        height: calc($magic-number * 16);
-      }
-    }
+    background: $background-color;
+    aspect-ratio: 4/5;
   }
 
-  &__personalia {
-    grid-area: personalia;
+  .gatsby-image-wrapper {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .content-wrapper {
+    font-size: clamp(16px, 4vw, 56px);
     line-height: 1.4;
-
-    p:nth-of-type(2) {
-      margin-bottom: calc($magic-number / 4);
-    }
+    padding: calc($magic-number / 2) 0;
+    padding-bottom: 0;
   }
 
-  &__story {
-    grid-area: story;
-    line-height: 1.4;
-    max-width: 40ch;
-
-    @include for-laptop-xl-and-up {
-      max-width: calc(12 * $magic-number);
-    }
-
-    p {
-      font-weight: 400;
-      margin-bottom: calc($magic-number / 4);
-
-      &:last-of-type {
-        margin-bottom: 0;
-      }
-    }
+  a {
+    color: $background-color;
+  }
+  p:first-of-type {
+    margin-top: 0;
   }
 
-  &__interests {
-    grid-area: interests;
-
-    span {
-      display: inline-block;
-      padding: 6px 12px;
-      margin: 4.5px;
-
-      background: $background-color;
-      border-radius: $border-radius-tag;
-    }
+  p {
+    max-width: 38ch;
+    margin-bottom: calc($magic-number / 4);
   }
+}
 
-  &__contact {
-    grid-area: contact;
-    cursor: pointer;
+@include for-laptop-sm-and-up {
+  .about-small {
+    display: grid;
+    grid-template-columns: minmax(200px, calc($magic-number * 6)) 1fr;
+    grid-column-gap: $magic-number;
+    grid-row-gap: 0px;
+    padding: $magic-number;
 
-    a {
-      text-decoration: none;
-      color: $background-color;
+    .img-wrapper {
+      margin-bottom: calc($magic-number / 2);
+    }
+
+    .content-wrapper {
       padding: calc($magic-number / 8) 0;
-      display: flex;
-      justify-content: space-between;
+      font-size: clamp(16px, 2.35vw, 56px);
 
-      &:hover {
-        img {
-          transform: translateX(-100%);
-        }
+      p {
+        margin-bottom: calc($magic-number / 2);
+        font-weight: 400;
       }
     }
 
-    p {
-      margin: 0;
-      display: inline-block;
+    .aside {
+      margin: 0 auto;
+      max-width: calc($magic-number * 5.5);
     }
+  }
+}
 
-    img {
-      width: 26px;
-      display: inline-block;
-      transition: $duration-inter ease-out transform;
-    }
-
-    &__line {
-      display: block;
-      height: 2px;
-
-      background: rgba(0, 0, 0, 0.1);
-    }
+@include for-laptop-l-and-up {
+  .about-small {
+    padding: calc($magic-number * 2) $magic-number;
   }
 }

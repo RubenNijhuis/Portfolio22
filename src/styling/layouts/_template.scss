@@ -107,7 +107,7 @@
       }
 
       &--wrapper {
-        @include size(100%);
+        // @include size(100%);
         z-index: 5;
 
         .gatsby-image-wrapper {

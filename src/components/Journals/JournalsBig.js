@@ -38,7 +38,7 @@ const JournalsContainer = ({
       <h2 className="year">'{year}</h2>
       <div className="project-list">
         {year_entries.map((entry, index) => {
-          const [name, tags] = sanitize_entry(entry);
+          const { name, tags } = sanitize_entry(entry);
           return (
             <Title
               title={name}
@@ -52,7 +52,7 @@ const JournalsContainer = ({
       </div>
       <div className="project-media">
         {year_entries.map((entry, index) => {
-          const [name, tags, img, img_alt] = sanitize_entry(entry);
+          const { img, img_alt } = sanitize_entry(entry);
 
           let isActive = index + iindex === activeIndex;
           let xPos = x;
@@ -74,7 +74,7 @@ const JournalsContainer = ({
 };
 
 const JournalsPage = ({ entries }) => {
-  const [entries_formatted, amount_entries] = sanitize_journal_entries(entries);
+  const [entries_formatted] = sanitize_journal_entries(entries);
   const [activeIndex, setActiveIndex] = useState(-1);
   const { x, y } = useMousePosition();
 

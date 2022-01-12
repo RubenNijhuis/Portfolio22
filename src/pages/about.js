@@ -5,20 +5,20 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { graphql } from "gatsby";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 
+// Components
 import Arrow from "components/Arrow";
 import Layout from "components/Layout";
-import Tags from "components/Tags";
+import TimeLine from "components/TimeLine";
 
 const AboutPage = ({ data }) => {
   const { photo, expanded_about, education, work } = data.about;
 
   const cv = data.cv.file.url;
 
-  const work_split = work.work.split("\n");
-  const work_split_items = work_split.map((item, index) => item.split(" | "));
-
-  const education_split = education.education.split("\n");
-  const education_split_items = education_split.map((item, index) =>
+  const work_items = [...work.work.split("\n")].map((item) =>
+    item.split(" | ")
+  );
+  const education_items = [...education.education.split("\n")].map((item) =>
     item.split(" | ")
   );
 
@@ -84,54 +84,10 @@ const AboutPage = ({ data }) => {
         <div className="interests__tags" />
       </div>
       <section>
-        <div className="timeline_block">
-          <h2>Work</h2>
-          <div className="timeline_block__moments">
-            {work_split_items.map(
-              ([job, company, location, year, active], index) => {
-                const active_class = active === "active" ? "active" : "";
-                return (
-                  <div className={`timeline_block__item ${active_class}`}>
-                    <div className="title">
-                      <h4 className="company">{company}</h4>
-                      <span className="bubble" />
-                      <h4 className="job">{job}</h4>
-                      <span className="bubble" />
-                      <h4 className="location">{location}</h4>
-                    </div>
-                    <p className={`year`}>{year}</p>
-                  </div>
-                );
-              }
-            )}
-          </div>
-        </div>
-        <div className="timeline_block">
-          <h2>Education</h2>
-          <div className="timeline_block__moments">
-            {education_split_items.map(
-              ([course, school, location, year, active], index) => {
-                const active_class = active === "active" ? "active" : "";
-                console.log(active);
-                return (
-                  <div
-                    className={`timeline_block__item ${active_class}`}
-                    key={index}
-                  >
-                    <div className="title">
-                      <h4 className="company">{course}</h4>
-                      <span className="bubble" />
-                      <h4 className="job">{school}</h4>
-                      <span className="bubble" />
-                      <h4 className="location">{location}</h4>
-                    </div>
-                    <p className="year">{year}</p>
-                  </div>
-                );
-              }
-            )}
-          </div>
-        </div>
+        <TimeLine title="Work" items={work_items} />
+        <TimeLine title="Education" items={education_items} />
+      </section>
+      <section>
         <div className="contact">
           <h2>Contact</h2>
           <div className="contact__content">
@@ -188,12 +144,7 @@ export const query = graphql`
       }
       photo {
         title
-        gatsbyImageData(
-          layout: FULL_WIDTH
-          width: 3000
-          placeholder: BLURRED
-          formats: [AUTO, WEBP, AVIF]
-        )
+        gatsbyImageData(width: 2000, placeholder: BLURRED)
       }
     }
 

@@ -1,7 +1,8 @@
 @use '../abstracts' as *;
 
 .infographic {
-    height: calc(var(--vh) * 100);
+    overflow: hidden;
+    height: calc(var(--vh) * 85);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,7 +13,7 @@
         padding: calc($magic-number / 2);
     }
     @include for-laptop-sm-and-up {
-        height: calc(var(--vh) * 125);
+        height: calc(var(--vh) * 100);
         padding: calc($magic-number * 2) calc($magic-number);
     }
 
@@ -28,79 +29,6 @@
 
             @include for-laptop-l-and-up {
                 margin-bottom: calc($magic-number);
-            }
-        }
-
-        span {
-            position: relative;
-            display: inline-block;
-            transition: $duration-inter ease-in-out opacity;
-
-            &:hover {
-                opacity: 0.2;
-            }
-        }
-
-        a {
-            position: relative;
-            text-decoration: none;
-            display: inline-block;
-
-            @include for-laptop-sm-and-up {
-                &:before,
-                &:after {
-                    position: absolute;
-                    content: "";
-                    left: 0;
-                    bottom: 0;
-
-                    @include size(100%, 2px);
-                    background: rgba(255, 255, 255, 0.1);
-                }
-
-                &:after {
-                    width: 0%;
-                    background: rgba(255, 255, 255, 1);
-                    transition: $duration-slow cubic-bezier(0.75, 0.01, 0.66, 1.01) width;
-                }
-                &:hover {
-                    &:after {
-                        width: 100%;
-                    }
-                }
-            }
-        }
-    }
-
-    &__images {
-        position: var(--zInfographic);
-        top: 0;
-        left: 0;
-
-        @include size(100%);
-
-        z-index: 9;
-        user-select: none;
-
-        div {
-            position: absolute;
-            @include size(calc($magic-number * 3.5), calc($magic-number * 5));
-
-            overflow: hidden;
-            transition: box-shadow 0.45s $ease-in-out;
-            border-radius: $border-radius;
-
-            &.is-active img {
-                opacity: 1;
-            }
-
-            img {
-                @include size(100%);
-                opacity: 0;
-                object-fit: cover;
-                pointer-events: none;
-                transition: opacity $duration-inter $ease-in-out,
-                    transform $duration-slow $ease-in-out;
             }
         }
     }

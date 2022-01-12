@@ -35,7 +35,7 @@ const ProjectTemplate = ({ data }) => {
   } = project;
 
   // Format data
-  const year_formatted = year.slice(2, 4);
+  const year_formatted = `'${year.toString().slice(2, 4)}`;
   const bg_image_parsed = getImage(backgroundImg);
   const tags_formatted = tags.split(" ");
 
@@ -63,7 +63,7 @@ const ProjectTemplate = ({ data }) => {
               <div className="intro__personalia__details">
                 <div>
                   <h2 className="bold">Year</h2>
-                  <h2>'{year_formatted}</h2>
+                  <h2>{year_formatted}</h2>
                 </div>
                 <div>
                   <h2 className="bold">Role</h2>

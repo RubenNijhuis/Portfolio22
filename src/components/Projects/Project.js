@@ -6,15 +6,15 @@ import { useInView } from "react-intersection-observer";
 
 // Utils
 import { useCurrentWidth, flattenNameToURL } from "utils/helper-functions";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { sizes } from "utils/constants";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 // Components
 import { Link } from "gatsby";
 import Tags from "components/Tags";
 import Arrow from "components/Arrow";
 
-const Project = ({ name, description, img, tags, animate, count }) => {
-  const parsed_image = getImage(img);
+const Project = ({ name, description, img, img_alt, tags, animate, count }) => {
   const parsed_name = flattenNameToURL(name);
   const width = useCurrentWidth();
 
@@ -22,9 +22,8 @@ const Project = ({ name, description, img, tags, animate, count }) => {
    * Check if grid is active and returns correct Y offset
    * (TODO: Have the grid set animation and layout)
    */
-  const breakpoint = 1024;
   const offset_height = (offset, hidden) => {
-    if (width < breakpoint) return hidden ? `${offset}%` : "0%"
+    if (width < sizes.medium) return hidden ? `${offset}%` : "0%";
     else {
       if (count % 2 === 0) {
         return hidden ? "10%" : "0%";
@@ -61,11 +60,11 @@ const Project = ({ name, description, img, tags, animate, count }) => {
   // Check whether project is in view and sets visibility from variants
   useEffect(() => {
     if (animate) {
-        inView ? controls.start("visible") : controls.start("hidden");
+      inView ? controls.start("visible") : controls.start("hidden");
     } else {
       controls.start("visible");
     }
-  }, [inView, width]);
+  }, [inView, width, animate, controls]);
 
   return (
     <motion.article
@@ -77,7 +76,7 @@ const Project = ({ name, description, img, tags, animate, count }) => {
       <Link className="project" to={`/projects/${parsed_name}`}>
         <article className="project__preview">
           <div className="project__img-wrapper">
-            <GatsbyImage image={parsed_image} alt={img.alt} />
+            <GatsbyImage image={img} alt={img_alt} />
             <Tags tags={tags} theme="dark" />
           </div>
           <div className="project__description">

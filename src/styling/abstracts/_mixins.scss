@@ -4,11 +4,6 @@
     height: $height;
 }
 
-// // Magic number calc done easier
-// @function magic-number($scalar: 1) {
-//     @return calc($magic-number * $scalar);
-// }
-
 $tablet: 768px;
 $laptop-sm: 1024px;
 $laptop-l: 1440px;

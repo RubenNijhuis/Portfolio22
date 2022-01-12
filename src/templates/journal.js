@@ -47,7 +47,7 @@ const JournalTemplate = ({ data }) => {
               <div className="intro__personalia__details">
                 <div>
                   <h2 className="bold">Year</h2>
-                  <h2>'{year_formatted}</h2>
+                  <h2>{year_formatted}</h2>
                 </div>
               </div>
               <Tags tags={tags_formatted} theme={"light"} />

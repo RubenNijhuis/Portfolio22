@@ -1,6 +1,6 @@
 @use '../abstracts' as *;
 
-.projects {
+.projects-grid {
     padding: $magic-number calc($magic-number / 4);
 
     @include for-tablet-and-up {
@@ -42,7 +42,7 @@
             grid-template-columns: 1fr 1fr;
             grid-column-gap: calc($magic-number / 2);
             grid-row-gap: calc($magic-number * 2);
-            margin-bottom: calc($magic-number * 2);
+            margin-bottom: calc($magic-number * 1);
         }
 
         @include for-laptop-l-and-up {

@@ -1,4 +1,4 @@
-@use '../abstracts' as *;
+@use "../abstracts" as *;
 
 .row-title {
   display: block;
@@ -37,11 +37,11 @@
     font-weight: 600;
 
     @include for-tablet-and-up {
-        font-size: clamp(18.65px, 6.46vw, 102.6px);
+      font-size: clamp(18.65px, 6.46vw, 102.6px);
     }
 
     @include for-laptop-sm-and-up {
-        font-size: clamp(18.65px, 6.18vw, 102.6px);
+      font-size: clamp(18.65px, 6.18vw, 102.6px);
     }
 
     @include for-laptop-l-and-up {
@@ -99,26 +99,12 @@
 
 .infographic {
   &__content {
-    p,
-    a {
+    p {
       color: $text-color;
       line-height: 1.4;
       font-weight: 400;
 
-      font-size: clamp(18px, 4.44vw, 120px);
-    }
-
-    span {
-      font-weight: 700;
-    }
-
-    a {
-      color: $text-color;
-      text-decoration: none;
-
-      &:visited {
-        color: $text-color;
-      }
+      font-size: clamp(18px, 4.5vw, 120px);
     }
   }
 }
@@ -180,7 +166,7 @@
   }
 }
 
-.projects {
+.projects-grid {
   .heading {
     font-family: "Syne";
     font-weight: 700;
