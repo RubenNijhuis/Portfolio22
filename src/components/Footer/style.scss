@@ -13,7 +13,7 @@
         padding: $magic-number calc($magic-number / 2);
     }
     @include for-laptop-sm-and-up {
-        padding: $magic-number;
+        padding: 0 $magic-number;
     }
 
     .email {
@@ -108,7 +108,7 @@
       }
   
       @include for-laptop-l-and-up {
-        font-size: clamp(34px, 6.28vw, 102.6px);
+        font-size: clamp(34px, 5.7vw, 102.6px);
       }
     }
   

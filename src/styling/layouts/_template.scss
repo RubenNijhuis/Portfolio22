@@ -249,6 +249,7 @@
         margin: calc($magic-number) auto;
       }
 
+      transform: translateZ(0px); // safari border radius fx
       overflow: hidden;
       border-radius: $border-radius;
 
