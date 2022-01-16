@@ -3,7 +3,7 @@ import React from "react";
 // Styling
 import "./style.scss";
 
-const TimeLine = ({ title, items }) => {
+const TimeLineBlock = ({ title, items }) => {
   const className = "timeline_block";
 
   return (
@@ -30,4 +30,4 @@ const TimeLine = ({ title, items }) => {
   );
 };
 
-export default TimeLine;
+export default TimeLineBlock;

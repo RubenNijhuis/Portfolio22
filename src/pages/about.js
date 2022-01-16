@@ -7,7 +7,7 @@ import { renderRichText } from "gatsby-source-contentful/rich-text";
 // Components
 import Arrow from "components/Arrow";
 import Layout from "components/Layout";
-import TimeLine from "components/TimeLine";
+import TimeLineBlock from "components/TimeLineBlock";
 import AssetHandler from "components/AssetHandler";
 
 // Styling
@@ -85,8 +85,8 @@ const AboutPage = ({ data }) => {
         <div className="interests__tags" />
       </div>
       <section>
-        <TimeLine title="Work" items={work_items} />
-        <TimeLine title="Education" items={education_items} />
+        <TimeLineBlock title="Work" items={work_items} />
+        <TimeLineBlock title="Education" items={education_items} />
       </section>
       <section>
         <div className="contact">
