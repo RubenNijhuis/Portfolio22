@@ -27,7 +27,8 @@ const ProjectsGrid = ({ projects, animate = true, limit = false }) => {
       <div className="grid">
         {width !== undefined &&
           projects_parsed.map((project, index) => {
-            const { name, tags, description, img } = sanitize_project(project);
+            const { name, tags, description, img, background } =
+              sanitize_project(project);
             return (
               <Project
                 animate={animate}
@@ -36,6 +37,7 @@ const ProjectsGrid = ({ projects, animate = true, limit = false }) => {
                 description={description}
                 img={img}
                 tags={tags}
+                background={background}
                 count={index}
               />
             );

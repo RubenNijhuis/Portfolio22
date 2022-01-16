@@ -58,11 +58,15 @@
     display: inline-block;
     padding: calc($magic-number / 2);
 
+    .tags {
+      transition: all $duration-medium $ease-out;
+    }
+
     &:hover {
       cursor: pointer;
 
       .project-title,
-      .project-tag-list {
+      .tags {
         opacity: 0.2;
         transform: scale(1.025);
       }

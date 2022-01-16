@@ -19,6 +19,7 @@
     "@fontsource/montserrat": "^4.5.1",
     "@fontsource/syne": "^4.5.0",
     "babel-plugin-styled-components": "^2.0.2",
+    "dat.gui": "^0.7.7",
     "directory-named-webpack-plugin": "^4.0.1",
     "framer-motion": "^4.1.17",
     "gatsby": "^4.2.0",
@@ -39,6 +40,7 @@
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "react-intersection-observer": "^8.33.1",
+    "react-three-fiber": "^6.0.13",
     "sass": "^1.45.0",
     "styled-components": "^5.3.3",
     "three": "^0.135.0"

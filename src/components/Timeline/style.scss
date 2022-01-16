@@ -46,10 +46,6 @@
         font-weight: 400;
       }
   
-      .location {
-        margin-bottom: calc($magic-number * -0.125);
-      }
-  
       .company {
         margin-bottom: calc($magic-number / 8);
       }
@@ -67,7 +63,7 @@
         font-size: 1.2rem;
         letter-spacing: 0.1px;
         // background-color: rgba(255,255,255,0.1);
-        align-self: end;
+        align-self: flex-end;
         color: rgba(255, 255, 255, 0.75);
       }
   

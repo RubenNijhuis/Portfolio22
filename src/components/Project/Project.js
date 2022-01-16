@@ -17,10 +17,11 @@ import AssetHandler from "components/AssetHandler";
 // Styling
 import "./style.scss";
 
-const Project = ({ name, description, img, tags, animate, count }) => {
+const Project = ({ name, description, img, tags, background, animate, count }) => {
   const parsed_name = flattenNameToURL(name);
   const width = useCurrentWidth();
-  const className = "project";
+    const className = "project";
+    
 
   /*
    * Check if grid is active and returns correct Y offset
@@ -79,7 +80,7 @@ const Project = ({ name, description, img, tags, animate, count }) => {
     >
       <Link className={className} to={`/projects/${parsed_name}`}>
         <article className="preview">
-          <div className="img-wrapper">
+          <div className="img-wrapper" style={{backgroundColor: background}}>
             <AssetHandler asset={img} />
             <Tags tags={tags} theme="dark" />
           </div>

@@ -8,7 +8,10 @@ import { renderRichText } from "gatsby-source-contentful/rich-text";
 import Arrow from "components/Arrow";
 import Layout from "components/Layout";
 import TimeLine from "components/TimeLine";
-import AssetHandler from "../components/AssetHandler";
+import AssetHandler from "components/AssetHandler";
+
+// Styling
+import "../styling/layouts/_about-page.scss";
 
 const AboutPage = ({ data }) => {
   const { photo, expanded_about, education, work } = data.about;

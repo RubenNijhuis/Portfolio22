@@ -20,6 +20,9 @@ import Tags from "components/Tags";
 import NextContent from "components/NextContent";
 import AssetHandler from "../components/AssetHandler";
 
+// Styling
+import "../styling/layouts/_template.scss";
+
 const JournalTemplate = ({ data }) => {
   const { name, img, introduction, year, content, tags } = data.journal;
 

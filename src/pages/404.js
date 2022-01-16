@@ -3,6 +3,9 @@ import React from "react";
 // Components
 import Layout from "components/Layout";
 
+// Styling
+import "../styling/layouts/_not-found.scss";
+
 const NotFoundPage = () => {
   return (
     <Layout footer={false}>

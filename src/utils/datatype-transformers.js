@@ -31,6 +31,7 @@ export const sanitize_project = (project) => {
   const tags = project.tags.split(" | ");
   const description = project.description;
   const img = project.backgroundImg;
+  const background = project.backgroundColor;
 
-  return { name, tags, description, img };
+  return { name, tags, description, img, background };
 };

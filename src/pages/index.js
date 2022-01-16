@@ -1,7 +1,7 @@
 import React from "react";
 
 // Components
-// import Hero from "containers/Hero";
+import Hero from "containers/Hero";
 import Layout from "components/Layout";
 import Intro from "containers/Intro";
 import ProjectsGrid from "components/ProjectsGrid";
@@ -11,25 +11,17 @@ import Journals from "components/Journals";
 // Data
 import { graphql } from "gatsby";
 
-// Utils
-// Utils
-import { useCurrentWidth } from "utils/helper-functions";
-
 const IndexPage = ({ data }) => {
   const { projects, journals, about } = data;
 
-  // Split the data into variables for readability
   const projects_data = projects.nodes;
   const entries_data = journals.nodes;
   const about_data = about;
 
-  const width = useCurrentWidth();
-  const change_point = 1024;
-
   return (
     <Layout>
-      {/* <Hero /> */}
-      {width > change_point ? <Intro /> : null}
+      <Hero />
+      <Intro />
       <ProjectsGrid projects={projects_data} animate={true} limit={true} />
       <SmallAbout about={about_data.compact_about} photo={about_data.photo} />
       <Journals entries={entries_data} animate={true} limit={true} />
@@ -47,6 +39,7 @@ export const query = graphql`
         description
         tags
         year
+        backgroundColor
         backgroundImg {
           title
           file {

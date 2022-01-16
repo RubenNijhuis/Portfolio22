@@ -20,6 +20,9 @@ import Tags from "components/Tags";
 import NextContent from "components/NextContent";
 import AssetHandler from "../components/AssetHandler";
 
+// Styling
+import "../styling/layouts/_template.scss"
+
 const ProjectTemplate = ({ data }) => {
   // Splitting data for readability
   const { previous, project, next } = data;
@@ -30,7 +33,8 @@ const ProjectTemplate = ({ data }) => {
     year,
     role,
     content,
-    tags,
+      tags,
+    backgroundColor,
     main_img,
   } = project;
 
@@ -72,7 +76,10 @@ const ProjectTemplate = ({ data }) => {
               <Tags tags={tags_formatted} theme={"light"} />
             </motion.div>
           </div>
-          <div className="intro__hero-img">
+          <div
+            className="intro__hero-img"
+            style={{ backgroundColor: backgroundColor }}
+          >
             <motion.div
               className="intro__hero-img--wrapper"
               initial="initial_img"
@@ -127,6 +134,7 @@ export const query = graphql`
     project: contentfulProject(name: { eq: $slug }) {
       name
       description
+      backgroundColor
       introduction {
         raw
       }
@@ -148,9 +156,9 @@ export const query = graphql`
             title
             contentful_id
             file {
-                contentType
-                url
-              }
+              contentType
+              url
+            }
             __typename
             gatsbyImageData(
               layout: FULL_WIDTH
