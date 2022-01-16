@@ -1,5 +1,18 @@
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
+/* Custom css added by Ruben Nijhuis
+ * Remove picture in picture element firefox
+ */
+.pip-expanded,
+.pip-small,
+.pip-icon,
+.pip-explainer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+}
+
 /* Document
    ========================================================================== */
 

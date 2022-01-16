@@ -23,7 +23,7 @@ const IndexPage = ({ data }) => {
       <Intro />
       <ProjectsGrid projects={projects_data} animate={true} limit={true} />
       <SmallAbout about={about_data.compact_about} photo={about_data.photo} />
-      <Journals entries={entries_data} animate={true} limit={true} />
+      {/* <Journals entries={entries_data} animate={true} limit={true} /> */}
     </Layout>
   );
 };

@@ -1,7 +1,7 @@
-@use '../abstracts' as *;
+@use '../../styling/abstracts/' as *;
 
 .tags {
-  &__tag {
+  .tag {
     display: inline-block;
     margin-right: calc($magic-number / 8);
 

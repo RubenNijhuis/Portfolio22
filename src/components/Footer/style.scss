@@ -13,7 +13,7 @@
         padding: $magic-number calc($magic-number / 2);
     }
     @include for-laptop-sm-and-up {
-        padding: 0 $magic-number;
+        padding: $magic-number;
     }
 
     .email {
@@ -90,3 +90,42 @@
         }
     }
 }
+
+// Typography
+.footer {
+    .email {
+      color: $text-color;
+  
+      font-size: clamp(18.65px, 6.78vw, 60px);
+      font-weight: 600;
+  
+      @include for-tablet-and-up {
+        font-size: clamp(18.65px, 6.46vw, 102.6px);
+      }
+  
+      @include for-laptop-sm-and-up {
+        font-size: clamp(18.65px, 6.13vw, 102.6px);
+      }
+  
+      @include for-laptop-l-and-up {
+        font-size: clamp(34px, 6.28vw, 102.6px);
+      }
+    }
+  
+    .links a {
+      color: $text-color;
+  
+      font-size: 2rem;
+      font-weight: 400;
+  
+      text-decoration: none;
+  
+      @include for-laptop-sm-and-up {
+        font-weight: 600;
+      }
+  
+      @include for-laptop-l-and-up {
+        font-size: 2.4rem;
+      }
+    }
+  }

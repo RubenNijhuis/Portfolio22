@@ -123,3 +123,36 @@
     }
   }
 }
+
+// Typography
+.project {
+    text-decoration: none;
+  
+    .img-wrapper {
+      .tags span {
+        color: $text-color;
+        font-size: 11px;
+      }
+    }
+  
+    .description {
+      h2,
+      p {
+        font-weight: 400;
+        font-size: 1.6rem;
+  
+        @include for-laptop-sm-and-up {
+          font-size: 2rem;
+        }
+      }
+  
+      h2 {
+        color: #7d7d7d;
+      }
+  
+      p {
+        color: $text-color;
+        line-height: 1.4;
+      }
+    }
+  }

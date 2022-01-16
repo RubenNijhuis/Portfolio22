@@ -1,56 +1,79 @@
-@use '../../styling/abstracts/' as *;
+@use "../../styling/abstracts/" as *;
 
 .projects-grid {
-    padding: $magic-number calc($magic-number / 4);
+  padding: $magic-number calc($magic-number / 4);
+
+  @include for-tablet-and-up {
+    padding: calc($magic-number) calc($magic-number / 2);
+  }
+
+  @include for-laptop-l-and-up {
+    padding: calc($magic-number * 2) calc($magic-number * 1);
+  }
+
+  @include for-laptop-xl-and-up {
+    padding: calc($magic-number * 2) calc($magic-number * 1.5);
+  }
+
+  .heading {
+    margin-top: 0;
+    margin-bottom: calc($magic-number / 2);
 
     @include for-tablet-and-up {
-        padding: calc($magic-number) calc($magic-number / 2);
+      margin-bottom: calc($magic-number);
     }
 
     @include for-laptop-l-and-up {
-        padding: calc($magic-number * 2) calc($magic-number * 1);
+      margin-bottom: calc($magic-number * 2);
+    }
+  }
+
+  .grid {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+
+    @include for-phablet-and-up {
+      display: flex;
+    }
+
+    @include for-laptop-sm-and-up {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: calc($magic-number / 2);
+      grid-row-gap: calc($magic-number * 2);
+      margin-bottom: calc($magic-number * 1);
+    }
+
+    @include for-laptop-l-and-up {
+      grid-column-gap: calc($magic-number * 1);
     }
 
     @include for-laptop-xl-and-up {
-        padding: calc($magic-number * 2) calc($magic-number * 1.5);
+      grid-column-gap: calc($magic-number * 1.5);
     }
+  }
+}
 
-    .heading {
-        margin-top: 0;
-        margin-bottom: calc($magic-number / 2);
+// Typography
+.projects-grid {
+  .heading {
+    font-family: "Syne";
+    font-weight: 700;
+    font-size: 5.6rem;
+    color: $text-color;
 
-        @include for-tablet-and-up {
-            margin-bottom: calc($magic-number);
-        }
-
-        @include for-laptop-l-and-up {
-            margin-bottom: calc($magic-number * 2);
-        }
+    @include for-tablet-landscape-and-up {
+      font-size: 5.6rem;
     }
-
-    .grid {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 0;
-
-        @include for-phablet-and-up {
-            display: flex;
-        }
-
-        @include for-laptop-sm-and-up {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-column-gap: calc($magic-number / 2);
-            grid-row-gap: calc($magic-number * 2);
-            margin-bottom: calc($magic-number * 1);
-        }
-
-        @include for-laptop-l-and-up {
-            grid-column-gap: calc($magic-number * 1);
-        }
-
-        @include for-laptop-xl-and-up {
-            grid-column-gap: calc($magic-number * 1.5);
-        }
+    @include for-tablet-and-up {
+      font-size: 7.2rem;
     }
+    @include for-laptop-sm-and-up {
+      font-size: 9.6rem;
+    }
+    @include for-laptop-xl-and-up {
+      font-size: 12rem;
+    }
+  }
 }

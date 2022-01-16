@@ -1,4 +1,4 @@
-@use '../abstracts' as *;
+@use "../../styling/abstracts/" as *;
 
 .next-content {
   display: flex;
@@ -10,7 +10,7 @@
   padding: 0 calc($magic-number / 8);
 
   a {
-      box-sizing: content-box;
+    box-sizing: content-box;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -23,7 +23,7 @@
     text-decoration: none;
 
     &:last-child {
-        margin-left: 9px;
+      margin-left: 9px;
     }
 
     &:hover {

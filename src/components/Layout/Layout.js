@@ -12,6 +12,7 @@ import { setViewheightProperty, console_message } from "utils/helper-functions";
 import { page_transition, footer_transition } from "utils/animation-variants"; // Framer animations
 
 const Layout = ({ children, title, description, footer = true }) => {
+  // Check if url is homepage == no movement in y direction
   const url = typeof window !== "undefined" ? window.location.href : "";
   const isHomePage = url.split("/")[3] === "";
 
