@@ -106,17 +106,7 @@ export const console_message = () => {
     const message = `👋 Hey, you! Curious about the tools that I used? This portfolio was made using GatsbyJS, SCSS, ThreeJS, React Fiber, Framer Motion and Contentful.
 Found a bug or noticed something that you think you can improve? 🔎 Thankfully this site is open-source, you can find it on my Github — https://github.com/rubennijhuis/portfolio22
 Happy coding! 👻`;
-
-    if (navigator.userAgent.includes("Chrome") === true) {
-      console.log(
-        `%c${message}`,
-        "color: white; background-color: black; padding: 18px; line-height: 1.6; border-radius: 6px; margin: 10px; font-size: 12px; border: 2px solid rgba(255,255,255,0.1); box-shadow: 10px 10px 10px"
-      );
-    } else {
-      console.log(
-        `%c${message}`,
-        "color: white; background-color: black;line-height: 1.4;font-size: 12px;"
-      );
-    }
+    const styling = `color: white; background-color: black; padding: 18px; line-height: 1.4; border-radius: 6px; margin: 10px; font-size: 14px; border: 2px solid rgba(255,255,255,0.1); box-shadow: 10px 10px 10px`;
+    console.log(`%c${message}`, styling);
   }
 };

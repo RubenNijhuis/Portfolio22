@@ -293,6 +293,10 @@
       }
     }
 
+    a {
+        color: $text-color;
+      }
+      
     p {
       margin-bottom: calc($magic-number / 4);
 

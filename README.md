@@ -2,10 +2,19 @@
 
 🧑🏽‍🎨 Personal portfolio for '22 and onwards
 
+If you're a developer, designer or creative who wants to showcase their work in a unique way, then look no further. Portfolio '22 is just what you need.
+
+## Tools used
+
+- GatsbyJS
+- Framer motion
+- ThreeJS
+
 ## Features
 
 Contentful CMS Integration
 Code splitting to the max - Order through src structure
+Universal and component based asset handeler, can take in any cms asset and output any image or video type
 
 ## 🚀 Quick start
 
@@ -28,6 +37,14 @@ $ npm run develop
 ## Big note
 
 <b>NOTE:</b> A lot of the documentation was written on a whim and just based on what I "feel" is good. A lot of my thinking can be improved but honestly most of my patterns are just there so that I can recognize my code 6 months later. Happy coding 👻
+
+## Content
+
+Due to the amazing AssetHandeler component any asset can be given and displayed (mp4/jpeg/webp/png/avif). However because many sizes have to be supported the content needs to be sizes in either of two ways.
+
+Project blocks have a 1:1 ratio
+Journals - large format 5:7 - small format anything from 2:1 and wider (fluid)
+Template pages can have 1:1 and wider (fluid)
 
 ## 🏢 Project structure
 
@@ -142,7 +159,7 @@ Currently the file structure is partly based off of the [Sass 7-1 pattern](https
 
 # ☑️ Todo's
 
-Created 23x12x21 - Last updated 04x01x22
+Created 23x12x21 - Last updated 14x01x22
 
 Styling
 
@@ -174,12 +191,12 @@ Home Page
 About Page
 
 - [ ] Make the goddamn thing
-    - [x] Create intro
-    - [x] create education and work section
-    - [ ] create credits and tools section
-    - [ ] create horizontal text
-    - [ ] create interactive piece
-    - [ ] Create contact section
+  - [x] Create intro
+  - [x] create education and work section
+  - [ ] create credits and tools section
+  - [ ] create horizontal text
+  - [ ] create interactive piece
+  - [ ] Create contact section
 
 Contact Page - (FEATURE CANCELLED)
 

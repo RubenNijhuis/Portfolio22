@@ -1,9 +1,13 @@
 import React from "react";
 
-const Infographic = () => {
+// Styling
+import "./style.scss";
+
+const Intro = () => {
+  const className = "intro";
   return (
-    <section className="infographic">
-      <div className="infographic__content">
+    <section className={className}>
+      <div className="content">
         <p>
           My name is Ruben and I create Digital Products using Creative Coding
           and Interactive Design to realize ideas
@@ -13,4 +17,4 @@ const Infographic = () => {
   );
 };
 
-export default Infographic;
+export default Intro;

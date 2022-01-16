@@ -1,12 +1,13 @@
 import React from "react";
 
-import ProjectsGrid from "components/Projects/ProjectsGrid";
+import ProjectsGrid from "components/ProjectsGrid";
 import Layout from "components/Layout";
 
 import { graphql } from "gatsby";
 
 const ProjectsPage = ({ data }) => {
   const projects_data = data.projects.nodes;
+
   return (
     <Layout>
       <ProjectsGrid projects={projects_data} animate={false} see_more={false} />
@@ -26,6 +27,10 @@ export const query = graphql`
         year
         backgroundImg {
           title
+          file {
+            contentType
+            url
+          }
           gatsbyImageData(placeholder: DOMINANT_COLOR)
         }
       }

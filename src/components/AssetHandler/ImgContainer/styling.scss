@@ -1,0 +1,10 @@
+@use '../../../styling/abstracts/' as *;
+
+.img-container {
+  height: 100%;
+
+  .img {
+    @include size(100%);
+    object-fit: cover;
+  }
+}

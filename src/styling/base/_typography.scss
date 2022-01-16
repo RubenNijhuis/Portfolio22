@@ -30,7 +30,7 @@
 }
 
 .footer {
-  &__email {
+  .email {
     color: $text-color;
 
     font-size: clamp(18.65px, 6.78vw, 60px);
@@ -41,7 +41,7 @@
     }
 
     @include for-laptop-sm-and-up {
-      font-size: clamp(18.65px, 6.18vw, 102.6px);
+      font-size: clamp(18.65px, 6.13vw, 102.6px);
     }
 
     @include for-laptop-l-and-up {
@@ -49,11 +49,11 @@
     }
   }
 
-  &__links a {
+  .links a {
     color: $text-color;
 
     font-size: 2rem;
-    font-weight: 500;
+    font-weight: 400;
 
     text-decoration: none;
 
@@ -97,27 +97,15 @@
   }
 }
 
-.infographic {
-  &__content {
-    p {
-      color: $text-color;
-      line-height: 1.4;
-      font-weight: 400;
-
-      font-size: clamp(18px, 4.5vw, 120px);
-    }
-  }
-}
-
 .nav {
-  &__home {
+  .home {
     font-size: 2.2rem;
     font-weight: 900;
     color: $text-color;
     text-decoration: none;
   }
 
-  &__links {
+  .links {
     &__link {
       text-decoration: none;
       font-size: 1.6rem;
@@ -137,14 +125,14 @@
 .project {
   text-decoration: none;
 
-  &__img-wrapper {
-    &__tags span {
+  .img-wrapper {
+    .tags span {
       color: $text-color;
       font-size: 11px;
     }
   }
 
-  &__description {
+  .description {
     h2,
     p {
       font-weight: 400;
@@ -194,62 +182,5 @@
   text-align: center;
   @include for-laptop-sm-and-up {
     font-size: 2.2rem;
-  }
-}
-
-.about-small {
-  font-size: 1.6rem;
-  color: $background-color;
-
-  &__personalia {
-    p:nth-of-type(1) {
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: #000;
-      @include for-tablet-and-up {
-        font-size: 1.8rem;
-      }
-      @include for-laptop-sm-and-up {
-        font-size: 2.2rem;
-      }
-    }
-
-    p:nth-of-type(2) {
-      font-size: 1.6rem;
-      font-weight: 400;
-      @include for-tablet-and-up {
-        font-size: 2.2rem;
-      }
-      @include for-laptop-sm-and-up {
-        font-size: 2.6rem;
-      }
-    }
-  }
-
-  &__story {
-    line-height: 1.6;
-
-    @include for-tablet-and-up {
-      font-size: 2.2rem;
-    }
-    @include for-laptop-sm-and-up {
-      font-size: 2.6rem;
-    }
-    a {
-      color: $background-color;
-    }
-  }
-
-  &__interests span {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: $text-color;
-  }
-
-  &__contact {
-    font-size: 2.2rem;
-    @include for-laptop-sm-and-up {
-      font-size: 2.6rem;
-    }
   }
 }

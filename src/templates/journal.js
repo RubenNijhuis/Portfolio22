@@ -1,7 +1,6 @@
 import React from "react";
 
 // Data aggregation && formattings
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { graphql } from "gatsby";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { project_content_formatter } from "utils/content-formatters";
@@ -10,25 +9,24 @@ import { flattenNameToURL } from "utils/helper-functions";
 // Animation
 import { motion } from "framer-motion";
 import {
-    project_hero_transition,
-    project_details_transition,
-  } from "utils/animation-variants";
+  project_hero_transition,
+  project_details_transition,
+} from "utils/animation-variants";
 
 // Components
 import AnimatedLetters from "components/Template/AnimatedLetters";
 import Layout from "components/Layout";
 import Tags from "components/Tags";
 import NextContent from "components/NextContent";
+import AssetHandler from "../components/AssetHandler";
 
 const JournalTemplate = ({ data }) => {
-  const { name, img, introduction, year, content, tags } =
-    data.contentfulJournal;
+  const { name, img, introduction, year, content, tags } = data.journal;
 
   const { previous, next } = data;
 
   const year_formatted = `'${year.toString().slice(2, 4)}`;
-  const bg_image_parsed = getImage(img);
-  const tags_formatted = tags.split(" ");
+  const tags_formatted = tags.split(" | ");
 
   return (
     <Layout title={`${name} | Ruben Nijhuis | Designer && Developer`}>
@@ -60,7 +58,7 @@ const JournalTemplate = ({ data }) => {
               animate="animate_img"
               variants={project_hero_transition}
             >
-              <GatsbyImage image={bg_image_parsed} alt={img.title} />
+              <AssetHandler asset={img} />
             </motion.div>
             <motion.div
               initial="reveal_initial"
@@ -105,17 +103,17 @@ export const query = graphql`
     next: contentfulJournal(name: { eq: $previous }) {
       name
     }
-    contentfulJournal(name: { eq: $slug }) {
+    journal: contentfulJournal(name: { eq: $slug }) {
       name
       tags
       year
       img {
+        file {
+          url
+          contentType
+        }
         title
-        gatsbyImageData(
-          layout: FULL_WIDTH
-          placeholder: BLURRED
-          formats: [AUTO, WEBP, AVIF]
-        )
+        gatsbyImageData(placeholder: BLURRED)
       }
       introduction {
         raw
@@ -125,6 +123,10 @@ export const query = graphql`
         references {
           ... on ContentfulAsset {
             title
+            file {
+              url
+              contentType
+            }
             contentful_id
             __typename
             gatsbyImageData(

@@ -10,6 +10,7 @@ const Title = ({ title, tags, setActiveIndex, index }) => {
     <article>
       <Link to={`/journals/${flattenNameToURL(title)}`}>
         <div
+          role="presentation"
           className="project-item"
           onMouseEnter={() => {
             setActiveIndex(index);

@@ -1,5 +1,3 @@
-import { getImage } from "gatsby-plugin-image";
-
 export const sanitize_journal_entries = (entries) => {
   const amount_entries = entries.length;
   let years = [];
@@ -21,20 +19,18 @@ export const sanitize_journal_entries = (entries) => {
 // Take in journal entry and transform to a usable format
 export const sanitize_entry = (entry) => {
   const { name } = entry;
-  const tags = entry.tags.split(" ");
+  const tags = entry.tags.split(" | ");
   const img = entry.img;
-  const img_alt = entry.img.title;
 
-  return { name, tags, img, img_alt };
+  return { name, tags, img };
 };
 
 // Sanitize project
 export const sanitize_project = (project) => {
   const { name } = project;
-  const tags = project.tags.split(" ");
+  const tags = project.tags.split(" | ");
   const description = project.description;
-  const img = getImage(project.backgroundImg);
-  const img_alt = project.backgroundImg.title;
+  const img = project.backgroundImg;
 
-  return { name, tags, description, img, img_alt };
+  return { name, tags, description, img };
 };

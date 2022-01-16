@@ -1,3 +1,14 @@
 @use "base";
 @use "components";
-@use "layouts"
+@use "layouts";
+
+// Remove picture in picture element firefox
+.pip-expanded,
+.pip-small,
+.pip-icon,
+.pip-explainer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+}

@@ -1,4 +1,4 @@
-@use '../abstracts' as *;
+@use '../../styling/abstracts' as *;
 
 .nav {
     position: fixed;
@@ -23,7 +23,7 @@
         padding: calc($magic-number / 8) calc($magic-number / 4);
     }
 
-    &__links {
+    .links {
         display: flex;
         align-content: center;
         list-style-type: none;

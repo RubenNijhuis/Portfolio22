@@ -11,17 +11,16 @@ import {
   sanitize_journal_entries,
 } from "utils/datatype-transformers";
 import { flattenNameToURL } from "utils/helper-functions";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 // Components
 import SeeMore from "components/SeeMore";
 import Tags from "components/Tags";
+import AssetHandler from "../AssetHandler";
 
 /**
  * Small entry container
  */
-const JournalSmall = ({ name, tags, img, alt }) => {
-  const image = getImage(img);
+const JournalSmall = ({ name, tags, img }) => {
   const controls = useAnimation();
   const [ref, inView] = useInView({
     threshold: 0.1,
@@ -46,7 +45,7 @@ const JournalSmall = ({ name, tags, img, alt }) => {
           <Tags tags={tags} theme={"light"} />
         </div>
         <div className="journal-small__image-wrapper">
-          <GatsbyImage image={image} alt={alt} />
+          <AssetHandler asset={img} />
         </div>
       </article>
     </motion.a>
@@ -63,13 +62,12 @@ const JournalYearContainer = ({ limit, year, entries }) => {
       <h2 className="journals-small__year">'{year}</h2>
       <div className="journals-small__grid">
         {entries.slice(0, limit_length).map((entry, index) => {
-          const { name, tags, img, img_alt } = sanitize_entry(entry);
+          const { name, tags, img } = sanitize_entry(entry);
           return (
             <JournalSmall
               name={name}
               tags={tags}
               img={img}
-              alt={img_alt}
               key={index}
               count={index}
             />

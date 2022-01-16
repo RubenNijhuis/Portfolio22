@@ -1,7 +1,6 @@
 import React from "react";
 
 // Data aggregation && formattings
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { graphql } from "gatsby";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { project_content_formatter } from "utils/content-formatters";
@@ -19,6 +18,7 @@ import AnimatedLetters from "components/Template/AnimatedLetters";
 import Layout from "components/Layout";
 import Tags from "components/Tags";
 import NextContent from "components/NextContent";
+import AssetHandler from "../components/AssetHandler";
 
 const ProjectTemplate = ({ data }) => {
   // Splitting data for readability
@@ -27,17 +27,16 @@ const ProjectTemplate = ({ data }) => {
     name,
     description,
     introduction,
-    backgroundImg,
     year,
     role,
     content,
     tags,
+    main_img,
   } = project;
 
   // Format data
   const year_formatted = `'${year.toString().slice(2, 4)}`;
-  const bg_image_parsed = getImage(backgroundImg);
-  const tags_formatted = tags.split(" ");
+  const tags_formatted = tags.split(" | ");
 
   return (
     <Layout title={`${name} | Ruben Nijhuis | Designer && Developer`}>
@@ -80,7 +79,7 @@ const ProjectTemplate = ({ data }) => {
               animate="animate_img"
               variants={project_hero_transition}
             >
-              <GatsbyImage image={bg_image_parsed} alt={backgroundImg.title} />
+              <AssetHandler asset={main_img} />
             </motion.div>
             <motion.div
               initial="reveal_initial"
@@ -131,23 +130,27 @@ export const query = graphql`
       introduction {
         raw
       }
+      main_img {
+        title
+        file {
+          url
+          contentType
+        }
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+      }
       tags
       year
       role
-      backgroundImg {
-        title
-        gatsbyImageData(
-          layout: FULL_WIDTH
-          placeholder: BLURRED
-          formats: [AUTO, WEBP, AVIF]
-        )
-      }
       content {
         raw
         references {
           ... on ContentfulAsset {
             title
             contentful_id
+            file {
+                contentType
+                url
+              }
             __typename
             gatsbyImageData(
               layout: FULL_WIDTH

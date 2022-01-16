@@ -1,6 +1,6 @@
 import React from "react";
 import { BLOCKS } from "@contentful/rich-text-types";
-import Image from "components/Template/Image";
+import AssetHandler from "components/AssetHandler";
 
 export const project_content_formatter = {
   intro: {
@@ -10,7 +10,9 @@ export const project_content_formatter = {
   },
   content: {
     renderNode: {
-      [BLOCKS.EMBEDDED_ASSET]: (node, children) => <Image img={node}/>,
+      [BLOCKS.EMBEDDED_ASSET]: (node, children) => (
+        <AssetHandler asset={node} />
+      ),
       [BLOCKS.PARAGRAPH]: (node, children) => (
         <p className="template__content__paragraph">{children}</p>
       ),

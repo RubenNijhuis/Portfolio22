@@ -27,6 +27,10 @@ export const query = graphql`
         year
         img {
           title
+          file {
+            contentType
+            url
+          }
           gatsbyImageData(width: 500, placeholder: DOMINANT_COLOR)
         }
       }

@@ -18,25 +18,27 @@ export const journal_small_fade_in = {
 };
 
 // Animation for page transition
-export const page_transition = {
-  initial: {
-    opacity: 0,
-    y: 100,
-  },
-  animate: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: "spring",
-      mass: 0.35,
-      stiffness: 75,
-      duration: 0.15,
-      delay: 0.2,
+export const page_transition = (isHomePage) => {
+  return {
+    initial: {
+      opacity: 0,
+      y: isHomePage ? 0 : 100,
     },
-  },
-  exit: {
-    opacity: 0,
-  },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        mass: 0.35,
+        stiffness: 75,
+        duration: 0.15,
+        delay: 0.2,
+      },
+    },
+    exit: {
+      opacity: 0,
+    },
+  };
 };
 
 // Footer page transition
@@ -82,7 +84,7 @@ export const project_hero_transition = {
     height: "0%",
     transition: {
       delay: 0.25,
-        duration: 1,
+      duration: 1,
       ease: [1, 0, 0.6, 1],
     },
   },

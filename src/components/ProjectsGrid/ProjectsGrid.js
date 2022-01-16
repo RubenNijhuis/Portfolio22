@@ -6,25 +6,28 @@ import { swap_array_elements, useCurrentWidth } from "utils/helper-functions";
 import { sizes } from "utils/constants";
 
 // Components
-import Project from "components/Projects/Project";
+import Project from "components/Project";
 import SeeMore from "components/SeeMore";
+
+// Styling
+import "./style.scss";
 
 const ProjectsGrid = ({ projects, animate = true, limit = false }) => {
   const amount_projects = projects.length;
   const width = useCurrentWidth();
+  const className = "projects-grid";
 
   // Swap projects before render (fixes items rebounce)
   const projects_parsed =
     width > sizes.medium ? swap_array_elements(projects) : projects;
 
   return (
-    <section className="projects-grid">
+    <section className={className}>
       <h2 className="heading">Projects</h2>
-      <div className="projects-grid__grid">
+      <div className="grid">
         {width !== undefined &&
           projects_parsed.map((project, index) => {
-            const { name, tags, description, img, img_alt } =
-              sanitize_project(project);
+            const { name, tags, description, img } = sanitize_project(project);
             return (
               <Project
                 animate={animate}
@@ -32,7 +35,6 @@ const ProjectsGrid = ({ projects, animate = true, limit = false }) => {
                 name={name}
                 description={description}
                 img={img}
-                img_alt={img_alt}
                 tags={tags}
                 count={index}
               />

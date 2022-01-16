@@ -3,14 +3,18 @@ import React, { useEffect } from "react";
 import "styling/main.scss"; // Import stylesheet (this way it's imported for every page)
 import { motion } from "framer-motion"; // For animation
 
-import Head from "components/Head/Head"; // Meta tags etc
-import Nav from "./Nav"; // Navigation
-import Footer from "./Footer"; // Footer
+// Components
+import Head from "components/Head/Head";
+import Nav from "components/Nav";
+import Footer from "components/Footer";
 
 import { setViewheightProperty, console_message } from "utils/helper-functions"; // Turn vh into pixels for SCSS
 import { page_transition, footer_transition } from "utils/animation-variants"; // Framer animations
 
 const Layout = ({ children, title, description, footer = true }) => {
+  const url = typeof window !== "undefined" ? window.location.href : "";
+  const isHomePage = url.split("/")[3] === "";
+
   useEffect(() => {
     setViewheightProperty();
     console_message();
@@ -26,11 +30,11 @@ const Layout = ({ children, title, description, footer = true }) => {
         initial="initial"
         exit="exit"
         animate="animate"
-        variants={page_transition}
+        variants={page_transition(isHomePage)}
       >
         {children}
       </motion.main>
-      {footer ? (
+      {footer === true ? (
         <motion.div
           initial="initial"
           exit="exit"

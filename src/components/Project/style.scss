@@ -1,4 +1,4 @@
-@use "../abstracts" as *;
+@use "../../styling/abstracts/" as *;
 
 // Add extra delay for each tag in tag-list
 @for $i from 1 through 3 {
@@ -25,11 +25,11 @@
   }
 
   @include for-laptop-sm-and-up {
-    &:hover & {
-      &__img-wrapper {
+    &:hover {
+      .img-wrapper {
         transform: scale(0.975);
 
-        .gatsby-image-wrapper {
+        .asset {
           transform: scale(1.025);
         }
 
@@ -42,7 +42,7 @@
     }
   }
 
-  &__img-wrapper {
+  .img-wrapper {
     position: relative;
     aspect-ratio: 1/1;
 
@@ -53,7 +53,7 @@
     z-index: 1;
     transition: 0.35s ease-out transform;
 
-    .gatsby-image-wrapper {
+    .asset {
       @include size(100%);
       object-fit: cover;
       transition: 0.35s ease-out transform;
@@ -74,7 +74,7 @@
     }
   }
 
-  &__description {
+  .description {
     position: relative;
 
     padding: calc($magic-number / 4) calc($magic-number / 8);
@@ -103,7 +103,7 @@
 
     .arrow {
       position: absolute;
-      width: calc($magic-number / 2);
+      width: calc($magic-number / 2.5);
       right: calc($magic-number / 8);
       bottom: 0;
 

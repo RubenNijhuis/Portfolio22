@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from "gatsby";
+
+// Components
 import Layout from "components/Layout";
 
 const NotFoundPage = () => {
@@ -12,11 +13,12 @@ const NotFoundPage = () => {
             alt={"video of the number 404 glitching"}
           />
         </div>
-        <p>It seems the page you were looking for can't be found</p>
-        <p>This could because it has been moved or been deleted all together</p>
+        <p>It seems you went somewhere where the internet can't find you! :(</p>
         <p>
-          If you have questions you can get in contact{" "}
-          <Link to={"/contact"}>here</Link>
+          This could be because the page has been moved or deleted all together
+        </p>
+        <p>
+          If you have questions you can get in contact contact@rubennijhuis.com
         </p>
       </section>
     </Layout>

@@ -1,14 +1,14 @@
 import React from "react";
 
 // Data aggregation && formattings
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 
 // Components
 import Arrow from "components/Arrow";
 import Layout from "components/Layout";
 import TimeLine from "components/TimeLine";
+import AssetHandler from "../components/AssetHandler";
 
 const AboutPage = ({ data }) => {
   const { photo, expanded_about, education, work } = data.about;
@@ -22,8 +22,6 @@ const AboutPage = ({ data }) => {
     item.split(" | ")
   );
 
-  const photo_parsed = getImage(photo);
-
   return (
     <Layout>
       <section className="introduction">
@@ -33,7 +31,7 @@ const AboutPage = ({ data }) => {
               <h2>Developer</h2>
             </div>
             <div className="nick-name-wrapper">
-              <h2>NFT Collector</h2>
+              <h2>Web Monk</h2>
             </div>
           </div>
           <div className="nicknames">
@@ -49,7 +47,7 @@ const AboutPage = ({ data }) => {
               <h2>Artist</h2>
             </div>
             <div className="nick-name-wrapper">
-              <h2>Artist</h2>
+              <h2>Fancyman</h2>
             </div>
           </div>
         </div>
@@ -59,20 +57,20 @@ const AboutPage = ({ data }) => {
         </article>
         <div className="introduction__image">
           <div className="introduction__image--wrapper">
-            <GatsbyImage image={photo_parsed} alt={photo.title} />
+            <AssetHandler asset={photo} />
           </div>
           <div className="links">
-            <a href="/projects">
+            <Link to={"/projects"}>
               <p>See previous work</p>
               <Arrow theme="light" />
-            </a>
+            </Link>
             <span className="about__contact__line" />
-            <a href="/journals">
+            <Link to={"/journals"}>
               <p>Look at recent updates</p>
               <Arrow theme="light" />
-            </a>
+            </Link>
             <span className="about__contact__line" />
-            <a target="_" href={cv}>
+            <a noreferrer="true" target="_" href={cv}>
               <p>Curriculum Vitae</p>
               <Arrow theme="light" />
             </a>
@@ -118,7 +116,9 @@ const AboutPage = ({ data }) => {
                 <p>contact@louderminds.studio</p>
               </div>
               <div>
-                <a href="#">Curriculum Vitae</a>
+                <a href={cv} target="_">
+                  Curriculum Vitae
+                </a>
               </div>
             </div>
           </div>
@@ -145,6 +145,10 @@ export const query = graphql`
       photo {
         title
         gatsbyImageData(width: 2000, placeholder: BLURRED)
+        file {
+          url
+          contentType
+        }
       }
     }
 

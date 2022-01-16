@@ -7,16 +7,20 @@ import { useInView } from "react-intersection-observer";
 // Utils
 import { useCurrentWidth, flattenNameToURL } from "utils/helper-functions";
 import { sizes } from "utils/constants";
-import { GatsbyImage } from "gatsby-plugin-image";
 
 // Components
 import { Link } from "gatsby";
 import Tags from "components/Tags";
 import Arrow from "components/Arrow";
+import AssetHandler from "components/AssetHandler";
 
-const Project = ({ name, description, img, img_alt, tags, animate, count }) => {
+// Styling
+import "./style.scss";
+
+const Project = ({ name, description, img, tags, animate, count }) => {
   const parsed_name = flattenNameToURL(name);
   const width = useCurrentWidth();
+  const className = "project";
 
   /*
    * Check if grid is active and returns correct Y offset
@@ -71,15 +75,15 @@ const Project = ({ name, description, img, img_alt, tags, animate, count }) => {
       ref={ref}
       animate={controls}
       variants={fade_in}
-      className="project--wrapper"
+      className={`${className}--wrapper`}
     >
-      <Link className="project" to={`/projects/${parsed_name}`}>
-        <article className="project__preview">
-          <div className="project__img-wrapper">
-            <GatsbyImage image={img} alt={img_alt} />
+      <Link className={className} to={`/projects/${parsed_name}`}>
+        <article className="preview">
+          <div className="img-wrapper">
+            <AssetHandler asset={img} />
             <Tags tags={tags} theme="dark" />
           </div>
-          <div className="project__description">
+          <div className="description">
             <h2>{name}</h2>
             <p>{description}</p>
             <Arrow theme={"light"} />

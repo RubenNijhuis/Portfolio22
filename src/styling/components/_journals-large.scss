@@ -1,139 +1,139 @@
-@use '../abstracts' as *;
+@use "../abstracts" as *;
 
 .journal {
+  position: relative;
+  z-index: 9;
+  padding: calc($magic-number * 2) calc($magic-number * 1);
+
+  background-color: $background-color;
+  max-width: 100vw;
+  overflow-x: hidden;
+
+  .headline {
+    color: $text-color;
     position: relative;
-    z-index: 9;
-    padding: calc($magic-number * 2) calc($magic-number * 1);
-
-    background-color: $background-color;
-    max-width: 100vw;
-    overflow-x: hidden;
-
-    .headline {
-        color: $text-color;
-        position: relative;
-        margin-bottom: calc($magic-number * 1);
-        font-family: "Syne";
-        font-size: 9.6rem;
-        font-weight: 700;
-        z-index: 11;
-    }
+    margin-bottom: calc($magic-number * 1);
+    font-family: "Syne";
+    font-size: 9.6rem;
+    font-weight: 700;
+    z-index: 11;
+  }
 }
 
 .year-journals {
-    margin-bottom: calc($magic-number * 2);
-    user-select: none;
-    color: $text-color;
+  margin-bottom: calc($magic-number * 2);
+  user-select: none;
+  color: $text-color;
 
-    .year {
-        position: relative;
-        text-align: right;
-        margin-top: 0px;
-        margin-bottom: 0px;
+  .year {
+    position: relative;
+    text-align: right;
+    margin-top: 0px;
+    margin-bottom: 0px;
 
-        font-size: 3.6rem;
-        font-weight: 200;
+    font-size: 3.6rem;
+    font-weight: 200;
 
-        z-index: 100;
-        transition: transform $duration-quick $ease-in;
-    }
+    z-index: 100;
+    transition: transform $duration-quick $ease-in;
+  }
 }
 
 // Add extra delay for each tag in tag-list
 @for $i from 1 through 3 {
-    .project-tag-list .project-tag:nth-child(#{$i}n) {
-        transition-delay: #{$i * 0.075}s !important;
-    }
+  .project-tag-list .project-tag:nth-child(#{$i}n) {
+    transition-delay: #{$i * 0.075}s !important;
+  }
 }
 
 .project-list {
+  position: relative;
+  z-index: 2;
+
+  article {
+    display: inline-block;
+  }
+
+  .project-item {
+    display: inline-block;
+    padding: calc($magic-number / 2);
+
+    &:hover {
+      cursor: pointer;
+
+      .project-title,
+      .project-tag-list {
+        opacity: 0.2;
+        transform: scale(1.025);
+      }
+    }
+
+    .project-title {
+      position: relative;
+      display: block;
+
+      margin-top: 0;
+      margin-bottom: calc($magic-number / 4);
+
+      color: $text-color;
+      font-size: 5.6rem;
+      font-weight: 600;
+
+      user-select: none;
+      transition: opacity $duration-medium $ease-out,
+        transform $duration-medium $ease-out;
+      z-index: 2;
+    }
+  }
+
+  .project-tag-list {
     position: relative;
-    z-index: 2;
+    display: inline-block;
 
-    article {
-        display: inline-block;
-    }
+    padding-left: 0px;
+    margin-left: -3px;
 
-    .project-item {
-        display: inline-block;
-        padding: calc($magic-number / 2);
+    user-select: none;
+    opacity: 1;
 
-        &:hover {
-            cursor: pointer;
-
-            .project-title,
-            .project-tag-list {
-                opacity: 0.2;
-                transform: scale(1.025);
-            }
-        }
-
-        .project-title {
-            position: relative;
-            display: block;
-
-            margin-top: 0;
-            margin-bottom: calc($magic-number / 4);
-
-            color: $text-color;
-            font-size: 5.6rem;
-            font-weight: 600;
-
-            user-select: none;
-            transition: opacity $duration-medium $ease-out,
-                transform $duration-medium $ease-out;
-            z-index: 2;
-        }
-    }
-
-    .project-tag-list {
-        position: relative;
-        display: inline-block;
-
-        padding-left: 0px;
-        margin-left: -3px;
-
-        user-select: none;
-        opacity: 1;
-
-        transition: opacity $duration-medium $ease-out,
-            transform $duration-medium $ease-out;
-    }
+    transition: opacity $duration-medium $ease-out,
+      transform $duration-medium $ease-out;
+  }
 }
 
 .project-media {
-    position: var(--zJournals);
-    top: 0;
-    left: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
 
-    width: 100%;
-    height: 100%;
-    user-select: none;
+  width: 100%;
+  height: 100%;
+  user-select: none;
 
-    .media-img-container {
-        position: absolute;
+  .media-img-container {
+    position: absolute;
 
-        width: calc($magic-number * 3.5);
-        height: calc($magic-number * 5);
+    aspect-ratio: 5/7;
+    width: calc($magic-number * 3.5);
+    // height: calc($magic-number * 5);
 
-        overflow: hidden;
-        border-radius: 3px;
+    overflow: hidden;
+    border-radius: 3px;
 
-        &.is-active {
-            .gatsby-image-wrapper {
-                opacity: 1;
-            }
-        }
-
-        .gatsby-image-wrapper {
-            width: 100%;
-            height: 100%;
-
-            opacity: 0;
-            object-fit: cover;
-            pointer-events: none;
-            transition: opacity $duration-medium $ease-out,
-                transform $duration-medium $ease-out;
-        }
+    &.is-active {
+      .asset {
+        opacity: 1;
+      }
     }
+
+    .asset {
+      @include size(100%);
+
+      opacity: 0;
+      object-fit: cover;
+      pointer-events: none;
+      transition: opacity $duration-medium $ease-out,
+        transform $duration-medium $ease-out;
+    }
+  }
 }

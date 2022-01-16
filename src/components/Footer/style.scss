@@ -1,4 +1,4 @@
-@use '../abstracts' as *;
+@use '../../styling/abstracts' as *;
 
 .footer {
     position: relative;
@@ -16,7 +16,7 @@
         padding: 0 $magic-number;
     }
 
-    &__email {
+    .email {
         display: block;
         position: relative;
 
@@ -28,7 +28,7 @@
         }
     }
 
-    &__content {
+    .content {
         display: flex;
         justify-content: space-between;
         padding: calc($magic-number / 2) calc($magic-number / 4);
@@ -41,7 +41,7 @@
         }
     }
 
-    &__links {
+    .links {
         display: flex;
         flex-direction: column;
 

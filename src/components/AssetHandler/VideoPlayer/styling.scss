@@ -1,0 +1,11 @@
+@use "../../../styling/abstracts/" as *;
+
+.video-player {
+  display: flex;
+  height: 100%;
+
+  .video {
+    @include size(100%);
+    object-fit: cover;
+  }
+}
