@@ -45,11 +45,10 @@
   .img-wrapper {
     position: relative;
     aspect-ratio: 1/1;
-
+    transform: translateZ(0px);
     border-radius: $border-radius;
     overflow: hidden;
 
-    z-index: 1;
     transition: 0.35s ease-out transform;
 
     .asset {

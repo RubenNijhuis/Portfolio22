@@ -4,7 +4,7 @@ import React from "react";
 import { useCurrentWidth } from "utils/helper-functions";
 
 // Components
-import JournalsBig from "./JournalsLarge";
+import JournalsLarge from "./JournalsLarge";
 import JournalsSmall from "./JournalsSmall";
 
 // Styling
@@ -18,7 +18,7 @@ const Journal = ({ entries, limit, animate }) => {
   return (
     <>
       {width > change_point ? (
-        <JournalsBig entries={entries} />
+        <JournalsLarge entries={entries} />
       ) : (
         <JournalsSmall entries={entries} limit={limit} animate={animate} />
       )}

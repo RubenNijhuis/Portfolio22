@@ -33,7 +33,6 @@
     font-size: 3.6rem;
     font-weight: 200;
 
-    z-index: 100;
     transition: transform $duration-quick $ease-in;
   }
 }
@@ -64,6 +63,7 @@
 
 .project-list {
   position: relative;
+  z-index: 10;
 
   article {
     display: inline-block;

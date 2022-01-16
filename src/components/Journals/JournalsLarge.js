@@ -79,7 +79,7 @@ const JournalsContainer = ({
   );
 };
 
-const JournalsPage = ({ entries }) => {
+const JournalsLarge = ({ entries }) => {
   const [entries_formatted] = sanitize_journal_entries(entries);
   const [activeIndex, setActiveIndex] = useState(-1);
   const { x, y } = useMousePosition();
@@ -109,4 +109,4 @@ const JournalsPage = ({ entries }) => {
   );
 };
 
-export default JournalsPage;
+export default JournalsLarge;
