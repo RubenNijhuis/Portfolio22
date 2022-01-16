@@ -1,7 +1,7 @@
-@use '../../../styling/abstracts/' as *;
+@use "../../../styling/abstracts/" as *;
 
 .img-container {
-  height: 100%;
+  @include size(100%);
 
   .img {
     @include size(100%);

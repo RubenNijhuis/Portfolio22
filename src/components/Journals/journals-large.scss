@@ -46,6 +46,23 @@
   }
 }
 
+.project-title {
+  position: relative;
+  display: block;
+
+  margin-top: 0;
+  margin-bottom: calc($magic-number / 4);
+
+  color: $text-color;
+  font-size: 5.6rem;
+  font-weight: 600;
+
+  user-select: none;
+  transition: opacity $duration-medium $ease-out,
+    transform $duration-medium $ease-out;
+  z-index: 2;
+}
+
 .project-list {
   position: relative;
   z-index: 2;
@@ -71,23 +88,6 @@
         transform: scale(1.025);
       }
     }
-
-    .project-title {
-      position: relative;
-      display: block;
-
-      margin-top: 0;
-      margin-bottom: calc($magic-number / 4);
-
-      color: $text-color;
-      font-size: 5.6rem;
-      font-weight: 600;
-
-      user-select: none;
-      transition: opacity $duration-medium $ease-out,
-        transform $duration-medium $ease-out;
-      z-index: 2;
-    }
   }
 
   .project-tag-list {
@@ -109,6 +109,7 @@
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 5;
 
   width: 100%;
   height: 100%;

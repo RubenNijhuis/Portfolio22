@@ -2,7 +2,7 @@
 
 .video-player {
   display: flex;
-  height: 100%;
+  @include size(100%);
 
   .video {
     @include size(100%);

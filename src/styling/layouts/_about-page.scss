@@ -209,8 +209,10 @@
     }
 
     .links {
-      position: sticky;
-      top: 18px + 63.3px;
+      @include for-laptop-sm-and-up {
+        position: sticky;
+        top: 18px + 63.3px;
+      }
 
       a {
         text-decoration: none;
