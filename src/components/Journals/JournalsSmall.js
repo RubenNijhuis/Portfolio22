@@ -17,6 +17,9 @@ import SeeMore from "components/SeeMore";
 import Tags from "components/Tags";
 import AssetHandler from "../AssetHandler";
 
+// Styling
+import "./journals-small.scss";
+
 /**
  * Small entry container
  */

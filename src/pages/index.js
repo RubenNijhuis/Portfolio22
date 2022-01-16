@@ -1,13 +1,19 @@
 import React from "react";
 
-import Layout from "components/Layout";
+// Components
 // import Hero from "containers/Hero";
+import Layout from "components/Layout";
 import Intro from "containers/Intro";
 import ProjectsGrid from "components/ProjectsGrid";
 import SmallAbout from "containers/SmallAbout";
 import Journals from "components/Journals";
 
+// Data
 import { graphql } from "gatsby";
+
+// Utils
+// Utils
+import { useCurrentWidth } from "utils/helper-functions";
 
 const IndexPage = ({ data }) => {
   const { projects, journals, about } = data;
@@ -17,13 +23,16 @@ const IndexPage = ({ data }) => {
   const entries_data = journals.nodes;
   const about_data = about;
 
+  const width = useCurrentWidth();
+  const change_point = 1024;
+
   return (
     <Layout>
       {/* <Hero /> */}
-      <Intro />
+      {width > change_point ? <Intro /> : null}
       <ProjectsGrid projects={projects_data} animate={true} limit={true} />
       <SmallAbout about={about_data.compact_about} photo={about_data.photo} />
-      {/* <Journals entries={entries_data} animate={true} limit={true} /> */}
+      <Journals entries={entries_data} animate={true} limit={true} />
     </Layout>
   );
 };

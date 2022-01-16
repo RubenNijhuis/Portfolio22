@@ -159,16 +159,16 @@ Currently the file structure is partly based off of the [Sass 7-1 pattern](https
 
 # ☑️ Todo's
 
-Created 23x12x21 - Last updated 14x01x22
+Created 23x12x21 - Last updated 16x01x22
 
 Styling
 
 - [x] Find a way to structure CSS over multiple files for easier upscaling
-- [ ] Fix component structure
+- [x] Fix component structure
 - [x] Fix variable spread over files
 - [ ] Create a var for nav height or some other way to not have to change the height in ~10 places
-- [ ] Standardize css classes (nothing matches right now)
-- [ ] Standardize typography
+- [x] Standardize css classes (nothing matches right now)
+- [x] Standardize typography
 - [x] Interesting animation
 - [ ] advanced mixins (research)
 
@@ -181,12 +181,11 @@ Template Project
 
 Template Image Component
 
-- [ ] Check if aggregation settings are optimal (succes = no low res images but fast loading pages)
-- [ ] Add description bar below image i.e. "Working with the designer on the wireframe"
+- [x] Check if aggregation settings are optimal (succes = no low res images but fast loading pages)
 
 Home Page
 
-- [ ] Add hero img or 3d img thingy, just make something interactive to place
+- [x] Add hero img or 3d img thingy, just make something interactive to place
 
 About Page
 
@@ -196,7 +195,7 @@ About Page
   - [ ] create credits and tools section
   - [ ] create horizontal text
   - [ ] create interactive piece
-  - [ ] Create contact section
+  - [x] Create contact section
 
 Contact Page - (FEATURE CANCELLED)
 
@@ -204,7 +203,7 @@ Contact Page - (FEATURE CANCELLED)
   - [ ] Contact form (as short as possible)
   - [ ] Regular ways to contact i.e. e-mail social-media cv
 
-Gallery Page
+Gallery Page - [WIP]
 
 - [ ] Design mosaic shapes for images
 - [ ] Add modal feature to display images
@@ -213,12 +212,14 @@ Gallery Page
 CMS Aggregation
 
 - [x] Add descriptions and proper alts to images
-- [ ] Design system to make data transformers and keep data types centralized
+- [x] Design system to make data transformers and keep data types centralized
 - [ ] Write proper content and create nice case images
 
 Code Architecture
 
-- [ ] Make components not handle data and only display
+- [x] Make components not handle data and only display
+DEPRECRATED 
+Components require a lot of bits to work and handling only display isn't handy in the longterm as it would clog up the pages files
 
 Animation
 

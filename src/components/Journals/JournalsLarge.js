@@ -1,11 +1,18 @@
 import React, { useEffect, useState } from "react";
+
+// Utils
 import { isBrowser } from "utils/helper-functions";
-import Title from "./Title";
-import Media from "./Media";
 import {
   sanitize_entry,
   sanitize_journal_entries,
 } from "utils/datatype-transformers";
+
+// Components
+import Title from "./Title";
+import Media from "./Media";
+
+// Styling
+import "./journals-large.scss";
 
 const useMousePosition = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
