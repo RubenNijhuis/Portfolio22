@@ -1,6 +1,11 @@
 @use "../../styling/abstracts" as *;
 
 .journal {
+    display: none;
+    @include for-laptop-sm-and-up {
+        display: block;
+    }
+
   position: relative;
   z-index: 4 !important;
   padding: calc($magic-number * 2) calc($magic-number * 1);

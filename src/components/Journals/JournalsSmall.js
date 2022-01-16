@@ -43,12 +43,12 @@ const JournalSmall = ({ name, tags, img }) => {
       href={`/journals/${flattenNameToURL(name)}`}
     >
       <article>
+        <div className="journal-small__image-wrapper">
+          <AssetHandler asset={img} />
+        </div>
         <div className="journal__text">
           <h2 className="journal-small__name">{name}</h2>
           <Tags tags={tags} theme={"light"} />
-        </div>
-        <div className="journal-small__image-wrapper">
-          <AssetHandler asset={img} />
         </div>
       </article>
     </motion.a>
@@ -100,6 +100,7 @@ const JournalsSmall = ({ entries, limit = false, animate }) => {
             animate={animate}
             limit={limit}
             count={index}
+            o
             year={year_formatted}
             key={index}
             entries={year_entries}
