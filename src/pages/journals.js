@@ -7,6 +7,7 @@ import { graphql } from "gatsby";
 const JournalsPage = ({ data }) => {
   const entries_data = data.journals.nodes;
 
+    console.log(entries_data);
   useEffect(() => {
     document.documentElement.style.setProperty("--zJournals", "fixed");
   }, []);

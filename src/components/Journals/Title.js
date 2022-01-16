@@ -25,9 +25,7 @@ const Title = ({ title, tags, setActiveIndex, index }) => {
             zIndex: mouseHover ? `1000` : `1`,
           }}
         >
-          <h3 className="project-title">
-            <span>{title}</span>
-          </h3>
+          <h3 className="project-title">{title}</h3>
           <Tags className="project-tag-list" theme="light" tags={tags} />
         </div>
       </Link>

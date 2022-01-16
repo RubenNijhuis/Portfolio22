@@ -11,7 +11,7 @@
   }
 
   .intro {
-      padding: 0;
+    padding: 0;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -49,7 +49,7 @@
         align-items: center;
       }
 
-      @include for-laptop-l-and-up {
+      @include for-laptop-sm-and-up {
         padding: calc($magic-number / 2) 0;
       }
 
@@ -95,10 +95,6 @@
         border-radius: $border-radius $border-radius 0 0;
       }
 
-      .asset {
-        @include size(100%);
-      }
-
       &__reveal {
         top: 0;
         left: 0;
@@ -110,8 +106,15 @@
       }
 
       &--wrapper {
+        border-radius: $border-radius $border-radius 0 0;
+        overflow: hidden;
+        transform: translateZ(0px);
         @include size(100%);
         z-index: 5;
+
+        .asset {
+          @include size(100%);
+        }
       }
     }
 

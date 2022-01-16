@@ -9,9 +9,9 @@
 
   @include for-tablet-and-up {
     display: grid;
-    grid-template-columns: minmax(200px, calc($magic-number * 6)) 65%;
+    grid-template-columns: minmax(200px, calc($magic-number * 6)) 60%;
     grid-column-gap: $magic-number;
-    padding: $magic-number;
+    padding: $magic-number calc($magic-number / 2);
   }
 
   @include for-laptop-l-and-up {

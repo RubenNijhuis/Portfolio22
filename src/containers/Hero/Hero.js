@@ -11,12 +11,10 @@ const Hero = () => {
 
   return (
     <section className={className}>
-      {/* <Blocks /> */}
-      {/* <Raging_Sea /> */}
-      <canvas />
-      <div className="details">
-        <h2>Ruben Nijhuis</h2>
-      </div>
+      <img
+        src="https://hunterae.com/wp-content/uploads/images/digital-agency-web-showreel-videohive-29506116-download-free-hunterae-com-9.jpg"
+        alt="showreel"
+      />
     </section>
   );
 };

@@ -19,7 +19,7 @@ const AssetHandler = ({ asset }) => {
     if (asset !== undefined) {
       if (asset.file?.contentType !== undefined) {
         changeAssetType(asset.file.contentType);
-      } else if (asset.data.target.file.contentType !== undefined) {
+      } else if (asset.data.target.file?.contentType !== undefined) {
         changeAssetType(asset.data.target.file.contentType);
       } else {
         changeAssetType("image/png");
