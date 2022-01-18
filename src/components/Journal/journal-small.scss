@@ -1,26 +1,31 @@
 @use "../../styling/abstracts" as *;
 
-.journals-small {
-  @include for-laptop-sm-and-up {
-    display: none;
-  }
+.journal-book {
   padding: calc($magic-number) calc($magic-number / 4);
 
   .headline {
     margin-bottom: calc($magic-number / 2);
   }
 
+  @include for-laptop-sm-and-up {
+    display: none;
+  }
+
   @include for-tablet-and-up {
     padding: $magic-number calc($magic-number / 2);
   }
+}
+
+.journal-small {
+  position: relative;
+  display: block;
+  min-height: calc($magic-number * 2);
+  height: calc($magic-number * 2);
+  max-height: calc($magic-number * 2);
 
   &__year {
     text-align: right;
-    margin-bottom: $magic-number;
-  }
-
-  &__container {
-    margin-bottom: $magic-number;
+    margin-bottom: calc($magic-number / 2);
   }
 
   &__grid {
@@ -32,21 +37,20 @@
       grid-template-columns: 1fr 1fr;
     }
   }
-}
 
-.journal-small {
-  position: relative;
-  display: block;
-  min-height: calc($magic-number * 2);
-  height: calc($magic-number * 2);
-  max-height: calc($magic-number * 2);
+  &__container {
+    margin-bottom: $magic-number;
 
-  &:last-of-type {
-    margin-bottom: 0;
+    &:last-of-type {
+      margin-bottom: calc($magic-number * 1.5);
+    }
   }
 
-  article {
-    position: relative;
+  a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    text-decoration: none;
   }
 
   &__name {

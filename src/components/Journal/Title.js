@@ -8,7 +8,7 @@ const Title = ({ title, tags, setActiveIndex, index }) => {
 
   return (
     <article>
-      <Link to={`/journals/${flattenNameToURL(title)}`}>
+      <Link to={`/journal/${flattenNameToURL(title)}`}>
         <div
           role="presentation"
           className="project-item"

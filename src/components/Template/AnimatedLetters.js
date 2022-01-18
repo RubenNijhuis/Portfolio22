@@ -17,22 +17,20 @@ const letterAni = (index, length_of_array) => {
   // Get offset from letter to middle in positive number
   const difference = Math.abs(half_array - index);
   // Length of animation is the number every delay is a bit of the total time
-  const animation_length = difference * (0.8 / length_of_array);
+  const animation_length = difference * (1.25 / length_of_array);
   // Rotation is from 0 till max based on index of letter
   //   const rotation = (half_array - index) * -1 * 10;
 
   return {
     initial: {
       y: 200,
-      //   rotate: rotation,
     },
     animate: {
-      //   rotate: 0,
       y: 0,
       transition: {
         delay: animation_length,
         ease: [0.6, 0.01, -0.05, 0.95],
-        duration: 0.75,
+        duration: 1.25,
       },
     },
   };

@@ -4,7 +4,7 @@ import React from "react";
 import Layout from "components/Layout";
 
 // Styling
-import "../styling/layouts/_not-found.scss";
+import "styling/layouts/not-found.scss";
 
 const NotFoundPage = () => {
   return (

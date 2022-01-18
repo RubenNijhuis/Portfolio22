@@ -12,7 +12,7 @@ import Title from "./Title";
 import Media from "./Media";
 
 // Styling
-import "./journals-large.scss";
+import "./journal-large.scss";
 
 const useMousePosition = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -31,7 +31,7 @@ const useMousePosition = () => {
   return mousePosition;
 };
 
-const JournalsContainer = ({
+const JournalContainer = ({
   iindex,
   year,
   year_entries,
@@ -41,7 +41,7 @@ const JournalsContainer = ({
   y,
 }) => {
   return (
-    <div className="year-journals">
+    <div className="year-journal">
       <h2 className="year">'{year}</h2>
       <div className="project-list">
         {year_entries.map((entry, index) => {
@@ -79,7 +79,7 @@ const JournalsContainer = ({
   );
 };
 
-const JournalsLarge = ({ entries }) => {
+const JournalLarge = ({ entries }) => {
   const [entries_formatted] = sanitize_journal_entries(entries);
   const [activeIndex, setActiveIndex] = useState(-1);
   const { x, y } = useMousePosition();
@@ -93,7 +93,7 @@ const JournalsLarge = ({ entries }) => {
         let iindex = indexMain * 10 + 1;
         if (indexMain !== 0) iindex++;
         return (
-          <JournalsContainer
+          <JournalContainer
             iindex={iindex}
             year={year--}
             year_entries={year_entries}
@@ -109,4 +109,4 @@ const JournalsLarge = ({ entries }) => {
   );
 };
 
-export default JournalsLarge;
+export default JournalLarge;

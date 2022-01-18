@@ -11,7 +11,7 @@ import TimeLineBlock from "components/TimeLineBlock";
 import AssetHandler from "components/AssetHandler";
 
 // Styling
-import "../styling/layouts/_about-page.scss";
+import "styling/layouts/about-page.scss";
 
 const AboutPage = ({ data }) => {
   const { photo, expanded_about, education, work } = data.about;
@@ -68,7 +68,7 @@ const AboutPage = ({ data }) => {
               <Arrow theme="light" />
             </Link>
             <span className="about__contact__line" />
-            <Link to={"/journals"}>
+            <Link to={"/journal"}>
               <p>Look at recent updates</p>
               <Arrow theme="light" />
             </Link>

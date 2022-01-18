@@ -1,4 +1,8 @@
 import React, { useEffect } from "react";
+import { Link } from "gatsby";
+
+// Constants
+import { limits } from "constants/limits";
 
 // Animation
 import { journal_small_fade_in } from "utils/animation-variants";
@@ -15,15 +19,15 @@ import { flattenNameToURL } from "utils/helper-functions";
 // Components
 import SeeMore from "components/SeeMore";
 import Tags from "components/Tags";
-import AssetHandler from "../AssetHandler";
+import AssetHandler from "components/AssetHandler";
 
 // Styling
-import "./journals-small.scss";
+import "./journal-small.scss";
 
 /**
  * Small entry container
  */
-const JournalSmall = ({ name, tags, img }) => {
+const SmallEntry = ({ name, tags, img }) => {
   const controls = useAnimation();
   const [ref, inView] = useInView({
     threshold: 0.1,
@@ -35,14 +39,13 @@ const JournalSmall = ({ name, tags, img }) => {
   }, [controls, inView]);
 
   return (
-    <motion.a
+    <motion.article
       animate={controls}
       ref={ref}
       variants={journal_small_fade_in}
       className="journal-small"
-      href={`/journals/${flattenNameToURL(name)}`}
     >
-      <article>
+      <Link to={`/journal/${flattenNameToURL(name)}`}>
         <div className="journal-small__image-wrapper">
           <AssetHandler asset={img} />
         </div>
@@ -50,8 +53,8 @@ const JournalSmall = ({ name, tags, img }) => {
           <h2 className="journal-small__name">{name}</h2>
           <Tags tags={tags} theme={"light"} />
         </div>
-      </article>
-    </motion.a>
+      </Link>
+    </motion.article>
   );
 };
 
@@ -59,15 +62,14 @@ const JournalSmall = ({ name, tags, img }) => {
  * Format all entries per year
  */
 const JournalYearContainer = ({ limit, year, entries }) => {
-  const limit_length = limit ? 4 : entries.length;
   return (
-    <div className="journals-small__container">
-      <h2 className="journals-small__year">'{year}</h2>
-      <div className="journals-small__grid">
-        {entries.slice(0, limit_length).map((entry, index) => {
+    <div className="journal-small__container">
+      <h2 className="journal-small__year">'{year}</h2>
+      <div className="journal-small__grid">
+        {entries.slice(0, limits.amount_journal).map((entry, index) => {
           const { name, tags, img } = sanitize_entry(entry);
           return (
-            <JournalSmall
+            <SmallEntry
               name={name}
               tags={tags}
               img={img}
@@ -82,14 +84,14 @@ const JournalYearContainer = ({ limit, year, entries }) => {
 };
 
 /**
- * Display all journals per year in small form
+ * Display all journal per year in small form
  */
-const JournalsSmall = ({ entries, limit = false, animate }) => {
+const JournalSmall = ({ entries, limit = false, animate }) => {
+  const className = "journal-book";
   let [entries_formatted, amount_entries] = sanitize_journal_entries(entries);
-
   return (
-    <section className="journals-small">
-      <header className="headline">Journals</header>
+    <section className={className}>
+      <header className="headline">Journal</header>
       {entries_formatted.map((year_entries, index) => {
         let year = new Date().getFullYear();
         // Grab the last two digits
@@ -100,7 +102,6 @@ const JournalsSmall = ({ entries, limit = false, animate }) => {
             animate={animate}
             limit={limit}
             count={index}
-            o
             year={year_formatted}
             key={index}
             entries={year_entries}
@@ -109,7 +110,7 @@ const JournalsSmall = ({ entries, limit = false, animate }) => {
       })}
       {limit ? (
         <SeeMore
-          url={`/journals`}
+          url={`/journal`}
           text={`See all ${amount_entries} journal entries`}
         />
       ) : null}
@@ -117,4 +118,4 @@ const JournalsSmall = ({ entries, limit = false, animate }) => {
   );
 };
 
-export default JournalsSmall;
+export default JournalSmall;

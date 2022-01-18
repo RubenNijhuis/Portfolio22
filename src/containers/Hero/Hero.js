@@ -7,7 +7,7 @@ import React from "react";
 import "./style.scss";
 
 const Hero = () => {
-  const className = "hero";
+  const className = "hero-banner";
 
   return (
     <section className={className}>

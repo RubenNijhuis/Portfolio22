@@ -57,6 +57,11 @@
       transition: 0.35s ease-out transform;
     }
 
+    .gatsby-image-wrapper div {
+        max-width: 100% !important;
+        height: 100%;
+    }
+
     .tags {
       position: absolute;
       bottom: calc($magic-number / 4);

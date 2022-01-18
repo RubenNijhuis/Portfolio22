@@ -9,13 +9,17 @@
 
   @include for-tablet-and-up {
     display: grid;
-    grid-template-columns: minmax(200px, calc($magic-number * 6)) 60%;
+    grid-template-columns: 25% 1fr;
     grid-column-gap: $magic-number;
     padding: $magic-number calc($magic-number / 2);
   }
 
   @include for-laptop-l-and-up {
-    padding: calc($magic-number * 2) $magic-number;
+    padding: calc($magic-number * 2) calc($magic-number * 1.5);
+  }
+
+  @include for-laptop-xl-and-up {
+    padding: calc($magic-number * 2);
   }
 
   .interests {
@@ -35,7 +39,7 @@
 
   .aside {
     margin: 0 auto;
-    max-width: calc($magic-number * 5.5);
+    max-width: calc($magic-number * 7);
   }
 
   .img-wrapper {
@@ -64,7 +68,7 @@
     padding-bottom: 0;
 
     @include for-tablet-and-up {
-      padding: calc($magic-number / 8) 0;
+      padding: 0;
       font-size: clamp(16px, 2.35vw, 72px);
 
       p {

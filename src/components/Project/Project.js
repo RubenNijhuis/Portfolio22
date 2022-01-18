@@ -17,11 +17,18 @@ import AssetHandler from "components/AssetHandler";
 // Styling
 import "./style.scss";
 
-const Project = ({ name, description, img, tags, background, animate, count }) => {
+const Project = ({
+  name,
+  description,
+  img,
+  tags,
+  background,
+  animate = false,
+  count,
+}) => {
   const parsed_name = flattenNameToURL(name);
   const width = useCurrentWidth();
-    const className = "project";
-    
+  const className = "project";
 
   /*
    * Check if grid is active and returns correct Y offset
@@ -31,9 +38,9 @@ const Project = ({ name, description, img, tags, background, animate, count }) =
     if (width < sizes.medium) return hidden ? `${offset}%` : "0%";
     else {
       if (count % 2 === 0) {
-        return hidden ? "10%" : "0%";
-      } else {
         return hidden ? "-20%" : "-30%";
+      } else {
+        return hidden ? "10%" : "0%";
       }
     }
   };
@@ -47,17 +54,19 @@ const Project = ({ name, description, img, tags, background, animate, count }) =
 
   const fade_in = {
     hidden: {
+      scaleX: [-1, -1], // fix for slide back page into grid
       opacity: 0,
       scale: 0.95,
       y: offset_height(0, true),
     },
     visible: {
+      scaleX: [-1, -1], // fix for slide back page into grid
       opacity: 1,
       scale: 1,
       y: offset_height(0, false),
       transition: {
         ease: "easeOut",
-        duration: animate ? 0.85 : 0,
+        duration: animate ? 1 : 0,
       },
     },
   };
@@ -80,7 +89,7 @@ const Project = ({ name, description, img, tags, background, animate, count }) =
     >
       <Link className={className} to={`/projects/${parsed_name}`}>
         <article className="preview">
-          <div className="img-wrapper" style={{backgroundColor: background}}>
+          <div className="img-wrapper" style={{ backgroundColor: background }}>
             <AssetHandler asset={img} />
             <Tags tags={tags} theme="dark" />
           </div>

@@ -62,7 +62,7 @@ exports.createPages = ({ graphql, actions }) => {
           ({ previous, node, next }) => {
             const name = node.name.toLowerCase().replace(/\s/g, "-");
             createPage({
-              path: `/journals/${name}`,
+              path: `/journal/${name}`,
               component: path.resolve("src/templates/journal.js"),
               context: {
                 next: next !== null ? next.name : null,

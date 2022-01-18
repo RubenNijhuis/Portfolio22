@@ -24,14 +24,13 @@
   }
 }
 
-.year-journals {
+.year-journal {
   margin-bottom: calc($magic-number * 2);
   user-select: none;
   color: $text-color;
 
   .year {
     position: relative;
-    text-align: right;
     margin-top: 0px;
     margin-bottom: 0px;
 

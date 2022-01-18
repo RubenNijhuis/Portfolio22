@@ -1,27 +1,27 @@
 import React, { useEffect } from "react";
-import Journals from "components/Journals";
+import Journal from "components/Journal";
 import Layout from "components/Layout";
 
 import { graphql } from "gatsby";
 
-const JournalsPage = ({ data }) => {
-  const entries_data = data.journals.nodes;
+const JournalPage = ({ data }) => {
+  const entries_data = data.journal.nodes;
 
     console.log(entries_data);
   useEffect(() => {
-    document.documentElement.style.setProperty("--zJournals", "fixed");
+    document.documentElement.style.setProperty("--zJournal", "fixed");
   }, []);
 
   return (
     <Layout>
-      <Journals entries={entries_data} animate={false} limit={false} />
+      <Journal entries={entries_data} animate={false} limit={false} />
     </Layout>
   );
 };
 
 export const query = graphql`
   query JournalPageQuery {
-    journals: allContentfulJournal(sort: { fields: year, order: DESC }) {
+    journal: allContentfulJournal(sort: { fields: year, order: DESC }) {
       nodes {
         name
         tags
@@ -39,4 +39,4 @@ export const query = graphql`
   }
 `;
 
-export default JournalsPage;
+export default JournalPage;

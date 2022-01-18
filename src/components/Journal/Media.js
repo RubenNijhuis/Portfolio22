@@ -1,6 +1,10 @@
 import React, { useCallback, useLayoutEffect, useState } from "react";
+
+// Utils
 import { isBrowser } from "utils/helper-functions";
-import AssetHandler from "../AssetHandler";
+
+// Components
+import AssetHandler from "components/AssetHandler";
 
 const getDimensionObject = (node) => {
   const rect = node.getBoundingClientRect();

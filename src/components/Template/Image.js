@@ -4,7 +4,7 @@ import { template_image_transition } from "utils/animation-variants";
 import { useAnimation, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-import AssetHandler from "../AssetHandler";
+import AssetHandler from "components/AssetHandler";
 
 const Image = ({ img }) => {
   const controls = useAnimation();
@@ -19,7 +19,7 @@ const Image = ({ img }) => {
       animate={controls}
       ref={ref}
       variants={template_image_transition}
-      className="template__img-wrapper"
+      className="asset--wrapper"
     >
       <AssetHandler asset={img} />
     </motion.div>

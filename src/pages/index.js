@@ -6,16 +6,16 @@ import Layout from "components/Layout";
 import Intro from "containers/Intro";
 import ProjectsGrid from "components/ProjectsGrid";
 import SmallAbout from "containers/SmallAbout";
-import Journals from "components/Journals";
+import Journal from "components/Journal";
 
 // Data
 import { graphql } from "gatsby";
 
 const IndexPage = ({ data }) => {
-  const { projects, journals, about } = data;
+  const { projects, journal, about } = data;
 
   const projects_data = projects.nodes;
-  const entries_data = journals.nodes;
+  const entries_data = journal.nodes;
   const about_data = about;
 
   return (
@@ -24,7 +24,7 @@ const IndexPage = ({ data }) => {
       <Intro />
       <ProjectsGrid projects={projects_data} animate={true} limit={true} />
       <SmallAbout about={about_data.compact_about} photo={about_data.photo} />
-      <Journals entries={entries_data} animate={true} limit={true} />
+      <Journal entries={entries_data} animate={true} limit={true} />
     </Layout>
   );
 };
@@ -71,7 +71,7 @@ export const query = graphql`
       }
     }
 
-    journals: allContentfulJournal(sort: { fields: year, order: DESC }) {
+    journal: allContentfulJournal(sort: { fields: year, order: DESC }) {
       nodes {
         name
         tags

@@ -19,7 +19,7 @@ const Nav = () => {
           </Link>
         </li>
         <li>
-          <Link className="links__link" to="/journals">
+          <Link className="links__link" to="/journal">
             Journal
           </Link>
         </li>

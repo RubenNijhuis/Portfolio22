@@ -43,7 +43,7 @@ $ npm run develop
 Due to the amazing AssetHandeler component any asset can be given and displayed (mp4/jpeg/webp/png/avif). However because many sizes have to be supported the content needs to be sizes in either of two ways.
 
 Project blocks have a 1:1 ratio
-Journals - large format 5:7 - small format anything from 2:1 and wider (fluid)
+Journal - large format 5:7 - small format anything from 2:1 and wider (fluid)
 Template pages can have 1:1 and wider (fluid)
 
 ## 🏢 Project structure
@@ -98,7 +98,7 @@ page component
     render component
 
 query component
-    importing projects/journals/site-data etc
+    importing projects/journal/site-data etc
 ```
 
 ### Container

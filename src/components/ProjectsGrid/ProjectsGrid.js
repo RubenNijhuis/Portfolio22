@@ -4,6 +4,7 @@ import React from "react";
 import { sanitize_project } from "utils/datatype-transformers";
 import { swap_array_elements, useCurrentWidth } from "utils/helper-functions";
 import { sizes } from "utils/constants";
+import { limits } from "constants/limits";
 
 // Components
 import Project from "components/Project";
@@ -18,8 +19,12 @@ const ProjectsGrid = ({ projects, animate = true, limit = false }) => {
   const className = "projects-grid";
 
   // Swap projects before render (fixes items rebounce)
-  const projects_parsed =
+  let projects_parsed =
     width > sizes.medium ? swap_array_elements(projects) : projects;
+
+  // Slice array if bigger than limit
+  if (limit === true && limits.amount_projects < projects_parsed.length)
+    projects_parsed = projects_parsed.slice(0, limits.amount_projects);
 
   return (
     <section className={className}>
@@ -29,6 +34,7 @@ const ProjectsGrid = ({ projects, animate = true, limit = false }) => {
           projects_parsed.map((project, index) => {
             const { name, tags, description, img, background } =
               sanitize_project(project);
+
             return (
               <Project
                 animate={animate}
