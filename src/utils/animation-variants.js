@@ -1,4 +1,4 @@
-// Journals fade in (only for mobile - tablet)
+// Journal fade in (only for mobile - tablet)
 export const journal_small_fade_in = {
   visible: {
     opacity: 1,
@@ -68,8 +68,8 @@ export const project_details_transition = {
   show: {
     opacity: 1,
     transition: {
-      delay: 1.25,
-      duration: 0.5,
+      delay: 1.75,
+      duration: 0.85,
       ease: [0.66, 0.25, 0.48, 1],
     },
   },
@@ -78,27 +78,25 @@ export const project_details_transition = {
 // Project page
 export const project_hero_transition = {
   reveal_initial: {
-    height: "100%",
+    scaleY: 1,
   },
   reveal_animate: {
-    height: "0%",
+    scaleY: 0,
     transition: {
-      delay: 0.25,
-      duration: 1,
-      ease: [1, 0, 0.6, 1],
+      delay: 0.5,
+      duration: 1.25,
+        ease: [0.75, 0, 0.34, 1]
     },
   },
   initial_img: {
-    y: "15%",
-    scale: 1.1,
+    y: "-10%",
   },
   animate_img: {
     opacity: 1,
-    scale: 1,
     y: "0%",
     transition: {
       delay: 0.5,
-      duration: 0.75,
+      duration: 1.25,
       ease: "easeOut",
     },
   },

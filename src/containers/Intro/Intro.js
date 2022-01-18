@@ -4,7 +4,7 @@ import React from "react";
 import "./style.scss";
 
 const Intro = () => {
-  const className = "intro-content";
+  const className = "intro-banner";
   return (
     <section className={className}>
       <div className="content">

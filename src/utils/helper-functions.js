@@ -84,6 +84,9 @@ export const swap_array_elements = (arr) => {
       formatted_array[i + 1] = val1;
     }
   }
+
+  if (arr.length % 2 !== 0) formatted_array.push(arr[arr.length - 1]);
+
   return formatted_array;
 };
 

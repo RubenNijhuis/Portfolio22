@@ -1,27 +1,21 @@
 import React from "react";
 
-// Data aggregation && formattings
+// Data aggregation
 import { graphql } from "gatsby";
-import { renderRichText } from "gatsby-source-contentful/rich-text";
-import { project_content_formatter } from "utils/content-formatters";
+
+// Util
 import { flattenNameToURL } from "utils/helper-functions";
 
-// Animation
-import { motion } from "framer-motion";
-import {
-  project_hero_transition,
-  project_details_transition,
-} from "utils/animation-variants";
-
 // Components
-import AnimatedLetters from "components/Template/AnimatedLetters";
 import Layout from "components/Layout";
-import Tags from "components/Tags";
+import Details from "components/Template/Details/Details";
+import MainImage from "components/Template/MainImage";
+import IntroContent from "components/Template/IntroContent/IntroContent";
+import MainContent from "components/Template/MainContent/MainContent";
 import NextContent from "components/NextContent";
-import AssetHandler from "../components/AssetHandler";
 
 // Styling
-import "../styling/layouts/_template.scss"
+import "styling/layouts/template.scss";
 
 const ProjectTemplate = ({ data }) => {
   // Splitting data for readability
@@ -33,7 +27,7 @@ const ProjectTemplate = ({ data }) => {
     year,
     role,
     content,
-      tags,
+    tags,
     backgroundColor,
     main_img,
   } = project;
@@ -44,66 +38,19 @@ const ProjectTemplate = ({ data }) => {
 
   return (
     <Layout title={`${name} | Ruben Nijhuis | Designer && Developer`}>
-      <div className="template template--project">
-        <section className="intro">
-          <div className="intro__details">
-            <div className="intro__details__header">
-              <AnimatedLetters title={name} />
-              <motion.p
-                initial="hidden"
-                animate="show"
-                variants={project_details_transition}
-              >
-                {description}
-              </motion.p>
-            </div>
-            <motion.div
-              className="intro__personalia"
-              initial="hidden"
-              animate="show"
-              variants={project_details_transition}
-            >
-              <div className="intro__personalia__details">
-                <div>
-                  <h2 className="bold">Year</h2>
-                  <h2>{year_formatted}</h2>
-                </div>
-                <div>
-                  <h2 className="bold">Role</h2>
-                  <h2>{role}</h2>
-                </div>
-              </div>
-              <Tags tags={tags_formatted} theme={"light"} />
-            </motion.div>
-          </div>
-          <div
-            className="intro__hero-img"
-            style={{ backgroundColor: backgroundColor }}
-          >
-            <motion.div
-              className="intro__hero-img--wrapper"
-              initial="initial_img"
-              animate="animate_img"
-              variants={project_hero_transition}
-            >
-              <AssetHandler asset={main_img} />
-            </motion.div>
-            <motion.div
-              initial="reveal_initial"
-              animate="reveal_animate"
-              className="intro__hero-img__reveal"
-              variants={project_hero_transition}
-            />
-          </div>
+      <div className="template">
+        <section className="hero hero--project">
+          <Details
+            name={name}
+            description={description}
+            year={year_formatted}
+            tags={tags_formatted}
+            role={role}
+          />
+          <MainImage img={main_img} backgroundColor={backgroundColor} />
         </section>
-        <div className="intro__content">
-          {renderRichText(introduction, project_content_formatter.intro)}
-        </div>
-        <section>
-          <div className="template__content">
-            {renderRichText(content, project_content_formatter.content)}
-          </div>
-        </section>
+        <IntroContent content={introduction} />
+        <MainContent content={content} />
         <NextContent
           previous={
             previous === null

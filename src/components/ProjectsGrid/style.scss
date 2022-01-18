@@ -71,10 +71,7 @@
       font-size: 7.2rem;
     }
     @include for-laptop-sm-and-up {
-      font-size: 9.6rem;
-    }
-    @include for-laptop-xl-and-up {
-      font-size: 12rem;
+     font-size: clamp(72px, 6vw, 244px); 
     }
   }
 }
