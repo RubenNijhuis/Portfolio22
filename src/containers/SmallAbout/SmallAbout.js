@@ -36,7 +36,7 @@ const SmallAbout = ({ about, photo }) => {
             </div>
           </div>
           <div className="interests">
-            <h3 className="title">Interests</h3>
+            <h3 className="title">Fields</h3>
             <div className="items">
               <p>3D Graphics</p>
               <p>Interactive Design</p>
@@ -44,7 +44,7 @@ const SmallAbout = ({ about, photo }) => {
             </div>
           </div>
           <div className="interests">
-            <h3 className="title">Tags</h3>
+            <h3 className="title">Work</h3>
             <div className="items">
               <p>Front-end</p>
               <p>Design</p>

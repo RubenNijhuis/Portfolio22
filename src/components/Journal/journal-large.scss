@@ -28,7 +28,7 @@
   }
 }
 
-.year-journal {
+.book {
   margin-bottom: calc($magic-number * 2);
   user-select: none;
   color: $text-color;
@@ -68,7 +68,7 @@
     transform $duration-medium $ease-out;
 }
 
-.project-list {
+.entries {
   position: relative;
   z-index: 10;
 
@@ -110,7 +110,7 @@
   }
 }
 
-.project-media {
+.images {
   position: fixed;
   top: 0;
   left: 0;
@@ -125,7 +125,6 @@
 
     aspect-ratio: 5/7;
     width: calc($magic-number * 3.5);
-    // height: calc($magic-number * 5);
 
     overflow: hidden;
     border-radius: 3px;
@@ -142,8 +141,7 @@
       opacity: 0;
       object-fit: cover;
       pointer-events: none;
-      transition: opacity $duration-medium $ease-out,
-        transform $duration-medium $ease-out;
+      transition: transform $duration-medium $ease-out;
     }
   }
 }

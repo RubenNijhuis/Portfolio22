@@ -3,6 +3,7 @@ const DirectoryNamedWebpackPlugin = require("directory-named-webpack-plugin");
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
+  const format_name = (name) => name.toLowerCase().replace(/\s/g, "-");
   return new Promise((resolve, reject) => {
     resolve(
       graphql(`
@@ -10,15 +11,12 @@ exports.createPages = ({ graphql, actions }) => {
           allContentfulProject(sort: { fields: year, order: DESC }) {
             edges {
               next {
-                year
                 name
               }
               node {
-                year
                 name
               }
               previous {
-                year
                 name
               }
             }
@@ -26,15 +24,12 @@ exports.createPages = ({ graphql, actions }) => {
           allContentfulJournal(sort: { fields: year, order: DESC }) {
             edges {
               next {
-                year
                 name
               }
               node {
-                year
                 name
               }
               previous {
-                year
                 name
               }
             }
@@ -46,7 +41,7 @@ exports.createPages = ({ graphql, actions }) => {
         }
         result.data.allContentfulProject.edges.forEach(
           ({ previous, node, next }) => {
-            const name = node.name.toLowerCase().replace(/\s/g, "-");
+            const name = format_name(node.name);
             createPage({
               path: `/projects/${name}`,
               component: path.resolve("src/templates/project.js"),
@@ -60,7 +55,7 @@ exports.createPages = ({ graphql, actions }) => {
         );
         result.data.allContentfulJournal.edges.forEach(
           ({ previous, node, next }) => {
-            const name = node.name.toLowerCase().replace(/\s/g, "-");
+            const name = format_name(node.name);
             createPage({
               path: `/journal/${name}`,
               component: path.resolve("src/templates/journal.js"),
@@ -79,7 +74,7 @@ exports.createPages = ({ graphql, actions }) => {
 };
 
 // Remove scss warnings
-exports.onCreateWebpackConfig = ({  stage, actions, getConfig, plugins }) => {
+exports.onCreateWebpackConfig = ({ stage, actions, getConfig, plugins }) => {
   const config = getConfig();
   const miniCssExtractPluginIndex = config.plugins.findIndex(
     (plugin) => plugin.constructor.name === "MiniCssExtractPlugin"

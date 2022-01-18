@@ -28,8 +28,8 @@ const ProjectTemplate = ({ data }) => {
     role,
     content,
     tags,
-    backgroundColor,
-    main_img,
+    background_color,
+    hero_img,
   } = project;
 
   // Format data
@@ -47,7 +47,7 @@ const ProjectTemplate = ({ data }) => {
             tags={tags_formatted}
             role={role}
           />
-          <MainImage img={main_img} backgroundColor={backgroundColor} />
+          <MainImage img={hero_img} backgroundColor={background_color} />
         </section>
         <IntroContent content={introduction} />
         <MainContent content={content} />
@@ -81,37 +81,33 @@ export const query = graphql`
     project: contentfulProject(name: { eq: $slug }) {
       name
       description
-      backgroundColor
-      introduction {
-        raw
-      }
-      main_img {
-        title
+      tags
+      year
+      role
+      background_color
+      hero_img {
+        alt: title
         file {
           url
           contentType
         }
         gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
       }
-      tags
-      year
-      role
+      introduction {
+        raw
+      }
       content {
         raw
         references {
           ... on ContentfulAsset {
-            title
             contentful_id
+            alt: title
             file {
               contentType
               url
             }
             __typename
-            gatsbyImageData(
-              layout: FULL_WIDTH
-              placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
-            )
+            gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
           }
         }
       }

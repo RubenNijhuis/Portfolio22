@@ -42,7 +42,10 @@
   .personalia {
     min-width: fit-content;
     width: fit-content;
-    justify-self: end;
+
+    @include for-tablet-and-up {
+      justify-self: end;
+    }
 
     .info {
       display: flex;

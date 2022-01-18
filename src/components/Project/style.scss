@@ -12,18 +12,6 @@
   @include size(100%);
   cursor: pointer;
 
-  &--wrapper {
-    margin-bottom: calc($magic-number * 1.5);
-
-    &:last-of-type {
-      margin-bottom: calc($magic-number * 1);
-    }
-
-    @include for-laptop-sm-and-up {
-      margin-bottom: 0;
-    }
-  }
-
   @include for-laptop-sm-and-up {
     &:hover {
       .img-wrapper {
@@ -58,8 +46,8 @@
     }
 
     .gatsby-image-wrapper div {
-        max-width: 100% !important;
-        height: 100%;
+      max-width: 100% !important;
+      height: 100%;
     }
 
     .tags {
@@ -84,7 +72,7 @@
     padding-bottom: 0;
 
     @include for-tablet-and-up {
-      padding: calc($magic-number / 2) calc($magic-number / 4);
+      padding: calc($magic-number / 2.5) calc($magic-number / 8);
       padding-bottom: 0;
     }
 
@@ -129,33 +117,33 @@
 
 // Typography
 .project {
-    text-decoration: none;
-  
-    .img-wrapper {
-      .tags span {
-        color: $text-color;
-        font-size: 11px;
-      }
-    }
-  
-    .description {
-      h2,
-      p {
-        font-weight: 400;
-        font-size: 1.6rem;
-  
-        @include for-laptop-sm-and-up {
-          font-size: clamp(16px, 1.2vw, 108px);
-        }
-      }
-  
-      h2 {
-        color: #7d7d7d;
-      }
-  
-      p {
-        color: $text-color;
-        line-height: 1.4;
-      }
+  text-decoration: none;
+
+  .img-wrapper {
+    .tags span {
+      color: $text-color;
+      font-size: 11px;
     }
   }
+
+  .description {
+    h2,
+    p {
+      font-weight: 400;
+      font-size: 1.6rem;
+
+      @include for-laptop-sm-and-up {
+        font-size: clamp(16px, 1.2vw, 108px);
+      }
+    }
+
+    h2 {
+      color: #7d7d7d;
+    }
+
+    p {
+      color: $text-color;
+      line-height: 1.4;
+    }
+  }
+}

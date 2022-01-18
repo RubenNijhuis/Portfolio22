@@ -31,7 +31,6 @@ export const page_transition = (isHomePage) => {
         type: "spring",
         mass: 0.35,
         stiffness: 75,
-        duration: 0.15,
         delay: 0.2,
       },
     },
@@ -106,7 +105,7 @@ export const project_hero_transition = {
 export const template_image_transition = {
   initial: {
     opacity: 0,
-    scale: 0.985,
+    scale: 0.95,
     y: "5%",
   },
   animate: {

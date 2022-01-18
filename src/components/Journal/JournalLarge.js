@@ -31,7 +31,7 @@ const useMousePosition = () => {
   return mousePosition;
 };
 
-const JournalContainer = ({
+const JournalYear = ({
   iindex,
   year,
   year_entries,
@@ -40,10 +40,11 @@ const JournalContainer = ({
   x,
   y,
 }) => {
+  const className = "book";
   return (
-    <div className="year-journal">
+    <div className={className}>
       <h2 className="year">'{year}</h2>
-      <div className="project-list">
+      <div className="entries">
         {year_entries.map((entry, index) => {
           const { name, tags } = sanitize_entry(entry);
           return (
@@ -57,7 +58,7 @@ const JournalContainer = ({
           );
         })}
       </div>
-      <div className="project-media">
+      <div className="images">
         {year_entries.map((entry, index) => {
           const { img } = sanitize_entry(entry);
 
@@ -65,13 +66,7 @@ const JournalContainer = ({
           let xPos = x;
           let yPos = y;
           return (
-            <Media
-              img={img}
-              active={isActive}
-              x={xPos}
-              y={yPos}
-              key={index}
-            />
+            <Media img={img} active={isActive} x={xPos} y={yPos} key={index} />
           );
         })}
       </div>
@@ -80,20 +75,22 @@ const JournalContainer = ({
 };
 
 const JournalLarge = ({ entries }) => {
+  const className = "journal";
+
   const [entries_formatted] = sanitize_journal_entries(entries);
   const [activeIndex, setActiveIndex] = useState(-1);
   const { x, y } = useMousePosition();
 
-  let year = new Date().getFullYear().toString().slice(2, 4);
+  let year = entries[0].year - 2000;
 
   return (
-    <section className="journal">
+    <section className={className}>
       <header className="headline">Journal</header>
       {entries_formatted.map((year_entries, indexMain) => {
         let iindex = indexMain * 10 + 1;
         if (indexMain !== 0) iindex++;
         return (
-          <JournalContainer
+          <JournalYear
             iindex={iindex}
             year={year--}
             year_entries={year_entries}

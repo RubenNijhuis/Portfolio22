@@ -35,7 +35,7 @@ const Project = ({
    * (TODO: Have the grid set animation and layout)
    */
   const offset_height = (offset, hidden) => {
-    if (width < sizes.medium) return hidden ? `${offset}%` : "0%";
+    if (width < sizes.small) return hidden ? `${offset}%` : "0%";
     else {
       if (count % 2 === 0) {
         return hidden ? "-20%" : "-30%";

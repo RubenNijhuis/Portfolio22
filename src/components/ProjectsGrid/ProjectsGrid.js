@@ -1,7 +1,7 @@
 import React from "react";
 
 // Utils
-import { sanitize_project } from "utils/datatype-transformers";
+import { transform_project } from "utils/datatype-transformers";
 import { swap_array_elements, useCurrentWidth } from "utils/helper-functions";
 import { sizes } from "utils/constants";
 import { limits } from "constants/limits";
@@ -9,6 +9,22 @@ import { limits } from "constants/limits";
 // Components
 import Project from "components/Project";
 import SeeMore from "components/SeeMore";
+
+/**
+ * Griod for sizes bigger than laptop
+ *
+ * | 1fr  1fr  1fr  |
+ * | ---- ---- ---- |
+ * |  x          x  |
+ * |  y    x     y  |
+ * |       y        |
+ * |  x          x  |
+ * |  y          y  |
+ * |       x        |
+ * |       y        |
+ * ------------------
+
+ */
 
 // Styling
 import "./style.scss";
@@ -20,7 +36,7 @@ const ProjectsGrid = ({ projects, animate = true, limit = false }) => {
 
   // Swap projects before render (fixes items rebounce)
   let projects_parsed =
-    width > sizes.medium ? swap_array_elements(projects) : projects;
+    width > sizes.small ? swap_array_elements(projects) : projects;
 
   // Slice array if bigger than limit
   if (limit === true && limits.amount_projects < projects_parsed.length)
@@ -33,7 +49,7 @@ const ProjectsGrid = ({ projects, animate = true, limit = false }) => {
         {width !== undefined &&
           projects_parsed.map((project, index) => {
             const { name, tags, description, img, background } =
-              sanitize_project(project);
+              transform_project(project);
 
             return (
               <Project

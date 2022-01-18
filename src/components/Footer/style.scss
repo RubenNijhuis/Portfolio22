@@ -1,130 +1,131 @@
-@use '../../styling/abstracts' as *;
+@use "../../styling/abstracts" as *;
 
 .footer {
+  position: relative;
+  z-index: 10;
+  
+  max-width: calc($magic-number * 22);
+  margin: auto;
+  padding: $magic-number calc($magic-number / 8);
+  padding-bottom: 0 !important;
+
+  @include for-tablet-and-up {
+    padding: $magic-number calc($magic-number / 2);
+  }
+  @include for-laptop-sm-and-up {
+    padding: 0 $magic-number;
+  }
+
+  .email {
+    display: block;
     position: relative;
 
-    max-width: calc($magic-number * 22);
-    margin: auto;
-    padding: $magic-number calc($magic-number / 8);
-    padding-bottom: 0 !important;
+    text-decoration: none;
+    border-bottom: solid $text-color 3px;
+    @include for-tablet-and-up {
+      padding-bottom: calc($magic-number / 8);
+      border-bottom-width: calc($magic-number / 8);
+    }
+  }
+
+  .content {
+    display: flex;
+    justify-content: space-between;
+    padding: calc($magic-number / 2) calc($magic-number / 4);
 
     @include for-tablet-and-up {
-        padding: $magic-number calc($magic-number / 2);
+      padding: $magic-number;
     }
     @include for-laptop-sm-and-up {
-        padding: 0 $magic-number;
+      padding: $magic-number calc($magic-number * 2);
+    }
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+
+    &:hover {
+      cursor: pointer;
     }
 
-    .email {
-        display: block;
+    &--external {
+      @include for-tablet-and-up {
+        align-items: flex-end;
+      }
+    }
+
+    a {
+      padding: calc($magic-number / 8);
+      margin-bottom: 0;
+      width: fit-content;
+
+      @include for-laptop-sm-and-up {
         position: relative;
 
-        text-decoration: none;
-        border-bottom: solid $text-color 3px;
-        @include for-tablet-and-up {
-            padding-bottom: calc($magic-number / 8);
-            border-bottom-width: calc($magic-number / 8);
-        }
-    }
+        &:before {
+          content: "";
+          position: absolute;
 
-    .content {
-        display: flex;
-        justify-content: space-between;
-        padding: calc($magic-number / 2) calc($magic-number / 4);
+          right: -24px;
+          bottom: 0px + 12px;
 
-        @include for-tablet-and-up {
-            padding: $magic-number;
-        }
-        @include for-laptop-sm-and-up {
-            padding: $magic-number calc($magic-number * 2);
-        }
-    }
+          width: 26px;
+          height: calc($magic-number / 4);
 
-    .links {
-        display: flex;
-        flex-direction: column;
+          // background-image: url("assets/arrow-icon-white.svg");
+          background-repeat: no-repeat;
+          background-size: contain;
+
+          opacity: 0;
+        }
 
         &:hover {
-            cursor: pointer;
+          cursor: pointer;
+          &:before {
+            opacity: 1;
+          }
         }
-
-        &--external {
-            @include for-tablet-and-up {
-                align-items: flex-end;
-            }
-        }
-
-        a {
-            padding: calc($magic-number / 8);
-            margin-bottom: 0;
-            width: fit-content;
-
-            @include for-laptop-sm-and-up {
-                position: relative;
-
-                &:before {
-                    content: "";
-                    position: absolute;
-
-                    right: -24px;
-                    bottom: 0px + 12px;
-
-                    width: 26px;
-                    height: calc($magic-number / 4);
-
-                    // background-image: url("assets/arrow-icon-white.svg");
-                    background-repeat: no-repeat;
-                    background-size: contain;
-
-                    opacity: 0;
-                }
-
-                &:hover {
-                    cursor: pointer;
-                    &:before {
-                        opacity: 1;
-                    }
-                }
-            }
-        }
+      }
     }
+  }
 }
 
 // Typography
 .footer {
-    .email {
-      color: $text-color;
-  
-      font-size: clamp(18.65px, 6.78vw, 60px);
-      font-weight: 600;
-  
-      @include for-tablet-and-up {
-        font-size: clamp(18.65px, 6.46vw, 102.6px);
-      }
-  
-      @include for-laptop-sm-and-up {
-        font-size: clamp(18.65px, 6.13vw, 102.6px);
-      }
-  
-      @include for-laptop-l-and-up {
-        font-size: clamp(34px, 5.7vw, 102.6px);
-      }
+  .email {
+    color: $text-color;
+
+    font-size: clamp(18.65px, 6.78vw, 60px);
+    font-weight: 600;
+
+    @include for-tablet-and-up {
+      font-size: clamp(18.65px, 6.46vw, 102.6px);
     }
-  
-    .links a {
-      color: $text-color;
-  
-      font-size: 2rem;
-      font-weight: 400;
-  
-      text-decoration: none;
-  
-      @include for-laptop-sm-and-up {
-        font-weight: 600;
-      }
-  
-      @include for-laptop-l-and-up {
-        font-size: 2.4rem;
-      }
+
+    @include for-laptop-sm-and-up {
+      font-size: clamp(18.65px, 6.12vw, 102.6px);
+    }
+
+    @include for-laptop-l-and-up {
+      font-size: clamp(34px, 5.7vw, 102.6px);
     }
   }
+
+  .links a {
+    color: $text-color;
+
+    font-size: 2rem;
+    font-weight: 400;
+
+    text-decoration: none;
+
+    @include for-laptop-sm-and-up {
+      font-weight: 600;
+    }
+
+    @include for-laptop-l-and-up {
+      font-size: 2.4rem;
+    }
+  }
+}

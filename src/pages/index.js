@@ -38,10 +38,9 @@ export const query = graphql`
         name
         description
         tags
-        year
-        backgroundColor
-        backgroundImg {
-          title
+        background_color
+        showcase_img {
+          alt: title
           file {
             contentType
             url

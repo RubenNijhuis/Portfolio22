@@ -27,8 +27,9 @@ const AboutPage = ({ data }) => {
 
   return (
     <Layout>
+      <h1 className="heading">About</h1>
       <section className="introduction">
-        <div className="titles">
+        {/* <div className="titles">
           <div className="nicknames">
             <div className="nick-name-wrapper">
               <h2>Developer</h2>
@@ -53,9 +54,8 @@ const AboutPage = ({ data }) => {
               <h2>Fancyman</h2>
             </div>
           </div>
-        </div>
+        </div> */}
         <article className="introduction__text">
-          <h1 className="heading">About</h1>
           {renderRichText(expanded_about)}
         </article>
         <div className="introduction__image">
@@ -81,9 +81,9 @@ const AboutPage = ({ data }) => {
           </div>
         </div>
       </section>
-      <div className="interests">
+      {/* <div className="interests">
         <div className="interests__tags" />
-      </div>
+      </div> */}
       <section>
         <TimeLineBlock title="Work" items={work_items} />
         <TimeLineBlock title="Education" items={education_items} />

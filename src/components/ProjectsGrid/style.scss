@@ -4,19 +4,15 @@
   padding: $magic-number calc($magic-number / 4);
 
   @include for-tablet-and-up {
-    padding: calc($magic-number) calc($magic-number / 2);
+    padding: calc($magic-number)  4vw;
   }
 
-  @include for-laptop-l-and-up {
-    padding: calc($magic-number * 2) calc($magic-number * 1);
-  }
-
-  @include for-laptop-xl-and-up {
-    padding: calc($magic-number * 2) calc($magic-number * 1.5);
+  @include for-laptop-sm-and-up {
+    padding: calc($magic-number * 2) 4vw;
   }
 
   .heading {
-    margin-top: 0;
+    margin: 0;
     margin-bottom: calc($magic-number / 2);
 
     @include for-tablet-and-up {
@@ -29,29 +25,24 @@
   }
 
   .grid {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: calc($magic-number);
     transform: scaleX(-1);
+    margin-bottom: calc($magic-number);
 
-    @include for-phablet-and-up {
-      display: flex;
+    @include for-tablet-and-up {
+      grid-column-gap: 4vw;
+      grid-row-gap: 10vw;
+      grid-template-columns: 1fr 1fr;
     }
 
     @include for-laptop-sm-and-up {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-column-gap: calc($magic-number / 2);
-      grid-row-gap: calc($magic-number * 2);
       margin-bottom: calc($magic-number * 1);
     }
 
     @include for-laptop-l-and-up {
-      grid-column-gap: calc($magic-number * 1);
-    }
-
-    @include for-laptop-xl-and-up {
-      grid-column-gap: calc($magic-number * 1.5);
+      grid-column-gap: 4vw;
     }
   }
 }
@@ -64,14 +55,8 @@
     font-size: 5.6rem;
     color: $text-color;
 
-    @include for-tablet-landscape-and-up {
-      font-size: 5.6rem;
-    }
     @include for-tablet-and-up {
-      font-size: 7.2rem;
-    }
-    @include for-laptop-sm-and-up {
-     font-size: clamp(72px, 6vw, 244px); 
+      font-size: clamp(72px, 6vw, 244px);
     }
   }
 }

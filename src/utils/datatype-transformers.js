@@ -26,12 +26,12 @@ export const sanitize_entry = (entry) => {
 };
 
 // Sanitize project
-export const sanitize_project = (project) => {
+export const transform_project = (project) => {
   const { name } = project;
   const tags = project.tags.split(" | ");
   const description = project.description;
-  const img = project.backgroundImg;
-  const background = project.backgroundColor;
+  const img = project.showcase_img;
+  const background = project.background_color;
 
   return { name, tags, description, img, background };
 };
