@@ -30,6 +30,10 @@ const Project = ({
   const width = useCurrentWidth();
   const className = "project";
 
+  const image_options = {
+    videoCover: true,
+  };
+
   /*
    * Check if grid is active and returns correct Y offset
    * (TODO: Have the grid set animation and layout)
@@ -90,7 +94,7 @@ const Project = ({
       <Link className={className} to={`/projects/${parsed_name}`}>
         <article className="preview">
           <div className="img-wrapper" style={{ backgroundColor: background }}>
-            <AssetHandler asset={img} />
+            <AssetHandler asset={img} options={image_options} />
             <Tags tags={tags} theme="dark" />
           </div>
           <div className="description">

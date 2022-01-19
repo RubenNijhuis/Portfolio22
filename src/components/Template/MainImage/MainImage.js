@@ -12,6 +12,11 @@ import "./style.scss";
 
 const MainImage = ({ img, backgroundColor }) => {
   const className = "main-img";
+
+  const image_options = {
+    videoCover: true,
+  };
+
   return (
     <div className={className} style={{ backgroundColor: backgroundColor }}>
       <motion.div
@@ -20,7 +25,7 @@ const MainImage = ({ img, backgroundColor }) => {
         animate="animate_img"
         variants={project_hero_transition}
       >
-        <AssetHandler asset={img} />
+        <AssetHandler asset={img} option={image_options} />
       </motion.div>
       <motion.div
         initial="reveal_initial"

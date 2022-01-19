@@ -107,7 +107,46 @@ export const query = graphql`
               url
             }
             __typename
+            internal {
+              type
+            }
             gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+          }
+          ... on ContentfulImageGallery {
+            name
+            contentful_id
+            images {
+              contentful_id
+              alt: title
+              file {
+                contentType
+                url
+              }
+              gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+              internal {
+                type
+              }
+              __typename
+            }
+            __typename
+          }
+          ... on ContentfulBannerText {
+            contentful_id
+            __typename
+            content
+            internal {
+              type
+            }
+          }
+          ... on ContentfulEmeddedVideo {
+            contentful_id
+            __typename
+            url
+            width
+            height
+            internal {
+              type
+            }
           }
         }
       }
