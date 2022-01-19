@@ -1,0 +1,33 @@
+@use "../../../styling/abstracts" as *;
+
+.gallery {
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: calc($magic-number / 2);
+
+    @include for-laptop-sm-and-up {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .asset {
+      aspect-ratio: 5/3;
+      border-radius: $border-radius;
+      transform: translateZ(0);
+      overflow: hidden;
+
+      .img-container {
+          .img {
+              position: fixed;
+          }
+      }
+
+      top: 56px;
+      position: sticky;
+
+      @include for-laptop-sm-and-up {
+        position: static;
+      }
+    }
+  }
+}
