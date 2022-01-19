@@ -1,71 +1,96 @@
-@use '../../styling/abstracts' as *;
+@use "../../styling/abstracts" as *;
 
 .nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 0 calc($magic-number / 8);
-    @include size(100%, auto);
+  position: fixed;
+  top: 0;
+  left: 0;
+  @include size(100%, auto);
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-    z-index: 12;
-    background-color: $background-color;
-    border-bottom: solid 2px $text-color;
-    
-    @include for-tablet-and-up {
-        padding: calc($magic-number / 4);
-    }
+  z-index: 12;
+  border-bottom: solid 2px $text-color;
+  background-color: $background-color;
 
-    @include for-laptop-l-and-up {
-        padding: calc($magic-number / 8) calc($magic-number / 4);
-    }
+  padding: calc($magic-number / 8);
 
-    .links {
+  @include for-tablet-and-up {
+    padding: calc($magic-number / 4);
+  }
+
+  @include for-laptop-l-and-up {
+    padding: calc($magic-number / 8) calc($magic-number / 2);
+  }
+
+  // Credits -> https://daanvanderZwaag.com
+  .links {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: calc($magic-number / 4);
+
+    .col {
+      &--home {
+        grid-column: 0/1;
+      }
+
+      &--main {
         display: flex;
-        align-content: center;
-        list-style-type: none;
+        justify-content: space-between;
+        grid-column: 2/4;
 
-        &__link {
-            display: inline-block;
-            padding: 0 calc($magic-number / 4);
+        @include for-tablet-and-up {
+          display: block;
+          grid-column: 3/4;
+        }
 
-            @include for-tablet-and-up {
-                margin-right: calc($magic-number / 2);
+        a {
+          @include for-tablet-and-up {
+            margin: 0 calc($magic-number / 2);
+            &:first-of-type {
+              margin-right: 0;
             }
 
             &:last-of-type {
-                margin-right: calc($magic-number / -8);
+              margin-right: 0;
             }
+          }
         }
-    }
-}
+      }
 
-
-// Typography
-.nav {
-    .home {
-      font-size: 2.2rem;
-      font-weight: 900;
-      color: $text-color;
-      text-decoration: none;
-    }
-  
-    .links {
-      &__link {
-        text-decoration: none;
-        font-size: 1.6rem;
-  
-        @include for-tablet-and-up {
-          font-size: 2rem;
-        }
-  
-        color: $text-color;
-        &:visited {
-          color: $text-color;
-        }
+      &--secondary {
+        grid-column: 4/5;
+        text-align: right;
       }
     }
   }
+}
+
+// Typography
+.nav {
+  .home {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: $text-color;
+    text-decoration: none;
+  }
+
+  .links {
+    a {
+      text-decoration: none;
+      font-size: 1.6rem;
+
+      @include for-tablet-and-up {
+        font-size: 2rem;
+      }
+
+      color: $text-color;
+
+      &:visited {
+        color: $text-color;
+      }
+    }
+  }
+}
