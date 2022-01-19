@@ -2,7 +2,7 @@
 
 .template {
   color: $text-color;
-  max-width: calc($magic-number * 24);;
+  max-width: calc($magic-number * 24);
 
   @include for-laptop-sm-and-up {
     margin: 0 auto;

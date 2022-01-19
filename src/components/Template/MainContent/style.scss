@@ -3,7 +3,7 @@
 .main-content {
   margin: 0 auto;
   padding: calc($magic-number / 2) calc($magic-number / 4);
-  max-width: calc($magic-number * 22);
+  max-width: calc($magic-number * 20);
 
   @include for-tablet-and-up {
     padding: calc($magic-number / 2);
@@ -74,7 +74,7 @@
     @include for-laptop-sm-and-up {
       max-width: 60ch;
     }
-    
+
     @include for-tablet-and-up {
       max-width: calc($magic-number * 10);
     }
@@ -101,6 +101,15 @@
     }
   }
 
+  .gallery,
+  .video-embed {
+    margin: calc($magic-number / 2) auto;
+
+    @include for-tablet-and-up {
+      margin: calc($magic-number * 1) auto;
+    }
+  }
+
   .asset {
     @include size(100%);
     transform: translateZ(0px); // safari border radius fx
@@ -111,7 +120,7 @@
       border-radius: $border-radius;
 
       @include for-tablet-and-up {
-        margin: calc($magic-number * 1.5) auto;
+        margin: calc($magic-number * 1) auto;
       }
 
       &:first-child {

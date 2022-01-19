@@ -1,0 +1,42 @@
+@use "../../styling/abstracts" as *;
+
+.video-embed {
+  border: solid 1px white;
+  border-radius: 6px;
+  overflow: hidden;
+
+  .top-bar {
+    border-radius: 6px 6px 0px 0px;
+    height: 56px;
+    border-bottom: solid 1px white;
+
+    .buttons {
+      padding-left: 18px;
+      display: flex;
+      align-items: center;
+      height: 100%;
+
+      .button {
+        width: 18px;
+        height: 18px;
+        border: solid 1px white;
+        border-radius: 100px;
+        margin-right: 9px;
+        display: inline-block;
+      }
+    }
+  }
+
+  .container {
+    position: relative;
+    width: 100%;
+
+    .video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
