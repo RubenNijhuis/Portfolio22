@@ -8,4 +8,10 @@
     @include size(100%);
     object-fit: cover;
   }
+
+  &.dont-cover {
+    .video {
+      object-fit: contain;
+    }
+  }
 }

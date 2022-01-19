@@ -1,8 +1,9 @@
 import React from "react";
 import "./styling.scss";
 
-const VideoPlayer = ({ asset }) => {
-  const className = "video-player";
+const VideoPlayer = ({ asset, options }) => {
+  let className = "video-player";
+  if (!options.videoCover) className += " dont-cover";
   let url;
 
   if (asset.file?.url !== undefined) {
