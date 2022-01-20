@@ -16,29 +16,35 @@ import NextContent from "components/NextContent";
 import "styling/layouts/template.scss";
 
 const JournalTemplate = ({ data }) => {
-  const { name, img, introduction, year, content, tags } = data.journal;
+  const { name, img, introduction, year, content, background_color, tags } =
+    data.journal;
 
   const { previous, next } = data;
 
   const year_formatted = `'${year.toString().slice(2, 4)}`;
   const tags_formatted = tags.split(" | ");
 
+  const content_options = {
+    videoCover: true,
+    backgroundColor: background_color,
+  };
+
   return (
     <Layout title={`${name} | Ruben Nijhuis | Designer && Developer`}>
       <div className="template">
         <section className="hero">
           <Details
-            addClassName="details--journal"
+            addClassName="journal"
             name={name}
-            description={"aa"}
+            description={" "}
             year={year_formatted}
             tags={tags_formatted}
-            role={"aa"}
+            role={" "}
           />
-          <MainImage img={img} backgroundColor={"#1e1e1e"} />
+          <MainImage img={img} options={content_options} />
         </section>
         <IntroContent content={introduction} />
-        <MainContent content={content} />
+        <MainContent content={content} options={content_options} />
         <NextContent
           previous={
             previous === null
@@ -70,6 +76,7 @@ export const query = graphql`
       name
       tags
       year
+      background_color
       img {
         file {
           url
