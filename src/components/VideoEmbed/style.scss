@@ -1,28 +1,28 @@
 @use "../../styling/abstracts" as *;
 
 .video-embed {
-  border: solid 1px white;
-  border-radius: 6px;
+  border: solid 1px $text-color;
+  border-radius: $border-radius;
   overflow: hidden;
 
   .top-bar {
-    border-radius: 6px 6px 0px 0px;
-    height: 56px;
-    border-bottom: solid 1px white;
+    border-radius: $border-radius $border-radius 0px 0px;
+    height: calc($magic-number / 2 * 1.5);
+    border-bottom: solid 1px $text-color;
 
     .buttons {
-      padding-left: 18px;
       display: flex;
       align-items: center;
+      padding-left: calc($magic-number / 4);
       height: 100%;
 
       .button {
-        width: 18px;
-        height: 18px;
-        border: solid 1px white;
-        border-radius: 100px;
-        margin-right: 9px;
         display: inline-block;
+        margin-right: calc($magic-number / 8);
+        @include size(calc($magic-number / 4));
+
+        border: solid 1px $text-color;
+        border-radius: 100px;
       }
     }
   }
@@ -32,11 +32,8 @@
     width: 100%;
 
     .video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
+      @include absoluteZero;
+      @include size(100%);
     }
   }
 }

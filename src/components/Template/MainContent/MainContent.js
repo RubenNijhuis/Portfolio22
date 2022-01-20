@@ -8,11 +8,11 @@ import { project_content_formatter } from "utils/content-formatters";
 import "./style.scss";
 import "./typography.scss";
 
-const MainContent = ({ content }) => {
+const MainContent = ({ content, options }) => {
   const className = "main-content";
   return (
     <section className={className}>
-      {renderRichText(content, project_content_formatter.content)}
+      {renderRichText(content, project_content_formatter("main", options))}
     </section>
   );
 };

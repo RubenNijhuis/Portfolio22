@@ -4,6 +4,7 @@ const DirectoryNamedWebpackPlugin = require("directory-named-webpack-plugin");
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
   const format_name = (name) => name.toLowerCase().replace(/\s/g, "-");
+
   return new Promise((resolve, reject) => {
     resolve(
       graphql(`
@@ -44,7 +45,7 @@ exports.createPages = ({ graphql, actions }) => {
             const name = format_name(node.name);
             createPage({
               path: `/projects/${name}`,
-              component: path.resolve("src/templates/project.js"),
+              component: path.resolve("src/templates/Project/Project.js"),
               context: {
                 next: next !== null ? next.name : null,
                 previous: previous !== null ? previous.name : null,
@@ -58,7 +59,7 @@ exports.createPages = ({ graphql, actions }) => {
             const name = format_name(node.name);
             createPage({
               path: `/journal/${name}`,
-              component: path.resolve("src/templates/journal.js"),
+              component: path.resolve("src/templates/Journal/Journal.js"),
               context: {
                 next: next !== null ? next.name : null,
                 previous: previous !== null ? previous.name : null,

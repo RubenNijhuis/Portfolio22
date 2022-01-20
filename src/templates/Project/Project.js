@@ -36,6 +36,11 @@ const ProjectTemplate = ({ data }) => {
   const year_formatted = `'${year.toString().slice(2, 4)}`;
   const tags_formatted = tags.split(" | ");
 
+  const content_options = {
+    videoCover: true,
+    backgroundColor: background_color,
+  };
+
   return (
     <Layout title={`${name} | Ruben Nijhuis | Designer && Developer`}>
       <div className="template">
@@ -47,10 +52,10 @@ const ProjectTemplate = ({ data }) => {
             tags={tags_formatted}
             role={role}
           />
-          <MainImage img={hero_img} backgroundColor={background_color} />
+          <MainImage img={hero_img} options={content_options} />
         </section>
         <IntroContent content={introduction} />
-        <MainContent content={content} />
+        <MainContent content={content} options={content_options} />
         <NextContent
           previous={
             previous === null

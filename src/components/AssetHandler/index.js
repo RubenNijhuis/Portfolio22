@@ -8,14 +8,17 @@ import VideoPlayer from "./VideoPlayer";
 import "./style.scss";
 
 const AssetHandler = ({ asset, options }) => {
-  const className = "asset";
-  const [assetType, changeAssetType] = useState();
-
+  // Default options
   if (options === undefined) {
     options = {
       videoCover: true,
+      backgroundColor: "#1e1e1e",
     };
   }
+
+  const className = "asset";
+  const [assetType, changeAssetType] = useState();
+
   /**
    * Get asset type (speficic to contentful structure)
    * Either grabs the file url or the gatsby image data
@@ -34,7 +37,9 @@ const AssetHandler = ({ asset, options }) => {
 
   const asset_type = (asset_type) => {
     if (asset_type === "video/mp4")
-      return <VideoPlayer asset={asset} options={options} />;
+        return <VideoPlayer asset={asset} options={options} />;
+    else if (asset_type === "video/quicktime")
+        return <VideoPlayer asset={asset} options={options} />;
     else if (asset_type === "image/png")
       return <ImgContainer asset={asset} options={options} />;
     else if (asset_type === "image/jpeg")

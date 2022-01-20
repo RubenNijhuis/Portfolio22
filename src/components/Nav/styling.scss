@@ -48,10 +48,7 @@
 
         a {
           @include for-tablet-and-up {
-            margin: 0 calc($magic-number / 2);
-            &:first-of-type {
-              margin-right: 0;
-            }
+            margin-right: calc($magic-number / 2);
 
             &:last-of-type {
               margin-right: 0;
@@ -71,7 +68,7 @@
 // Typography
 .nav {
   .home {
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-weight: 900;
     color: $text-color;
     text-decoration: none;
@@ -83,7 +80,7 @@
       font-size: 1.6rem;
 
       @include for-tablet-and-up {
-        font-size: 2rem;
+        font-size: 1.8rem;
       }
 
       color: $text-color;

@@ -10,22 +10,21 @@ import { project_hero_transition } from "utils/animation-variants";
 // Styling
 import "./style.scss";
 
-const MainImage = ({ img, backgroundColor }) => {
+const MainImage = ({ img, options }) => {
   const className = "main-img";
 
-  const image_options = {
-    videoCover: true,
-  };
-
   return (
-    <div className={className} style={{ backgroundColor: backgroundColor }}>
+    <div
+      className={className}
+      style={{ backgroundColor: options.backgroundColor }}
+    >
       <motion.div
         className="img--wrapper"
         initial="initial_img"
         animate="animate_img"
         variants={project_hero_transition}
       >
-        <AssetHandler asset={img} option={image_options} />
+        <AssetHandler asset={img} options={options} />
       </motion.div>
       <motion.div
         initial="reveal_initial"

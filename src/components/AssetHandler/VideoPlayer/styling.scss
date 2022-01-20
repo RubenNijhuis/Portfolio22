@@ -2,6 +2,7 @@
 
 .video-player {
   display: flex;
+  position: relative;
   @include size(100%);
 
   .video {

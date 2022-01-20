@@ -6,7 +6,7 @@ import { useInView } from "react-intersection-observer";
 
 import AssetHandler from "components/AssetHandler";
 
-const Image = ({ img }) => {
+const Image = ({ img, options }) => {
   const controls = useAnimation();
   const [ref, inView] = useInView({ triggerOnce: true });
 
@@ -21,7 +21,7 @@ const Image = ({ img }) => {
       variants={template_image_transition}
       className="asset--wrapper"
     >
-      <AssetHandler asset={img} />
+      <AssetHandler asset={img} options={options} />
     </motion.div>
   );
 };

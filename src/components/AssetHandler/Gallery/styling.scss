@@ -17,16 +17,9 @@
       overflow: hidden;
 
       .img-container {
-          .img {
-              position: fixed;
-          }
-      }
-
-      top: 56px;
-      position: sticky;
-
-      @include for-laptop-sm-and-up {
-        position: static;
+        .img {
+          position: fixed;
+        }
       }
     }
   }

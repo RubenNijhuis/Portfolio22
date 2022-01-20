@@ -3,14 +3,14 @@
 .main-content {
   margin: 0 auto;
   padding: calc($magic-number / 2) calc($magic-number / 4);
-  max-width: calc($magic-number * 20);
+  max-width: calc($magic-number * 18);
 
   @include for-tablet-and-up {
     padding: calc($magic-number / 2);
   }
 
   @include for-laptop-l-and-up {
-    padding-top: calc($magic-number);
+    padding: calc($magic-number) 0;
     margin: auto;
   }
 

@@ -133,7 +133,7 @@
       font-size: 1.6rem;
 
       @include for-laptop-sm-and-up {
-        font-size: clamp(16px, 1.2vw, 108px);
+        font-size: clamp(16px, 1.2vw, 28px);
       }
     }
 

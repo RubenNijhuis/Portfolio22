@@ -16,14 +16,16 @@
 
   @include for-laptop-sm-and-up {
     grid-column-gap: calc($magic-number);
+    grid-template-columns: 23% 1fr;
   }
 
   @include for-laptop-l-and-up {
-    padding: calc($magic-number * 2) calc($magic-number * 1);
+    padding: calc($magic-number * 1.5) calc($magic-number * 1.5);
   }
 
   @include for-laptop-xl-and-up {
     padding: calc($magic-number * 2);
+    // grid-template-columns: 23% 1fr;
   }
 
   .interests {
@@ -79,6 +81,11 @@
         margin-bottom: calc($magic-number / 2);
         font-weight: 400;
       }
+    }
+
+    @include for-laptop-l-and-up {
+        font-weight: 500;
+        font-size: clamp(16px, 2.5vw, 56px);
     }
   }
 

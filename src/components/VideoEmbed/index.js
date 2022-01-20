@@ -6,10 +6,7 @@ import "./style.scss";
 const VideoEmbed = ({ content }) => {
   const className = "video-embed";
   const { url, width, height } = content.data.target;
-  const heightWithTop = height + 56;
   const aspectRatio = (height / width) * 100;
-
-  console.log(width, height);
 
   return (
     <div

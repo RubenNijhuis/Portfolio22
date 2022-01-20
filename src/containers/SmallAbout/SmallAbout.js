@@ -11,6 +11,7 @@ import "./style.scss";
 
 const SmallAbout = ({ about, photo }) => {
   const className = "about-small";
+  console.log(photo);
   return (
     <section className={className}>
       <div className="aside">
