@@ -36,16 +36,20 @@ const AssetHandler = ({ asset, options }) => {
   }, [asset]);
 
   const asset_type = (asset_type) => {
-    if (asset_type === "video/mp4")
+    switch (asset_type) {
+      case "video/mp4":
         return <VideoPlayer asset={asset} options={options} />;
-    else if (asset_type === "video/quicktime")
+      case "video/quicktime":
         return <VideoPlayer asset={asset} options={options} />;
-    else if (asset_type === "image/png")
-      return <ImgContainer asset={asset} options={options} />;
-    else if (asset_type === "image/jpeg")
-      return <ImgContainer asset={asset} options={options} />;
-    else if (asset_type === "image/webp")
-      return <ImgContainer asset={asset} options={options} />;
+      case "image/png":
+        return <ImgContainer asset={asset} options={options} />;
+      case "image/jpeg":
+        return <ImgContainer asset={asset} options={options} />;
+      case "image/webp":
+        return <ImgContainer asset={asset} options={options} />;
+      default:
+        break;
+    }
   };
 
   return <div className={className}>{asset_type(assetType)}</div>;
