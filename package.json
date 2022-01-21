@@ -23,6 +23,7 @@
     "directory-named-webpack-plugin": "^4.0.1",
     "framer-motion": "^4.1.17",
     "gatsby": "^4.2.0",
+    "gatsby-plugin-exclude": "^1.0.2",
     "gatsby-plugin-glslify": "^1.0.2",
     "gatsby-plugin-google-analytics": "^4.3.0",
     "gatsby-plugin-image": "^2.4.0",
@@ -42,7 +43,6 @@
     "react-intersection-observer": "^8.33.1",
     "react-three-fiber": "^6.0.13",
     "sass": "^1.45.0",
-    "styled-components": "^5.3.3",
     "three": "^0.135.0"
   },
   "devDependencies": {
