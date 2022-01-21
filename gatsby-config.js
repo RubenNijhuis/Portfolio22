@@ -4,7 +4,7 @@ require("dotenv").config({
 });
 
 module.exports = {
-  siteMetadata: { ...site_config.siteMetadata },
+  siteMetadata: site_config.siteMetaData,
   plugins: [
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-image",
