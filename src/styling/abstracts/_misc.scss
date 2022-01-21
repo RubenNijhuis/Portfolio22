@@ -24,13 +24,7 @@ body {
   font-feature-settings: "kern", "liga", "clig", "calt";
   font-kerning: normal;
 
-  padding-top: 27.3px;
-  @include for-tablet-and-up {
-    padding-top: 63.3px;
-  }
-  @include for-laptop-l-and-up {
-    padding-top: 45.3px;
-  }
+  padding-top: var(--nav-height);
 }
 
 section {

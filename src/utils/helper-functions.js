@@ -64,6 +64,16 @@ export const setViewheightProperty = () => {
   return Math.round(vh * 100) / 100;
 };
 
+export const setNavHeightProperty = () => {
+  let height;
+  if (isBrowser) {
+    // minus one because this function is crap and doesn't return subpixel values
+    height = document.querySelector("nav").offsetHeight - 1;
+    document.documentElement.style.setProperty("--nav-height", `${height}px`);
+  }
+  return height;
+};
+
 /**
  * Function that swap the elements in an array per two
  * [1, 2, 3, 4, 5] -> [2, 1, 3, 4, 5]

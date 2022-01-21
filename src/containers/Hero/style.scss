@@ -2,15 +2,7 @@
 
 .hero-banner {
   overflow: hidden;
-  height: calc(var(--vh) * 100 - 27.3px);
-
-  @include for-tablet-and-up {
-    height: calc(var(--vh) * 100 - 63.3px);
-  }
-
-  @include for-laptop-sm-and-up {
-    height: calc(var(--vh) * 100 - 45.3px);
-  }
+  height: calc(var(--vh) * 100 - var(--nav-height));
 
   img {
       width: 100%;

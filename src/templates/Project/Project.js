@@ -15,7 +15,7 @@ import MainContent from "components/Template/MainContent/MainContent";
 import NextContent from "components/NextContent";
 
 // Styling
-import "styling/layouts/template.scss";
+import "./styling.scss";
 
 const ProjectTemplate = ({ data }) => {
   // Splitting data for readability
@@ -43,7 +43,7 @@ const ProjectTemplate = ({ data }) => {
 
   return (
     <Layout title={`${name} | Ruben Nijhuis | Designer && Developer`}>
-      <div className="template">
+      <div className="project-template">
         <section className="hero hero--project">
           <Details
             name={name}

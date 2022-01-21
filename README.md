@@ -42,7 +42,6 @@ Created 23x12x21 - Last updated 16x01x22
 
 Styling
 
-- [ ] Create a var for nav height or some other way to not have to change the height in ~10 places
 - [ ] advanced mixins (research)
 
 About Page
@@ -55,7 +54,7 @@ About Page
 Gallery Page - [WIP]
 
 - [ ] Design mosaic shapes for images
-- [ ] Add modal feature to display images
+- [ ] Add modal feature to display images in bigger window
 - [ ] Infinite scroll
 
 Animation
