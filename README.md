@@ -2,27 +2,32 @@
 
 🧑🏽‍🎨 A Personal portfolio for '22 and onwards
 
-If you're a developer, designer or creative who wants to showcase their work in a unique way, then look no further. Portfolio '22 is just what you need. With pages to show your projects or yourself this Web App ensures that your digital identity isn't getting lost in the jungle of the web
+If you're a developer, designer or creative who wants to showcase their work in a unique way, then look no further. Portfolio '22 is just what you need. With modern layout and design, accesisibility features and SEO friendly this site will ensure a high-quality online location for you and your work
 
-## Tools used
+## ⚒ Tools used
 
 - GatsbyJS
 - Framer motion
 - ThreeJS
+- React Three Fiber
+- 
 
 ## Features
 
-Custom
-Universal and component based asset handler, can take in any cms asset and output any image or video type
+⚡️ Universal and component based asset handler, can take in any cms asset and output any image or video type
+✨ Page transitions to give a smoother web experience
+📬 Easy cms integration using an object layout file
+📚 Storybook for easy component documentation
+👀 Perfect SEO, due to required image alts and semantic HTML
 
-Library
-Contentful CMS Integration
+Enough reasons to choose this as your next project
 
 ## 🚀 Quick start
 
 <b>NOTE:</b> the setup of the any CMS or Contentful probably requires some help. Ask the active maintainer of this project for guideance
+There is also a link [ here ] to showcase the json format that is required for this site to work
 
-Clone the project and add your contentful api keys in the `.env`
+Clone the project and add your contentful api keys in the `.env` (if you're going to run with contenteful)
 
 ```
 ACCESS_TOKEN=YOUR ACCESS TOKEN
@@ -36,7 +41,10 @@ $ npm install
 $ npm run develop
 ```
 
-# ☑️ Todo's
+## 📬 CMS
+Check here for a list of CMS's that are compatible with this site
+
+## ☑️ Todo's
 
 Created 23x12x21 - Last updated 16x01x22
 
@@ -69,6 +77,8 @@ Accesibility
 Developer friendliness
 
 - [ ] Create documentation for this project. Anyone should be able to set this up
+- [ ] Setup settings file that set settings for the whole project
+- [ ] Setup settings to include and exclude pages (https://www.gatsbyjs.com/plugins/gatsby-plugin-exclude/)
 
 Data
 
