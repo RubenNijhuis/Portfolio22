@@ -7,7 +7,6 @@ module.exports = {
   siteMetadata: { ...site_config.siteMetadata },
   plugins: [
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sitemap",
     "gatsby-plugin-image",
     `gatsby-plugin-sass`,
     "gatsby-plugin-sharp",
@@ -32,6 +31,12 @@ module.exports = {
       resolve: "gatsby-plugin-exclude",
       options: {
         paths: site_config.excludePaths,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-sitemap",
+      options: {
+        excludes: ["/device-identify"],
       },
     },
     // {

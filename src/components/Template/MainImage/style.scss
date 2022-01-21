@@ -11,9 +11,7 @@
   }
 
   .reveal {
-    top: 0;
-    left: 0;
-    position: absolute;
+    @include absoluteZero();
     @include size(100%);
     transform-origin: bottom center;
 

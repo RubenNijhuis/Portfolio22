@@ -1,15 +1,17 @@
-@use '../../styling/abstracts/' as *;
+@use "../../styling/abstracts/" as *;
 
 .tags {
+  display: flex;
+  gap: calc($magic-number / 8);
+
   .tag {
     display: inline-block;
-    margin-right: calc($magic-number / 8);
 
     padding: 5px 11px;
 
     @include for-laptop-l-and-up {
-        padding: 6px 12px;
-      }
+      padding: 6px 12px;
+    }
 
     &--light {
       color: $background-color;
@@ -23,10 +25,6 @@
 
     border-radius: $border-radius-tag;
     background-color: $background-color;
-
-    &:last-of-type {
-      margin-right: 0;
-    }
 
     p {
       font-weight: 500;

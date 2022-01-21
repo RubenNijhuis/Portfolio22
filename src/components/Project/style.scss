@@ -31,16 +31,22 @@
   }
 
   .img-wrapper {
-    position: relative;
+    padding-top: 100%;
     aspect-ratio: 1/1;
+    width: 100%;
+
+    position: relative;
+
     transform: translateZ(0px);
-    border-radius: $border-radius;
     overflow: hidden;
 
+    border-radius: $border-radius;
     transition: 0.35s ease-out transform;
 
     .asset {
       @include size(100%);
+      @include absoluteZero();
+
       object-fit: cover;
       transition: 0.35s ease-out transform;
     }

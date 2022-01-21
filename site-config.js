@@ -26,6 +26,6 @@ module.exports = {
       codepen: "rubennijhuis",
     },
   },
-  excludePaths: ["/about/"],
+  excludePaths: [""],
   googleAnalyticsTrackingId: "",
 };

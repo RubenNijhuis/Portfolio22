@@ -1,6 +1,5 @@
 @use "_sizes.scss" as *;
 @use "_colors.scss" as *;
-@use "_mixins.scss" as *;
 
 * {
   margin: 0;
@@ -11,12 +10,12 @@
 html {
   font-size: $root-font-size;
   background-color: $background-color;
-//   overflow-x: hidden;
 }
 
 body {
   padding-top: $nav-height;
 
+  // Typography
   font-family: "Montserrat", Helvetica Neue, Helvetica, sans-serif;
   font-weight: 400;
   text-rendering: geometricPrecision;
@@ -24,9 +23,11 @@ body {
   font-feature-settings: "kern", "liga", "clig", "calt";
   font-kerning: normal;
 
+  // Navbar position
   padding-top: var(--nav-height);
 }
 
+// Journals container fix
 section {
   position: relative;
   z-index: 10;

@@ -72,13 +72,8 @@
 
     &:after {
       content: "";
-      top: 0px;
-      left: 0px;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      width: 100%;
-      height: 100%;
+      @include absoluteZero();
+      @include size(100%);
       overflow: hidden;
       background: linear-gradient(
         90deg,

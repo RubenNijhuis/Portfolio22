@@ -6,7 +6,8 @@
   "author": "Ruben Nijhuis",
   "keywords": [
     "gatsby",
-    "portfolio"
+    "portfolio",
+    "showcase"
   ],
   "scripts": {
     "develop": "gatsby develop",
