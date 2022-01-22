@@ -59,10 +59,11 @@
 
   &__image-wrapper {
     position: absolute;
-    height: calc($magic-number * 2);
-    width: 80%;
     top: 50%;
     right: 0;
+    width: 80%;
+    
+    height: calc($magic-number * 2);
     background-color: $background-color;
 
     transform: translate(0%, -50%);
@@ -83,9 +84,7 @@
     }
 
     .asset {
-      position: absolute;
-      top: 1px;
-      left: 1px;
+        @include absoluteZero(1px);
       object-fit: cover;
       width: calc(100% - 2px);
       height: calc(100% - 2px);

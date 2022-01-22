@@ -9,7 +9,12 @@ import Head from "components/Head/Head";
 import Nav from "components/Nav";
 import Footer from "components/Footer";
 
-import { setViewheightProperty, setNavHeightProperty, console_message, isBrowser } from "utils/helper-functions"; // Turn vh into pixels for SCSS
+import {
+  setViewheightProperty,
+  setNavHeightProperty,
+  console_message,
+  isBrowser,
+} from "utils/helper-functions"; // Turn vh into pixels for SCSS
 import { page_transition, footer_transition } from "utils/animation-variants"; // Framer animations
 
 const Layout = ({ children, title, description, footer = true }) => {
@@ -20,8 +25,8 @@ const Layout = ({ children, title, description, footer = true }) => {
     isHomePage = url.split("/")[3] === "";
   }
 
-    useEffect(() => {
-        setNavHeightProperty();
+  useEffect(() => {
+    setNavHeightProperty();
     setViewheightProperty();
     console_message();
   }, []);

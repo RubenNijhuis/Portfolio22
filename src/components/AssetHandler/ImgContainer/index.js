@@ -16,7 +16,7 @@ const ImgContainer = ({ asset, options }) => {
   }
 
   const img_parsed = getImage(img_path);
-
+    
   return (
     <div
       className={className}

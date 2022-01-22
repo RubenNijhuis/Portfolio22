@@ -20,6 +20,7 @@ const Nav = () => {
         <div className="col--main">
           <Link to="/projects">Projects</Link>
           <Link to="/journal">Journal</Link>
+          <Link to="/gallery">Gallery</Link>
         </div>
         <div className="col--secondary">
           <Link to="/about">About</Link>

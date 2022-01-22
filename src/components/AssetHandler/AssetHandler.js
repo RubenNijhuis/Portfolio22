@@ -3,16 +3,19 @@ import React, { useEffect, useState } from "react";
 // Components
 import ImgContainer from "./ImgContainer";
 import VideoPlayer from "./VideoPlayer";
-
+import Modal from "components/Modal";
 // Styling
 import "./style.scss";
 
 const AssetHandler = ({ asset, options }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
   // Default options
   if (options === undefined) {
     options = {
       videoCover: true,
       backgroundColor: "#1e1e1e",
+      modal: false,
     };
   }
 
@@ -52,7 +55,22 @@ const AssetHandler = ({ asset, options }) => {
     }
   };
 
-  return <div className={className}>{asset_type(assetType)}</div>;
+  return (
+    <div className={className} onClick={() => setIsOpen(true)}>
+      {asset_type(assetType)}
+      {options.modal && isOpen ? (
+        <Modal
+          open={isOpen}
+          onClose={(e) => {
+            setIsOpen(false);
+            e.stopPropagation();
+          }}
+        >
+          {asset_type(assetType)}
+        </Modal>
+      ) : null}
+    </div>
+  );
 };
 
 export default AssetHandler;

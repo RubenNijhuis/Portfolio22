@@ -6,25 +6,24 @@ If you're a developer, designer or creative who wants to showcase their work in 
 
 ## ⚒ Tools used
 
-- GatsbyJS
-- Framer motion
-- ThreeJS
+- GatsbyJS <br>
+- Framer motion <br>
+- ThreeJS <br>
 - React Three Fiber
-- 
 
 ## Features
 
-⚡️ Universal and component based asset handler, can take in any cms asset and output any image or video type
-✨ Page transitions to give a smoother web experience
-📬 Easy cms integration using an object layout file
-📚 Storybook for easy component documentation
-👀 Perfect SEO, due to required image alts and semantic HTML
-
+⚡️ Universal and component based asset handler, can take in any cms asset and output any image or video type <br>
+✨ Page transitions to give a smoother web experience <br>
+📬 Easy cms integration using an object layout file <br>
+📚 Storybook for easy component documentation <br>
+👀 Perfect SEO, due to required image alts and semantic HTML <br>
+<br>
 Enough reasons to choose this as your next project
 
 ## 🚀 Quick start
 
-<b>NOTE:</b> the setup of the any CMS or Contentful probably requires some help. Ask the active maintainer of this project for guideance
+<b>NOTE:</b> the setup of the any CMS or Contentful CMS probably requires some help. Ask the active maintainer of this project for guideance. If you are planning on using Contentful (they have a free tier that fits this template) I can copy my environment over to yours.
 There is also a link [ here ] to showcase the json format that is required for this site to work
 
 Clone the project and add your contentful api keys in the `.env` (if you're going to run with contenteful)
@@ -42,7 +41,9 @@ $ npm run develop
 ```
 
 ## 📬 CMS
+
 Check here for a list of CMS's that are compatible with this site
+https://www.gatsbyjs.com/docs/conceptual/choosing-a-cms/#1-popular-first-class-gatsby-integrations
 
 ## ☑️ Todo's
 
@@ -50,35 +51,39 @@ Created 23x12x21 - Last updated 16x01x22
 
 Styling
 
-- [ ] advanced mixins (research)
+- [ ] Advanced mixins (research)
 
 About Page
 
-- [ ] Make the goddamn thing
+- [ ] Make the it thing
   - [ ] create credits and tools section
   - [ ] create horizontal text
   - [ ] create interactive piece
 
 Gallery Page - [WIP]
 
-- [ ] Design mosaic shapes for images
-- [ ] Add modal feature to display images in bigger window
-- [ ] Infinite scroll
+- [ ] Infinite scroll ?
 
 Animation
 
-- [x] Create global variants to standardize animations
 - [ ] Add reduced animation mixin
+
+Components
+
+- [ ] Cleanup journals
+  - Create one journal section and load correct journal type in the section
 
 Accesibility
 
-- [ ] Fix Head component to support as many types as possible (create seperate components for type
+- [ ] Fix Head component to support as many types as possible (create seperate components for type)
+- [ ] reduced animation selector
 
 Developer friendliness
 
 - [ ] Create documentation for this project. Anyone should be able to set this up
 - [ ] Setup settings file that set settings for the whole project
 - [ ] Setup settings to include and exclude pages (https://www.gatsbyjs.com/plugins/gatsby-plugin-exclude/)
+- [ ] Research preact
 
 Data
 
