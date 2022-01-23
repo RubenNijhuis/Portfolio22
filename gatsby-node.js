@@ -49,8 +49,8 @@ exports.createPages = ({ graphql, actions }) => {
               context: {
                 next: next !== null ? next.name : null,
                 previous: previous !== null ? previous.name : null,
-                slug: node.name,
-              },
+                slug: node.name
+              }
             });
           }
         );
@@ -63,8 +63,8 @@ exports.createPages = ({ graphql, actions }) => {
               context: {
                 next: next !== null ? next.name : null,
                 previous: previous !== null ? previous.name : null,
-                slug: node.name,
-              },
+                slug: node.name
+              }
             });
           }
         );
@@ -91,7 +91,7 @@ exports.onCreateWebpackConfig = ({ stage, actions, getConfig, plugins }) => {
         plugins.extractText({
           filename: `[name].[contenthash].css`,
           chunkFilename: `[name].[contenthash].css`,
-          ignoreOrder: true,
+          ignoreOrder: true
         })
       );
     } else {
@@ -99,7 +99,7 @@ exports.onCreateWebpackConfig = ({ stage, actions, getConfig, plugins }) => {
         plugins.extractText({
           filename: `[name].css`,
           chunkFilename: `[id].css`,
-          ignoreOrder: true,
+          ignoreOrder: true
         })
       );
     }
@@ -110,9 +110,9 @@ exports.onCreateWebpackConfig = ({ stage, actions, getConfig, plugins }) => {
       modules: [path.resolve(__dirname, "src"), "node_modules"],
       plugins: [
         new DirectoryNamedWebpackPlugin({
-          exclude: /node_modules/,
-        }),
-      ],
-    },
+          exclude: /node_modules/
+        })
+      ]
+    }
   });
 };

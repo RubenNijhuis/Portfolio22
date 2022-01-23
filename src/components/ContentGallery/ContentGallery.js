@@ -13,7 +13,7 @@ const ContentGallery = ({ type, time_span, description, content }) => {
   const options = {
     videoCover: true,
     backgroundColor: "#1e1e1e",
-    modal: true,
+    modal: true
   };
 
   return (

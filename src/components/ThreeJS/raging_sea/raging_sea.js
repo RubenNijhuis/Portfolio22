@@ -54,8 +54,8 @@ const Raging_Sea = () => {
         uDepthColor: { value: new THREE.Color(debugObject.depthColor) },
         uSurfaceColor: { value: new THREE.Color(debugObject.surfaceColor) },
         uColorOffset: { value: 0.08 },
-        uColorMultiplier: { value: 5 },
-      },
+        uColorMultiplier: { value: 5 }
+      }
     });
 
     // Mesh
@@ -68,14 +68,14 @@ const Raging_Sea = () => {
     // sea.rotation.z = -10;
     scene.add(sea);
 
-      material.uniforms.uBigWavesElevation = 0.106
-      material.uniforms.uBigWavesFr = 0.106
+    material.uniforms.uBigWavesElevation = 0.106;
+    material.uniforms.uBigWavesFr = 0.106;
     gui
-    .add(material.uniforms.uBigWavesElevation, "value")
-    .min(0)
-    .max(1)
-    .step(0.001)
-    .name("uBigWavesElevation");
+      .add(material.uniforms.uBigWavesElevation, "value")
+      .min(0)
+      .max(1)
+      .step(0.001)
+      .name("uBigWavesElevation");
     gui
       .add(material.uniforms.uBigWavesFrequency.value, "x")
       .min(0)
@@ -157,7 +157,7 @@ const Raging_Sea = () => {
      */
     const sizes = {
       width: window.innerWidth,
-      height: window.innerHeight,
+      height: window.innerHeight
     };
 
     // window.addEventListener("resize", () => {
@@ -195,7 +195,7 @@ const Raging_Sea = () => {
      * Renderer
      */
     const renderer = new THREE.WebGLRenderer({
-      canvas: canvas,
+      canvas: canvas
     });
     renderer.setSize(sizes.width, sizes.height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -210,7 +210,7 @@ const Raging_Sea = () => {
 
       material.uniforms.uTime.value = elapsedTime;
       // Update controls
-    //   controls.update();
+      //   controls.update();
 
       // Render
       renderer.render(scene, camera);

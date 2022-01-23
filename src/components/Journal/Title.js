@@ -22,7 +22,7 @@ const Title = ({ title, tags, setActiveIndex, index }) => {
           }}
           index={index}
           style={{
-            zIndex: mouseHover ? `1000` : `1`,
+            zIndex: mouseHover ? `1000` : `1`
           }}
         >
           <h3 className="project-title">{title}</h3>

@@ -23,9 +23,9 @@ module.exports = {
       fbAppId: "aa",
       dribble: "SoWhatsUp",
       github: "rubennijhuis",
-      codepen: "rubennijhuis",
-    },
+      codepen: "rubennijhuis"
+    }
   },
   excludePaths: [""],
-  googleAnalyticsTrackingId: "",
+  googleAnalyticsTrackingId: ""
 };

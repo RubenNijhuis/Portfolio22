@@ -3,7 +3,7 @@
 .project-template {
   color: $text-color;
   margin: 0 auto;
-  
+
   @include for-laptop-sm-and-up {
     margin: 0 auto;
     margin-bottom: calc($magic-number * 2);

@@ -7,7 +7,7 @@ import "./styling.scss";
 const Gallery = ({ content, options }) => {
   const className = "gallery";
 
-    const imagery = content.data.target.images;
+  const imagery = content.data.target.images;
 
   return (
     <div className={className}>

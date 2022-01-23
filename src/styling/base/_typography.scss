@@ -1,34 +1,5 @@
 @use "../abstracts" as *;
 
-.row-title {
-  display: block;
-  margin-bottom: 9px;
-}
-
-.row-title,
-.row-word {
-  overflow: hidden;
-}
-
-.row-word {
-  margin-right: 18px;
-}
-
-.row-word,
-.row-letter {
-  font-size: 3.6rem;
-
-  @include for-laptop-l-and-up {
-    font-size: 5.6rem;
-  }
-  font-weight: 700;
-  position: relative;
-  letter-spacing: 0rem;
-  font-family: "Syne";
-  display: inline-block;
-  white-space: nowrap;
-}
-
 .journal-book {
   .headline {
     color: $text-color;

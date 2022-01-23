@@ -24,7 +24,7 @@ const JournalTemplate = ({ data }) => {
 
   const content_options = {
     videoCover: true,
-    backgroundColor: background_color,
+    backgroundColor: background_color
   };
 
   return (

@@ -17,7 +17,7 @@ const NextContent = ({ previous, next }) => {
     <div className={className}>
       {previous === undefined ? null : (
         <Link to={previous}>
-        <span>Previous</span>
+          <span>Previous</span>
         </Link>
       )}
       {next === undefined ? null : (

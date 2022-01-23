@@ -1,0 +1,16 @@
+/node_modules
+/.cache
+/public
+.DS_Store
+*.env
+*.env
+.gitignore
+.prettierignore
+*.svg
+*.ico
+*.png
+*.jpg
+*.jpeg
+*.glsl
+*.md
+LICENSE

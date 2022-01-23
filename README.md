@@ -52,6 +52,8 @@ Created 23x12x21 - Last updated 16x01x22
 Styling
 
 - [ ] Advanced mixins (research)
+- [ ] Cleanup styling folder
+- [ ] Create design system for typography
 
 Templates
 - [ ] Check if a link is inbound or outbound and add the correct link type

@@ -11,7 +11,7 @@ const getDimensionObject = (node) => {
 
   return {
     width: rect.width,
-    height: rect.height,
+    height: rect.height
   };
 };
 
@@ -47,7 +47,7 @@ const Media = ({ img, alt, active, x, y }) => {
       style={{
         transform: `translate(${x - width / 2}px, ${
           y - height / 2
-        }px) rotate(${getAngle(x)}deg)`,
+        }px) rotate(${getAngle(x)}deg)`
       }}
       className={`media-img-container${active ? " is-active" : ""}`}
     >

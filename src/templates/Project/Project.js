@@ -29,7 +29,7 @@ const ProjectTemplate = ({ data }) => {
     content,
     tags,
     background_color,
-    hero_img,
+    hero_img
   } = project;
 
   // Format data
@@ -38,7 +38,7 @@ const ProjectTemplate = ({ data }) => {
 
   const content_options = {
     videoCover: true,
-    backgroundColor: background_color,
+    backgroundColor: background_color
   };
 
   return (

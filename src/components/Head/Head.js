@@ -9,7 +9,7 @@ import { Helmet } from "react-helmet";
 
 const Head = ({
   title = "Ruben Nijhuis — Designer && Developer",
-  description = "Ruben Nijhuis is a Designer and Developer who focuses on creating unique digital experiences using creative coding and interactive design to realize ideas",
+  description = "Ruben Nijhuis is a Designer and Developer who focuses on creating unique digital experiences using creative coding and interactive design to realize ideas"
 }) => (
   <Helmet>
     <html lang="en" />

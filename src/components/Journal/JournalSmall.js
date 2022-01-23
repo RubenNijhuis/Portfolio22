@@ -12,7 +12,7 @@ import { useInView } from "react-intersection-observer";
 // Data aggregation
 import {
   sanitize_entry,
-  sanitize_journal_entries,
+  sanitize_journal_entries
 } from "utils/datatype-transformers";
 import { flattenNameToURL } from "utils/helper-functions";
 
@@ -31,7 +31,7 @@ const SmallEntry = ({ name, tags, img }) => {
   const controls = useAnimation();
   const [ref, inView] = useInView({
     threshold: 0.1,
-    triggerOnce: true,
+    triggerOnce: true
   });
 
   useEffect(() => {

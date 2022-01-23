@@ -23,7 +23,7 @@ const AssetHandler = ({ asset, options }) => {
     options = {
       videoCover: true,
       backgroundColor: "#1e1e1e",
-      modal: false,
+      modal: false
     };
   }
 

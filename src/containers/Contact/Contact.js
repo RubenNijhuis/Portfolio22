@@ -1,7 +1,7 @@
 import React from "react";
 
 // Styling
-import "./style.scss"
+import "./style.scss";
 
 const Contact = ({ cv }) => {
   return (

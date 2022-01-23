@@ -10,7 +10,7 @@
   padding: 0 calc($magic-number / 8);
 
   @include for-tablet-and-up {
-      display: flex;
+    display: flex;
     padding: calc($magic-number / 2);
   }
   @include for-laptop-sm-and-up {

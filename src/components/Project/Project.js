@@ -24,14 +24,14 @@ const Project = ({
   tags,
   background,
   animate = false,
-  count,
+  count
 }) => {
   const parsed_name = flattenNameToURL(name);
   const width = useCurrentWidth();
   const className = "project";
 
   const image_options = {
-    videoCover: true,
+    videoCover: true
   };
 
   /*
@@ -53,7 +53,7 @@ const Project = ({
   const controls = useAnimation();
   const [ref, inView] = useInView({
     threshold: 0.1,
-    triggerOnce: true,
+    triggerOnce: true
   });
 
   const fade_in = {
@@ -61,7 +61,7 @@ const Project = ({
       scaleX: [-1, -1], // fix for slide back page into grid
       opacity: 0,
       scale: 0.95,
-      y: offset_height(0, true),
+      y: offset_height(0, true)
     },
     visible: {
       scaleX: [-1, -1], // fix for slide back page into grid
@@ -70,9 +70,9 @@ const Project = ({
       y: offset_height(0, false),
       transition: {
         ease: "easeOut",
-        duration: animate ? 1 : 0,
-      },
-    },
+        duration: animate ? 1 : 0
+      }
+    }
   };
 
   // Check whether project is in view and sets visibility from variants

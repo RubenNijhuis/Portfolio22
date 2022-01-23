@@ -1,6 +1,6 @@
 const site_config = require("./site-config");
 require("dotenv").config({
-  path: `.env`,
+  path: `.env`
 });
 
 module.exports = {
@@ -17,34 +17,34 @@ module.exports = {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-      },
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `assets`,
-        path: `./src/assets/`,
+        path: `./src/assets/`
       },
-      __key: `images`,
+      __key: `images`
     },
     {
       resolve: `gatsby-plugin-exclude`,
       options: {
-        paths: site_config.excludePaths,
-      },
+        paths: site_config.excludePaths
+      }
     },
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        excludes: ["/device-identify"],
-      },
-    },
+        excludes: ["/device-identify"]
+      }
+    }
     // {
     //   resolve: "gatsby-plugin-google-analytics",
     //   options: {
     //     trackiangId: "",
     //   },
     // },
-  ],
+  ]
 };

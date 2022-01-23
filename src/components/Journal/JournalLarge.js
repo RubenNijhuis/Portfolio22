@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { isBrowser } from "utils/helper-functions";
 import {
   sanitize_entry,
-  sanitize_journal_entries,
+  sanitize_journal_entries
 } from "utils/datatype-transformers";
 
 // Components
@@ -38,7 +38,7 @@ const JournalYear = ({
   setActiveIndex,
   activeIndex,
   x,
-  y,
+  y
 }) => {
   const className = "book";
   return (

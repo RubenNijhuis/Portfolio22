@@ -13,7 +13,7 @@ import {
   setViewheightProperty,
   setNavHeightProperty,
   console_message,
-  isBrowser,
+  isBrowser
 } from "utils/helper-functions"; // Turn vh into pixels for SCSS
 import { page_transition, footer_transition } from "utils/animation-variants"; // Framer animations
 
@@ -28,7 +28,7 @@ const Layout = ({ children, title, description, footer = true }) => {
   useEffect(() => {
     setNavHeightProperty();
     setViewheightProperty();
-    console_message()
+    console_message();
   }, []);
 
   return (

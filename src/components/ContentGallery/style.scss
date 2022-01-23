@@ -34,7 +34,7 @@
     }
 
     @include for-laptop-sm-and-up {
-        position: static;
+      position: static;
     }
 
     .col {
@@ -90,19 +90,19 @@
         @include for-laptop-sm-and-up {
           grid-template-columns: repeat(12, 1fr);
 
-          .asset:nth-child(4n+1) {
+          .asset:nth-child(4n + 1) {
             grid-column: 1/8;
           }
 
-          .asset:nth-child(4n+2) {
+          .asset:nth-child(4n + 2) {
             grid-column: 8/13;
           }
 
-          .asset:nth-child(4n+3) {
+          .asset:nth-child(4n + 3) {
             grid-column: 1/6;
           }
 
-          .asset:nth-child(4n+4) {
+          .asset:nth-child(4n + 4) {
             grid-column: 6/13;
           }
         }

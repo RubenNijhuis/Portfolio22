@@ -7,42 +7,42 @@ const SchemaGenerator = ({
   siteUrl,
   pageTitle,
   siteTitle,
-  pageTitleFull,
+  pageTitleFull
 }) => {
-  const isSubPage = pageTitle && location.pathname !== '/';
+  const isSubPage = pageTitle && location.pathname !== "/";
 
   let schema = [
     {
-      '@context': 'http://schema.org',
-      '@type': 'WebSite',
+      "@context": "http://schema.org",
+      "@type": "WebSite",
       url: canonical,
       name: pageTitle || siteTitle,
-      alternateName: pageTitleFull,
-    },
+      alternateName: pageTitleFull
+    }
   ];
 
   if (isSubPage) {
     schema.push({
-      '@context': 'http://schema.org',
-      '@type': 'BreadcrumbList',
+      "@context": "http://schema.org",
+      "@type": "BreadcrumbList",
       itemListElement: [
         {
-          '@type': 'ListItem',
+          "@type": "ListItem",
           position: 1,
           item: {
-            '@id': siteUrl,
-            name: siteTitle,
-          },
+            "@id": siteUrl,
+            name: siteTitle
+          }
         },
         {
-          '@type': 'ListItem',
+          "@type": "ListItem",
           position: 2,
           item: {
-            '@id': canonical,
-            name: pageTitle,
-          },
-        },
-      ],
+            "@id": canonical,
+            name: pageTitle
+          }
+        }
+      ]
     });
   }
 

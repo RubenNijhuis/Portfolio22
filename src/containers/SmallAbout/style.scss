@@ -84,8 +84,8 @@
     }
 
     @include for-laptop-l-and-up {
-        font-weight: 500;
-        font-size: clamp(16px, 2.5vw, 56px);
+      font-weight: 500;
+      font-size: clamp(16px, 2.5vw, 56px);
     }
   }
 
@@ -100,7 +100,8 @@
     font-weight: 500;
   }
 
-  .inactive, .inactive span {
+  .inactive,
+  .inactive span {
     color: rgba(0, 0, 0, 0.5);
   }
   .active {

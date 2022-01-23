@@ -16,8 +16,8 @@ export const project_content_formatter = (type, options) => {
         ),
         [BLOCKS.EMBEDDED_ENTRY]: (node) => (
           <EntryHandler entry={node} options={options} />
-        ),
-      },
+        )
+      }
     };
   }
 };

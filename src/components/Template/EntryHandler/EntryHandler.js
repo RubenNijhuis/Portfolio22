@@ -8,7 +8,7 @@ import VideoEmbed from "components/VideoEmbed";
 const entry_types = {
   image_gallery: "ContentfulImageGallery",
   banner_text: "ContentfulBannerText",
-  embedded_video: "ContentfulEmeddedVideo",
+  embedded_video: "ContentfulEmeddedVideo"
 };
 
 const EntryHandler = ({ entry, options }) => {

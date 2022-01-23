@@ -62,7 +62,7 @@
     top: 50%;
     right: 0;
     width: 80%;
-    
+
     height: calc($magic-number * 2);
     background-color: $background-color;
 
@@ -84,7 +84,7 @@
     }
 
     .asset {
-        @include absoluteZero(1px);
+      @include absoluteZero(1px);
       object-fit: cover;
       width: calc(100% - 2px);
       height: calc(100% - 2px);

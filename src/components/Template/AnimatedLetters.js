@@ -6,9 +6,9 @@ const banner = {
   animate: {
     transition: {
       delayChildren: 0.1,
-      staggerChildren: 0.1,
-    },
-  },
+      staggerChildren: 0.1
+    }
+  }
 };
 
 const letterAni = (index, length_of_array) => {
@@ -23,16 +23,16 @@ const letterAni = (index, length_of_array) => {
 
   return {
     initial: {
-      y: 200,
+      y: 200
     },
     animate: {
       y: 0,
       transition: {
         delay: animation_length,
         ease: [0.6, 0.01, -0.05, 0.95],
-        duration: 1.25,
-      },
-    },
+        duration: 1.25
+      }
+    }
   };
 };
 

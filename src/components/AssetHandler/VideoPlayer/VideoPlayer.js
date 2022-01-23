@@ -13,7 +13,10 @@ const VideoPlayer = ({ asset, options }) => {
   }
 
   return (
-    <div className={className} style={{ backgroundColor: options.backgroundColor }}>
+    <div
+      className={className}
+      style={{ backgroundColor: options.backgroundColor }}
+    >
       <video playsInline loop autoPlay muted className="video">
         <source src={url} type="video/mp4" />
         <p>

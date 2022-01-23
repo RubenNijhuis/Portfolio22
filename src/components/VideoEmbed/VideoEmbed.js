@@ -9,9 +9,7 @@ const VideoEmbed = ({ content }) => {
   const aspectRatio = (height / width) * 100;
 
   return (
-    <div
-      className={className}
-    >
+    <div className={className}>
       <div className="top-bar">
         <div className="buttons">
           <div className="button" />
