@@ -53,6 +53,10 @@ Styling
 
 - [ ] Advanced mixins (research)
 
+Templates
+- [ ] Check if a link is inbound or outbound and add the correct link type
+- [ ] Journal page missing design and should be different than project
+
 About Page
 
 - [ ] Make the it thing
@@ -60,9 +64,11 @@ About Page
   - [ ] create horizontal text
   - [ ] create interactive piece
 
-Gallery Page - [WIP]
+Gallery Page
 
 - [ ] Infinite scroll ?
+- [ ] Split sections into seperate pages
+- [ ] index page add per section button to go to page
 
 Animation
 
@@ -88,9 +94,7 @@ Developer friendliness
 Data
 
 - [ ] Add google analytics
-- [ ] Try your luck at A/B testing
 
 UX
 
 - [ ] Add feature for reduced animation
-- [ ] Map all ux paths to find improvements

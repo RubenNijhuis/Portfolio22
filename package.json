@@ -20,7 +20,6 @@
     "@fontsource/montserrat": "^4.5.1",
     "@fontsource/syne": "^4.5.0",
     "babel-plugin-styled-components": "^2.0.2",
-    "dat.gui": "^0.7.7",
     "directory-named-webpack-plugin": "^4.0.1",
     "framer-motion": "^4.1.17",
     "gatsby": "^4.2.0",
@@ -47,7 +46,7 @@
     "three": "^0.135.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.16.7",
+    "@babel/core": "^7.16.12",
     "babel-loader": "^8.2.3"
   }
 }

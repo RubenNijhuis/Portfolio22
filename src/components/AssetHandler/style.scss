@@ -1,0 +1,9 @@
+@use "../../styling/abstracts" as *;
+
+.asset {
+  &.modal-ready {
+    &:hover {
+      cursor: zoom-in;
+    }
+  }
+}

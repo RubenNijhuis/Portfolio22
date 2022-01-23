@@ -91,7 +91,6 @@ export const project_hero_transition = {
     y: "-10%",
   },
   animate_img: {
-    opacity: 1,
     y: "0%",
     transition: {
       delay: 0.5,

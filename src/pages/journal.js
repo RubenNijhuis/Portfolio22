@@ -26,7 +26,7 @@ export const query = graphql`
         tags
         year
         img {
-          title
+          alt: title
           file {
             contentType
             url

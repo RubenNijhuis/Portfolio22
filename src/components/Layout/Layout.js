@@ -28,7 +28,7 @@ const Layout = ({ children, title, description, footer = true }) => {
   useEffect(() => {
     setNavHeightProperty();
     setViewheightProperty();
-    console_message();
+    console_message()
   }, []);
 
   return (

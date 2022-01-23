@@ -42,6 +42,7 @@
   .personalia {
     min-width: fit-content;
     width: fit-content;
+    min-height: fit-content;
 
     @include for-tablet-and-up {
       justify-self: end;

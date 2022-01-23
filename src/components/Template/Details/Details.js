@@ -19,13 +19,15 @@ const Details = ({ description, year, role, name, tags, addClassName }) => {
     <div className={className}>
       <div className="header">
         <AnimatedLetters title={name} />
-        <motion.p
-          initial="hidden"
-          animate="show"
-          variants={project_details_transition}
-        >
-          {description}
-        </motion.p>
+        {description !== undefined ? (
+          <motion.p
+            initial="hidden"
+            animate="show"
+            variants={project_details_transition}
+          >
+            {description}
+          </motion.p>
+        ) : null}
       </div>
       <motion.div
         className="personalia"
@@ -38,10 +40,12 @@ const Details = ({ description, year, role, name, tags, addClassName }) => {
             <h3 className="bold">Year</h3>
             <h3>{year}</h3>
           </div>
-          <div className="item item--role">
-            <h3 className="bold">Role</h3>
-            <h3>{role}</h3>
-          </div>
+          {role !== undefined ? (
+            <div className="item item--role">
+              <h3 className="bold">Role</h3>
+              <h3>{role}</h3>
+            </div>
+          ) : null}
         </div>
         <Tags tags={tags} theme={"light"} />
       </motion.div>

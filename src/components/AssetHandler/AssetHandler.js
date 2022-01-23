@@ -4,13 +4,21 @@ import React, { useEffect, useState } from "react";
 import ImgContainer from "./ImgContainer";
 import VideoPlayer from "./VideoPlayer";
 import Modal from "components/Modal";
+
 // Styling
 import "./style.scss";
 
 const AssetHandler = ({ asset, options }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [assetType, changeAssetType] = useState();
+  let className = "asset";
 
-  // Default options
+  if (options?.modal) className += " modal-ready";
+
+  /**
+   * Default options if options weren't to be given
+   * as props
+   * */
   if (options === undefined) {
     options = {
       videoCover: true,
@@ -18,9 +26,6 @@ const AssetHandler = ({ asset, options }) => {
       modal: false,
     };
   }
-
-  const className = "asset";
-  const [assetType, changeAssetType] = useState();
 
   /**
    * Get asset type (speficic to contentful structure)
@@ -30,7 +35,7 @@ const AssetHandler = ({ asset, options }) => {
     if (asset !== undefined) {
       if (asset.file?.contentType !== undefined) {
         changeAssetType(asset.file.contentType);
-      } else if (asset.data.target.file?.contentType !== undefined) {
+      } else if (asset.data.target.file.contentType !== undefined) {
         changeAssetType(asset.data.target.file.contentType);
       } else {
         changeAssetType("image/png");
@@ -38,6 +43,13 @@ const AssetHandler = ({ asset, options }) => {
     }
   }, [asset]);
 
+  /**
+   * A switch function that render the correct asset
+   * renderer based on type
+   *
+   * @param {string} asset_type
+   * @returns a react component
+   */
   const asset_type = (asset_type) => {
     switch (asset_type) {
       case "video/mp4":
@@ -55,15 +67,23 @@ const AssetHandler = ({ asset, options }) => {
     }
   };
 
+  const handleModalClick = (e) => {
+    setIsOpen(!isOpen);
+    e.stopPropagation();
+  };
+
   return (
-    <div className={className} onClick={() => setIsOpen(true)}>
+    <div
+      className={className}
+      onClick={(e) => handleModalClick(e)}
+      role="article"
+    >
       {asset_type(assetType)}
       {options.modal && isOpen ? (
         <Modal
           open={isOpen}
           onClose={(e) => {
-            setIsOpen(false);
-            e.stopPropagation();
+            handleModalClick(e);
           }}
         >
           {asset_type(assetType)}

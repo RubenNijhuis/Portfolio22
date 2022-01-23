@@ -1,0 +1,71 @@
+@use "../../styling/abstracts/" as *;
+
+.contact {
+  padding: calc($magic-number / 4);
+
+  &__content {
+    padding: calc($magic-number / 4) 0;
+  }
+
+  .greeting {
+    margin-bottom: calc($magic-number / 2);
+  }
+
+  .items {
+    padding: calc($magic-number / 4) 0;
+    div {
+      margin-bottom: calc($magic-number / 4);
+    }
+  }
+
+  @include for-tablet-and-up {
+    &__content {
+      display: flex;
+      justify-content: space-between;
+      padding: calc($magic-number / 2) calc($magic-number / 4);
+
+      .greeting,
+      .items {
+        width: 45%;
+      }
+    }
+  }
+
+  @include for-laptop-sm-and-up {
+    padding: calc($magic-number / 2);
+  }
+
+  @include for-laptop-l-and-up {
+    padding: calc($magic-number);
+  }
+
+  h2,
+  h4,
+  p,
+  a {
+    color: $text-color;
+    font-size: 1.6rem;
+  }
+
+  h4 {
+    font-weight: 600;
+  }
+
+  p {
+    line-height: 1.35;
+    margin-bottom: calc($magic-number / 4);
+  }
+
+  h2 {
+    padding: 24px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 2.6rem;
+    font-weight: 600;
+    color: $text-color;
+
+    @include for-laptop-sm-and-up {
+      font-size: 7.2rem;
+    }
+  }
+}

@@ -9,7 +9,7 @@ import { flattenNameToURL } from "utils/helper-functions";
 // Components
 import Layout from "components/Layout";
 import Details from "components/Template/Details/Details";
-import MainImage from "components/Template/MainImage";
+import HeroImage from "components/Template/HeroImage";
 import IntroContent from "components/Template/IntroContent/IntroContent";
 import MainContent from "components/Template/MainContent/MainContent";
 import NextContent from "components/NextContent";
@@ -52,7 +52,7 @@ const ProjectTemplate = ({ data }) => {
             tags={tags_formatted}
             role={role}
           />
-          <MainImage img={hero_img} options={content_options} />
+          <HeroImage img={hero_img} options={content_options} />
         </section>
         <IntroContent content={introduction} />
         <MainContent content={content} options={content_options} />

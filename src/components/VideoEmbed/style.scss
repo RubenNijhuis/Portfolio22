@@ -22,7 +22,7 @@
         @include size(calc($magic-number / 4));
 
         border: solid 1px $text-color;
-        border-radius: 100px;
+        border-radius: $magic-number;
       }
     }
   }

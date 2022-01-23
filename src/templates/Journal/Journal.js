@@ -7,8 +7,7 @@ import { flattenNameToURL } from "utils/helper-functions";
 // Components
 import Layout from "components/Layout";
 import Details from "components/Template/Details/Details";
-import MainImage from "components/Template/MainImage";
-import IntroContent from "components/Template/IntroContent/IntroContent";
+import HeroImage from "components/Template/HeroImage";
 import MainContent from "components/Template/MainContent/MainContent";
 import NextContent from "components/NextContent";
 
@@ -16,8 +15,7 @@ import NextContent from "components/NextContent";
 import "./styling.scss";
 
 const JournalTemplate = ({ data }) => {
-  const { name, img, introduction, year, content, background_color, tags } =
-    data.journal;
+  const { name, img, year, content, background_color, tags } = data.journal;
 
   const { previous, next } = data;
 
@@ -36,25 +34,22 @@ const JournalTemplate = ({ data }) => {
           <Details
             addClassName="journal"
             name={name}
-            description={" "}
             year={year_formatted}
             tags={tags_formatted}
-            role={" "}
           />
-          <MainImage img={img} options={content_options} />
+          <HeroImage img={img} options={content_options} />
         </section>
-        <IntroContent content={introduction} />
         <MainContent content={content} options={content_options} />
         <NextContent
           previous={
             previous === null
               ? undefined
-              : `/projects/${flattenNameToURL(previous.name)}`
+              : `/journal/${flattenNameToURL(previous.name)}`
           }
           next={
             next === null
               ? undefined
-              : `/projects/${flattenNameToURL(next.name)}`
+              : `/journal/${flattenNameToURL(next.name)}`
           }
         />
       </div>
@@ -82,17 +77,14 @@ export const query = graphql`
           url
           contentType
         }
-        title
+        alt: title
         gatsbyImageData(placeholder: BLURRED)
-      }
-      introduction {
-        raw
       }
       content {
         raw
         references {
           ... on ContentfulAsset {
-            title
+            alt: title
             file {
               url
               contentType

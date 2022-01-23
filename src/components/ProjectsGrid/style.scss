@@ -4,7 +4,7 @@
   padding: $magic-number calc($magic-number / 4);
 
   @include for-tablet-and-up {
-    padding: calc($magic-number)  4vw;
+    padding: calc($magic-number) 4vw;
   }
 
   @include for-laptop-sm-and-up {
@@ -29,7 +29,6 @@
     grid-template-columns: 1fr;
     grid-row-gap: calc($magic-number);
     transform: scaleX(-1);
-    margin-bottom: calc($magic-number);
 
     @include for-tablet-and-up {
       grid-column-gap: 4vw;
@@ -37,12 +36,16 @@
       grid-template-columns: 1fr 1fr;
     }
 
-    @include for-laptop-sm-and-up {
-      margin-bottom: calc($magic-number * 1);
-    }
-
     @include for-laptop-l-and-up {
       grid-column-gap: 4vw;
+    }
+  }
+
+  .see-more {
+    margin-top: calc($magic-number);
+
+    @include for-laptop-sm-and-up {
+      margin-top: calc($magic-number * 2);
     }
   }
 }

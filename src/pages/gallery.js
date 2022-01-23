@@ -35,6 +35,7 @@ export const query = graphql`
       nodes {
         time_span
         type
+        description
         content {
           raw
           references {
