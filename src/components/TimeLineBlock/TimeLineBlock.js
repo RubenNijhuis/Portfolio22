@@ -1,4 +1,5 @@
 import React from "react";
+import propTypes from "prop-types";
 
 // Styling
 import "./style.scss";
@@ -31,3 +32,8 @@ const TimeLineBlock = ({ title, items }) => {
 };
 
 export default TimeLineBlock;
+
+TimeLineBlock.propTypes = {
+  title: propTypes.string.isRequired,
+  items: propTypes.array.isRequired
+};

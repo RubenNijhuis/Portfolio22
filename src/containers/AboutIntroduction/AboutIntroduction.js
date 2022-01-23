@@ -1,4 +1,5 @@
 import React from "react";
+import propTypes from "prop-types";
 
 // Contentful Data Formatter
 import { renderRichText } from "gatsby-source-contentful/rich-text";
@@ -45,3 +46,9 @@ const AboutIntroduction = ({ text, image, cv }) => {
 };
 
 export default AboutIntroduction;
+
+AboutIntroduction.propTypes = {
+  text: propTypes.object.isRequired,
+  image: propTypes.object.isRequired,
+  cv: propTypes.string.isRequired
+};

@@ -11,7 +11,7 @@ module.exports = {
 
     // Site colors
     themeColor: "#e1e1e1",
-    backgroundColor: `#1e1e1e`,
+    backgroundColor: "#1e1e1e",
 
     // Favicon
     logo: path.resolve(__dirname, "src/images/icons/favicon.png"),

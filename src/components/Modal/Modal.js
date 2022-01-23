@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import propTypes from "prop-types";
 
 // Animation
 import { motion } from "framer-motion";
@@ -33,3 +34,9 @@ const Modal = ({ open, children, onClose }) => {
 };
 
 export default Modal;
+
+Modal.propTypes = {
+  open: propTypes.bool.isRequired,
+  children: propTypes.element.isRequired,
+  onClose: propTypes.func.isRequired
+};

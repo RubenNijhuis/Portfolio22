@@ -1,4 +1,5 @@
 import React from "react";
+import propTypes from "prop-types";
 
 // Components
 import Hero from "containers/Hero";
@@ -30,6 +31,10 @@ const IndexPage = ({ data }) => {
 };
 
 export default IndexPage;
+
+IndexPage.propTypes = {
+  data: propTypes.object.isRequired
+};
 
 export const query = graphql`
   query HomepageQuery {

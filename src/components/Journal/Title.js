@@ -1,6 +1,11 @@
-import { Link } from "gatsby";
 import React, { useState } from "react";
+import { Link } from "gatsby";
+import propTypes from "prop-types";
+
+// Utils
 import { flattenNameToURL } from "utils/helper-functions";
+
+// Components
 import Tags from "components/Tags";
 
 const Title = ({ title, tags, setActiveIndex, index }) => {
@@ -22,7 +27,7 @@ const Title = ({ title, tags, setActiveIndex, index }) => {
           }}
           index={index}
           style={{
-            zIndex: mouseHover ? `1000` : `1`
+            zIndex: mouseHover ? "1000" : "1"
           }}
         >
           <h3 className="project-title">{title}</h3>
@@ -34,3 +39,10 @@ const Title = ({ title, tags, setActiveIndex, index }) => {
 };
 
 export default Title;
+
+Title.propTypes = {
+  title: propTypes.string.isRequired,
+  tags: propTypes.array.isRequired,
+  setActiveIndex: propTypes.func.isRequired,
+  index: propTypes.number.isRequired
+};

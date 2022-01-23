@@ -1,5 +1,6 @@
 import React from "react";
-// import PropTypes from "prop-types";
+import propTypes from "prop-types";
+
 import { Helmet } from "react-helmet";
 // import { StaticQuery, graphql } from "gatsby";
 // import { Location } from "@reach/router";
@@ -89,3 +90,8 @@ const Head = ({
 );
 
 export default Head;
+
+Head.propTypes = {
+  title: propTypes.string,
+  description: propTypes.string
+};

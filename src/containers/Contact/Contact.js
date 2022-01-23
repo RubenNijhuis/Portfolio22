@@ -1,4 +1,5 @@
 import React from "react";
+import propTypes from "prop-types";
 
 // Styling
 import "./style.scss";
@@ -48,3 +49,7 @@ const Contact = ({ cv }) => {
 };
 
 export default Contact;
+
+Contact.propTypes = {
+  cv: propTypes.string.isRequired
+};

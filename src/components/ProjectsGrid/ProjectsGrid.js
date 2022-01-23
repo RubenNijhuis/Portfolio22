@@ -1,4 +1,5 @@
 import React from "react";
+import propTypes from "prop-types";
 
 // Utils
 import { transform_project } from "utils/datatype-transformers";
@@ -67,7 +68,7 @@ const ProjectsGrid = ({ projects, animate = true, limit = false }) => {
       </div>
       {limit ? (
         <SeeMore
-          url={`/projects`}
+          url={"/projects"}
           text={`See all ${amount_projects} projects`}
         />
       ) : null}
@@ -76,3 +77,9 @@ const ProjectsGrid = ({ projects, animate = true, limit = false }) => {
 };
 
 export default ProjectsGrid;
+
+ProjectsGrid.propTypes = {
+  projects: propTypes.array.isRequired,
+  animate: propTypes.bool.isRequired,
+  limit: propTypes.bool.isRequired
+};

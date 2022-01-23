@@ -1,10 +1,11 @@
 import React from "react";
+import propTypes from "prop-types";
 
 // Utils
 // import { useCurrentWidth } from "utils/helper-functions";
 
 // Components
-import JournalBig from "./JournalLarge";
+import JournalLarge from "./JournalLarge";
 import JournalSmall from "./JournalSmall";
 
 // Styling
@@ -17,10 +18,16 @@ const Journal = ({ entries, limit, animate }) => {
 
   return (
     <>
-      <JournalBig entries={entries} />
+      <JournalLarge entries={entries} />
       <JournalSmall entries={entries} limit={limit} animate={animate} />
     </>
   );
 };
 
 export default Journal;
+
+Journal.propTypes = {
+  entries: propTypes.array.isRequired,
+  limit: propTypes.bool,
+  animate: propTypes.bool
+};

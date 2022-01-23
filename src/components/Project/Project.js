@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import propTypes from "prop-types";
 
 // Animation
 import { useAnimation, motion } from "framer-motion";
@@ -109,3 +110,13 @@ const Project = ({
 };
 
 export default Project;
+
+Project.propTypes = {
+  name: propTypes.string.isRequired,
+  description: propTypes.string.isRequired,
+  img: propTypes.object.isRequired,
+  tags: propTypes.array.isRequired,
+  background: propTypes.string.isRequired,
+  animate: propTypes.bool,
+  count: propTypes.number
+};

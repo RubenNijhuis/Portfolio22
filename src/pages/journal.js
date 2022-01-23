@@ -1,7 +1,11 @@
 import React, { useEffect } from "react";
+import propTypes from "prop-types";
+
+// Components
 import Journal from "components/Journal";
 import Layout from "components/Layout";
 
+// Data aggregation
 import { graphql } from "gatsby";
 
 const JournalPage = ({ data }) => {
@@ -16,6 +20,12 @@ const JournalPage = ({ data }) => {
       <Journal entries={entries_data} animate={false} limit={false} />
     </Layout>
   );
+};
+
+export default JournalPage;
+
+JournalPage.propTypes = {
+  data: propTypes.object.isRequired
 };
 
 export const query = graphql`
@@ -37,5 +47,3 @@ export const query = graphql`
     }
   }
 `;
-
-export default JournalPage;

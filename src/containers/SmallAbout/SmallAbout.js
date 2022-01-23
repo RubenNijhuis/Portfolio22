@@ -1,4 +1,5 @@
 import React from "react";
+import propTypes from "prop-types";
 
 // Contentful
 import { renderRichText } from "gatsby-source-contentful/rich-text";
@@ -60,3 +61,8 @@ const SmallAbout = ({ about, photo }) => {
 };
 
 export default SmallAbout;
+
+SmallAbout.propTypes = {
+  about: propTypes.object.isRequired,
+  photo: propTypes.object.isRequired
+};

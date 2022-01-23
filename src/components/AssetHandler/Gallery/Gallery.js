@@ -1,7 +1,10 @@
 import React from "react";
+import propTypes from "prop-types";
 
+// Components
 import AssetHandler from "components/AssetHandler";
 
+// Styling
 import "./styling.scss";
 
 const Gallery = ({ content, options }) => {
@@ -21,3 +24,8 @@ const Gallery = ({ content, options }) => {
 };
 
 export default Gallery;
+
+Gallery.propTypes = {
+  content: propTypes.object.isRequired,
+  options: propTypes.object
+};

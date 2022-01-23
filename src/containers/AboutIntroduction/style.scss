@@ -104,7 +104,7 @@ $introduction-max-width: calc($magic-number * 26);
     }
 
     .links {
-      @include for-laptop-sm-and-up {
+      @include for-tablet-and-up {
         position: sticky;
         top: calc(calc($magic-number / 4) + var(--nav-height));
       }

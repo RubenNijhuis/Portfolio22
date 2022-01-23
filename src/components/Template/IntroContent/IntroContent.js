@@ -1,4 +1,5 @@
 import React from "react";
+import propTypes from "prop-types";
 
 // Data aggregation && formattings
 import { renderRichText } from "gatsby-source-contentful/rich-text";
@@ -13,3 +14,7 @@ const IntroContent = ({ content }) => {
 };
 
 export default IntroContent;
+
+IntroContent.propTypes = {
+  content: propTypes.object.isRequired
+};

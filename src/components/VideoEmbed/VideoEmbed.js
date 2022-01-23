@@ -1,4 +1,5 @@
 import React from "react";
+import propTypes from "prop-types";
 
 // Styling
 import "./style.scss";
@@ -32,3 +33,7 @@ const VideoEmbed = ({ content }) => {
 };
 
 export default VideoEmbed;
+
+VideoEmbed.propTypes = {
+  content: propTypes.object.isRequired
+};

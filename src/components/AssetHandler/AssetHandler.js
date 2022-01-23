@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
 // Components
 import ImgContainer from "./ImgContainer";
@@ -91,6 +92,11 @@ const AssetHandler = ({ asset, options }) => {
       ) : null}
     </div>
   );
+};
+
+AssetHandler.propTypes = {
+  asset: PropTypes.object,
+  options: PropTypes.object
 };
 
 export default AssetHandler;

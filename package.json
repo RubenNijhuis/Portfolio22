@@ -14,7 +14,9 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "lint": "eslint ./",
+    "prettier": "prettier . -w"
   },
   "dependencies": {
     "@fontsource/montserrat": "^4.5.1",
@@ -37,6 +39,7 @@
     "gatsby-transformer-sharp": "^4.4.0",
     "glslify": "^7.1.1",
     "node-sass": "^7.0.0",
+    "prop-types": "^15.8.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
@@ -47,6 +50,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.16.12",
-    "babel-loader": "^8.2.3"
+    "babel-loader": "^8.2.3",
+    "eslint": "^8.7.0",
+    "eslint-plugin-react": "^7.28.0"
   }
 }

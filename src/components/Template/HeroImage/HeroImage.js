@@ -1,4 +1,5 @@
 import React from "react";
+import propTypes from "prop-types";
 
 // Components
 import AssetHandler from "components/AssetHandler";
@@ -37,3 +38,8 @@ const MainImage = ({ img, options }) => {
 };
 
 export default MainImage;
+
+MainImage.propTypes = {
+  img: propTypes.object.isRequired,
+  options: propTypes.object.isRequired
+};

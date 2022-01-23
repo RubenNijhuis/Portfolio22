@@ -1,4 +1,5 @@
 import React, { useCallback, useLayoutEffect, useState } from "react";
+import propTypes from "prop-types";
 
 // Utils
 import { isBrowser } from "utils/helper-functions";
@@ -39,7 +40,7 @@ const useSize = () => {
   return [ref, dimension];
 };
 
-const Media = ({ img, alt, active, x, y }) => {
+const Media = ({ img, active, x, y }) => {
   const [ref, { width, height }] = useSize();
   return (
     <div
@@ -57,3 +58,10 @@ const Media = ({ img, alt, active, x, y }) => {
 };
 
 export default Media;
+
+Media.propTypes = {
+  img: propTypes.object.isRequired,
+  active: propTypes.bool.isRequired,
+  x: propTypes.number.isRequired,
+  y: propTypes.number.isRequired
+};

@@ -1,4 +1,5 @@
 import React from "react";
+import propTypes from "prop-types";
 
 // Containers
 import Gallery from "components/AssetHandler/Gallery";
@@ -25,3 +26,8 @@ const EntryHandler = ({ entry, options }) => {
 };
 
 export default EntryHandler;
+
+EntryHandler.propTypes = {
+  entry: propTypes.object.isRequired,
+  options: propTypes.object.isRequired
+};

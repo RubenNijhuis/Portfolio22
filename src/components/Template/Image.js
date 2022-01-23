@@ -1,9 +1,12 @@
 import React, { useEffect } from "react";
+import propTypes from "prop-types";
 
+// Animation
 import { template_image_transition } from "utils/animation-variants";
 import { useAnimation, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
+// Components
 import AssetHandler from "components/AssetHandler";
 
 const Image = ({ img, options }) => {
@@ -27,3 +30,8 @@ const Image = ({ img, options }) => {
 };
 
 export default Image;
+
+Image.propTypes = {
+  img: propTypes.object.isRequired,
+  options: propTypes.object
+};

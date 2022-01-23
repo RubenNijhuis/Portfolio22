@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 // Animation
 import { motion } from "framer-motion";
@@ -51,6 +52,15 @@ const Details = ({ description, year, role, name, tags, addClassName }) => {
       </motion.div>
     </div>
   );
+};
+
+Details.propTypes = {
+  description: PropTypes.string,
+  year: PropTypes.string.isRequired,
+  role: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  tags: PropTypes.array.isRequired,
+  addClassName: PropTypes.string
 };
 
 export default Details;

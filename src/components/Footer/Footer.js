@@ -7,7 +7,8 @@ import { Link } from "gatsby";
 import "./style.scss";
 
 const Footer = () => {
-  const mail_data = `mailto:contact@rubennijhuis.com?subject=Let's build something great?body=I have this great idea that `;
+  const mail_data =
+    "mailto:contact@rubennijhuis.com?subject=Let's build something great?body=I have this great idea that ";
   const className = "footer";
 
   return (
@@ -44,4 +45,5 @@ const Footer = () => {
     </footer>
   );
 };
+
 export default Footer;

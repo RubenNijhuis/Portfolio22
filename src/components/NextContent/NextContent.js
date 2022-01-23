@@ -1,4 +1,5 @@
 import React from "react";
+import propTypes from "prop-types";
 
 // Components
 import { Link } from "gatsby";
@@ -30,3 +31,8 @@ const NextContent = ({ previous, next }) => {
 };
 
 export default NextContent;
+
+NextContent.propTypes = {
+  previous: propTypes.string,
+  next: propTypes.string
+};

@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import propTypes from "prop-types";
 
 // Import stylesheet (this way it's imported for every page)
 import "styling/main.scss";
@@ -60,3 +61,13 @@ const Layout = ({ children, title, description, footer = true }) => {
 };
 
 export default Layout;
+
+Layout.propTypes = {
+  children: propTypes.oneOfType([
+    propTypes.arrayOf(propTypes.element),
+    propTypes.element
+  ]).isRequired,
+  title: propTypes.string,
+  description: propTypes.string,
+  footer: propTypes.bool
+};

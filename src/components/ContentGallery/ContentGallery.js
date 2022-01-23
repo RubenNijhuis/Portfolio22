@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 // Data aggregation && formattings
 import { renderRichText } from "gatsby-source-contentful/rich-text";
@@ -33,3 +34,10 @@ const ContentGallery = ({ type, time_span, description, content }) => {
 };
 
 export default ContentGallery;
+
+ContentGallery.propTypes = {
+  type: PropTypes.string.isRequired,
+  time_span: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  content: PropTypes.object.isRequired
+};

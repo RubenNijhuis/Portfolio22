@@ -1,4 +1,5 @@
 import React from "react";
+import propTypes from "prop-types";
 
 // Data aggregation && formattings
 import { graphql } from "gatsby";
@@ -58,6 +59,10 @@ const JournalTemplate = ({ data }) => {
 };
 
 export default JournalTemplate;
+
+JournalTemplate.propTypes = {
+  data: propTypes.object.isRequired
+};
 
 export const query = graphql`
   query ($slug: String!, $previous: String, $next: String) {

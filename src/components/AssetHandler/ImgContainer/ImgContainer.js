@@ -1,5 +1,10 @@
 import React from "react";
+import propTypes from "prop-types";
+
+// Image
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+
+// Styling
 import "./styling.scss";
 
 const ImgContainer = ({ asset, options }) => {
@@ -28,3 +33,8 @@ const ImgContainer = ({ asset, options }) => {
 };
 
 export default ImgContainer;
+
+ImgContainer.propTypes = {
+  asset: propTypes.object.isRequired,
+  options: propTypes.object
+};

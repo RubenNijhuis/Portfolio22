@@ -89,16 +89,16 @@ exports.onCreateWebpackConfig = ({ stage, actions, getConfig, plugins }) => {
     if (stage === "build-javascript") {
       config.plugins.push(
         plugins.extractText({
-          filename: `[name].[contenthash].css`,
-          chunkFilename: `[name].[contenthash].css`,
+          filename: "[name].[contenthash].css",
+          chunkFilename: "[name].[contenthash].css",
           ignoreOrder: true
         })
       );
     } else {
       config.plugins.push(
         plugins.extractText({
-          filename: `[name].css`,
-          chunkFilename: `[id].css`,
+          filename: "[name].css",
+          chunkFilename: "[id].css",
           ignoreOrder: true
         })
       );

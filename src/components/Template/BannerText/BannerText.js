@@ -1,4 +1,5 @@
 import React from "react";
+import propTypes from "prop-types";
 
 // Styling
 import "./styling.scss";
@@ -15,3 +16,7 @@ const BannerText = ({ content }) => {
 };
 
 export default BannerText;
+
+BannerText.propTypes = {
+  content: propTypes.object.isRequired
+};

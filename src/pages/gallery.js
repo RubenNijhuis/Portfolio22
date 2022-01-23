@@ -1,4 +1,5 @@
 import React from "react";
+import propTypes from "prop-types";
 
 // Components
 import Layout from "components/Layout";
@@ -28,6 +29,10 @@ const GalleryPage = ({ data }) => {
 };
 
 export default GalleryPage;
+
+GalleryPage.propTypes = {
+  data: propTypes.object.isRequired
+};
 
 export const query = graphql`
   query GallerypageQuery {

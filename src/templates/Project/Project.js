@@ -1,4 +1,5 @@
 import React from "react";
+import propTypes from "prop-types";
 
 // Data aggregation
 import { graphql } from "gatsby";
@@ -20,6 +21,8 @@ import "./styling.scss";
 const ProjectTemplate = ({ data }) => {
   // Splitting data for readability
   const { previous, project, next } = data;
+
+  console.log(data);
   const {
     name,
     description,
@@ -75,6 +78,10 @@ const ProjectTemplate = ({ data }) => {
 
 export default ProjectTemplate;
 
+ProjectTemplate.propTypes = {
+  data: propTypes.object.isRequired
+};
+
 export const query = graphql`
   query ($slug: String!, $previous: String, $next: String) {
     previous: contentfulProject(name: { eq: $next }) {
@@ -97,6 +104,7 @@ export const query = graphql`
           contentType
         }
         gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+        __typename
       }
       introduction {
         raw

@@ -7,19 +7,21 @@ If you're a developer, designer or creative who wants to showcase their work in 
 ## ⚒ Tools used
 
 - GatsbyJS <br>
+- ReactJS <br>
 - Framer motion <br>
 - ThreeJS <br>
-- React Three Fiber
+- React Three Fiber <br>
+- SCSS <br>
 
-## Features
+## 🦶 Features
 
-⚡️ Universal and component based asset handler, can take in any cms asset and output any image or video type <br>
+⚡️ Asset handler, can take in any cms asset and output any image or video type <br>
 ✨ Page transitions to give a smoother web experience <br>
 📬 Easy cms integration using an object layout file <br>
-📚 Storybook for easy component documentation <br>
 👀 Perfect SEO, due to required image alts and semantic HTML <br>
+👮‍♂️ Enforce code style guide using ESLint and Prettier <br>
 <br>
-Enough reasons to choose this as your next project
+Enough reasons to choose this as your next portfolio
 
 ## 🚀 Quick start
 
@@ -45,9 +47,15 @@ $ npm run develop
 Check here for a list of CMS's that are compatible with this site
 https://www.gatsbyjs.com/docs/conceptual/choosing-a-cms/#1-popular-first-class-gatsby-integrations
 
+## Honorable mentions
+
+Ruben Nijhuis - @rubennijhuis - https://rubennijhuis.com || Original Author
+
 ## ☑️ Todo's
 
-Created 23x12x21 - Last updated 16x01x22
+These todos are just features or changes that I have been thinking about. When I cross one off I also delete it from the list as to not bloat my readme. It is mainly used to indicate what I am currently working on with this project
+
+Created 23x12x21 - Last updated 23x01x22
 
 Styling
 
@@ -57,18 +65,22 @@ Styling
 
 Templates
 - [ ] Check if a link is inbound or outbound and add the correct link type
-- [ ] Journal page missing design and should be different than project
+
+Small About
+
+- [ ] Aggregate all data from cms
+
+Journal Component
+- [ ] Load 
 
 About Page
 
-- [ ] Make the it thing
-  - [ ] create credits and tools section
-  - [ ] create horizontal text
-  - [ ] create interactive piece
+- [ ] create credits and tools section
+- [ ] create horizontal scroll text
+- [ ] create interactive piece
 
 Gallery Page
 
-- [ ] Infinite scroll ?
 - [ ] Split sections into seperate pages
 - [ ] index page add per section button to go to page
 
@@ -88,10 +100,11 @@ Accesibility
 
 Developer friendliness
 
+- [ ] Add ESLint
+- [ ] Add type checking
 - [ ] Create documentation for this project. Anyone should be able to set this up
 - [ ] Setup settings file that set settings for the whole project
-- [ ] Setup settings to include and exclude pages (https://www.gatsbyjs.com/plugins/gatsby-plugin-exclude/)
-- [ ] Research preact
+- [ ] Research preact for website fastness
 
 Data
 

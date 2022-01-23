@@ -1,4 +1,5 @@
 import React from "react";
+import propTypes from "prop-types";
 
 // Data aggregation && formattings
 import { graphql } from "gatsby";
@@ -34,6 +35,10 @@ const AboutPage = ({ data }) => {
 };
 
 export default AboutPage;
+
+AboutPage.propTypes = {
+  data: propTypes.object.isRequired
+};
 
 export const query = graphql`
   query AboutQuery {

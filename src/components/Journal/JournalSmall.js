@@ -110,7 +110,7 @@ const JournalSmall = ({ entries, limit = false, animate }) => {
       })}
       {limit ? (
         <SeeMore
-          url={`/journal`}
+          url={"/journal"}
           text={`See all ${amount_entries} journal entries`}
         />
       ) : null}

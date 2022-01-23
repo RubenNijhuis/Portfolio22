@@ -1,4 +1,5 @@
 import React from "react";
+import propTypes from "prop-types";
 
 // Styling
 import "./styling.scss";
@@ -18,3 +19,8 @@ const Tags = ({ tags, theme = "dark" }) => {
 };
 
 export default Tags;
+
+Tags.propTypes = {
+  tags: propTypes.array.isRequired,
+  theme: propTypes.string
+};

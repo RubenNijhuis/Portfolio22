@@ -1,5 +1,8 @@
 // Credits -> Wrong Akram https://www.youtube.com/watch?v=BtsVMvds3P0
 import React from "react";
+import propTypes from "prop-types";
+
+// Animation
 import { motion } from "framer-motion";
 
 const banner = {
@@ -76,3 +79,8 @@ const AnimatedLetters = ({ title, disabled }) => {
 };
 
 export default AnimatedLetters;
+
+AnimatedLetters.propTypes = {
+  title: propTypes.string.isRequired,
+  disabled: propTypes.bool
+};
