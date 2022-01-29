@@ -5,6 +5,9 @@ import propTypes from "prop-types";
 // Animation
 import { motion } from "framer-motion";
 
+// Style
+import "./style.scss";
+
 const banner = {
   animate: {
     transition: {
@@ -40,6 +43,7 @@ const letterAni = (index, length_of_array) => {
 };
 
 const AnimatedLetters = ({ title, disabled }) => {
+  const className = "animated-letters";
   const title_split_words = title.split(" ");
   const title_split_words_letters = title_split_words.map((word) =>
     word.split("")
@@ -50,7 +54,7 @@ const AnimatedLetters = ({ title, disabled }) => {
   title_split_words_letters.map((word) => (amount_letters += word.length));
 
   return (
-    <motion.span className="row-title">
+    <motion.span className={className}>
       {[...title_split_words_letters].map((word, index) => (
         <motion.div
           className="row-word"

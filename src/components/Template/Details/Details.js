@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { project_details_transition } from "utils/animation-variants";
 
 // Components
-import AnimatedLetters from "components/Template/AnimatedLetters";
+import AnimatedLetters from "components/AnimatedLetters";
 import Tags from "components/Tags";
 
 // Styling

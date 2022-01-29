@@ -1,0 +1,31 @@
+@use "../../styling/abstracts" as *;
+
+.animated-letters {
+  font-size: 72px;
+  display: block;
+
+  .row-title,
+  .row-word {
+    overflow: hidden;
+  }
+
+  .row-word {
+    margin-right: 18px;
+  }
+
+  .row-word,
+  .row-letter {
+    font-size: 3.6rem;
+
+    @include for-laptop-l-and-up {
+      font-size: 5.6rem;
+    }
+    
+    font-weight: 700;
+    position: relative;
+    letter-spacing: 0rem;
+    font-family: "Syne";
+    display: inline-block;
+    white-space: nowrap;
+  }
+}
