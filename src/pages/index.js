@@ -2,6 +2,7 @@ import React from "react";
 import propTypes from "prop-types";
 
 // Components
+// import HomeIntro from "components/ThreeJS/sphere";
 import Hero from "containers/Hero";
 import Layout from "components/Layout";
 import Intro from "containers/Intro";
