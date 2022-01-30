@@ -16,8 +16,6 @@
   .description {
     display: flex;
     flex-direction: column;
-    position: sticky;
-    top: calc(var(--nav-height));
     z-index: 100;
     background-color: $background-color;
     padding: 18px 0;
