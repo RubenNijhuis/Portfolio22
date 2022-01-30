@@ -53,9 +53,11 @@
     }
 
     // Removing object fit
+    .video-player,
     .asset,
     .img-container,
     .img,
+    video,
     img {
       object-fit: contain !important;
       max-height: 100%;
