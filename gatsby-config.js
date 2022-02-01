@@ -1,4 +1,7 @@
+// General site config
 const site_config = require("./site-config");
+
+// Secret sauce configs
 require("dotenv").config({
   path: ".env"
 });
@@ -40,11 +43,5 @@ module.exports = {
         excludes: ["/device-identify"]
       }
     }
-    // {
-    //   resolve: "gatsby-plugin-google-analytics",
-    //   options: {
-    //     trackiangId: "",
-    //   },
-    // },
   ]
 };

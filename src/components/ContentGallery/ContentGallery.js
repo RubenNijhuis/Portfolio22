@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 // Data aggregation && formattings
 import { renderRichText } from "gatsby-source-contentful/rich-text";
-import { project_content_formatter } from "utils/content-formatters";
+import { content_formatter } from "utils/content-formatters";
 import { flattenNameToURL } from "utils/helper-functions";
 
 // Components
@@ -27,6 +27,13 @@ const ContentGallery = ({
     modal: true
   };
 
+  if (limit === true) {
+    let count = 0;
+    content.references[0].images = content.references[0].images.filter(() =>
+      count++ < 4 ? true : false
+    );
+  }
+
   return (
     <section className={className}>
       <div className="description">
@@ -37,7 +44,7 @@ const ContentGallery = ({
         <div className="col--right">{description}</div>
       </div>
       <div className="content">
-        {renderRichText(content, project_content_formatter("main", options))}
+        {renderRichText(content, content_formatter("gallery-small", options))}
       </div>
 
       {limit ? (
