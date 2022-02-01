@@ -58,7 +58,6 @@ These todos are just features or changes that I have been thinking about. When I
 Created 23x12x21 - Last updated 23x01x22
 
 Styling
-
 - [ ] Advanced mixins (research)
 - [ ] Cleanup styling folder
 - [ ] Create design system for typography
@@ -67,49 +66,41 @@ Templates
 - [ ] Check if a link is inbound or outbound and add the correct link type
 
 Small About
-
 - [ ] Aggregate all data from cms
 
 Journal Component
-- [ ] Load 
+- [ ] Create seperate intro part
+- [ ] Research different layout
 
 About Page
-
 - [ ] create credits and tools section
 - [ ] create horizontal scroll text
 - [ ] create interactive piece
 
 Gallery Page
-
-- [ ] Split sections into seperate pages
-- [ ] index page add per section button to go to page
+- [ ] Limit amount gallery items on index page
 
 Animation
-
 - [ ] Add reduced animation mixin
 
 Components
-
-- [ ] Cleanup journals
+- [ ] Cleanup journals component
   - Create one journal section and load correct journal type in the section
+  - Remove fixed property so that the component doesn't cover the full site
+
+- [ ] Next Content component
+    - Add image on hover like journals component
 
 Accesibility
-
 - [ ] Fix Head component to support as many types as possible (create seperate components for type)
 - [ ] reduced animation selector
 
 Developer friendliness
-
-- [ ] Add ESLint
-- [ ] Add type checking
 - [ ] Create documentation for this project. Anyone should be able to set this up
 - [ ] Setup settings file that set settings for the whole project
-- [ ] Research preact for website fastness
 
 Data
-
-- [ ] Add google analytics
+- [ ] Add analytics
 
 UX
-
 - [ ] Add feature for reduced animation

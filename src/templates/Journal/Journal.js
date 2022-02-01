@@ -13,7 +13,7 @@ import MainContent from "components/Template/MainContent/MainContent";
 import NextContent from "components/NextContent";
 
 // Styling
-import "./styling.scss";
+import "./style.scss";
 
 const JournalTemplate = ({ data }) => {
   const { name, img, year, content, background_color, tags } = data.journal;

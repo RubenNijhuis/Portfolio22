@@ -16,13 +16,12 @@ import MainContent from "components/Template/MainContent/MainContent";
 import NextContent from "components/NextContent";
 
 // Styling
-import "./styling.scss";
+import "./style.scss";
 
 const ProjectTemplate = ({ data }) => {
   // Splitting data for readability
   const { previous, project, next } = data;
 
-  console.log(data);
   const {
     name,
     description,

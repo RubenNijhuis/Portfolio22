@@ -5,7 +5,7 @@ import propTypes from "prop-types";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 // Styling
-import "./styling.scss";
+import "./style.scss";
 
 const ImgContainer = ({ asset, options }) => {
   const className = "img-container";

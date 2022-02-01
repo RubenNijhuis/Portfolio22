@@ -7,20 +7,20 @@ import { flattenNameToURL } from "utils/helper-functions";
 
 // Components
 import Layout from "components/Layout";
-import ContentGallery from "components/ContentGallery/ContentGallery";
+import ContentGallery from "components/ContentGallery";
 import NextContent from "components/NextContent";
 
 // Styling
 import "./style.scss";
 
 const GalleryTemplate = ({ data }) => {
-  const { type, time_span, description, content } = data.gallery;
+  const { name, time_span, description, content } = data.gallery;
   const { previous, next } = data;
 
   return (
     <Layout title={`${name} | Ruben Nijhuis | Designer && Developer`}>
       <ContentGallery
-        type={type}
+        type={name}
         content={content}
         time_span={time_span}
         description={description}
@@ -56,7 +56,7 @@ export const query = graphql`
     }
     gallery: contentfulGallery(type: { eq: $slug }) {
       time_span
-      type
+      name: type
       description
       content {
         raw

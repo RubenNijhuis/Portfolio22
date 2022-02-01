@@ -2,7 +2,7 @@ import React from "react";
 import propTypes from "prop-types";
 
 // Styling
-import "./styling.scss";
+import "./style.scss";
 
 const BannerText = ({ content }) => {
   const className = "banner-text";

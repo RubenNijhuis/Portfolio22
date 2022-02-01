@@ -4,7 +4,7 @@ import React from "react";
 import { Link } from "gatsby";
 
 // Styling
-import "./styling.scss";
+import "./style.scss";
 
 const Nav = () => {
   const className = "nav";

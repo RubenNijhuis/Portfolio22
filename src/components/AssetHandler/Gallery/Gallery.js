@@ -5,7 +5,7 @@ import propTypes from "prop-types";
 import AssetHandler from "components/AssetHandler";
 
 // Styling
-import "./styling.scss";
+import "./style.scss";
 
 const Gallery = ({ content, options }) => {
   const className = "gallery";
