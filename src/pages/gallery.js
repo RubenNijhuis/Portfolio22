@@ -6,7 +6,7 @@ import Layout from "components/Layout";
 
 // Data
 import { graphql } from "gatsby";
-import ContentGallery from "../components/ContentGallery/ContentGallery";
+import ContentGallery from "components/ContentGallery/ContentGallery";
 
 const GalleryPage = ({ data }) => {
   const { galleries } = data;
@@ -20,6 +20,7 @@ const GalleryPage = ({ data }) => {
             content={content}
             time_span={time_span}
             description={description}
+            limit={true}
             key={index}
           />
         )

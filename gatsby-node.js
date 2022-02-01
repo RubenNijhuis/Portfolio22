@@ -9,7 +9,7 @@ exports.createPages = ({ graphql, actions }) => {
     resolve(
       graphql(`
         {
-          allContentfulProject(sort: { fields: year, order: DESC }) {
+          projects: allContentfulProject(sort: { fields: year, order: DESC }) {
             edges {
               next {
                 name
@@ -22,7 +22,7 @@ exports.createPages = ({ graphql, actions }) => {
               }
             }
           }
-          allContentfulJournal(sort: { fields: year, order: DESC }) {
+          journals: allContentfulJournal(sort: { fields: year, order: DESC }) {
             edges {
               next {
                 name
@@ -32,6 +32,19 @@ exports.createPages = ({ graphql, actions }) => {
               }
               previous {
                 name
+              }
+            }
+          }
+          galleries: allContentfulGallery {
+            edges {
+              next {
+                name: type
+              }
+              node {
+                name: type
+              }
+              previous {
+                name: type
               }
             }
           }
@@ -40,34 +53,42 @@ exports.createPages = ({ graphql, actions }) => {
         if (result.errors) {
           reject(result.errors);
         }
-        result.data.allContentfulProject.edges.forEach(
-          ({ previous, node, next }) => {
-            const name = format_name(node.name);
-            createPage({
-              path: `/projects/${name}`,
-              component: path.resolve("src/templates/Project/Project.js"),
-              context: {
-                next: next !== null ? next.name : null,
-                previous: previous !== null ? previous.name : null,
-                slug: node.name
-              }
-            });
-          }
-        );
-        result.data.allContentfulJournal.edges.forEach(
-          ({ previous, node, next }) => {
-            const name = format_name(node.name);
-            createPage({
-              path: `/journal/${name}`,
-              component: path.resolve("src/templates/Journal/Journal.js"),
-              context: {
-                next: next !== null ? next.name : null,
-                previous: previous !== null ? previous.name : null,
-                slug: node.name
-              }
-            });
-          }
-        );
+        result.data.projects.edges.forEach(({ previous, node, next }) => {
+          const name = format_name(node.name);
+          createPage({
+            path: `/projects/${name}`,
+            component: path.resolve("src/templates/Project/Project.js"),
+            context: {
+              next: next !== null ? next.name : null,
+              previous: previous !== null ? previous.name : null,
+              slug: node.name
+            }
+          });
+        });
+        result.data.journals.edges.forEach(({ previous, node, next }) => {
+          const name = format_name(node.name);
+          createPage({
+            path: `/journal/${name}`,
+            component: path.resolve("src/templates/Journal/Journal.js"),
+            context: {
+              next: next !== null ? next.name : null,
+              previous: previous !== null ? previous.name : null,
+              slug: node.name
+            }
+          });
+        });
+        result.data.galleries.edges.forEach(({ previous, node, next }) => {
+          const name = format_name(node.name);
+          createPage({
+            path: `/gallery/${name}`,
+            component: path.resolve("src/templates/Gallery/Gallery.js"),
+            context: {
+              next: next !== null ? next.name : null,
+              previous: previous !== null ? previous.name : null,
+              slug: node.name
+            }
+          });
+        });
         return;
       })
     );
