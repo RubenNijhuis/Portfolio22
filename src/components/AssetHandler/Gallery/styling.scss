@@ -1,4 +1,4 @@
-@use "../../../styling/abstracts" as *;
+@use "styling/abstracts" as *;
 
 .gallery {
   .grid {
@@ -12,15 +12,9 @@
 
     .asset {
       aspect-ratio: 5/3;
-      border-radius: $border-radius;
       transform: translateZ(0);
       overflow: hidden;
-
-      .img-container {
-        .img {
-          position: fixed;
-        }
-      }
+      border-radius: $border-radius;
     }
   }
 }
