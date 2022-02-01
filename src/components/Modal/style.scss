@@ -8,11 +8,11 @@
   z-index: 100;
 
   position: fixed;
-  padding: calc($magic-number / 2);
-  top: calc(var(--nav-height));
+  padding: calc($magic-number / 4);
+  top: 0;
   left: 0;
   width: 100%;
-  height: calc(var(--vh) * 100 - var(--nav-height));
+  height: calc(var(--vh) * 100);
 
   &:hover {
     cursor: pointer;
