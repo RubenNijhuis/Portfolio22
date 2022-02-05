@@ -1,6 +1,11 @@
 /node_modules
 /.cache
 /public
+.prettierrc
+*.json
+*.scss
+*.css
+*.sass
 .DS_Store
 *.env
 *.env

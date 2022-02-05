@@ -16,7 +16,8 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "lint": "eslint ./",
-    "prettier": "prettier . -w"
+    "prettier": "prettier . -w",
+    "check-before-commit": "npm run lint && npm run prettier"
   },
   "dependencies": {
     "@fontsource/montserrat": "^4.5.1",

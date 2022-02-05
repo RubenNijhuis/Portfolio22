@@ -12,6 +12,9 @@ If you're a developer, designer or creative who wants to showcase their work in 
 - ThreeJS <br>
 - React Three Fiber <br>
 - SCSS <br>
+- ESLint <br>
+- Prettier <br>
+- Contentful <br>
 
 ## 🦶 Features
 
@@ -21,12 +24,12 @@ If you're a developer, designer or creative who wants to showcase their work in 
 👀 Perfect SEO, due to required image alts and semantic HTML <br>
 👮‍♂️ Enforce code style guide using ESLint and Prettier <br>
 <br>
-Enough reasons to choose this as your next portfolio
+Enough reasons to choose this as your next portfolio site
 
 ## 🚀 Quick start
 
 <b>NOTE:</b> the setup of the any CMS or Contentful CMS probably requires some help. Ask the active maintainer of this project for guideance. If you are planning on using Contentful (they have a free tier that fits this template) I can copy my environment over to yours.
-There is also a link [ here ] to showcase the json format that is required for this site to work
+There is also a link [ here (WIP)] to showcase the json format that is required for this site to work
 
 Clone the project and add your contentful api keys in the `.env` (if you're going to run with contenteful)
 
@@ -77,8 +80,8 @@ About Page
 - [ ] create horizontal scroll text
 - [ ] create interactive piece
 
-Gallery Page
-- [ ] Limit amount gallery items on index page
+Index Page
+- [] intro poster turn into video
 
 Animation
 - [ ] Add reduced animation mixin
