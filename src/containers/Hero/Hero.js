@@ -1,22 +1,24 @@
 import React from "react";
+import propTypes from "prop-types";
 
 // Components
-// import Blocks from "components/ThreeJS/blocks";
-// import Raging_Sea from "components/ThreeJS/raging_sea/raging_sea";
+import AssetHandler from "components/AssetHandler";
+
 // Styling
 import "./style.scss";
 
-const Hero = () => {
+const Hero = ({ asset }) => {
   const className = "hero-banner";
 
   return (
     <section className={className}>
-      <img
-        src="https://hunterae.com/wp-content/uploads/images/digital-agency-web-showreel-videohive-29506116-download-free-hunterae-com-9.jpg"
-        alt="showreel"
-      />
+      <AssetHandler asset={asset} />
     </section>
   );
 };
 
 export default Hero;
+
+Hero.propTypes = {
+  asset: propTypes.object.isRequired
+};

@@ -2,7 +2,6 @@ import React from "react";
 import propTypes from "prop-types";
 
 // Components
-// import HomeIntro from "components/ThreeJS/sphere";
 import Hero from "containers/Hero";
 import Layout from "components/Layout";
 import Intro from "containers/Intro";
@@ -14,7 +13,7 @@ import Journal from "components/Journal";
 import { graphql } from "gatsby";
 
 const IndexPage = ({ data }) => {
-  const { projects, journal, about } = data;
+  const { projects, journal, about, heroImg } = data;
 
   const projects_data = projects.nodes;
   const entries_data = journal.nodes;
@@ -22,7 +21,7 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      <Hero />
+      <Hero asset={heroImg} />
       <Intro />
       <ProjectsGrid projects={projects_data} animate={true} limit={true} />
       <SmallAbout about={about_data.compact_about} photo={about_data.photo} />
@@ -39,6 +38,15 @@ IndexPage.propTypes = {
 
 export const query = graphql`
   query HomepageQuery {
+    heroImg: contentfulAsset(title: {eq: "homescreen-img"}) {
+      alt: title
+      file {
+        contentType
+        url
+      }
+      gatsbyImageData(placeholder: DOMINANT_COLOR)
+    }
+
     projects: allContentfulProject(sort: { order: DESC, fields: year }) {
       nodes {
         name
@@ -67,12 +75,6 @@ export const query = graphql`
           url
         }
         gatsbyImageData(placeholder: DOMINANT_COLOR)
-      }
-    }
-
-    cv: contentfulAsset(title: { eq: "cv" }) {
-      file {
-        url
       }
     }
 
