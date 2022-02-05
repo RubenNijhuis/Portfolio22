@@ -112,7 +112,9 @@
 
   .asset {
     @include size(100%);
-    transform: translateZ(0px); // safari border radius fx
+
+    // safari border radius fx
+    transform: translateZ(0px);
 
     &--wrapper {
       margin: calc($magic-number / 2) auto;

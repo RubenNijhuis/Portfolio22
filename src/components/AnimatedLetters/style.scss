@@ -1,16 +1,11 @@
 @use "../../styling/abstracts" as *;
 
 .animated-letters {
-  font-size: 72px;
   display: block;
 
   .row-title,
   .row-word {
     overflow: hidden;
-  }
-
-  .row-word {
-    margin-right: 18px;
   }
 
   .row-word,
