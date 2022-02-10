@@ -13,7 +13,10 @@ const Modal = ({ open, children, onClose }) => {
 
   const className = "modal";
 
-  // Using createportal to set the modal outside of the container
+  /*
+   * Using createPortal to set the
+   * modal outside of the container
+  */
   return ReactDOM.createPortal(
     <div className={className} onClick={onClose}>
       <motion.div
