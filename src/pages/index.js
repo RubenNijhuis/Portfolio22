@@ -44,7 +44,7 @@ export const query = graphql`
         contentType
         url
       }
-      gatsbyImageData(placeholder: DOMINANT_COLOR)
+      gatsbyImageData(quality: 20)
     }
 
     projects: allContentfulProject(sort: { order: DESC, fields: year }) {
