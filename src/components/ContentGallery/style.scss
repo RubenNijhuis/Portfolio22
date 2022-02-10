@@ -1,16 +1,17 @@
-@use "../../styling/abstracts" as *;
+@use "styling/abstracts" as *;
 
 .content-gallery {
-  padding: 18px;
-  margin: 36px auto;
+  padding: calc($magic-number / 4);
+  margin: calc($magic-number / 2) auto;
 
   margin-top: 0;
+  
   @include for-tablet-and-up {
     margin: 0;
   }
 
   @include for-laptop-sm-and-up {
-    padding: 36px;
+    padding: calc($magic-number / 2);
   }
 
   .description {
@@ -18,8 +19,8 @@
     flex-direction: column;
     z-index: 100;
     background-color: $background-color;
-    padding: 18px 0;
-    margin-bottom: 36px;
+    padding: calc($magic-number / 4) 0;
+    margin-bottom: calc($magic-number / 2);
 
     font-size: 1.8rem;
     color: white;
@@ -27,7 +28,7 @@
     @include for-tablet-and-up {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
-      gap: 18px;
+      gap: calc($magic-number / 4);
       margin-bottom: 0;
     }
 
@@ -38,14 +39,16 @@
     .col {
       &--left {
         grid-column: 1/7;
+
         span {
           color: rgba(255, 255, 255, 0.25);
           font-size: 2.6rem;
-          margin-bottom: 18px;
+          margin-bottom: calc($magic-number / 4);
         }
+
         h2 {
           font-size: 2.6rem;
-          margin-bottom: 24px;
+          margin-bottom: calc($magic-number / 4);
 
           @include for-tablet-and-up {
             font-size: 5.6rem;
@@ -65,23 +68,16 @@
 
         p {
           font-size: 1.6rem;
-          @include for-tablet-and-up {
-          }
         }
       }
     }
   }
 
   .content {
-    margin-bottom: calc($magic-number / 2);
-
-    @include for-laptop-sm-and-up {
-      margin-bottom: calc($magic-number);
-    }
-
     p {
       display: none;
     }
+
     .gallery {
       .grid {
         .asset {
@@ -92,7 +88,7 @@
 
         @include for-laptop-sm-and-up {
           grid-template-columns: repeat(12, 1fr);
-          grid-auto-rows: 1fr;
+          grid-auto-rows: 65vh;
 
           .asset:nth-child(4n + 1) {
             grid-column: 1/8;
@@ -111,6 +107,14 @@
           }
         }
       }
+    }
+  }
+
+  .see-more {
+    margin: calc($magic-number) auto;
+
+    @include for-laptop-sm-and-up {
+      margin: calc($magic-number * 2) auto;
     }
   }
 }

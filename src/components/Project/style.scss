@@ -1,4 +1,4 @@
-@use "../../styling/abstracts/" as *;
+@use "styling/abstracts/" as *;
 
 // Add extra delay for each tag in tag-list
 @for $i from 1 through 3 {
