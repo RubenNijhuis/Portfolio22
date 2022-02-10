@@ -1,19 +1,21 @@
 @use "styling/abstracts" as *;
 
 .modal {
-  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 100;
-
-  position: fixed;
   padding: calc($magic-number / 4);
-  top: 0;
-  left: 0;
+
   @include size(100%, calc(var(--vh, 1vh) * 100));
 
-  &:hover {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  &:hover, .button:hover {
     cursor: pointer;
   }
 
@@ -22,13 +24,7 @@
       cursor: auto;
     }
   }
-
-  .button {
-    &:hover {
-      cursor: pointer;
-    }
-  }
-
+  
   .box {
     border-radius: $border-radius;
     background-color: $background-color;
@@ -70,7 +66,10 @@
   }
 
   .button {
-    @include absoluteZero(0);
+    position: absolute;
+    right: 0;
+    top: 0;
+
     @include size(calc($magic-number / 2));
     background-color: white;
     border-radius: 100px;

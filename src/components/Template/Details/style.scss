@@ -5,6 +5,10 @@
   margin: 0 auto;
   flex-grow: 2;
 
+  &.journal {
+    
+  }
+
   padding: calc($magic-number / 2) calc($magic-number / 4);
   display: grid;
   grid-template-columns: 1fr;
@@ -37,7 +41,7 @@
     p {
       max-width: 60ch;
       font-size: 1.6rem;
-      line-height: 1.4;
+      line-height: $line-height-body;
     }
   }
 

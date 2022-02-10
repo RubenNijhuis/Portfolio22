@@ -1,5 +1,35 @@
 @use "styling/abstracts" as *;
 
+.journal-book {
+  .headline {
+    color: $text-color;
+    font-family: "Syne";
+    font-weight: 700;
+    font-size: 5.6rem;
+  }
+}
+
+.journal-small {
+  text-decoration: none;
+
+  &__year {
+    color: $text-color;
+    font-size: 2.2rem;
+    font-weight: 200;
+  }
+
+  &__name {
+    color: $text-color;
+    font-size: 2.4rem;
+  }
+
+  &__tags span {
+    color: $background-color;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+}
+
 .journal {
   display: none;
   @include for-laptop-sm-and-up {

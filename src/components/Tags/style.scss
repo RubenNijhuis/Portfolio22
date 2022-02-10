@@ -2,16 +2,20 @@
 
 .tags {
   display: flex;
-  gap: calc($magic-number / 8);
 
   .tag {
     display: inline-block;
-
     padding: 5px 11px;
-
     @include for-laptop-l-and-up {
       padding: 6px 12px;
     }
+
+    margin-right: calc($magic-number / 8);
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+
 
     &--light {
       color: $background-color;

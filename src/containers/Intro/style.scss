@@ -27,7 +27,7 @@
       margin: 0;
       margin-bottom: calc($magic-number / 4);
       color: $text-color;
-      line-height: 1.4;
+      line-height:  $line-height-body;
       font-weight: 400;
 
       font-size: clamp(calc($magic-number / 4), 4.5vw, 120px);

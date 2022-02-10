@@ -56,7 +56,7 @@ $introduction-max-width: calc($magic-number * 26);
     grid-area: text;
     color: hsl(0, 0%, 80%);
     font-size: 1.6rem;
-    line-height: 1.5;
+    line-height:  $line-height-body;
     max-width: calc($magic-number * 14);
 
     @include for-tablet-and-up {
@@ -87,8 +87,9 @@ $introduction-max-width: calc($magic-number * 26);
   .image {
     grid-area: photo;
     @include size(100%);
-
+    
     &--wrapper {
+      padding-top: 125%;
       border-radius: $border-radius;
       overflow: hidden;
       transform: translateZ(0);
@@ -99,7 +100,8 @@ $introduction-max-width: calc($magic-number * 26);
       }
 
       .asset {
-        aspect-ratio: 4/5;
+        @include absoluteZero();
+        @include size(100%)
       }
     }
 
