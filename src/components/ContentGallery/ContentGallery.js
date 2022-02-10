@@ -9,6 +9,9 @@ import { flattenNameToURL } from "utils/helper-functions";
 // Components
 import SeeMore from "components/SeeMore";
 
+// Constants
+import { limits } from "constants/limits";
+
 // Styling
 import "./style.scss";
 
@@ -30,7 +33,7 @@ const ContentGallery = ({
   if (limit === true) {
     let count = 0;
     content.references[0].images = content.references[0].images.filter(() =>
-      count++ < 4 ? true : false
+      count++ < limits.amount_gallery_items ? true : false
     );
   }
 
