@@ -19,20 +19,15 @@
     flex-direction: column;
     justify-content: end;
     margin: 0 auto;
-    height: calc(var(--vh, 1vh) * 100 - 27.3px);
+    height: calc(var(--vh, 1vh) * 100 - var(--nav-height, calc($magic-number / 2)));
 
     @include for-tablet-and-up {
       justify-content: end;
-      height: calc(var(--vh, 1vh) * 100 - 63.3px);
     }
 
     @include for-laptop-sm-and-up {
       padding: 0;
       padding-top: calc($magic-number / 2);
-    }
-
-    @include for-laptop-l-and-up {
-      height: calc(var(--vh, 1vh) * 100 - 45.3px);
     }
   }
 }

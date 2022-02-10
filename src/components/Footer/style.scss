@@ -67,12 +67,10 @@
         &:before {
           content: "";
           position: absolute;
-
           right: -24px;
           bottom: 0px + 12px;
 
-          width: 26px;
-          height: calc($magic-number / 4);
+          @include size(26px, calc($magic-number / 4));
 
           background-repeat: no-repeat;
           background-size: contain;

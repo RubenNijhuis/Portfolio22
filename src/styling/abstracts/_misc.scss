@@ -13,7 +13,8 @@ html {
 }
 
 body {
-  padding-top: $nav-height;
+  // For navbar
+  padding-top: var(--nav-height, 32px);
 
   // Typography
   font-family: "Montserrat", Helvetica Neue, Helvetica, sans-serif;
@@ -22,9 +23,6 @@ body {
   word-wrap: break-word;
   font-feature-settings: "kern", "liga", "clig", "calt";
   font-kerning: normal;
-
-  // Navbar position
-  padding-top: var(--nav-height);
 }
 
 // Journals container fix

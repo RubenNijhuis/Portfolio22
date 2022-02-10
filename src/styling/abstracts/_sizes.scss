@@ -5,5 +5,5 @@ $root-font-size: 10px;
 
 /* Elements */
 $border-radius: 6px;
-$border-radius-tag: 36px;
-$nav-height: 29px;
+$border-radius-tag: calc($magic-number / 2);
+

@@ -61,9 +61,9 @@
     position: absolute;
     top: 50%;
     right: 0;
-    width: 80%;
 
-    height: calc($magic-number * 2);
+    @include size(80%, calc($magic-number * 2));
+
     background-color: $background-color;
 
     transform: translate(0%, -50%);
@@ -85,9 +85,9 @@
 
     .asset {
       @include absoluteZero(1px);
+      @include size(calc(100% - 2px));
+
       object-fit: cover;
-      width: calc(100% - 2px);
-      height: calc(100% - 2px);
       position: relative;
       opacity: 1;
     }

@@ -106,11 +106,11 @@ $introduction-max-width: calc($magic-number * 26);
     .links {
       @include for-tablet-and-up {
         position: sticky;
-        top: calc(calc($magic-number / 4) + var(--nav-height));
+        top: calc(calc($magic-number / 4) + var(--nav-height, calc($magic-number / 2)));
       }
 
       @include for-laptop-l-and-up {
-        top: calc(calc($magic-number / 2) + var(--nav-height));
+        top: calc(calc($magic-number / 2) + var(--nav-height, calc($magic-number / 2)));
       }
 
       a {
@@ -139,9 +139,9 @@ $introduction-max-width: calc($magic-number * 26);
     }
 
     .line {
-      width: 100%;
+      @include size(100%, 1px);
+
       background-color: $text-color;
-      height: 1px;
       display: block;
       margin: calc($magic-number / 8) 0;
     }

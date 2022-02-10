@@ -59,7 +59,7 @@
     color: $text-color;
 
     @include for-tablet-and-up {
-      font-size: clamp(72px, 6vw, 244px);
+      font-size: clamp($magic-number, 6vw, 244px);
     }
   }
 }

@@ -10,21 +10,22 @@
   padding: 0 calc($magic-number / 8);
 
   a {
-    box-sizing: content-box;
     display: flex;
     align-items: center;
     justify-content: center;
     justify-items: center;
     align-content: center;
-    height: 100%;
+    
     border: solid 1px $text-color;
     border-radius: $border-radius;
 
-    width: clamp(calc($magic-number * 2), 50%, calc($magic-number * 10));
+    box-sizing: content-box;
     text-decoration: none;
 
+    @include size(clamp(calc($magic-number * 2), 50%, calc($magic-number * 10)), 100%);
+
     &:last-child {
-      margin-left: 9px;
+      margin-left: calc($magic-number / 8);
     }
 
     &:hover {

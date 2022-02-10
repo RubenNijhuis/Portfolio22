@@ -16,7 +16,7 @@
     color: white;
 
     @include for-tablet-and-up {
-      font-size: clamp(26px, 5vw, 72px);
+      font-size: clamp(26px, 5vw, $magic-number);
     }
   }
 }

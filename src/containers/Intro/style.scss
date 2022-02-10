@@ -2,7 +2,7 @@
 
 .intro-banner {
   overflow: hidden;
-  height: calc(var(--vh) * 85);
+  height: calc(var(--vh, 1vh) * 85);
   display: none;
   justify-content: center;
   align-items: center;
@@ -14,7 +14,7 @@
     padding: calc($magic-number / 2);
   }
   @include for-laptop-sm-and-up {
-    height: calc(var(--vh) * 100);
+    height: calc(var(--vh, 1vh) * 100);
     padding: calc($magic-number * 2) calc($magic-number);
   }
 
@@ -30,7 +30,7 @@
       line-height: 1.4;
       font-weight: 400;
 
-      font-size: clamp(18px, 4.5vw, 120px);
+      font-size: clamp(calc($magic-number / 4), 4.5vw, 120px);
 
       @include for-laptop-l-and-up {
         margin-bottom: calc($magic-number);
