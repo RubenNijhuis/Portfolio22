@@ -25,7 +25,8 @@ const Project = ({
   tags,
   background,
   animate = false,
-  count
+  count,
+  isHomePage = true
 }) => {
   const parsed_name = flattenNameToURL(name);
   const width = useCurrentWidth();
@@ -40,12 +41,11 @@ const Project = ({
    * (TODO: Have the grid set animation and layout)
    */
   const offset_height = (offset, hidden) => {
-    if (width < sizes.small) return hidden ? `${offset}%` : "0%";
-    else {
-      if (count % 2 === 0) {
-        return hidden ? "-20%" : "-30%";
-      } else {
-        return hidden ? "10%" : "0%";
+    if (isHomePage) {
+      if (width < sizes.small) return hidden ? `${offset}%` : "0%";
+      else {
+        if (count % 2 === 0) return hidden ? "10%" : "0%";
+        else return hidden ? "-20%" : "-30%";
       }
     }
   };
@@ -59,13 +59,11 @@ const Project = ({
 
   const fade_in = {
     hidden: {
-      scaleX: [-1, -1], // fix for slide back page into grid
       opacity: 0,
       scale: 0.95,
       y: offset_height(0, true)
     },
     visible: {
-      scaleX: [-1, -1], // fix for slide back page into grid
       opacity: 1,
       scale: 1,
       y: offset_height(0, false),
@@ -118,5 +116,6 @@ Project.propTypes = {
   tags: propTypes.array.isRequired,
   background: propTypes.string.isRequired,
   animate: propTypes.bool,
-  count: propTypes.number
+  count: propTypes.number,
+  isHomePage: propTypes.bool
 };

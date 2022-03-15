@@ -8,6 +8,14 @@
     overflow: hidden;
   }
 
+  .row-word {
+    margin-right: calc($magic-number / 8);
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+
   .row-word,
   .row-letter {
     font-size: 3.6rem;

@@ -5,8 +5,12 @@
   margin: 0 auto;
   flex-grow: 2;
 
-  &.journal {
-    
+  &.journala {
+    .header {
+      p {
+        opacity: 0 !important;
+      }
+    }
   }
 
   padding: calc($magic-number / 2) calc($magic-number / 4);

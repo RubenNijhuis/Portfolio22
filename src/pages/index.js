@@ -38,7 +38,7 @@ IndexPage.propTypes = {
 
 export const query = graphql`
   query HomepageQuery {
-    heroImg: contentfulAsset(title: {eq: "homescreen-img"}) {
+    heroImg: contentfulAsset(title: { eq: "homescreen-img" }) {
       alt: title
       file {
         contentType

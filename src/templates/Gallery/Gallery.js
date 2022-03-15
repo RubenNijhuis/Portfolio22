@@ -71,7 +71,11 @@ export const query = graphql`
                 contentType
                 url
               }
-              gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+              gatsbyImageData(
+                layout: CONSTRAINED
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
               internal {
                 type
               }

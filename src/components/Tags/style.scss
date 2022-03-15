@@ -4,8 +4,11 @@
   display: flex;
 
   .tag {
+    box-sizing: border-box;
     display: inline-block;
     padding: 5px 11px;
+    min-height: fit-content;
+
     @include for-laptop-l-and-up {
       padding: 6px 12px;
     }

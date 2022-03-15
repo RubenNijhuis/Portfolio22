@@ -16,8 +16,8 @@ const ImgContainer = ({ asset, options }) => {
     img_path = asset.gatsbyImageData;
     img_alt = asset.alt;
   } else {
-    img_path = asset.data.target.gatsbyImageData;
-    img_alt = asset.data.target.alt;
+    img_path = asset.data.target?.gatsbyImageData;
+    img_alt = asset.data.target?.alt;
   }
 
   const img_parsed = getImage(img_path);

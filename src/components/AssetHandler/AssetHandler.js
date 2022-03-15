@@ -11,7 +11,7 @@ import "./style.scss";
 
 const AssetHandler = ({ asset, options }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [assetType, changeAssetType] = useState();
+  const [assetType, changeAssetType] = useState("image/png");
   let className = "asset";
 
   if (options?.modal) className += " modal-ready";
@@ -36,7 +36,7 @@ const AssetHandler = ({ asset, options }) => {
     if (asset !== undefined) {
       if (asset.file?.contentType !== undefined) {
         changeAssetType(asset.file.contentType);
-      } else if (asset.data.target.file.contentType !== undefined) {
+      } else if (asset.data.target?.file.contentType !== undefined) {
         changeAssetType(asset.data.target.file.contentType);
       } else {
         changeAssetType("image/png");
@@ -52,19 +52,15 @@ const AssetHandler = ({ asset, options }) => {
    * @returns a react component
    */
   const asset_type = (asset_type) => {
-    switch (asset_type) {
-      case "video/mp4":
+    const asset_type_main = asset_type.split("/")[0];
+  
+    switch (asset_type_main) {
+      case "video":
         return <VideoPlayer asset={asset} options={options} />;
-      case "video/quicktime":
-        return <VideoPlayer asset={asset} options={options} />;
-      case "image/png":
-        return <ImgContainer asset={asset} options={options} />;
-      case "image/jpeg":
-        return <ImgContainer asset={asset} options={options} />;
-      case "image/webp":
+      case "image":
         return <ImgContainer asset={asset} options={options} />;
       default:
-        break;
+        return <ImgContainer asset={asset} options={options} />;
     }
   };
 

@@ -30,11 +30,12 @@ const JournalTemplate = ({ data }) => {
 
   return (
     <Layout title={`${name} | Ruben Nijhuis | Designer && Developer`}>
-      <div className="template">
-        <section className="hero">
+      <div className="project-template">
+        <section className="hero hero--project">
           <Details
-            addClassName="journal"
+            addClassName="journala"
             name={name}
+            description={"aaa"}
             year={year_formatted}
             tags={tags_formatted}
           />

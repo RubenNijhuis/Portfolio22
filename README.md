@@ -6,7 +6,7 @@ If you're a developer, designer or creative who wants to showcase their work in 
 
 ## ⚒ Tools used
 
-- GatsbyJS <br>
+- GatsbyJS (might switch to nextjs)<br>
 - ReactJS <br>
 - Framer motion <br>
 - ThreeJS <br>
@@ -58,11 +58,10 @@ Ruben Nijhuis - @rubennijhuis - https://rubennijhuis.com || Original Author
 
 These todos are just features or changes that I have been thinking about. When I cross one off I also delete it from the list as to not bloat my readme. It is mainly used to indicate what I am currently working on with this project
 
-Created 23x12x21 - Last updated 23x01x22
+Last updated 25 x 02 x 22
 
 Styling
 - [ ] Advanced mixins (research)
-- [ ] Cleanup styling folder
 - [ ] Create design system for typography
 
 Templates
@@ -81,7 +80,7 @@ About Page
 - [ ] create interactive piece
 
 Index Page
-- [] intro poster turn into video
+- [] intro poster turn into 3d cirlce of cards
 
 Animation
 - [ ] Add reduced animation mixin
@@ -104,6 +103,3 @@ Developer friendliness
 
 Data
 - [ ] Add analytics
-
-UX
-- [ ] Add feature for reduced animation

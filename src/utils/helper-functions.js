@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 export const isBrowser = typeof window !== "undefined";
 
 // Returns the width of the browser
+// @returns browser_width
 const getWidth = () => {
   if (isBrowser) {
     return (

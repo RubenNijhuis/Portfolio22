@@ -1,13 +1,15 @@
 @use "styling/abstracts" as *;
 
-.template {
+.project-template {
   color: $text-color;
-  max-width: calc($magic-number * 24);
+  margin: 0 auto;
 
   @include for-laptop-sm-and-up {
     margin: 0 auto;
     margin-bottom: calc($magic-number * 2);
-    padding: 0 calc($magic-number / 2);
+  }
+  @include for-laptop-l-and-up {
+    max-width: calc(100vw - calc($magic-number * 2));
   }
 
   .hero {
@@ -29,3 +31,4 @@
     }
   }
 }
+

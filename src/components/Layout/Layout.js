@@ -1,24 +1,27 @@
 import React, { useEffect } from "react";
 import propTypes from "prop-types";
 
-// Import stylesheet (this way it's imported for every page)
-import "styling/main.scss";
-import { motion } from "framer-motion"; // For animation
+// Utils
+import {
+  setViewheightProperty,
+  setNavHeightProperty,
+  console_message,
+  isBrowser
+} from "utils/helper-functions";
+
+// Animation
+import { motion } from "framer-motion";
+import { page_transition, footer_transition } from "utils/animation-variants";
 
 // Components
 import Head from "components/Head/Head";
 import Nav from "components/Nav";
 import Footer from "components/Footer";
 
-import {
-  setViewheightProperty,
-  setNavHeightProperty,
-  console_message,
-  isBrowser
-} from "utils/helper-functions"; // Turn vh into pixels for SCSS
-import { page_transition, footer_transition } from "utils/animation-variants"; // Framer animations
+// Styling
+import "styling/main.scss";
 
-const Layout = ({ children, title, description, footer = true }) => {
+const Layout = ({ children, title, description, footer }) => {
   // Check if url is homepage == no movement in y direction
   let isHomePage = false;
   if (isBrowser) {
@@ -61,6 +64,10 @@ const Layout = ({ children, title, description, footer = true }) => {
 };
 
 export default Layout;
+
+Layout.defaultProps = {
+  footer: true
+};
 
 Layout.propTypes = {
   children: propTypes.oneOfType([

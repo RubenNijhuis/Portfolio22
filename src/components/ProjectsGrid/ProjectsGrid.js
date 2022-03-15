@@ -3,29 +3,17 @@ import propTypes from "prop-types";
 
 // Utils
 import { transform_project } from "utils/datatype-transformers";
-import { swap_array_elements, useCurrentWidth } from "utils/helper-functions";
+import {
+  swap_array_elements,
+  useCurrentWidth,
+  isBrowser
+} from "utils/helper-functions";
 import { sizes } from "utils/constants";
 import { limits } from "constants/limits";
 
 // Components
 import Project from "components/Project";
 import SeeMore from "components/SeeMore";
-
-/**
- * Griod for sizes bigger than laptop
- *
- * | 1fr  1fr  1fr  |
- * | ---- ---- ---- |
- * |  x          x  |
- * |  y    x     y  |
- * |       y        |
- * |  x          x  |
- * |  y          y  |
- * |       x        |
- * |       y        |
- * ------------------
-
- */
 
 // Styling
 import "./style.scss";
@@ -43,6 +31,12 @@ const ProjectsGrid = ({ projects, animate = true, limit = false }) => {
   if (limit === true && limits.amount_projects < projects_parsed.length)
     projects_parsed = projects_parsed.slice(0, limits.amount_projects);
 
+  let isHomePage = false;
+  if (isBrowser) {
+    const url = window.location.href;
+    isHomePage = url.split("/")[3] === "";
+  }
+
   return (
     <section className={className}>
       <h2 className="heading">Projects</h2>
@@ -54,6 +48,7 @@ const ProjectsGrid = ({ projects, animate = true, limit = false }) => {
 
             return (
               <Project
+                offset={isHomePage}
                 animate={animate}
                 key={index}
                 name={name}
