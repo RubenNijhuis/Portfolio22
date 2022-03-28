@@ -51,7 +51,11 @@ export const query = graphql`
                 contentType
                 url
             }
-            gatsbyImageData(quality: 20)
+            gatsbyImageData(
+                layout: FULL_WIDTH
+                placeholder: BLURRED
+                quality: 50
+            )
         }
 
         projects: allContentfulProject(sort: { order: DESC, fields: year }) {

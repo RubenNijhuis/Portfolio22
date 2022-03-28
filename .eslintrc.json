@@ -15,7 +15,7 @@
   "plugins": ["react"],
   "rules": {
     "react/no-unescaped-entities": 0,
-    "indent": ["error", 4, { "SwitchCase": 2 }],
+    "indent": ["error", 4, { "SwitchCase": 1 }],
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "double"],
     "semi": ["error", "always"]

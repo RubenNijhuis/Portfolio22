@@ -16,6 +16,7 @@ module.exports = {
         "gatsby-transformer-sharp",
         "gatsby-plugin-glslify",
         "gatsby-plugin-split-css",
+        "gatsby-plugin-robots-txt",
         {
             resolve: "gatsby-source-contentful",
             options: {

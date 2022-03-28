@@ -29,7 +29,7 @@ const JournalTemplate = ({ data }) => {
     };
 
     return (
-        <Layout title={`${name} | Ruben Nijhuis | Designer && Developer`}>
+        <Layout>
             <div className="project-template">
                 <section className="hero hero--project">
                     <Details

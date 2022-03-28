@@ -3,7 +3,6 @@
 .content-gallery {
   padding: calc($magic-number / 4);
   margin: calc($magic-number / 2) auto;
-
   margin-top: 0;
   
   @include for-tablet-and-up {
@@ -79,7 +78,14 @@
     }
 
     .gallery {
+        margin-bottom: calc($magic-number / 2);
+
+        &:last-of-type{
+            margin-bottom: 0;
+        }
+
       .grid {
+
         .asset {
           border-radius: 0;
           height: 100%;

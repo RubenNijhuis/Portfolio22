@@ -18,7 +18,7 @@ const GalleryTemplate = ({ data }) => {
     const { previous, next } = data;
 
     return (
-        <Layout title={`${name} | Ruben Nijhuis | Designer && Developer`}>
+        <Layout>
             <ContentGallery
                 type={name}
                 content={content}
