@@ -12,34 +12,34 @@ import { project_hero_transition } from "utils/animation-variants";
 import "./style.scss";
 
 const MainImage = ({ img, options }) => {
-  const className = "main-img";
+    const className = "main-img";
 
-  return (
-    <div
-      className={className}
-      style={{ backgroundColor: options.backgroundColor }}
-    >
-      <motion.div
-        className="img--wrapper"
-        initial="initial_img"
-        animate="animate_img"
-        variants={project_hero_transition}
-      >
-        <AssetHandler asset={img} options={options} />
-      </motion.div>
-      <motion.div
-        initial="reveal_initial"
-        animate="reveal_animate"
-        className="reveal"
-        variants={project_hero_transition}
-      />
-    </div>
-  );
+    return (
+        <div
+            className={className}
+            style={{ backgroundColor: options.backgroundColor }}
+        >
+            <motion.div
+                className="img--wrapper"
+                initial="initial_img"
+                animate="animate_img"
+                variants={project_hero_transition}
+            >
+                <AssetHandler asset={img} options={options} />
+            </motion.div>
+            <motion.div
+                initial="reveal_initial"
+                animate="reveal_animate"
+                className="reveal"
+                variants={project_hero_transition}
+            />
+        </div>
+    );
 };
 
 export default MainImage;
 
 MainImage.propTypes = {
-  img: propTypes.object.isRequired,
-  options: propTypes.object.isRequired
+    img: propTypes.object.isRequired,
+    options: propTypes.object.isRequired
 };

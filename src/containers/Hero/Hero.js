@@ -8,17 +8,17 @@ import AssetHandler from "components/AssetHandler";
 import "./style.scss";
 
 const Hero = ({ asset }) => {
-  const className = "hero-banner";
+    const className = "hero-banner";
 
-  return (
-    <section className={className}>
-      <AssetHandler asset={asset} />
-    </section>
-  );
+    return (
+        <section className={className}>
+            <AssetHandler asset={asset} />
+        </section>
+    );
 };
 
 export default Hero;
 
 Hero.propTypes = {
-  asset: propTypes.object.isRequired
+    asset: propTypes.object.isRequired
 };

@@ -10,17 +10,17 @@ import "./style.scss";
 import "./typography.scss";
 
 const MainContent = ({ content, options }) => {
-  const className = "main-content";
-  return (
-    <section className={className}>
-      {renderRichText(content, content_formatter("main", options))}
-    </section>
-  );
+    const className = "main-content";
+    return (
+        <section className={className}>
+            {renderRichText(content, content_formatter("main", options))}
+        </section>
+    );
 };
 
 export default MainContent;
 
 MainContent.propTypes = {
-  content: propTypes.object.isRequired,
-  options: propTypes.object.isRequired
+    content: propTypes.object.isRequired,
+    options: propTypes.object.isRequired
 };

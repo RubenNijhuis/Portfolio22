@@ -9,28 +9,32 @@ import { Helmet } from "react-helmet";
 // import favicon from "assets/icons/favicon.png";
 
 const Head = ({
-  title = "Ruben Nijhuis — Designer && Developer",
-  description = "Ruben Nijhuis is a Designer and Developer who focuses on creating unique digital experiences using creative coding and interactive design to realize ideas"
+    title = "Ruben Nijhuis — Designer && Developer",
+    description = "Ruben Nijhuis is a Designer and Developer who focuses on creating unique digital experiences using creative coding and interactive design to realize ideas"
 }) => (
-  <Helmet>
-    <html lang="en" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
+    <Helmet>
+        <html lang="en" />
+        <title>{title}</title>
+        <meta name="description" content={description} />
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
-    <meta name="msapplication-TileColor" content="#da532c" />
-    <meta name="theme-color" content="#0a0a0a"></meta>
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png"
+        />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="theme-color" content="#0a0a0a"></meta>
 
-    <meta
-      content="width=device-width,initial-scale=1.0,user-scalable=yes"
-      name="viewport"
-    />
-    <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
+        <meta
+            content="width=device-width,initial-scale=1.0,user-scalable=yes"
+            name="viewport"
+        />
+        <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
 
-    {/*
+        {/*
 
 
     <meta content={siteTitle} name="apple-mobile-web-app-title" />
@@ -86,12 +90,12 @@ const Head = ({
         })
       )}
     </script> */}
-  </Helmet>
+    </Helmet>
 );
 
 export default Head;
 
 Head.propTypes = {
-  title: propTypes.string,
-  description: propTypes.string
+    title: propTypes.string,
+    description: propTypes.string
 };

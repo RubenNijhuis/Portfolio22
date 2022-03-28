@@ -5,18 +5,18 @@ import propTypes from "prop-types";
 import "./style.scss";
 
 const BannerText = ({ content }) => {
-  const className = "banner-text";
-  const text = content.data.target.content;
+    const className = "banner-text";
+    const text = content.data.target.content;
 
-  return (
-    <div className={className}>
-      <h2 className="title">{text}</h2>
-    </div>
-  );
+    return (
+        <div className={className}>
+            <h2 className="title">{text}</h2>
+        </div>
+    );
 };
 
 export default BannerText;
 
 BannerText.propTypes = {
-  content: propTypes.object.isRequired
+    content: propTypes.object.isRequired
 };

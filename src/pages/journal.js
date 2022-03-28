@@ -9,41 +9,41 @@ import Layout from "components/Layout";
 import { graphql } from "gatsby";
 
 const JournalPage = ({ data }) => {
-  const entries_data = data.journal.nodes;
+    const entries_data = data.journal.nodes;
 
-  useEffect(() => {
-    document.documentElement.style.setProperty("--zJournal", "fixed");
-  }, []);
+    useEffect(() => {
+        document.documentElement.style.setProperty("--zJournal", "fixed");
+    }, []);
 
-  return (
-    <Layout>
-      <Journal entries={entries_data} animate={false} limit={false} />
-    </Layout>
-  );
+    return (
+        <Layout>
+            <Journal entries={entries_data} animate={false} limit={false} />
+        </Layout>
+    );
 };
 
 export default JournalPage;
 
 JournalPage.propTypes = {
-  data: propTypes.object.isRequired
+    data: propTypes.object.isRequired
 };
 
 export const query = graphql`
-  query JournalPageQuery {
-    journal: allContentfulJournal(sort: { fields: year, order: DESC }) {
-      nodes {
-        name
-        tags
-        year
-        img {
-          alt: title
-          file {
-            contentType
-            url
-          }
-          gatsbyImageData(width: 500, placeholder: DOMINANT_COLOR)
+    query JournalPageQuery {
+        journal: allContentfulJournal(sort: { fields: year, order: DESC }) {
+            nodes {
+                name
+                tags
+                year
+                img {
+                    alt: title
+                    file {
+                        contentType
+                        url
+                    }
+                    gatsbyImageData(width: 500, placeholder: DOMINANT_COLOR)
+                }
+            }
         }
-      }
     }
-  }
 `;

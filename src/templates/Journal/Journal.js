@@ -16,95 +16,95 @@ import NextContent from "components/NextContent";
 import "./style.scss";
 
 const JournalTemplate = ({ data }) => {
-  const { name, img, year, content, background_color, tags } = data.journal;
+    const { name, img, year, content, background_color, tags } = data.journal;
 
-  const { previous, next } = data;
+    const { previous, next } = data;
 
-  const year_formatted = `'${year.toString().slice(2, 4)}`;
-  const tags_formatted = tags.split(" | ");
+    const year_formatted = `'${year.toString().slice(2, 4)}`;
+    const tags_formatted = tags.split(" | ");
 
-  const content_options = {
-    videoCover: true,
-    backgroundColor: background_color
-  };
+    const content_options = {
+        videoCover: true,
+        backgroundColor: background_color
+    };
 
-  return (
-    <Layout title={`${name} | Ruben Nijhuis | Designer && Developer`}>
-      <div className="project-template">
-        <section className="hero hero--project">
-          <Details
-            addClassName="journala"
-            name={name}
-            description={"aaa"}
-            year={year_formatted}
-            tags={tags_formatted}
-          />
-          <HeroImage img={img} options={content_options} />
-        </section>
-        <MainContent content={content} options={content_options} />
-        <NextContent
-          previous={
-            previous === null
-              ? undefined
-              : `/journal/${flattenNameToURL(previous.name)}`
-          }
-          next={
-            next === null
-              ? undefined
-              : `/journal/${flattenNameToURL(next.name)}`
-          }
-        />
-      </div>
-    </Layout>
-  );
+    return (
+        <Layout title={`${name} | Ruben Nijhuis | Designer && Developer`}>
+            <div className="project-template">
+                <section className="hero hero--project">
+                    <Details
+                        addClassName="journala"
+                        name={name}
+                        description={"aaa"}
+                        year={year_formatted}
+                        tags={tags_formatted}
+                    />
+                    <HeroImage img={img} options={content_options} />
+                </section>
+                <MainContent content={content} options={content_options} />
+                <NextContent
+                    previous={
+                        previous === null
+                            ? undefined
+                            : `/journal/${flattenNameToURL(previous.name)}`
+                    }
+                    next={
+                        next === null
+                            ? undefined
+                            : `/journal/${flattenNameToURL(next.name)}`
+                    }
+                />
+            </div>
+        </Layout>
+    );
 };
 
 export default JournalTemplate;
 
 JournalTemplate.propTypes = {
-  data: propTypes.object.isRequired
+    data: propTypes.object.isRequired
 };
 
 export const query = graphql`
-  query ($slug: String!, $previous: String, $next: String) {
-    previous: contentfulJournal(name: { eq: $next }) {
-      name
-    }
-    next: contentfulJournal(name: { eq: $previous }) {
-      name
-    }
-    journal: contentfulJournal(name: { eq: $slug }) {
-      name
-      tags
-      year
-      background_color
-      img {
-        file {
-          url
-          contentType
+    query ($slug: String!, $previous: String, $next: String) {
+        previous: contentfulJournal(name: { eq: $next }) {
+            name
         }
-        alt: title
-        gatsbyImageData(placeholder: BLURRED)
-      }
-      content {
-        raw
-        references {
-          ... on ContentfulAsset {
-            alt: title
-            file {
-              url
-              contentType
+        next: contentfulJournal(name: { eq: $previous }) {
+            name
+        }
+        journal: contentfulJournal(name: { eq: $slug }) {
+            name
+            tags
+            year
+            background_color
+            img {
+                file {
+                    url
+                    contentType
+                }
+                alt: title
+                gatsbyImageData(placeholder: BLURRED)
             }
-            contentful_id
-            __typename
-            gatsbyImageData(
-              layout: FULL_WIDTH
-              placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
-            )
-          }
+            content {
+                raw
+                references {
+                    ... on ContentfulAsset {
+                        alt: title
+                        file {
+                            url
+                            contentType
+                        }
+                        contentful_id
+                        __typename
+                        gatsbyImageData(
+                            layout: FULL_WIDTH
+                            placeholder: BLURRED
+                            formats: [AUTO, WEBP, AVIF]
+                        )
+                    }
+                }
+            }
         }
-      }
     }
-  }
 `;

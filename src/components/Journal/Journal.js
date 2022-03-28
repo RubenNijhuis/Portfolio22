@@ -12,22 +12,22 @@ import JournalSmall from "./JournalSmall";
 import "./style.scss";
 
 const Journal = ({ entries, limit, animate }) => {
-  // const className = "journal";
-  // const width = useCurrentWidth();
-  // const change_point = 1024;
+    // const className = "journal";
+    // const width = useCurrentWidth();
+    // const change_point = 1024;
 
-  return (
-    <>
-      <JournalLarge entries={entries} />
-      <JournalSmall entries={entries} limit={limit} animate={animate} />
-    </>
-  );
+    return (
+        <>
+            <JournalLarge entries={entries} />
+            <JournalSmall entries={entries} limit={limit} animate={animate} />
+        </>
+    );
 };
 
 export default Journal;
 
 Journal.propTypes = {
-  entries: propTypes.array.isRequired,
-  limit: propTypes.bool,
-  animate: propTypes.bool
+    entries: propTypes.array.isRequired,
+    limit: propTypes.bool,
+    animate: propTypes.bool
 };
