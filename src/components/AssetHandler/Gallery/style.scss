@@ -1,20 +1,20 @@
-@use "styling/abstracts" as *;
+@use "styling/abstracts"as *;
 
 .gallery {
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: calc($magic-number / 2);
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: calc($magic-number / 2);
 
-    @include for-laptop-sm-and-up {
-      grid-template-columns: 1fr 1fr;
-    }
+        @include for-laptop-sm-and-up {
+            grid-template-columns: 1fr 1fr;
+        }
 
-    .asset {
-      aspect-ratio: 5/3;
-      transform: translateZ(0);
-      overflow: hidden;
-      border-radius: $border-radius;
+        .asset {
+            aspect-ratio: 5/3;
+            transform: translateZ(0);
+            overflow: hidden;
+            border-radius: $border-radius;
+        }
     }
-  }
 }

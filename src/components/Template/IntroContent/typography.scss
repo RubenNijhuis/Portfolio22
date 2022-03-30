@@ -1,75 +1,75 @@
-@use "styling/abstracts" as *;
+@use "styling/abstracts"as *;
 
 .intro-content {
-  font-size: 1.4rem;
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  hr {
-    line-height:  $line-height-body;
     font-size: 1.4rem;
 
-    @include for-laptop-l-and-up {
-      font-size: 1.8rem;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    hr {
+        line-height: $line-height-body;
+        font-size: 1.4rem;
+
+        @include for-laptop-l-and-up {
+            font-size: 1.8rem;
+        }
     }
-  }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 3rem auto 0;
-    margin-top: calc($magic-number / 2);
-    font-family: Syne, sans-serif;
-    font-weight: 400;
-    line-height: $line-height-title;
-  }
-
-  h1 {
-    font-size: 3.052rem;
-
-    @include for-laptop-l-and-up {
-      font-size: 3.452rem;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 3rem auto 0;
+        margin-top: calc($magic-number / 2);
+        font-family: Syne, sans-serif;
+        font-weight: 400;
+        line-height: $line-height-title;
     }
-  }
 
-  h2 {
-    font-size: 2.441rem;
+    h1 {
+        font-size: 3.052rem;
 
-    @include for-laptop-l-and-up {
-      font-size: 2.841rem;
+        @include for-laptop-l-and-up {
+            font-size: 3.452rem;
+        }
     }
-  }
 
-  h3 {
-    font-size: 1.953rem;
+    h2 {
+        font-size: 2.441rem;
 
-    @include for-laptop-l-and-up {
-      font-size: 2.353rem;
+        @include for-laptop-l-and-up {
+            font-size: 2.841rem;
+        }
     }
-  }
 
-  h4 {
-    font-size: 1.563rem;
+    h3 {
+        font-size: 1.953rem;
 
-    @include for-laptop-l-and-up {
-      font-size: 1.963rem;
+        @include for-laptop-l-and-up {
+            font-size: 2.353rem;
+        }
     }
-  }
 
-  h5,
-  h6 {
-    font-size: 1.25rem;
+    h4 {
+        font-size: 1.563rem;
 
-    @include for-laptop-l-and-up {
-      font-size: 1.65rem;
+        @include for-laptop-l-and-up {
+            font-size: 1.963rem;
+        }
     }
-  }
+
+    h5,
+    h6 {
+        font-size: 1.25rem;
+
+        @include for-laptop-l-and-up {
+            font-size: 1.65rem;
+        }
+    }
 }

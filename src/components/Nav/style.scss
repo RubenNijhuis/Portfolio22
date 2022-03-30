@@ -1,93 +1,93 @@
-@use "styling/abstracts" as *;
+@use "styling/abstracts"as *;
 
 .nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  @include size(100%, auto);
+    position: fixed;
+    top: 0;
+    left: 0;
+    @include size(100%, auto);
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-  z-index: 12;
-  border-bottom: solid 2px $text-color;
-  background-color: $background-color;
+    z-index: 12;
+    border-bottom: solid 2px $text-color;
+    background-color: $background-color;
 
-  padding: calc($magic-number / 8);
+    padding: calc($magic-number / 8);
 
-  @include for-tablet-and-up {
-    padding: calc($magic-number / 4);
-  }
-
-  @include for-laptop-l-and-up {
-    padding: calc($magic-number / 8) calc($magic-number / 2);
-  }
-
-  // Credits -> https://daanvanderZwaag.com
-  .links {
-    display: grid;
-    width: 100%;
-    grid-template-columns: repeat(4, 1fr);
-    grid-column-gap: calc($magic-number / 4);
-
-    .col {
-      &--home {
-        grid-column: 0/1;
-      }
-
-      &--main {
-        display: flex;
-        justify-content: space-between;
-        grid-column: 2/4;
-
-        @include for-tablet-and-up {
-          display: block;
-          grid-column: 3/4;
-        }
-
-        a {
-          @include for-tablet-and-up {
-            margin-right: calc($magic-number / 2);
-
-            &:last-of-type {
-              margin-right: 0;
-            }
-          }
-        }
-      }
-
-      &--secondary {
-        grid-column: 4/5;
-        text-align: right;
-      }
+    @include for-tablet-and-up {
+        padding: calc($magic-number / 4);
     }
-  }
+
+    @include for-laptop-l-and-up {
+        padding: calc($magic-number / 8) calc($magic-number / 2);
+    }
+
+    // Credits -> https://daanvanderZwaag.com
+    .links {
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(4, 1fr);
+        grid-column-gap: calc($magic-number / 4);
+
+        .col {
+            &--home {
+                grid-column: 0/1;
+            }
+
+            &--main {
+                display: flex;
+                justify-content: space-between;
+                grid-column: 2/4;
+
+                @include for-tablet-and-up {
+                    display: block;
+                    grid-column: 3/4;
+                }
+
+                a {
+                    @include for-tablet-and-up {
+                        margin-right: calc($magic-number / 2);
+
+                        &:last-of-type {
+                            margin-right: 0;
+                        }
+                    }
+                }
+            }
+
+            &--secondary {
+                grid-column: 4/5;
+                text-align: right;
+            }
+        }
+    }
 }
 
 // Typography
 .nav {
-  .home {
-    font-size: 2rem;
-    font-weight: 900;
-    color: $text-color;
-    text-decoration: none;
-  }
-
-  .links {
-    a {
-      text-decoration: none;
-      font-size: 1.6rem;
-
-      @include for-tablet-and-up {
-        font-size: 1.8rem;
-      }
-
-      color: $text-color;
-
-      &:visited {
+    .home {
+        font-size: 2rem;
+        font-weight: 900;
         color: $text-color;
-      }
+        text-decoration: none;
     }
-  }
+
+    .links {
+        a {
+            text-decoration: none;
+            font-size: 1.6rem;
+
+            @include for-tablet-and-up {
+                font-size: 1.8rem;
+            }
+
+            color: $text-color;
+
+            &:visited {
+                color: $text-color;
+            }
+        }
+    }
 }

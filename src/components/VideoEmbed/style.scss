@@ -1,39 +1,39 @@
-@use "styling/abstracts" as *;
+@use "styling/abstracts"as *;
 
 .video-embed {
-  border: solid 1px $text-color;
-  border-radius: $border-radius;
-  overflow: hidden;
+    border: solid 1px $text-color;
+    border-radius: $border-radius;
+    overflow: hidden;
 
-  .top-bar {
-    border-radius: $border-radius $border-radius 0px 0px;
-    height: calc($magic-number / 2 * 1.5);
-    border-bottom: solid 1px $text-color;
+    .top-bar {
+        border-radius: $border-radius $border-radius 0px 0px;
+        height: calc($magic-number / 2 * 1.5);
+        border-bottom: solid 1px $text-color;
 
-    .buttons {
-      display: flex;
-      align-items: center;
-      padding-left: calc($magic-number / 4);
-      height: 100%;
+        .buttons {
+            display: flex;
+            align-items: center;
+            padding-left: calc($magic-number / 4);
+            height: 100%;
 
-      .button {
-        display: inline-block;
-        margin-right: calc($magic-number / 8);
-        @include size(calc($magic-number / 4));
+            .button {
+                display: inline-block;
+                margin-right: calc($magic-number / 8);
+                @include size(calc($magic-number / 4));
 
-        border: solid 1px $text-color;
-        border-radius: $magic-number;
-      }
+                border: solid 1px $text-color;
+                border-radius: $magic-number;
+            }
+        }
     }
-  }
 
-  .container {
-    position: relative;
-    width: 100%;
+    .container {
+        position: relative;
+        width: 100%;
 
-    .video {
-      @include absoluteZero;
-      @include size(100%);
+        .video {
+            @include absoluteZero;
+            @include size(100%);
+        }
     }
-  }
 }

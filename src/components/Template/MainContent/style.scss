@@ -1,137 +1,137 @@
-@use "styling/abstracts" as *;
+@use "styling/abstracts"as *;
 
 .main-content {
-  margin: 0 auto;
-  padding: calc($magic-number / 2) calc($magic-number / 4);
-  max-width: calc($magic-number * 18);
-
-  @include for-tablet-and-up {
-    padding: calc($magic-number / 2);
-  }
-
-  @include for-laptop-l-and-up {
-    padding: calc($magic-number) 0;
-    margin: auto;
-  }
-
-  &:first-child {
-    margin-top: 0 !important;
-  }
-
-  a {
-    color: rgba(255, 255, 255, 0.5);
-    position: relative;
-    text-decoration: none;
-    display: inline-block;
-
-    &:before,
-    &:after {
-      content: "";
-      position: absolute;
-      bottom: 2px;
-      left: -1.5px;
-      @include size(calc(100% + 3px), 2px);
-      
-      background-color: rgba(255, 255, 255, 0.5);
-    }
-
-    &:after {
-      width: 0;
-      transition: width 0.5s ease-in-out;
-    }
-
-    &:hover {
-      &:after {
-        width: 100%;
-      }
-    }
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    color: hsl(0, 0%, 100%);
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  hr,
-  ul,
-  ol,
-  blockquote {
-    max-width: 90%;
-    color: hsl(0, 0%, 85%);
-    margin: calc($magic-number / 6) auto;
-
-    @include for-laptop-sm-and-up {
-      max-width: 60ch;
-    }
+    margin: 0 auto;
+    padding: calc($magic-number / 2) calc($magic-number / 4);
+    max-width: calc($magic-number * 18);
 
     @include for-tablet-and-up {
-      max-width: calc($magic-number * 10);
+        padding: calc($magic-number / 2);
     }
-  }
 
-  p {
-    @include for-tablet-and-up {
-      margin: calc($magic-number / 4) auto;
+    @include for-laptop-l-and-up {
+        padding: calc($magic-number) 0;
+        margin: auto;
     }
-  }
 
-  hr {
-    border-radius: 6px;
-  }
+    &:first-child {
+        margin-top: 0 !important;
+    }
 
-  blockquote {
-    position: relative;
-    margin: calc($magic-number / 2) auto;
-    padding-left: calc($magic-number / 2);
-    border-left: 2px solid #fff;
+    a {
+        color: rgba(255, 255, 255, 0.5);
+        position: relative;
+        text-decoration: none;
+        display: inline-block;
+
+        &:before,
+        &:after {
+            content: "";
+            position: absolute;
+            bottom: 2px;
+            left: -1.5px;
+            @include size(calc(100% + 3px), 2px);
+
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        &:after {
+            width: 0;
+            transition: width 0.5s ease-in-out;
+        }
+
+        &:hover {
+            &:after {
+                width: 100%;
+            }
+        }
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: hsl(0, 0%, 100%);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    hr,
+    ul,
+    ol,
+    blockquote {
+        max-width: 90%;
+        color: hsl(0, 0%, 85%);
+        margin: calc($magic-number / 6) auto;
+
+        @include for-laptop-sm-and-up {
+            max-width: 60ch;
+        }
+
+        @include for-tablet-and-up {
+            max-width: calc($magic-number * 10);
+        }
+    }
 
     p {
-      margin: 0;
+        @include for-tablet-and-up {
+            margin: calc($magic-number / 4) auto;
+        }
     }
-  }
 
-  .gallery,
-  .video-embed {
-    margin: calc($magic-number / 2) auto;
-
-    @include for-tablet-and-up {
-      margin: calc($magic-number * 1) auto;
+    hr {
+        border-radius: 6px;
     }
-  }
 
-  .asset {
-    @include size(100%);
+    blockquote {
+        position: relative;
+        margin: calc($magic-number / 2) auto;
+        padding-left: calc($magic-number / 2);
+        border-left: 2px solid #fff;
 
-    // safari border radius fx
-    transform: translateZ(0px);
-
-    &--wrapper {
-      margin: calc($magic-number / 2) auto;
-      overflow: hidden;
-      border-radius: $border-radius;
-
-      @include for-tablet-and-up {
-        margin: calc($magic-number * 1) auto;
-      }
-
-      &:first-child {
-        margin-top: 0;
-      }
-
-      &:last-child {
-        margin-bottom: 0;
-      }
+        p {
+            margin: 0;
+        }
     }
-  }
+
+    .gallery,
+    .video-embed {
+        margin: calc($magic-number / 2) auto;
+
+        @include for-tablet-and-up {
+            margin: calc($magic-number * 1) auto;
+        }
+    }
+
+    .asset {
+        @include size(100%);
+
+        // safari border radius fx
+        transform: translateZ(0px);
+
+        &--wrapper {
+            margin: calc($magic-number / 2) auto;
+            overflow: hidden;
+            border-radius: $border-radius;
+
+            @include for-tablet-and-up {
+                margin: calc($magic-number * 1) auto;
+            }
+
+            &:first-child {
+                margin-top: 0;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
 }

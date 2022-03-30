@@ -1,95 +1,96 @@
-@use "styling/abstracts" as *;
+@use "styling/abstracts"as *;
 
 .modal {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: calc($magic-number / 4);
-
-  @include size(100%, calc(var(--vh, 1vh) * 100));
-
-  position: fixed;
-  top: 0;
-  left: 0;
-
-  z-index: 100;
-  background-color: rgba(0, 0, 0, 0.5);
-
-  &:hover, .button:hover {
-    cursor: pointer;
-  }
-
-  .box {
-    &:hover {
-      cursor: auto;
-    }
-  }
-  
-  .box {
-    border-radius: $border-radius;
-    background-color: $background-color;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    @include size(100%);
-    max-width: 100%;
-    max-height: 100%;
+    padding: calc($magic-number / 4);
 
-    position: relative;
+    @include size(100%, calc(var(--vh, 1vh) * 100));
 
-    .asset {
-      width: fit-content;
-      border-radius: 0;
-    }
-
-    .img-container {
-      height: auto;
-    }
-
-    // Removing object fit
-    .video-player,
-    .asset,
-    .img-container,
-    .img,
-    video,
-    img {
-      object-fit: contain !important;
-      max-height: 100%;
-      background-color: $background-color;
-    }
-
-    .description {
-      font-size: 2.4rem;
-      color: white;
-      margin-top: calc($magic-number / 4);
-    }
-  }
-
-  .button {
-    position: absolute;
-    right: 0;
+    position: fixed;
     top: 0;
+    left: 0;
 
-    @include size(calc($magic-number / 2));
-    background-color: white;
-    border-radius: 100px;
-    transform: translate(50%, -50%);
-    z-index: 200;
-    border: none;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.5);
 
-    .line {
-      @include size(50%, 2px);
-      display: block;
-      background-color: black;
-      border-radius: 100px;
-
-      &:nth-child(1) {
-        transform: translate(9.5px, 1.5px) rotate(45deg);
-      }
-
-      &:nth-child(2) {
-        transform: translate(9.5px, -1px) rotate(-45deg);
-      }
+    &:hover,
+    .button:hover {
+        cursor: pointer;
     }
-  }
+
+    .box {
+        &:hover {
+            cursor: auto;
+        }
+    }
+
+    .box {
+        border-radius: $border-radius;
+        background-color: $background-color;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        @include size(100%);
+        max-width: 100%;
+        max-height: 100%;
+
+        position: relative;
+
+        .asset {
+            width: fit-content;
+            border-radius: 0;
+        }
+
+        .img-container {
+            height: auto;
+        }
+
+        // Removing object fit
+        .video-player,
+        .asset,
+        .img-container,
+        .img,
+        video,
+        img {
+            object-fit: contain !important;
+            max-height: 100%;
+            background-color: $background-color;
+        }
+
+        .description {
+            font-size: 2.4rem;
+            color: white;
+            margin-top: calc($magic-number / 4);
+        }
+    }
+
+    .button {
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        @include size(calc($magic-number / 2));
+        background-color: white;
+        border-radius: 100px;
+        transform: translate(50%, -50%);
+        z-index: 200;
+        border: none;
+
+        .line {
+            @include size(50%, 2px);
+            display: block;
+            background-color: black;
+            border-radius: 100px;
+
+            &:nth-child(1) {
+                transform: translate(9.5px, 1.5px) rotate(45deg);
+            }
+
+            &:nth-child(2) {
+                transform: translate(9.5px, -1px) rotate(-45deg);
+            }
+        }
+    }
 }

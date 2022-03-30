@@ -16,7 +16,12 @@ const JournalPage = ({ data }) => {
     }, []);
 
     return (
-        <Layout>
+        <Layout
+            name={"Journal"}
+            description={
+                "Noteworthy events and special moments all on one page"
+            }
+        >
             <Journal entries={entries_data} animate={false} limit={false} />
         </Layout>
     );

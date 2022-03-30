@@ -1,29 +1,29 @@
-@use "styling/abstracts" as *;
+@use "styling/abstracts"as *;
 
 .main-img {
-  @include size(100%);
-  overflow: hidden;
-  position: relative;
-  transform: translateZ(0);
-
-  @include for-laptop-sm-and-up {
-    border-radius: $border-radius $border-radius 0 0;
-  }
-
-  .reveal {
-    @include absoluteZero();
     @include size(100%);
-    transform-origin: bottom center;
-
-    background-color: $dark-main;
-  }
-
-  .img--wrapper {
     overflow: hidden;
-    @include size(100%);
+    position: relative;
+    transform: translateZ(0);
 
-    .asset {
-      @include size(100%);
+    @include for-laptop-sm-and-up {
+        border-radius: $border-radius $border-radius 0 0;
     }
-  }
+
+    .reveal {
+        @include absoluteZero();
+        @include size(100%);
+        transform-origin: bottom center;
+
+        background-color: $dark-main;
+    }
+
+    .img--wrapper {
+        overflow: hidden;
+        @include size(100%);
+
+        .asset {
+            @include size(100%);
+        }
+    }
 }

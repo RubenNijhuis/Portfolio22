@@ -1,176 +1,177 @@
-@use "styling/abstracts" as *;
+@use "styling/abstracts"as *;
 
 .journal-book {
-  .headline {
-    color: $text-color;
-    font-family: "Syne";
-    font-weight: 700;
-    font-size: 5.6rem;
-  }
+    .headline {
+        color: $text-color;
+        font-family: "Syne";
+        font-weight: 700;
+        font-size: 5.6rem;
+    }
 }
 
 .journal-small {
-  text-decoration: none;
+    text-decoration: none;
 
-  &__year {
-    color: $text-color;
-    font-size: 2.2rem;
-    font-weight: 200;
-  }
+    &__year {
+        color: $text-color;
+        font-size: 2.2rem;
+        font-weight: 200;
+    }
 
-  &__name {
-    color: $text-color;
-    font-size: 2.4rem;
-  }
+    &__name {
+        color: $text-color;
+        font-size: 2.4rem;
+    }
 
-  &__tags span {
-    color: $background-color;
-    font-size: 1rem;
-    font-weight: 500;
-  }
+    &__tags span {
+        color: $background-color;
+        font-size: 1rem;
+        font-weight: 500;
+    }
 }
 
 .journal {
-  display: none;
-  @include for-laptop-sm-and-up {
-    display: block;
-  }
+    display: none;
 
-  position: relative;
-  z-index: 4 !important;
-  padding: calc($magic-number * 2) calc($magic-number * 1);
+    @include for-laptop-sm-and-up {
+        display: block;
+    }
 
-  @include for-laptop-xl-and-up {
-    padding: calc($magic-number * 2) calc($magic-number * 2);
-  }
-
-  background-color: $background-color;
-  max-width: 100vw;
-  overflow-x: hidden;
-
-  .headline {
-    color: $text-color;
     position: relative;
-    margin-bottom: calc($magic-number * 2);
-    font-family: "Syne";
-    font-size: clamp($magic-number, 6vw, 244px);
-    font-weight: 700;
-  }
+    z-index: 4 !important;
+    padding: calc($magic-number * 2) calc($magic-number * 1);
+
+    @include for-laptop-xl-and-up {
+        padding: calc($magic-number * 2) calc($magic-number * 2);
+    }
+
+    background-color: $background-color;
+    max-width: 100vw;
+    overflow-x: hidden;
+
+    .headline {
+        color: $text-color;
+        position: relative;
+        margin-bottom: calc($magic-number * 2);
+        font-family: "Syne";
+        font-size: clamp($magic-number, 6vw, 244px);
+        font-weight: 700;
+    }
 }
 
 .book {
-  margin-bottom: calc($magic-number * 2);
-  user-select: none;
-  color: $text-color;
+    margin-bottom: calc($magic-number * 2);
+    user-select: none;
+    color: $text-color;
 
-  .year {
-    position: relative;
-    margin-bottom: calc($magic-number / 4);
+    .year {
+        position: relative;
+        margin-bottom: calc($magic-number / 4);
 
-    font-size: 3.6rem;
-    font-weight: 200;
+        font-size: 3.6rem;
+        font-weight: 200;
 
-    transition: transform $duration-quick $ease-in;
-  }
+        transition: transform $duration-quick $ease-in;
+    }
 }
 
 // Add extra delay for each tag in tag-list
 @for $i from 1 through 3 {
-  .project-tag-list .project-tag:nth-child(#{$i}n) {
-    transition-delay: #{$i * 0.075}s !important;
-  }
+    .project-tag-list .project-tag:nth-child(#{$i}n) {
+        transition-delay: #{$i * 0.075}s !important;
+    }
 }
 
 .project-title {
-  position: relative;
-  display: block;
-  text-decoration: none;
+    position: relative;
+    display: block;
+    text-decoration: none;
 
-  margin-top: 0;
-  margin-bottom: calc($magic-number / 4);
+    margin-top: 0;
+    margin-bottom: calc($magic-number / 4);
 
-  color: $text-color;
-  font-size: 5.6rem;
-  font-weight: 600;
+    color: $text-color;
+    font-size: 5.6rem;
+    font-weight: 600;
 
-  user-select: none;
-  transition: opacity $duration-medium $ease-out,
-    transform $duration-medium $ease-out;
+    user-select: none;
+    transition: opacity $duration-medium $ease-out,
+        transform $duration-medium $ease-out;
 }
 
 .entries {
-  position: relative;
-  z-index: 10;
-
-  article {
-    display: inline-block;
-  }
-
-  .project-item {
-    display: inline-block;
-    padding: calc($magic-number / 2);
-
-    .tags {
-      transition: all $duration-medium $ease-out;
-    }
-
-    &:hover {
-      cursor: pointer;
-
-      .project-title,
-      .tags {
-        opacity: 0.2;
-        transform: scale(1.025);
-      }
-    }
-  }
-
-  .project-tag-list {
     position: relative;
-    display: inline-block;
+    z-index: 10;
 
-    padding-left: 0px;
-    margin-left: -3px;
+    article {
+        display: inline-block;
+    }
 
-    user-select: none;
-    opacity: 1;
+    .project-item {
+        display: inline-block;
+        padding: calc($magic-number / 2);
 
-    transition: opacity $duration-medium $ease-out,
-      transform $duration-medium $ease-out;
-  }
+        .tags {
+            transition: all $duration-medium $ease-out;
+        }
+
+        &:hover {
+            cursor: pointer;
+
+            .project-title,
+            .tags {
+                opacity: 0.2;
+                transform: scale(1.025);
+            }
+        }
+    }
+
+    .project-tag-list {
+        position: relative;
+        display: inline-block;
+
+        padding-left: 0px;
+        margin-left: -3px;
+
+        user-select: none;
+        opacity: 1;
+
+        transition: opacity $duration-medium $ease-out,
+            transform $duration-medium $ease-out;
+    }
 }
 
 .images {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
 
-  @include size(100%);
-  user-select: none;
+    @include size(100%);
+    user-select: none;
 
-  .media-img-container {
-    position: absolute;
+    .media-img-container {
+        position: absolute;
 
-    aspect-ratio: 5/7;
-    width: calc($magic-number * 3.5);
+        aspect-ratio: 5/7;
+        width: calc($magic-number * 3.5);
 
-    overflow: hidden;
-    border-radius: 3px;
+        overflow: hidden;
+        border-radius: 3px;
 
-    &.is-active {
-      .asset {
-        opacity: 1;
-      }
+        &.is-active {
+            .asset {
+                opacity: 1;
+            }
+        }
+
+        .asset {
+            @include size(100%);
+
+            opacity: 0;
+            object-fit: cover;
+            pointer-events: none;
+            transition: transform $duration-medium $ease-out;
+        }
     }
-
-    .asset {
-      @include size(100%);
-
-      opacity: 0;
-      object-fit: cover;
-      pointer-events: none;
-      transition: transform $duration-medium $ease-out;
-    }
-  }
 }

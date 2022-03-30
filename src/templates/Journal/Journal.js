@@ -29,7 +29,7 @@ const JournalTemplate = ({ data }) => {
     };
 
     return (
-        <Layout>
+        <Layout title={name}>
             <div className="project-template">
                 <section className="hero hero--project">
                     <Details

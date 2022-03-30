@@ -1,10 +1,10 @@
-@use "styling/abstracts/" as *;
+@use "styling/abstracts/"as *;
 
 .img-container {
-  @include size(100%);
-
-  .img {
     @include size(100%);
-    object-fit: cover;
-  }
+
+    .img {
+        @include size(100%);
+        object-fit: cover;
+    }
 }

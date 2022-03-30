@@ -1,64 +1,64 @@
-@use "styling/abstracts/" as *;
+@use "styling/abstracts/"as *;
 
 .projects-grid {
-  padding: $magic-number calc($magic-number / 4);
-
-  @include for-tablet-and-up {
-    padding: calc($magic-number) 4vw;
-  }
-
-  @include for-laptop-sm-and-up {
-    padding: calc($magic-number * 2) 4vw;
-  }
-
-  .heading {
-    margin: 0;
-    margin-bottom: calc($magic-number / 2);
+    padding: $magic-number calc($magic-number / 4);
 
     @include for-tablet-and-up {
-      margin-bottom: calc($magic-number);
+        padding: calc($magic-number) 4vw;
     }
-
-    @include for-laptop-l-and-up {
-      margin-bottom: calc($magic-number * 2);
-    }
-  }
-
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-row-gap: calc($magic-number);
-
-    @include for-tablet-and-up {
-      grid-column-gap: 4vw;
-      grid-row-gap: 10vw;
-      grid-template-columns: 1fr 1fr;
-    }
-
-    @include for-laptop-l-and-up {
-      grid-column-gap: 4vw;
-    }
-  }
-
-  .see-more {
-    margin-top: calc($magic-number);
 
     @include for-laptop-sm-and-up {
-      margin-top: calc($magic-number * 2);
+        padding: calc($magic-number * 2) 4vw;
     }
-  }
+
+    .heading {
+        margin: 0;
+        margin-bottom: calc($magic-number / 2);
+
+        @include for-tablet-and-up {
+            margin-bottom: calc($magic-number);
+        }
+
+        @include for-laptop-l-and-up {
+            margin-bottom: calc($magic-number * 2);
+        }
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-row-gap: calc($magic-number);
+
+        @include for-tablet-and-up {
+            grid-column-gap: 4vw;
+            grid-row-gap: 10vw;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @include for-laptop-l-and-up {
+            grid-column-gap: 4vw;
+        }
+    }
+
+    .see-more {
+        margin-top: calc($magic-number);
+
+        @include for-laptop-sm-and-up {
+            margin-top: calc($magic-number * 2);
+        }
+    }
 }
 
 // Typography
 .projects-grid {
-  .heading {
-    font-family: "Syne";
-    font-weight: 700;
-    font-size: 5.6rem;
-    color: $text-color;
+    .heading {
+        font-family: "Syne";
+        font-weight: 700;
+        font-size: 5.6rem;
+        color: $text-color;
 
-    @include for-tablet-and-up {
-      font-size: clamp($magic-number, 6vw, 244px);
+        @include for-tablet-and-up {
+            font-size: clamp($magic-number, 6vw, 244px);
+        }
     }
-  }
 }

@@ -1,34 +1,34 @@
-@use "styling/abstracts" as *;
+@use "styling/abstracts"as *;
 
 .project-template {
-  color: $text-color;
-  margin: 0 auto;
-
-  @include for-laptop-sm-and-up {
+    color: $text-color;
     margin: 0 auto;
-    margin-bottom: calc($magic-number * 2);
-  }
-  @include for-laptop-l-and-up {
-    max-width: calc(100vw - calc($magic-number * 2));
-  }
-
-  .hero {
-    padding: 0;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    margin: 0 auto;
-    height: calc(var(--vh, 1vh) * 100 - var(--nav-height, calc($magic-number / 2)));
-
-    @include for-tablet-and-up {
-      justify-content: end;
-    }
 
     @include for-laptop-sm-and-up {
-      padding: 0;
-      padding-top: calc($magic-number / 2);
+        margin: 0 auto;
+        margin-bottom: calc($magic-number * 2);
     }
-  }
-}
 
+    @include for-laptop-l-and-up {
+        max-width: calc(100vw - calc($magic-number * 2));
+    }
+
+    .hero {
+        padding: 0;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        margin: 0 auto;
+        height: calc(var(--vh, 1vh) * 100 - var(--nav-height, calc($magic-number / 2)));
+
+        @include for-tablet-and-up {
+            justify-content: end;
+        }
+
+        @include for-laptop-sm-and-up {
+            padding: 0;
+            padding-top: calc($magic-number / 2);
+        }
+    }
+}

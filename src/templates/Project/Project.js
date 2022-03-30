@@ -44,7 +44,7 @@ const ProjectTemplate = ({ data }) => {
     };
 
     return (
-        <Layout title={`${name} | Ruben Nijhuis | Designer && Developer`}>
+        <Layout title={name} description={description}>
             <div className="project-template">
                 <section className="hero hero--project">
                     <Details

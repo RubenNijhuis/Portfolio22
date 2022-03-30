@@ -1,22 +1,22 @@
-@use "styling/abstracts" as *;
+@use "styling/abstracts"as *;
 
 .banner-text {
-  margin: calc($magic-number / 2) 0;
-
-  @include for-tablet-and-up {
-    margin: calc($magic-number * 2) 0;
-  }
-
-  .title {
-    font-size: 2.6rem;
-    text-align: center;
-    margin: 0 auto;
-    line-height: $line-height-title;
-    max-width: 22ch;
-    color: white;
+    margin: calc($magic-number / 2) 0;
 
     @include for-tablet-and-up {
-      font-size: clamp(26px, 5vw, $magic-number);
+        margin: calc($magic-number * 2) 0;
     }
-  }
+
+    .title {
+        font-size: 2.6rem;
+        text-align: center;
+        margin: 0 auto;
+        line-height: $line-height-title;
+        max-width: 22ch;
+        color: white;
+
+        @include for-tablet-and-up {
+            font-size: clamp(26px, 5vw, $magic-number);
+        }
+    }
 }

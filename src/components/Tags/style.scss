@@ -1,47 +1,47 @@
-@use "styling/abstracts/" as *;
+@use "styling/abstracts/"as *;
 
 .tags {
-  display: flex;
+    display: flex;
 
-  .tag {
-    box-sizing: border-box;
-    display: inline-block;
-    padding: 5px 11px;
-    min-height: fit-content;
+    .tag {
+        box-sizing: border-box;
+        display: inline-block;
+        padding: 5px 11px;
+        min-height: fit-content;
 
-    @include for-laptop-l-and-up {
-      padding: 6px 12px;
+        @include for-laptop-l-and-up {
+            padding: 6px 12px;
+        }
+
+        margin-right: calc($magic-number / 8);
+
+        &:last-of-type {
+            margin-right: 0;
+        }
+
+
+        &--light {
+            color: $background-color;
+            background-color: $text-color;
+        }
+
+        &--dark {
+            color: $text-color;
+            background-color: $background-color;
+        }
+
+        border-radius: $border-radius-tag;
+        background-color: $background-color;
+
+        p {
+            font-weight: 500;
+            letter-spacing: 0.2px;
+            margin-bottom: 0 !important;
+            font-size: 1rem !important;
+
+            @include for-laptop-l-and-up {
+                font-size: 1.2rem !important;
+            }
+        }
     }
-
-    margin-right: calc($magic-number / 8);
-
-    &:last-of-type {
-      margin-right: 0;
-    }
-
-
-    &--light {
-      color: $background-color;
-      background-color: $text-color;
-    }
-
-    &--dark {
-      color: $text-color;
-      background-color: $background-color;
-    }
-
-    border-radius: $border-radius-tag;
-    background-color: $background-color;
-
-    p {
-      font-weight: 500;
-      letter-spacing: 0.2px;
-      margin-bottom: 0 !important;
-      font-size: 1rem !important;
-
-      @include for-laptop-l-and-up {
-        font-size: 1.2rem !important;
-      }
-    }
-  }
 }

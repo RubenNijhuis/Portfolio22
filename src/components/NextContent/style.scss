@@ -1,40 +1,40 @@
-@use "styling/abstracts/" as *;
+@use "styling/abstracts/"as *;
 
 .next-content {
-  display: flex;
-  margin: $magic-number auto;
-  max-width: calc($magic-number * 21);
-  align-items: center;
-  height: $magic-number;
-  justify-content: center;
-  padding: 0 calc($magic-number / 8);
-
-  a {
     display: flex;
+    margin: $magic-number auto;
+    max-width: calc($magic-number * 21);
     align-items: center;
+    height: $magic-number;
     justify-content: center;
-    justify-items: center;
-    align-content: center;
-    
-    border: solid 1px $text-color;
-    border-radius: $border-radius;
+    padding: 0 calc($magic-number / 8);
 
-    box-sizing: content-box;
-    text-decoration: none;
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
+        align-content: center;
 
-    @include size(clamp(calc($magic-number * 2), 50%, calc($magic-number * 10)), 100%);
+        border: solid 1px $text-color;
+        border-radius: $border-radius;
 
-    &:last-child {
-      margin-left: calc($magic-number / 8);
+        box-sizing: content-box;
+        text-decoration: none;
+
+        @include size(clamp(calc($magic-number * 2), 50%, calc($magic-number * 10)), 100%);
+
+        &:last-child {
+            margin-left: calc($magic-number / 8);
+        }
+
+        &:hover {
+            background-color: rgb(30, 30, 30);
+        }
+
+        span {
+            font-size: 2rem;
+            color: $text-color;
+        }
     }
-
-    &:hover {
-      background-color: rgb(30, 30, 30);
-    }
-
-    span {
-      font-size: 2rem;
-      color: $text-color;
-    }
-  }
 }

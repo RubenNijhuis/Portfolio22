@@ -1,13 +1,13 @@
-@use "styling/abstracts/" as *;
+@use "styling/abstracts/"as *;
 
 .hero-banner {
-  overflow: hidden;
-  height: calc(var(--vh, 1vh) * 100 - var(--nav-height, calc($magic-number / 2)));
+    overflow: hidden;
+    height: calc(var(--vh, 1vh) * 100 - var(--nav-height, calc($magic-number / 2)));
 
-  img,
-  div,
-  canvas {
-    @include size(100%);
-    object-fit: cover;
-  }
+    img,
+    div,
+    canvas {
+        @include size(100%);
+        object-fit: cover;
+    }
 }

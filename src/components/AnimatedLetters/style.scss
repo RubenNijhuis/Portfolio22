@@ -1,34 +1,34 @@
-@use "styling/abstracts" as *;
+@use "styling/abstracts"as *;
 
 .animated-letters {
-  display: block;
+    display: block;
 
-  .row-title,
-  .row-word {
-    overflow: hidden;
-  }
-
-  .row-word {
-    margin-right: calc($magic-number / 8);
-
-    &:last-of-type {
-      margin-right: 0;
-    }
-  }
-
-  .row-word,
-  .row-letter {
-    font-size: 3.6rem;
-
-    @include for-laptop-l-and-up {
-      font-size: 5.6rem;
+    .row-title,
+    .row-word {
+        overflow: hidden;
     }
 
-    font-weight: 700;
-    position: relative;
-    letter-spacing: 0rem;
-    font-family: "Syne";
-    display: inline-block;
-    white-space: nowrap;
-  }
+    .row-word {
+        margin-right: calc($magic-number / 8);
+
+        &:last-of-type {
+            margin-right: 0;
+        }
+    }
+
+    .row-word,
+    .row-letter {
+        font-size: 3.6rem;
+
+        @include for-laptop-l-and-up {
+            font-size: 5.6rem;
+        }
+
+        font-weight: 700;
+        position: relative;
+        letter-spacing: 0rem;
+        font-family: "Syne";
+        display: inline-block;
+        white-space: nowrap;
+    }
 }

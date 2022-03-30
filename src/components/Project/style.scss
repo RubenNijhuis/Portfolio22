@@ -1,155 +1,156 @@
-@use "styling/abstracts/" as *;
+@use "styling/abstracts/"as *;
 
 // Add extra delay for each tag in tag-list
 @for $i from 1 through 3 {
-  .tags span:nth-child(#{$i}n) {
-    transition-delay: #{$i * 0.1}s !important;
-  }
+    .tags span:nth-child(#{$i}n) {
+        transition-delay: #{$i * 0.1}s !important;
+    }
 }
 
 .project {
-  display: block;
-  @include size(100%);
-  cursor: pointer;
+    display: block;
+    @include size(100%);
+    cursor: pointer;
 
-  @include for-laptop-sm-and-up {
-    &:hover {
-      .img-wrapper {
-        transform: scale(0.975);
+    @include for-laptop-sm-and-up {
+        &:hover {
+            .img-wrapper {
+                transform: scale(0.975);
+
+                .asset {
+                    transform: scale(1.025);
+                }
+
+                .tags {
+                    span {
+                        transform: translateY(0);
+                    }
+                }
+            }
+        }
+    }
+
+    .img-wrapper {
+        padding-top: 100%;
+        aspect-ratio: 1/1;
+        width: 100%;
+
+        position: relative;
+
+        transform: translateZ(0px);
+        overflow: hidden;
+
+        border-radius: $border-radius;
+        transition: 0.35s ease-out transform;
 
         .asset {
-          transform: scale(1.025);
+            @include size(100%);
+            @include absoluteZero();
+
+            object-fit: cover;
+            transition: 0.35s ease-out transform;
+        }
+
+        .gatsby-image-wrapper div {
+            max-width: 100% !important;
+            height: 100%;
         }
 
         .tags {
-          span {
-            transform: translateY(0);
-          }
+            position: absolute;
+            bottom: calc($magic-number / 4);
+            left: calc($magic-number / 4);
+
+            span {
+                transition: 0.35s ease-in-out transform;
+
+                @include for-laptop-sm-and-up {
+                    transform: translateY(200%) scale(1.025);
+                }
+            }
         }
-      }
-    }
-  }
-
-  .img-wrapper {
-    padding-top: 100%;
-    aspect-ratio: 1/1;
-    width: 100%;
-
-    position: relative;
-
-    transform: translateZ(0px);
-    overflow: hidden;
-
-    border-radius: $border-radius;
-    transition: 0.35s ease-out transform;
-
-    .asset {
-      @include size(100%);
-      @include absoluteZero();
-
-      object-fit: cover;
-      transition: 0.35s ease-out transform;
     }
 
-    .gatsby-image-wrapper div {
-      max-width: 100% !important;
-      height: 100%;
-    }
+    .description {
+        position: relative;
 
-    .tags {
-      position: absolute;
-      bottom: calc($magic-number / 4);
-      left: calc($magic-number / 4);
+        padding: calc($magic-number / 4) calc($magic-number / 8);
+        padding-bottom: 0;
 
-      span {
-        transition: 0.35s ease-in-out transform;
-
-        @include for-laptop-sm-and-up {
-          transform: translateY(200%) scale(1.025);
+        @include for-tablet-and-up {
+            padding: calc($magic-number / 2.5) calc($magic-number / 8);
+            padding-bottom: 0;
         }
-      }
+
+        @include for-laptop-l-and-up {
+            padding: calc($magic-number / 2.5) calc($magic-number / 2.5);
+            padding-bottom: 0;
+        }
+
+        h2,
+        p {
+            width: 82.5%;
+            max-width: 60ch;
+            margin: 0;
+        }
+
+        h2 {
+            margin-bottom: calc($magic-number / 8);
+        }
+
+        .arrow {
+            position: absolute;
+            width: calc($magic-number / 2.5);
+            right: calc($magic-number / 8);
+            bottom: 0;
+
+            @include for-tablet-and-up {
+                width: calc($magic-number / 2);
+                right: calc($magic-number / 4);
+            }
+
+            @include for-laptop-sm-and-up {
+                right: calc($magic-number / 4);
+                bottom: calc($magic-number / 20);
+            }
+
+            @include for-laptop-l-and-up {
+                right: calc($magic-number / 1.5);
+            }
+        }
     }
-  }
-
-  .description {
-    position: relative;
-
-    padding: calc($magic-number / 4) calc($magic-number / 8);
-    padding-bottom: 0;
-
-    @include for-tablet-and-up {
-      padding: calc($magic-number / 2.5) calc($magic-number / 8);
-      padding-bottom: 0;
-    }
-
-    @include for-laptop-l-and-up {
-      padding: calc($magic-number / 2.5) calc($magic-number / 2.5);
-      padding-bottom: 0;
-    }
-
-    h2,
-    p {
-      width: 82.5%;
-      max-width: 60ch;
-      margin: 0;
-    }
-
-    h2 {
-      margin-bottom: calc($magic-number / 8);
-    }
-
-    .arrow {
-      position: absolute;
-      width: calc($magic-number / 2.5);
-      right: calc($magic-number / 8);
-      bottom: 0;
-
-      @include for-tablet-and-up {
-        width: calc($magic-number / 2);
-        right: calc($magic-number / 4);
-      }
-
-      @include for-laptop-sm-and-up {
-        right: calc($magic-number / 4);
-        bottom: calc($magic-number / 20);
-      }
-
-      @include for-laptop-l-and-up {
-        right: calc($magic-number / 1.5);
-      }
-    }
-  }
 }
 
 // Typography
 .project {
-  text-decoration: none;
+    text-decoration: none;
 
-  .img-wrapper {
-    .tags span {
-      color: $text-color;
-      font-size: 11px;
-    }
-  }
-
-  .description {
-    h2,
-    p {
-      font-weight: 400;
-      font-size: 1.6rem;
-
-      @include for-laptop-sm-and-up {
-        font-size: clamp(16px, 1.2vw, 28px);
-      }
+    .img-wrapper {
+        .tags span {
+            color: $text-color;
+            font-size: 11px;
+        }
     }
 
-    h2 {
-      color: #7d7d7d;
-    }
+    .description {
 
-    p {
-      color: $text-color;
-      line-height: $line-height-body;
+        h2,
+        p {
+            font-weight: 400;
+            font-size: 1.6rem;
+
+            @include for-laptop-sm-and-up {
+                font-size: clamp(16px, 1.2vw, 28px);
+            }
+        }
+
+        h2 {
+            color: #7d7d7d;
+        }
+
+        p {
+            color: $text-color;
+            line-height: $line-height-body;
+        }
     }
-  }
 }
