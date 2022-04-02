@@ -16,58 +16,16 @@
     .description {
         display: flex;
         flex-direction: column;
-        z-index: 100;
         background-color: $background-color;
         padding: calc($magic-number / 4) 0;
-        margin-bottom: calc($magic-number / 2);
+        
+        h2 {
+            color: $white-main;
+            font-size: 2.6rem;
+            margin-bottom: calc($magic-number / 4);
 
-        font-size: 1.8rem;
-        color: white;
-
-        @include for-tablet-and-up {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: calc($magic-number / 4);
-            margin-bottom: 0;
-        }
-
-        @include for-laptop-sm-and-up {
-            position: static;
-        }
-
-        .col {
-            &--left {
-                grid-column: 1/7;
-
-                span {
-                    color: rgba(255, 255, 255, 0.25);
-                    font-size: 2.6rem;
-                    margin-bottom: calc($magic-number / 4);
-                }
-
-                h2 {
-                    font-size: 2.6rem;
-                    margin-bottom: calc($magic-number / 4);
-
-                    @include for-tablet-and-up {
-                        font-size: 5.6rem;
-                    }
-                }
-            }
-
-            &--right {
-                grid-column: 8/13;
-                display: flex;
-                flex-direction: column;
-                justify-content: end;
-
-                @include for-tablet-and-up {
-                    justify-content: center;
-                }
-
-                p {
-                    font-size: 1.6rem;
-                }
+            @include for-tablet-and-up {
+                font-size: 5.6rem;
             }
         }
     }
@@ -90,6 +48,11 @@
                     border-radius: 0;
                     height: 100%;
                     max-width: 100%;
+                    aspect-ratio: 1/1;
+
+                    @include for-laptop-sm-and-up {
+                        aspect-ratio: unset;
+                    }
                 }
 
                 @include for-laptop-sm-and-up {

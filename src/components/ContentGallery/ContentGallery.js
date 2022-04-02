@@ -40,11 +40,7 @@ const ContentGallery = ({
     return (
         <section className={className}>
             <div className="description">
-                <div className="col--left">
-                    <span>{time_span}</span>
-                    <h2>{type}</h2>
-                </div>
-                <div className="col--right">{description}</div>
+                <h2>{type}</h2>
             </div>
             <div className="content">
                 {renderRichText(

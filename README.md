@@ -4,6 +4,10 @@
 
 Whether you are a developer, designer, or creative YOU need to showcase your work uniquely. Portfolio '22 is just what you need. With a modern layout and design, accessibility features, and SEO friendliness this site will ensure a high-quality online location for you and your work
 
+<br>
+
+![lighthouse stats](./lighthouse.png)
+
 ## ⚒ Tools used
 
 - GatsbyJS <br>
@@ -33,7 +37,7 @@ Plenty o' reasons to choose this as your next portfolio site
 ## 🚀 Quick start
 
 <b>NOTE:</b> the setup of the any CMS or Contentful CMS probably requires some help. Ask the active maintainer of this project for guideance. If you are planning on using Contentful (they have a free tier that fits this template) I can copy my environment over to yours.
-There is also a link [ here (WIP)] to showcase the json format that is required for this site to work
+There is also a link [here (WIP)] to showcase the json format that is required for this site to work
 
 Clone the project and add your contentful api keys in the `.env` (if you're going to run with contenteful)
 
@@ -58,48 +62,46 @@ https://www.gatsbyjs.com/docs/conceptual/choosing-a-cms/#1-popular-first-class-g
 
 These todos are just features or changes that I have been thinking about. When I cross one off I also delete it from the list as to not bloat my readme. It is mainly used to indicate what I am currently working on with this project
 
-Last updated 29 x 03 x 22
+Last updated 2 x 04 x 22
 
-Styling
+#### Styling
 - [ ] Advanced mixins (research)
 - [ ] Create design system for typography
 
-Templates
+#### Templates
 - [ ] Check if a link is inbound or outbound and add the correct link type
 
-Small About
-- [ ] Aggregate all data from cms
+#### Small About
+- [ ] Aggregate all data from cms or site-config
 
-Journal Component
+#### Journal Component
 - [ ] Create seperate intro part
 - [ ] Research different layout
 
-About Page
+#### About Page
 - [ ] create credits and tools section
-- [ ] create horizontal scroll text
 - [ ] create interactive piece
 
-Index Page
+#### Index Page
 - [ ] intro poster turn into 3d cirlce of cards
 
-Animation
+#### Animation
 - [ ] Add reduced animation mixin
 
-Components
+#### Components
 - [ ] Cleanup journals component
-  - Create one journal section and load correct journal type in the section
   - Remove fixed property so that the component doesn't cover the full site
 
 - [ ] Next Content component
     - Add image on hover like journals component
 
-Accesibility
+#### Accesibility
 - [ ] Fix Head component to support as many types as possible (create seperate components for type)
 - [ ] reduced animation selector
 
-Developer friendliness
+#### Developer friendliness
 - [ ] Create documentation for this project. Anyone should be able to set this up
 - [ ] Setup settings file that set settings for the whole project
 
-Data
+#### Data
 - [ ] Add analytics

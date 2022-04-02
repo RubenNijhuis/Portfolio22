@@ -28,7 +28,6 @@
 
     .box {
         border-radius: $border-radius;
-        background-color: $background-color;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -54,9 +53,9 @@
         .img,
         video,
         img {
+            background-color: unset !important;
             object-fit: contain !important;
             max-height: 100%;
-            background-color: $background-color;
         }
 
         .description {
@@ -68,8 +67,8 @@
 
     .button {
         position: absolute;
-        right: 0;
-        top: 0;
+        right: 18px;
+        top: 18px;
 
         @include size(calc($magic-number / 2));
         background-color: white;
