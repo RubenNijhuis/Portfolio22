@@ -1,7 +1,7 @@
 @use "styling/abstracts/"as *;
 
 .contact {
-    padding: calc($magic-number / 4);
+    padding: calc($magic-number / 2) calc($magic-number / 4);
 
     &__content {
         padding: calc($magic-number / 4) 0;

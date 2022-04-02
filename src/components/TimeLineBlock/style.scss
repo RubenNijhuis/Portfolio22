@@ -2,12 +2,8 @@
 
 .timeline_block {
     color: $text-color;
-    padding: calc($magic-number / 4);
+    padding: calc($magic-number / 2) calc($magic-number / 4);
     margin-bottom: $magic-number;
-
-    @include for-tablet-and-up {
-        padding: calc($magic-number / 4) calc($magic-number / 4);
-    }
 
     @include for-laptop-sm-and-up {
         padding: calc($magic-number / 2);

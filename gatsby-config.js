@@ -14,7 +14,6 @@ module.exports = {
         "gatsby-plugin-sass",
         "gatsby-plugin-sharp",
         "gatsby-transformer-sharp",
-        "gatsby-plugin-glslify",
         "gatsby-plugin-split-css",
         "gatsby-plugin-robots-txt",
         {

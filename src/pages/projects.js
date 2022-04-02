@@ -12,7 +12,7 @@ const ProjectsPage = ({ data }) => {
     const projects_data = data.projects.nodes;
 
     return (
-        <Layout>
+        <Layout title={"Projects"} desciption={"All projects diverging from simple websites to big apps and everything in between"}>
             <ProjectsGrid
                 projects={projects_data}
                 animate={false}

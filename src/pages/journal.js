@@ -17,7 +17,7 @@ const JournalPage = ({ data }) => {
 
     return (
         <Layout
-            name={"Journal"}
+            title={"Journal"}
             description={
                 "Noteworthy events and special moments all on one page"
             }

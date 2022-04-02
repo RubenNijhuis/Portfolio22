@@ -2,7 +2,8 @@
 
 .hero-banner {
     overflow: hidden;
-    height: calc(var(--vh, 1vh) * 100 - var(--nav-height, calc($magic-number / 2)));
+    height: calc(var(--vh, 1vh) * 100);
+    margin-top: calc(-1 * var(--nav-height, calc($magic-number / 2)));
 
     img,
     div,

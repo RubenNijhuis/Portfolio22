@@ -147,6 +147,10 @@ $introduction-max-width: calc($magic-number * 26);
             background-color: $text-color;
             display: block;
             margin: calc($magic-number / 8) 0;
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
         }
     }
 }

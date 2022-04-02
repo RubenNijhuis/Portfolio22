@@ -4,8 +4,6 @@
 
 Whether you are a developer, designer, or creative YOU need to showcase your work uniquely. Portfolio '22 is just what you need. With a modern layout and design, accessibility features, and SEO friendliness this site will ensure a high-quality online location for you and your work
 
-<a href="https://rubennijhuis.com"><img src="https://images.ctfassets.net/vf2eiv36rew2/3hXhnxi3oJYrpkPOFqheVE/a33b25b455d47a5bdfab83a9e1168fc9/Untitled-2-01.png?w=4000&h=2249&q=20&fm=webp"></a>
-
 ## ⚒ Tools used
 
 - GatsbyJS <br>
@@ -20,6 +18,7 @@ Whether you are a developer, designer, or creative YOU need to showcase your wor
 
 [Future]
 - Typescript <br>
+- Styled components <br>
 
 ## 🦶 Features
 

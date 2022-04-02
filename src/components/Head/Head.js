@@ -16,6 +16,7 @@ const Head = ({
     const default_title = "Ruben Nijhuis — Designer && Developer";
     let formatted_title = "";
     if (title) formatted_title = `${title} | ${default_title}`;
+    else formatted_title = default_title;
 
     return (
         <Helmet>

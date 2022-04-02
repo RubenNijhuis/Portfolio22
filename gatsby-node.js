@@ -152,7 +152,10 @@ exports.onCreateWebpackConfig = ({ stage, actions, getConfig, plugins }) => {
                 new DirectoryNamedWebpackPlugin({
                     exclude: /node_modules/
                 })
-            ]
+            ],
+            fallback: {
+                fs: false
+            }
         }
     });
 };

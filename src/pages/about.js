@@ -7,6 +7,7 @@ import { graphql } from "gatsby";
 // Components
 import Layout from "components/Layout";
 import AboutIntroduction from "containers/AboutIntroduction/AboutIntroduction";
+import HorizontalSlidingText from "components/HorizontalSlidingText";
 import TimeLineBlock from "components/TimeLineBlock";
 import Contact from "containers/Contact";
 
@@ -23,8 +24,9 @@ const AboutPage = ({ data }) => {
     );
 
     return (
-        <Layout>
+        <Layout title={"About"} description={"The story of the career of Ruben Nijhuis"}>
             <AboutIntroduction image={photo} text={expanded_about} cv={cv} />
+            <HorizontalSlidingText text={"NEW YORK AMSTERDAM PARIS NICE"} />
             <section>
                 <TimeLineBlock title="Work" items={work_items} />
                 <TimeLineBlock title="Education" items={education_items} />

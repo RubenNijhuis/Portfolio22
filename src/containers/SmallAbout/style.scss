@@ -102,11 +102,12 @@
 
     .inactive,
     .inactive span {
-        color: rgba(0, 0, 0, 0.5);
+        color: rgba(0, 0, 0, 0.60);
     }
 
     .active {
         color: $background-color;
+        font-weight: 500;
     }
 
     a {

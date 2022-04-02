@@ -32,17 +32,21 @@
 
 .journal {
     display: none;
+    padding: calc($magic-number) calc($magic-number / 2);
+
+    position: relative;
+    z-index: 4 !important;
 
     @include for-laptop-sm-and-up {
         display: block;
     }
 
-    position: relative;
-    z-index: 4 !important;
-    padding: calc($magic-number * 2) calc($magic-number * 1);
+    @include for-laptop-l-and-up {
+        padding: calc($magic-number * 2) calc($magic-number);
+    }
 
     @include for-laptop-xl-and-up {
-        padding: calc($magic-number * 2) calc($magic-number * 2);
+        padding: calc($magic-number * 2) 4vw;
     }
 
     background-color: $background-color;
@@ -66,7 +70,7 @@
 
     .year {
         position: relative;
-        margin-bottom: calc($magic-number / 4);
+        margin-bottom: calc($magic-number / 2);
 
         font-size: 3.6rem;
         font-weight: 200;
@@ -88,7 +92,6 @@
     text-decoration: none;
 
     margin-top: 0;
-    margin-bottom: calc($magic-number / 4);
 
     color: $text-color;
     font-size: 5.6rem;
@@ -104,24 +107,38 @@
     z-index: 10;
 
     article {
-        display: inline-block;
+        display: block;
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        a:visited {
+            color: white;
+        }
     }
 
     .project-item {
-        display: inline-block;
-        padding: calc($magic-number / 2);
+        display: flex;
+        justify-content: space-between;
+        padding: calc($magic-number / 2) 0;
+
+        border-top: 1px solid $white-main;
+        border-bottom: 1px solid $white-main;
 
         .tags {
             transition: all $duration-medium $ease-out;
+            align-items: center;
         }
 
         &:hover {
             cursor: pointer;
+            transition: all $duration-medium $ease-out;
 
             .project-title,
             .tags {
-                opacity: 0.2;
-                transform: scale(1.025);
+                opacity: 0.35;
             }
         }
     }
@@ -145,7 +162,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 9;
 
     @include size(100%);
     user-select: none;
@@ -159,19 +176,20 @@
         overflow: hidden;
         border-radius: 3px;
 
+        
         &.is-active {
             .asset {
                 opacity: 1;
             }
         }
-
+        
         .asset {
             @include size(100%);
+            transition: opacity $duration-quick $ease-in-out;
 
             opacity: 0;
             object-fit: cover;
             pointer-events: none;
-            transition: transform $duration-medium $ease-out;
         }
     }
 }
