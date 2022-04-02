@@ -27,5 +27,5 @@ module.exports = {
         }
     },
     excludePaths: [""],
-    googleAnalyticsTrackingId: ""
+    googleAnalyticsTrackingId: "G-HTN5PMZXX2"
 };

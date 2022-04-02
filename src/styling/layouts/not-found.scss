@@ -1,30 +1,30 @@
-@use "../abstracts" as *;
+@use "../abstracts"as *;
 
 .not-found {
-  color: $text-color;
-  padding: $magic-number;
+    color: $text-color;
+    padding: $magic-number;
 
-  &__img-wrapper {
-    aspect-ratio: 16/6;
-    overflow: hidden;
-    margin: auto;
-    max-width: $magic-number * 10;
-    margin-bottom: $magic-number;
+    &__img-wrapper {
+        aspect-ratio: 16/6;
+        overflow: hidden;
+        margin: auto;
+        max-width: $magic-number * 10;
+        margin-bottom: $magic-number;
 
-    img {
-      @include size(100%);
-      object-fit: cover;
+        img {
+            @include size(100%);
+            object-fit: cover;
+        }
     }
-  }
 
-  p {
-    max-width: $magic-number * 10;
-    font-size: 1.6rem;
-    margin: 6px auto;
-  }
+    p {
+        max-width: $magic-number * 10;
+        font-size: 1.6rem;
+        margin: 6px auto;
+    }
 
-  a {
-    font-size: 1.8rem;
-    color: rgba(255, 255, 255, 0.75);
-  }
+    a {
+        font-size: 1.8rem;
+        color: rgba(255, 255, 255, 0.75);
+    }
 }

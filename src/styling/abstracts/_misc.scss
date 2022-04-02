@@ -1,32 +1,32 @@
-@use "_sizes.scss" as *;
-@use "_colors.scss" as *;
+@use "_sizes.scss"as *;
+@use "_colors.scss"as *;
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html {
-  font-size: $root-font-size;
-  background-color: $background-color;
+    font-size: $root-font-size;
+    background-color: $background-color;
 }
 
 body {
-  // For navbar
-  padding-top: var(--nav-height, 32px);
+    // For navbar
+    padding-top: var(--nav-height, 32px);
 
-  // Typography
-  font-family: "Montserrat", Helvetica Neue, Helvetica, sans-serif;
-  font-weight: 400;
-  text-rendering: geometricPrecision;
-  word-wrap: break-word;
-  font-feature-settings: "kern", "liga", "clig", "calt";
-  font-kerning: normal;
+    // Typography
+    font-family: "Montserrat", Helvetica Neue, Helvetica, sans-serif;
+    font-weight: 400;
+    text-rendering: geometricPrecision;
+    word-wrap: break-word;
+    font-feature-settings: "kern", "liga", "clig", "calt";
+    font-kerning: normal;
 }
 
 // Journals container fix
 section {
-  position: relative;
-  z-index: 10;
+    position: relative;
+    z-index: 10;
 }

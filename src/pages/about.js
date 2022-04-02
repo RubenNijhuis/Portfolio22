@@ -26,7 +26,7 @@ const AboutPage = ({ data }) => {
     return (
         <Layout title={"About"} description={"The story of the career of Ruben Nijhuis"}>
             <AboutIntroduction image={photo} text={expanded_about} cv={cv} />
-            <HorizontalSlidingText text={"NEW YORK AMSTERDAM PARIS NICE"} />
+            <HorizontalSlidingText text={"NEWYORK AMS PARIS BERLIN"} />
             <section>
                 <TimeLineBlock title="Work" items={work_items} />
                 <TimeLineBlock title="Education" items={education_items} />
