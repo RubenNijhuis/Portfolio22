@@ -17,6 +17,19 @@ module.exports = {
         "gatsby-plugin-split-css",
         "gatsby-plugin-robots-txt",
         {
+            resolve: "gatsby-plugin-google-gtag",
+            options: {
+                trackingIds: ["G-HTN5PMZXX2"],
+                gtagConfig: {
+                    anonymize_ip: false,
+                },
+                pluginConfig: {
+                    head: false,
+                    respectDNT: true,
+                }
+            }
+        },
+        {
             resolve: "gatsby-source-contentful",
             options: {
                 spaceId: process.env.CONTENTFUL_SPACE_ID,

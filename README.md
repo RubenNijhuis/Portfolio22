@@ -95,6 +95,8 @@ Last updated 2 x 04 x 22
 - [ ] Next Content component
     - Add image on hover like journals component
 
+- [ ] Remove duplicate request modal
+
 #### Accesibility
 - [ ] Fix Head component to support as many types as possible (create seperate components for type)
 - [ ] reduced animation selector
@@ -102,6 +104,3 @@ Last updated 2 x 04 x 22
 #### Developer friendliness
 - [ ] Create documentation for this project. Anyone should be able to set this up
 - [ ] Setup settings file that set settings for the whole project
-
-#### Data
-- [ ] Add analytics
