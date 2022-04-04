@@ -103,6 +103,16 @@ export const query = graphql`
                             formats: [AUTO, WEBP, AVIF]
                         )
                     }
+                    ... on ContentfulEmeddedVideo {
+                        contentful_id
+                        __typename
+                        url
+                        width
+                        height
+                        internal {
+                            type
+                        }
+                    }
                 }
             }
         }

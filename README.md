@@ -13,8 +13,6 @@ Whether you are a developer, designer, or creative YOU need to showcase your wor
 - GatsbyJS <br>
 - ReactJS <br>
 - Framer motion <br>
-- ThreeJS <br>
-- React Three Fiber <br>
 - SCSS <br>
 - ESLint <br>
 - Prettier <br>

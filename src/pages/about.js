@@ -48,14 +48,17 @@ export const query = graphql`
             education {
                 education
             }
+            
             work {
                 work
             }
+
             expanded_about {
                 raw
             }
+
             photo {
-                title
+                alt: title
                 gatsbyImageData(width: 2000, placeholder: BLURRED)
                 file {
                     url

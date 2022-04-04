@@ -18,10 +18,10 @@ const HorizontalSlidingText = ({ text }) => {
         const boundMain = containerPos.current.getBoundingClientRect();
         if (isBrowser) {
             mainSlidingElement.current.style.transform = `translateX(${
-                -scrollY / 4 - boundMain.height
+                Math.floor(-scrollY / 4 - boundMain.height)
             }px)`;
             secondSlidingElement.current.style.transform = `translateX(${
-                scrollY / 4- boundMain.height - 500
+                Math.floor(scrollY / 4- boundMain.height - 500)
             }px)`;
             setScrollY(Math.round(boundMain.top));
         }

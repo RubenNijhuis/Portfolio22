@@ -16,9 +16,10 @@
         font-size: 42px;
         white-space: nowrap;
         margin: 0;
+        text-transform: uppercase;
 
         @include for-laptop-sm-and-up {
-            font-size: 120px;
+            font-size: 180px;
             letter-spacing: -4px;
             word-spacing: 40px;
 

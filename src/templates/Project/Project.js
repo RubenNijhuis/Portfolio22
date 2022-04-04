@@ -156,16 +156,6 @@ export const query = graphql`
                             type
                         }
                     }
-                    ... on ContentfulEmeddedVideo {
-                        contentful_id
-                        __typename
-                        url
-                        width
-                        height
-                        internal {
-                            type
-                        }
-                    }
                 }
             }
         }
