@@ -43,9 +43,8 @@ const ProjectsGrid = ({ projects, animate = true, limit = false }) => {
             <div className="grid">
                 {width !== undefined &&
                     projects_parsed.map((project, index) => {
-                        const { name, tags, description, img, background } =
-                            transform_project(project);
-
+                        const { name, tags, description, showcase_img, background_color } = project;
+                        const parsed_tags = tags.split(" | ");
                         return (
                             <Project
                                 offset={isHomePage}
@@ -53,9 +52,9 @@ const ProjectsGrid = ({ projects, animate = true, limit = false }) => {
                                 key={index}
                                 name={name}
                                 description={description}
-                                img={img}
-                                tags={tags}
-                                background={background}
+                                img={showcase_img}
+                                tags={parsed_tags}
+                                background={background_color}
                                 count={index}
                             />
                         );
