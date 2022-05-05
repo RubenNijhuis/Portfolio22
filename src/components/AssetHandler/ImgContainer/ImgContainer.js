@@ -20,6 +20,8 @@ const ImgContainer = ({ asset, options }) => {
         img_alt = asset.data.target?.alt;
     }
 
+    if (img_alt === undefined) img_alt = "default";
+
     const img_parsed = getImage(img_path);
 
     return (
@@ -27,7 +29,9 @@ const ImgContainer = ({ asset, options }) => {
             className={className}
             style={{ backgroundColor: options.backgroundColor }}
         >
-            <GatsbyImage className="img" image={img_parsed} alt={img_alt} />
+            {img_parsed ? (
+                <GatsbyImage className="img" image={img_parsed} alt={img_alt} />
+            ) : null}
         </div>
     );
 };
