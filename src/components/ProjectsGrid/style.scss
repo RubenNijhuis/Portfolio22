@@ -3,6 +3,9 @@
 .projects-grid {
     padding: $magic-number calc($magic-number / 4);
 
+    max-width: calc($magic-number * 30);
+    margin: auto;
+
     @include for-tablet-and-up {
         padding: calc($magic-number) 4vw;
     }

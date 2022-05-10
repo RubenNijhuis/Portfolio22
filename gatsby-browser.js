@@ -8,6 +8,7 @@ import "@fontsource/syne/700.css";
 /* Page transitions  */
 import React from "react";
 import { AnimatePresence } from "framer-motion";
+
 export const wrapPageElement = ({ element }) => (
     <AnimatePresence exitBeforeEnter>{element}</AnimatePresence>
 );

@@ -98,26 +98,20 @@
             margin-bottom: calc($magic-number / 8);
         }
 
-        .arrow {
-            position: absolute;
-            width: calc($magic-number / 2.5);
-            right: calc($magic-number / 8);
-            bottom: 0;
+        .details {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
-            @include for-tablet-and-up {
-                width: calc($magic-number / 2);
-                right: calc($magic-number / 4);
-            }
-
-            @include for-laptop-sm-and-up {
-                right: calc($magic-number / 4);
-                bottom: calc($magic-number / 20);
-            }
-
-            @include for-laptop-l-and-up {
-                right: calc($magic-number / 1.5);
+            .arrow {
+                width: calc($magic-number / 2.5);
+    
+                @include for-tablet-and-up {
+                    width: calc($magic-number / 2);
+                }
             }
         }
+
     }
 }
 

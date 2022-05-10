@@ -13,7 +13,7 @@ import Tags from "components/Tags";
 import "./style.scss";
 
 const Details = ({ description, year, role, name, tags, addClassName }) => {
-    let className = "details ";
+    let className = "case-details ";
     if (addClassName !== undefined) className += addClassName;
 
     return (

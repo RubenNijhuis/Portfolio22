@@ -4,12 +4,15 @@
     padding: calc($magic-number / 4);
     margin: calc($magic-number / 2) auto;
     margin-top: 0;
-
+    
+    max-width: calc($magic-number * 30);
+    
     @include for-tablet-and-up {
         margin: 0;
     }
-
+    
     @include for-laptop-sm-and-up {
+        margin: auto;
         padding: calc($magic-number / 2);
     }
 

@@ -28,7 +28,6 @@ const Project = ({
     count,
     isHomePage = true
 }) => {
-    const parsed_name = flattenNameToURL(name);
     const width = useCurrentWidth();
     const className = "project";
 
@@ -90,7 +89,10 @@ const Project = ({
             variants={fade_in}
             className={`${className}--wrapper`}
         >
-            <Link className={className} to={`/projects/${parsed_name}`}>
+            <Link
+                className={className}
+                to={`/projects/${flattenNameToURL(name)}`}
+            >
                 <article className="preview">
                     <div
                         className="img-wrapper"
@@ -101,8 +103,10 @@ const Project = ({
                     </div>
                     <div className="description">
                         <h2>{name}</h2>
-                        <p>{description}</p>
-                        <Arrow theme={"light"} />
+                        <div className="details">
+                            <p>{description}</p>
+                            <Arrow theme={"light"} />
+                        </div>
                     </div>
                 </article>
             </Link>

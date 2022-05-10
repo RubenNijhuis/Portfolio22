@@ -65,14 +65,18 @@ const AssetHandler = ({ asset, options }) => {
     };
 
     const handleModalClick = (e) => {
-        setIsOpen(!isOpen);
-        e.stopPropagation();
+        if (options?.modal) {
+            setIsOpen(!isOpen);
+            e.stopPropagation();
+        }
     };
 
     return (
         <div
             className={className}
-            onClick={(e) => handleModalClick(e)}
+            onClick={(e) => {
+                handleModalClick(e);
+            }}
             role="article"
         >
             {asset_type(assetType)}

@@ -2,7 +2,6 @@
 
 .intro-banner {
     overflow: hidden;
-    height: calc(var(--vh, 1vh) * 85);
     display: none;
     justify-content: center;
     align-items: center;
@@ -11,6 +10,7 @@
 
     @include for-tablet-and-up {
         display: flex;
+        height: calc(var(--vh, 1vh) * 50);
         padding: calc($magic-number / 2);
     }
 
