@@ -14,8 +14,7 @@ export const wrapPageElement = ({ element }) => (
 );
 
 export const shouldUpdateScroll = ({
-    routerProps: { location },
-    getSavedScrollPosition
+    routerProps: { location }
 }) => {
     // transition duration from `layout.js` * 1000 to get time in ms
     // * 2 for exit + enter animation
@@ -26,7 +25,7 @@ export const shouldUpdateScroll = ({
     }
     // if we used the browser's forwards or back button
     else {
-        const savedPosition = getSavedScrollPosition(location) || [0, 0];
+        const savedPosition = [0, 0];
         window.setTimeout(
             () => window.scrollTo(...savedPosition),
             TRANSITION_DELAY

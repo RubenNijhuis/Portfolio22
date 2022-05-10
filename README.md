@@ -58,9 +58,29 @@ https://www.gatsbyjs.com/docs/conceptual/choosing-a-cms/#1-popular-first-class-g
 
 ## ☑️ Todo's
 
-These todos are just features or changes that I have been thinking about. When I cross one off I also delete it from the list as to not bloat my readme. It is mainly used to indicate what I am currently working on with this project
+These todos are features or changes that I have been thinking about, sorted on "priority". When I cross one off I also delete it from the list as to not bloat the readme.
 
-Last updated 2 x 04 x 22
+Last updated 10 x 05 x 22
+
+#### Index Page
+- [ ] intro poster turn into 3d plane of interactive cards
+
+#### Accesibility
+- [ ] Fix Head component to support as many types as possible (create seperate components for type)
+- [ ] reduced animation selector
+
+#### About Page
+- [ ] create credits and tools section
+- [ ] create interactive piece
+
+#### Components
+- [ ] Cleanup journals component
+  - Remove fixed property so that the component doesn't cover the full site
+
+- [ ] Next Content component
+    - Add image on hover like journals component
+
+- [ ] Remove duplicate request modal
 
 #### Styling
 - [ ] Advanced mixins (research)
@@ -72,32 +92,9 @@ Last updated 2 x 04 x 22
 #### Small About
 - [ ] Aggregate all data from cms or site-config
 
-#### Journal Component
+#### Journal Page
 - [ ] Create seperate intro part
 - [ ] Research different layout
-
-#### About Page
-- [ ] create credits and tools section
-- [ ] create interactive piece
-
-#### Index Page
-- [ ] intro poster turn into 3d cirlce of cards
-
-#### Animation
-- [ ] Add reduced animation mixin
-
-#### Components
-- [ ] Cleanup journals component
-  - Remove fixed property so that the component doesn't cover the full site
-
-- [ ] Next Content component
-    - Add image on hover like journals component
-
-- [ ] Remove duplicate request modal
-
-#### Accesibility
-- [ ] Fix Head component to support as many types as possible (create seperate components for type)
-- [ ] reduced animation selector
 
 #### Developer friendliness
 - [ ] Create documentation for this project. Anyone should be able to set this up
