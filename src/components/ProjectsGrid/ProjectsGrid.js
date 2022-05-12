@@ -11,8 +11,9 @@ import SeeMore from "components/SeeMore";
 
 // Styling
 import "./style.scss";
+import AnimatedLetters from "components/AnimatedLetters";
 
-const ProjectsGrid = ({ projects, animate = true, limit = false }) => {
+const ProjectsGrid = ({ projects, animate, limit = false }) => {
     const amount_projects = projects.length;
     const className = "projects-grid";
 
@@ -28,7 +29,13 @@ const ProjectsGrid = ({ projects, animate = true, limit = false }) => {
 
     return (
         <section className={className}>
-            <h2 className="heading">Projects</h2>
+            <AnimatedLetters
+                className="heading"
+                shouldRotate={true}
+                left_to_right={true}
+                title={"Projects"}
+                disabled={animate}
+            />
             <div className="grid">
                 {projects.map((project, index) => {
                     const {

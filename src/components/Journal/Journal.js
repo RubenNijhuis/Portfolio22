@@ -1,24 +1,14 @@
 import React from "react";
 import propTypes from "prop-types";
 
-// Utils
-// import { useCurrentWidth } from "utils/helper-functions";
-
 // Components
 import JournalLarge from "./JournalLarge";
 import JournalSmall from "./JournalSmall";
 
-// Styling
-import "./style.scss";
-
 const Journal = ({ entries, limit, animate }) => {
-    // const className = "journal";
-    // const width = useCurrentWidth();
-    // const change_point = 1024;
-
     return (
         <>
-            <JournalLarge entries={entries} />
+            <JournalLarge entries={entries} animate={animate} />
             <JournalSmall entries={entries} limit={limit} animate={animate} />
         </>
     );

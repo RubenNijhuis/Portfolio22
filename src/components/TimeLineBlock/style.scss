@@ -3,6 +3,10 @@
 .timeline_block {
     color: $text-color;
     padding: calc($magic-number / 2) calc($magic-number / 4);
+    
+    max-width: $max-width;
+    margin:auto;
+
     margin-bottom: $magic-number;
 
     @include for-laptop-sm-and-up {
@@ -14,15 +18,17 @@
         padding: calc($magic-number);
     }
 
-    h2 {
+    .heading {
         padding: 24px 0;
         border-top: 1px solid rgba(255, 255, 255, 0.3);
         border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-        font-size: 2.6rem;
-        color: $text-color;
 
-        @include for-laptop-sm-and-up {
-            font-size: 7.2rem;
+        span {
+            font-size: 2.6rem;
+            color: $text-color;
+            @include for-laptop-sm-and-up {
+                font-size: 7.2rem;
+            }
         }
     }
 

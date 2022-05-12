@@ -11,6 +11,8 @@ import {
 import Title from "./Title";
 import Media from "./Media";
 
+import AnimatedLetters from "components/AnimatedLetters";
+
 // Styling
 import "./journal-large.scss";
 
@@ -80,7 +82,7 @@ const JournalYear = ({
     );
 };
 
-const JournalLarge = ({ entries }) => {
+const JournalLarge = ({ entries, animate }) => {
     const className = "journal";
 
     const [entries_formatted] = sanitize_journal_entries(entries);
@@ -91,7 +93,13 @@ const JournalLarge = ({ entries }) => {
 
     return (
         <section className={className}>
-            <header className="headline">Journal</header>
+            <AnimatedLetters
+                className="headline"
+                shouldRotate={true}
+                left_to_right={true}
+                title={"Journal"}
+                disabled={animate}
+            />
             {entries_formatted.map((year_entries, indexMain) => {
                 let iindex = indexMain * 10 + 1;
                 if (indexMain !== 0) iindex++;

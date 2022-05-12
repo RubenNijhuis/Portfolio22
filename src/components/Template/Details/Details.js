@@ -19,8 +19,14 @@ const Details = ({ description, year, role, name, tags, addClassName }) => {
     return (
         <div className={className}>
             <div className="header">
-                <AnimatedLetters title={name} />
-                {description !== undefined ? (
+                <AnimatedLetters
+                    className="headline"
+                    shouldRotate={true}
+                    left_to_right={true}
+                    title={name}
+                    disabled={true}
+                />
+                {description && (
                     <motion.p
                         initial="hidden"
                         animate="show"
@@ -28,7 +34,7 @@ const Details = ({ description, year, role, name, tags, addClassName }) => {
                     >
                         {description}
                     </motion.p>
-                ) : null}
+                )}
             </div>
             <motion.div
                 className="personalia"
@@ -41,12 +47,12 @@ const Details = ({ description, year, role, name, tags, addClassName }) => {
                         <h3 className="bold">Year</h3>
                         <h3>{year}</h3>
                     </div>
-                    {role !== undefined ? (
+                    {role && (
                         <div className="item item--role">
                             <h3 className="bold">Role</h3>
                             <h3>{role}</h3>
                         </div>
-                    ) : null}
+                    )}
                 </div>
                 <Tags tags={tags} theme={"light"} />
             </motion.div>

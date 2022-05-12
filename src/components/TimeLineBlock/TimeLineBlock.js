@@ -4,12 +4,22 @@ import propTypes from "prop-types";
 // Styling
 import "./style.scss";
 
+// Components
+import AnimatedLetters from "components/AnimatedLetters";
+
 const TimeLineBlock = ({ title, items }) => {
     const className = "timeline_block";
 
     return (
         <div className={className}>
-            <h2>{title}</h2>
+             <AnimatedLetters
+                className="heading"
+                onshow={true}
+                shouldRotate={true}
+                left_to_right={true}
+                title={title}
+                disabled={false}
+            />
             <div className="moments">
                 {items.map(
                     ([main, secondary, location, year, active], index) => {
