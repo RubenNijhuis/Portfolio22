@@ -58,7 +58,8 @@ https://www.gatsbyjs.com/docs/conceptual/choosing-a-cms/#1-popular-first-class-g
 
 ## ☑️ Todo's
 
-These todos are features or changes that I have been thinking about, sorted on "priority". When I cross one off I also delete it from the list as to not bloat the readme.
+These todos are features or changes that I have been thinking about, sorted on "priority". When I cross 
+one off I also delete it from the list as to not bloat the readme.
 
 Last updated 10 x 05 x 22
 
@@ -76,6 +77,7 @@ Last updated 10 x 05 x 22
 #### Components
 - [ ] Cleanup journals component
   - Remove fixed property so that the component doesn't cover the full site
+  - For mobile the component must resize with the text (all elements can have indepedent size in grid min height calc(72 * 2))
 
 - [ ] Next Content component
     - Add image on hover like journals component
