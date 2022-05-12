@@ -23,6 +23,7 @@ import AssetHandler from "components/AssetHandler";
 
 // Styling
 import "./journal-small.scss";
+import AnimatedLetters from "../AnimatedLetters/AnimatedLetters";
 
 /**
  * Small entry container
@@ -91,7 +92,13 @@ const JournalSmall = ({ entries, limit = false, animate }) => {
     let [entries_formatted, amount_entries] = sanitize_journal_entries(entries);
     return (
         <section className={className}>
-            <header className="headline">Journal</header>
+            <AnimatedLetters
+                className="headline"
+                shouldRotate={true}
+                left_to_right={true}
+                title={"Journal"}
+                disabled={animate}
+            />
             {entries_formatted.map((year_entries, index) => {
                 let year = new Date().getFullYear();
                 // Grab the last two digits

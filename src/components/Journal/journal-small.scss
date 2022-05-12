@@ -4,7 +4,27 @@
     padding: calc($magic-number) calc($magic-number / 4);
 
     .headline {
+        margin: 0;
         margin-bottom: calc($magic-number / 2);
+
+        span {
+            font-family: "Syne";
+            font-weight: 700;
+            font-size: 5.6rem;
+            color: $text-color;
+    
+            @include for-tablet-and-up {
+                font-size: clamp($magic-number, 6vw, 244px);
+            }
+        }
+
+        @include for-tablet-and-up {
+            margin-bottom: calc($magic-number);
+        }
+
+        @include for-laptop-l-and-up {
+            margin-bottom: calc($magic-number * 2);
+        }
     }
 
     @include for-laptop-sm-and-up {

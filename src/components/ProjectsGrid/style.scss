@@ -3,7 +3,7 @@
 .projects-grid {
     padding: $magic-number calc($magic-number / 4);
 
-    max-width: calc($magic-number * 30);
+    max-width: $max-width;
     margin: auto;
 
     @include for-tablet-and-up {
@@ -12,6 +12,10 @@
 
     @include for-laptop-sm-and-up {
         padding: calc($magic-number * 2) 4vw;
+    }
+
+    @include for-laptop-xl-and-up {
+        box-sizing: content-box;
     }
 
     .heading {
@@ -54,14 +58,16 @@
 
 // Typography
 .projects-grid {
-    .heading {
-        font-family: "Syne";
-        font-weight: 700;
-        font-size: 5.6rem;
-        color: $text-color;
-
-        @include for-tablet-and-up {
-            font-size: clamp($magic-number, 6vw, 244px);
+    .animated-letters {
+        span {
+            font-family: "Syne";
+            font-weight: 700;
+            font-size: 5.6rem;
+            color: $text-color;
+    
+            @include for-tablet-and-up {
+                font-size: clamp($magic-number, 6vw, 244px);
+            }
         }
     }
 }

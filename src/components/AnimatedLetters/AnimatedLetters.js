@@ -1,38 +1,38 @@
 // Credits -> Wrong Akram https://www.youtube.com/watch?v=BtsVMvds3P0
-import React from "react";
+import React, { useEffect } from "react";
 import propTypes from "prop-types";
 
 // Animation
-import { motion } from "framer-motion";
+import { useAnimation, motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 // Style
 import "./style.scss";
 
-const banner = {
-    animate: {
-        transition: {
-            delayChildren: 0.1,
-            staggerChildren: 0.1
-        }
-    }
-};
-
-const letterAni = (index, length_of_array) => {
+const letterAni = (index, length_of_array, left_to_right, shouldRotate) => {
     // Get middle of array
-    const half_array = length_of_array / 2;
+    // const half_array = length_of_array / 2;
     // Get offset from letter to middle in positive number
-    const difference = Math.abs(half_array - index);
+    // const difference = Math.abs(half_array - index);
     // Length of animation is the number every delay is a bit of the total time
-    const animation_length = difference * (1.25 / length_of_array);
-    // Rotation is from 0 till max based on index of letter
-    //   const rotation = (half_array - index) * -1 * 10;
 
+    let animation_length = 0.1 * index;;
+    // if (left_to_right) {
+    //     animation_length = 0.1 * index;
+    // } else {
+    //     animation_length = difference * (1.25 / length_of_array);
+    // }
+    // Rotation is from 0 till max based on index of letter
+    let rotation = 0;
+    if (shouldRotate === true) rotation = index * 0.25 * 10;
     return {
-        initial: {
-            y: 200
+        hidden: {
+            y: 200,
+            rotate: rotation
         },
-        animate: {
+        visible: {
             y: 0,
+            rotate: 0,
             transition: {
                 delay: animation_length,
                 ease: [0.6, 0.01, -0.05, 0.95],
@@ -42,44 +42,61 @@ const letterAni = (index, length_of_array) => {
     };
 };
 
-const AnimatedLetters = ({ title, disabled }) => {
-    const className = "animated-letters";
-    const title_split_words = title.split(" ");
-    const title_split_words_letters = title_split_words.map((word) =>
-        word.split("")
+const Word = ({ inView, disabled, word, shouldRotate }) => {
+    return (
+        <motion.div className="row-word">
+            {word.map((letter, index) => {
+                return (
+                    <motion.span
+                        className="row-letter"
+                        key={index}
+                        initial={disabled ? "visible" : "hidden"}
+                        animate={inView ? "visible" : "what"}
+                        variants={letterAni(
+                            index,
+                            word.length,
+                            shouldRotate,
+                            disabled
+                        )}
+                    >
+                        {letter}
+                    </motion.span>
+                );
+            })}
+        </motion.div>
     );
+};
 
-    let amount_letters = 0;
-    let current_letter_index = 0;
-    title_split_words_letters.map((word) => (amount_letters += word.length));
+const AnimatedLetters = ({
+    className,
+    title,
+    shouldRotate = false,
+    left_to_right,
+    disabled
+}) => {
+    let componentClassName = "animated-letters ";
+    if (className) componentClassName += className;
+
+    // Split the title
+    const title_split_words_to_letters = title.split(" ").map((word) => word.split(""));
+    // Animation
+    const [ref, inView] = useInView({
+        threshold: 0.25,
+        triggerOnce: true
+    });
+
 
     return (
-        <motion.span className={className}>
-            {[...title_split_words_letters].map((word, index) => (
-                <motion.div
-                    className="row-word"
-                    variants={disabled ? null : banner}
-                    initial="initial"
-                    animate="animate"
+        <motion.span className={componentClassName} ref={ref}>
+            {[...title_split_words_to_letters].map((word, index) => (
+                <Word
                     key={index}
-                >
-                    {word.map((letter, index_letter) => {
-                        current_letter_index++;
-
-                        return (
-                            <motion.span
-                                className="row-letter"
-                                key={index_letter}
-                                variants={letterAni(
-                                    current_letter_index,
-                                    amount_letters
-                                )}
-                            >
-                                {letter}
-                            </motion.span>
-                        );
-                    })}
-                </motion.div>
+                    disabled={!disabled}
+                    inView={inView}
+                    word={word}
+                    left_to_right={left_to_right}
+                    shouldRotate={shouldRotate}
+                />
             ))}
         </motion.span>
     );

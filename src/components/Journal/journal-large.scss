@@ -1,14 +1,5 @@
 @use "styling/abstracts"as *;
 
-.journal-book {
-    .headline {
-        color: $text-color;
-        font-family: "Syne";
-        font-weight: 700;
-        font-size: 5.6rem;
-    }
-}
-
 .journal-small {
     text-decoration: none;
 
@@ -34,7 +25,7 @@
     display: none;
     padding: calc($magic-number) calc($magic-number / 2);
 
-    max-width: calc($magic-number * 30);
+    max-width: $max-width;
     margin: auto;
 
     position: relative;
@@ -48,16 +39,23 @@
         padding: calc($magic-number * 2) calc($magic-number);
     }
 
+    @include for-laptop-xl-and-up {
+        box-sizing: content-box;
+    }
+
     background-color: $background-color;
     overflow-x: hidden;
 
     .headline {
-        color: $text-color;
-        position: relative;
         margin-bottom: calc($magic-number * 2);
-        font-family: "Syne";
-        font-size: clamp($magic-number, 6vw, 244px);
-        font-weight: 700;
+        position: relative;
+
+        span {
+            color: $text-color;
+            font-family: "Syne";
+            font-size: clamp($magic-number, 6vw, 244px);
+            font-weight: 700;
+        }
     }
 }
 

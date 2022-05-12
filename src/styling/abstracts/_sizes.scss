@@ -3,6 +3,8 @@
 $magic-number: 72px;
 $root-font-size: 10px;
 
+$max-width: calc(72px * 32);
+
 /* Elements */
 $border-radius: 6px;
 $border-radius-tag: calc($magic-number / 2);
