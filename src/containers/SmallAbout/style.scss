@@ -35,7 +35,12 @@
         }
 
         @include for-laptop-l-and-up {
-            grid-column-gap: calc($magic-number * 2);
+            grid-column-gap: calc($magic-number * 1);
+            grid-template-columns: 23% 1fr;
+        }
+
+        @include for-laptop-xl-and-up {
+            grid-column-gap: calc($magic-number * 1.5);
             grid-template-columns: 23% 1fr;
         }
 
@@ -97,7 +102,7 @@
 
             @include for-laptop-l-and-up {
                 font-weight: 500;
-                font-size: clamp(16px, 2.5vw, 56px);
+                font-size: clamp(16px, 2.5vw, 62px);
             }
         }
 

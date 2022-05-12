@@ -4,6 +4,7 @@
     padding: calc($magic-number / 2) calc($magic-number / 4);
 
     max-width: $max-width;
+    margin: auto;
 
     &__content {
         padding: calc($magic-number / 4) 0;
